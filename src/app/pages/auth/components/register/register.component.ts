@@ -18,7 +18,7 @@ import { BackendErrorsInterface } from 'src/app/pages/shared/types/backendErrors
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  public form!: FormGroup;
+  public registrationForm!: FormGroup;
   public isSubmitting$?: Observable<boolean>
   public backandErrors$!: Observable<BackendErrorsInterface | null>
 
@@ -32,23 +32,20 @@ export class RegisterComponent implements OnInit {
   public initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
     this.backandErrors$ = this.store.pipe(select(validationErrorsSelector))
-    this.isSubmitting$.subscribe(el => console.log(el))
-    this.backandErrors$.subscribe(el => console.log(el))
   }
 
   public initializeForm(): void {
-    this.form = this.fb.group({
-      phone: ['', Validators.required],
-      code: ['', Validators.required],
+    this.registrationForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      legalName: ['', Validators.required],
     })
   }
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = {
-      user: this.form.value
+      user: this.registrationForm.value
     }
     this.store.dispatch(registerAction({ request }));
-    console.log(this.form.valid)
-    console.log(this.form.value)
   }
 }

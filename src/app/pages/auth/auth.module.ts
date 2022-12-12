@@ -18,6 +18,7 @@ import { PersistenceService } from '../shared/services/persistence.service';
 import { AuthTabsComponent } from './components/auth-tabs/auth-tabs.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { TesNavigationLogoComponent } from './components/tes-navigation-logo/tes-navigation-logo.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     RegisterComponent,
-    AuthTabsComponent
+    AuthTabsComponent,
+    TesNavigationLogoComponent
   ],
   imports: [
     CommonModule, MatTabsModule, MatStepperModule, MatFormFieldModule, MatIconModule, ReactiveFormsModule, RouterModule.forChild(routes), StoreModule.forFeature('auth', reducers), EffectsModule.forFeature([RegisterEffect]), BackendErrorMessagesModule

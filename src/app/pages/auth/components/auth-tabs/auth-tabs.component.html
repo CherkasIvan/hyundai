@@ -12,35 +12,26 @@
 
 </ul> -->
 
-<mat-tab-group>
+<mat-tab-group [disableRipple]="true" mat-align-tabs="center" (selectedTabChange)="onTabChange($event)">
   <mat-tab>
-    <ng-template mat-tab-label>
-      <div class="circle">
-        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-      </div>
-      По телефону
+    <ng-template mat-tab-label class="tab-item">
+      <img src="../../../../../assets/images/phone.svg" class="tab-item__img" alt="phone">
+      <span class="tab-item__text">По телефону</span>
     </ng-template>
     <ng-content></ng-content>
   </mat-tab>
 
   <mat-tab>
-    <ng-template mat-tab-label>
-      <div class="circle">
-        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-      </div>
-      По VIN
+    <ng-template mat-tab-label class="tab-item">
+      <img src="../../../../../assets/images/vin.svg" class="tab-item__img" alt="vin">
+      <span class="tab-item__text">По VIN</span>
     </ng-template>
-    Content 2
   </mat-tab>
 
   <mat-tab>
-    <ng-template mat-tab-label>
-      <div class="circle">
-        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-      </div>
-      По гос.номеру
+    <ng-template mat-tab-label class="tab-item">
+      <img src="../../../../../assets/images/number.svg" class="tab-item__img" alt="number">
+      <span class="tab-item__text">По гос.номеру</span>
     </ng-template>
-
-    Content 3
   </mat-tab>
 </mat-tab-group>

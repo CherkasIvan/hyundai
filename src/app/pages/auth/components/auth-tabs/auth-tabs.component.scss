@@ -1,20 +1,5 @@
-.auth-variants {
-  display: flex;
-  justify-content: space-between;
-
-  &-item {
-    display: flex;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid white;
-  }
-
-  &-item__link {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    color: #FFFFFF
-  }
+.tab-item__img {
+  margin-right: 8px;
 }
 
 .circle {

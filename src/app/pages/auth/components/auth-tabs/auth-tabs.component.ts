@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: 'mc-auth-tabs',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthTabsComponent implements OnInit {
 
+  public indexOfTab!: number
+  onTabChange(event: MatTabChangeEvent) {
+    this.indexOfTab = event.index
+  }
   constructor() { }
 
   ngOnInit(): void {
+    this.indexOfTab = 0
   }
-
 }
