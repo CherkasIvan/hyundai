@@ -1,0 +1,44 @@
+<div class="auth-page">
+  <div class="auth-page__container">
+    <div class="personal-office">
+
+      <div class="personal-greetings">
+        <h1 class="personal-office__header">Личный кабинет</h1>
+        <p class="personsl-office__text">Добро пожаловать в личный кабинет. Авторизуйтесь для управления вашими
+          страховыми
+          полисами. Выберите удобный способ входа:</p>
+      </div>
+
+
+      <mc-auth-tabs>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="auth-form">
+          <fieldset class="auth-form-item">
+            <label for="phone">Номер телефона*</label>
+            <input type="text" class="auth-form-item__phone" placeholder="Введите ваш номер" name="phone"
+              formControlName="phone">
+          </fieldset>
+
+          <fieldset class="auth-form-item">
+            <label for="code">Код проверки*</label>
+            <input type="text" class="auth-form-item__validation-code" placeholder="Мы выслали код на ваш номер"
+              name="code" formControlName="code">
+          </fieldset>
+
+          <button class="auth-form-button" type="submit" [disabled]="isSubmitting$|async">Войти</button>
+        </form>
+
+      </mc-auth-tabs>
+
+
+    </div>
+    <!-- <p class="">
+          <a [routerLink]="['/login']">Have an account?</a>
+        </p> -->
+
+    <mc-backend-error-messages *ngIf="backandErrors$ | async"
+      [backendErrors]="backandErrors$ | async"></mc-backend-error-messages>
+
+
+
+  </div>
+</div>

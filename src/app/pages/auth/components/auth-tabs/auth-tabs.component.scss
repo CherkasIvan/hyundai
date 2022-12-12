@@ -1,0 +1,28 @@
+.auth-variants {
+  display: flex;
+  justify-content: space-between;
+
+  &-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid white;
+  }
+
+  &-item__link {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    color: #FFFFFF
+  }
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #CAD2DACC;
+}

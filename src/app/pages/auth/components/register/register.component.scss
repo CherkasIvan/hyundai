@@ -1,0 +1,39 @@
+.auth-page {
+  width: 100vw;
+  background: radial-gradient(106.64% 106.64% at 50% 50%, #515E6B 0%, #162330 63.54%);
+  font-family: 'Gilroy';
+  color: #FFFFFF;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    .personal-office {
+      max-width: 50%;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+    }
+
+    .auth-form {
+      width: 100%;
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &-button {
+        width: 60%;
+        padding: 20px 0;
+        background: #FFFFFF;
+        border-radius: 10px
+      }
+    }
+  }
+}

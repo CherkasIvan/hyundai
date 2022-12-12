@@ -1,0 +1,46 @@
+<!-- <ul class="auth-variants">
+  <li class="auth-variants-item"><img src="../../../../../assets/images/phone.svg" alt="phone"><a href=""
+      class="auth-variants-item__link"> По телефону</a>
+  </li>
+
+  <li class="auth-variants-item"><img src="../../../../../assets/images/vin.svg" alt="vin"><a href=""
+      class="auth-variants-item__link">По VIN </a></li>
+
+  <li class="auth-variants-item"><img src="../../../../../assets/images/number.svg" alt="number"><a href=""
+      class="auth-variants-item__link">По гос.номеру</a>
+  </li>
+
+</ul> -->
+
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <div class="circle">
+        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      </div>
+      По телефону
+    </ng-template>
+    <ng-content></ng-content>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <div class="circle">
+        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      </div>
+      По VIN
+    </ng-template>
+    Content 2
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <div class="circle">
+        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      </div>
+      По гос.номеру
+    </ng-template>
+
+    Content 3
+  </mat-tab>
+</mat-tab-group>
