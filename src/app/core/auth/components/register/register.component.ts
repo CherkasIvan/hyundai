@@ -42,10 +42,6 @@ export class RegisterComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
-
-    this.registrationForm.valueChanges.subscribe((x) => {
-      console.log(this.registrationForm.valid);
-    });
   }
 
   public onSubmit(): void {

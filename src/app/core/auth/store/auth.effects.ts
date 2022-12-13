@@ -30,7 +30,7 @@ export class AuthEffects {
       switchMap(({request}) => {
         return this.authService.register(request).pipe(
           map((currentUser: CurrentUserInterface) => {
-            this.persistenceService.set('accessToken', currentUser.id);
+            this.persistenceService.set('accessToken', currentUser.token);
             return registerSuccessAction({currentUser});
           }),
           catchError((errorResponce: HttpErrorResponse) => {

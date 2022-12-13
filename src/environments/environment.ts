@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://d5dcisg3i9afo2k55397.apigw.yandexcloud.net'
+  apiUrl: 'https://d5dcisg3i9afo2k55397.apigw.yandexcloud.net',
 };
 
 /*
