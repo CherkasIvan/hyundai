@@ -3,85 +3,75 @@
     <div class="personal-office">
       <div class="personal-greetings">
         <h1 class="personal-greetings__title">F&I Брокера</h1>
-        <p class="personsl-greetings__content">
+        <p class="personal-greetings__content">
           Добро пожаловать в личный кабинет.  Авторизуйтесь, чтобы начать
           пользоваться всеми возможностями СRM-системы.
         </p>
       </div>
 
-      <mc-auth-tabs>
-        <form
-          [formGroup]="registrationForm"
-          (ngSubmit)="onSubmit()"
-          class="auth-form"
-        >
-          <!-- <fieldset class="auth-form-item">
-            <label for="phone" class="auth-form-item__label">Номер телефона*</label>
-            <input type="text" class="auth-form-item__phone" placeholder="Введите ваш номер" name="phone"
-              formControlName="phone">
-          </fieldset>
+      <!-- <mc-auth-tabs> -->
+      <form
+        [formGroup]="registrationForm"
+        (ngSubmit)="onSubmit()"
+        class="auth-form"
+      >
+        <fieldset class="auth-form-item">
+          <label for="email" class="auth-form-item__label">Email*</label>
+          <input
+            type="text"
+            class="auth-form-item__phone"
+            placeholder="Введите ваш email"
+            name="email"
+            formControlName="email"
+          />
+        </fieldset>
 
-          <fieldset class="auth-form-item">
-            <label for="code" class="auth-form-item__label">Код проверки*</label>
-            <input type="text" class="auth-form-item__validation-code" placeholder="Мы выслали код на ваш номер"
-              name="code" formControlName="code">
-          </fieldset> -->
+        <fieldset class="auth-form-item">
+          <label for="password" class="auth-form-item__label">Пароль*</label>
+          <input
+            type="password"
+            class="auth-form-item__validation-code"
+            placeholder="Введите пароль"
+            name="password"
+            formControlName="password"
+          />
+        </fieldset>
 
-          <fieldset class="auth-form-item">
-            <label for="email" class="auth-form-item__label">email*</label>
-            <input
-              type="text"
-              class="auth-form-item__phone"
-              placeholder="email"
-              name="email"
-              formControlName="email"
-            />
-          </fieldset>
-
-          <fieldset class="auth-form-item">
-            <label for="password" class="auth-form-item__label"
-              >password*</label
-            >
-            <input
-              type="text"
-              class="auth-form-item__validation-code"
-              placeholder="password"
-              name="password"
-              formControlName="password"
-            />
-          </fieldset>
-
-          <fieldset class="auth-form-item">
-            <label for="legalName" class="auth-form-item__label"
-              >legalName*</label
-            >
-            <input
-              type="text"
-              class="auth-form-item__validation-code"
-              placeholder="legalName"
-              name="legalName"
-              formControlName="legalName"
-            />
-          </fieldset>
-
-          <button
-            class="auth-form-button"
-            type="submit"
-            [disabled]="isSubmitting$ | async"
+        <fieldset class="auth-form-checkbox">
+          <label for="checkbox" class="auth-form-checkbox__label"
+            >Я принимаю условия соглашения и даю Согласие на обработку
+            персональных данных</label
           >
-            Войти
-            <img
-              src="../../../../../assets/images/login_button.svg"
-              alt="login"
-            />
-          </button>
-        </form>
-      </mc-auth-tabs>
+          <input
+            [checked]="checkboxSucces"
+            (change)="checkboxSucces = !checkboxSucces"
+            type="checkbox"
+            class="auth-form-checkbox__success"
+            name="checkbox"
+          />
+        </fieldset>
+
+        <button
+          class="auth-form-button"
+          type="submit"
+          [disabled]="
+            (isSubmitting$ | async) ||
+            !checkboxSucces ||
+            !this.registrationForm.valid
+          "
+        >
+          Войти
+        </button>
+      </form>
+      <!-- </mc-auth-tabs> -->
+
+      <p class="personal-office__description">
+        * Цифровой автомобиль – автомобиль с функциями автоматического сбора и
+        умной обработки данных о состоянии всех его систем, а также с
+        возможностями интеграции телематических сервисовА
+      </p>
     </div>
 
-    <div class="personal-service">
-      <mc-tes-navigation-logo></mc-tes-navigation-logo>
-    </div>
     <!-- <p class="">
           <a [routerLink]="['/login']">Have an account?</a>
         </p> -->

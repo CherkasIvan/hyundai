@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   public registrationForm!: FormGroup;
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
+  public checkboxSucces = false;
 
   constructor(private fb: FormBuilder, private store: Store) {}
 
@@ -40,13 +41,15 @@ export class RegisterComponent implements OnInit {
     this.registrationForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
-      legalName: ['', Validators.required],
+    });
+
+    this.registrationForm.valueChanges.subscribe((x) => {
+      console.log(this.registrationForm.valid);
     });
   }
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-
     this.store.dispatch(registerAction({request}));
   }
 }

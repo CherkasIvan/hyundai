@@ -17,7 +17,6 @@ import {AuthEffects} from './store/auth.effects';
 import {BackendErrorMessagesModule} from '../../pages/shared/modules/backend-error-messages/backend-error-messages.module';
 import {PersistenceService} from '../../pages/shared/services/persistence.service';
 import {AuthTabsComponent} from './components/auth-tabs/auth-tabs.component';
-import {TesNavigationLogoComponent} from './components/tes-navigation-logo/tes-navigation-logo.component';
 import {RegisterComponent} from './components/register/register.component';
 
 const routes: Routes = [
@@ -28,11 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    RegisterComponent,
-    AuthTabsComponent,
-    TesNavigationLogoComponent,
-  ],
+  declarations: [RegisterComponent, AuthTabsComponent],
   imports: [
     CommonModule,
     MatTabsModule,

@@ -17,10 +17,12 @@ export class AuthService {
     httpHeaders.set('Content-Type', 'application/json');
     httpHeaders.set('Accept', '*/*');
     httpHeaders.set('Access-Control-Allow-Origin', '*');
-
-    const url = environment.apiUrl + '/legalUserRegistration';
+    console.log(JSON.stringify(data));
+    const url = environment.apiUrl + '/legalUserAuthentication';
     return this.http
-      .post<AuthResponseInterface>(url, data, {headers: httpHeaders})
+      .post<AuthResponseInterface>(url, JSON.stringify(data), {
+        headers: httpHeaders,
+      })
       .pipe(map((response: AuthResponseInterface) => response.user));
   }
 }
