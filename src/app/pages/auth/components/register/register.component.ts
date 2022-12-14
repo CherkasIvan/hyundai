@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
   public initializeForm(): void {
     this.registrationForm = this.fb.group({
       phone: ['', Validators.required],
-      secret_key: ['', Validators.required],
+      // secret_key: ['', Validators.required],
     });
   }
 
@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-
+    console.log(request);
     this.store.dispatch(registerAction({request}));
   }
 }
