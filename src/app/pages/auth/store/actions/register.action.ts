@@ -7,7 +7,7 @@ import {ActionTypes} from '../actionTypes';
 
 export const registerAction = createAction(
   ActionTypes.REGISTER,
-  props<{request: any}>()
+  props<{request: RegisterRequestInterface}>()
 );
 
 export const registerSuccessAction = createAction(

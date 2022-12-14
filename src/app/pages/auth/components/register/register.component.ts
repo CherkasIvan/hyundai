@@ -12,7 +12,6 @@ import {
   isSubmittingSelector,
   validationErrorsSelector,
 } from '../../store/selectors';
-import {AuthService} from '../../services/auth.service';
 import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.interface';
 
 @Component({

@@ -15,8 +15,6 @@ export class AuthService {
   ): Observable<CurrentUserInterface> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJmZTlhYjY5LWZjMjAtNDg5ZC1hZGI4LTk2NGE4ZmNjNWUzZCIsImVtYWlsIjoibWU3ODdAeWFuZGV4LnJ1IiwiaWF0IjoxNjcxMDEwODM3LCJleHAiOjE3MDI1NDY4Mzd9.eLZVmzI3vGJ6g4rbHAWKioE-ODirm4z6uaecOSEL9hA',
     });
 
     const url = environment.apiUrl + '/registerClient';
@@ -27,4 +25,22 @@ export class AuthService {
         tap((response: any) => console.log(response))
       );
   }
+
+  public confirmClient(
+    data: RegisterRequestInterface
+  ): Observable<CurrentUserInterface> {
+    const httpHeaders: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    const url = environment.apiUrl + '/confirmClientRegistration';
+    return this.http
+      .post<AuthResponseInterface>(url, data, {headers: httpHeaders})
+      .pipe(
+        map((response: any) => response),
+        tap((response: any) => console.log(response))
+      );
+  }
 }
+
+// https://d5dcisg3i9afo2k55397.apigw.yandexcloud.net/confirmClientRegistration
