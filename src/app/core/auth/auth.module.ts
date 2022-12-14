@@ -8,6 +8,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import {StoreModule} from '@ngrx/store';
 import {reducers} from './store/auth.reducers';
@@ -33,6 +34,7 @@ const routes: Routes = [
     MatTabsModule,
     MatStepperModule,
     MatFormFieldModule,
+    MatTooltipModule,
     MatIconModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),

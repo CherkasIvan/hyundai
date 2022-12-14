@@ -13,14 +13,16 @@ export class AuthService {
   public register(
     data: RegisterRequestInterface
   ): Observable<CurrentUserInterface> {
-    const httpHeaders: HttpHeaders = new HttpHeaders();
-    httpHeaders.set('Content-Type', 'application/json');
-    httpHeaders.set('Accept', '*/*');
-    httpHeaders.set('Access-Control-Allow-Origin', '*');
+    const httpHeaders: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
 
     const url = environment.apiUrl + '/legalUserRegistration';
     return this.http
       .post<AuthResponseInterface>(url, data, {headers: httpHeaders})
-      .pipe(map((response: AuthResponseInterface) => response.user));
+      .pipe(
+        map((response: any) => response),
+        tap((response: any) => console.log(response))
+      );
   }
 }

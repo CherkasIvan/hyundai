@@ -13,6 +13,7 @@ import {
   validationErrorsSelector,
 } from '../../store/auth.selectors';
 import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.interface';
+import {AuthService} from 'src/app/core/auth/service/auth.service';
 
 @Component({
   selector: 'mc-register',
@@ -42,6 +43,13 @@ export class RegisterComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
+  }
+
+  public openTooltip(tooltip: any): void {
+    tooltip.show();
+    setTimeout(() => {
+      tooltip.hide();
+    }, 1500);
   }
 
   public onSubmit(): void {

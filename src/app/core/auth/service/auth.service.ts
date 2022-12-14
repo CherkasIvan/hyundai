@@ -10,18 +10,17 @@ import {AuthResponseInterface} from '../types/authResponse.interface';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  public register(data: any): Observable<any> {
-    const httpHeaders: HttpHeaders = new HttpHeaders();
-    httpHeaders.set('Content-Type', 'application/json');
+  public register(
+    data: RegisterRequestInterface
+  ): Observable<CurrentUserInterface> {
+    const httpHeaders: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
 
     const url = environment.apiUrl + '/legalUserAuthentication';
+
     return this.http
-      .post<any>(url, JSON.stringify(data), {
-        headers: httpHeaders,
-      })
-      .pipe(
-        tap((response: any) => console.log(response)),
-        map((response: any) => response.user)
-      );
+      .post<AuthResponseInterface>(url, data, {headers: httpHeaders})
+      .pipe(map((response: any) => response));
   }
 }
