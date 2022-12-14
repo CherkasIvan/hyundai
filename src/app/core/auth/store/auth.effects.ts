@@ -28,7 +28,6 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType(registerAction),
       switchMap(({request}) => {
-        console.log({request});
         return this.authService.register(request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this.persistenceService.set('accessToken', currentUser.token);

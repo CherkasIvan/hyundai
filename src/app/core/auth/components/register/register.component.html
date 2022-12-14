@@ -27,19 +27,20 @@
           </fieldset>
 
           <fieldset class="auth-form-item">
-            <div style="display: flex">
+            <div class="auth-form-item__wrapper">
               <label for="password" class="auth-form-item__label"
                 >Пароль*</label
               >
-              <mat-icon
+              <img
+                src="../../../../../assets/images/tooltip_item.svg"
+                alt="tool-tip"
                 [matTooltipClass]="{'tool-tip': true}"
                 class="example-tab-icon"
                 matTooltip="tooltip"
                 #tool="matTooltip"
                 (click)="openTooltip(tool)"
                 (focus)="tool.show()"
-                >info</mat-icon
-              >
+              />
             </div>
             <input
               type="password"

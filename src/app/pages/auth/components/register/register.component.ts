@@ -39,10 +39,16 @@ export class RegisterComponent implements OnInit {
 
   public initializeForm(): void {
     this.registrationForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      legalName: ['', Validators.required],
+      phone: ['', Validators.required],
+      secret_key: ['', Validators.required],
     });
+  }
+
+  public openTooltip(tooltip: any): void {
+    tooltip.show();
+    setTimeout(() => {
+      tooltip.hide();
+    }, 1500);
   }
 
   public onSubmit(): void {

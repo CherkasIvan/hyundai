@@ -19,6 +19,7 @@ import {AuthTabsComponent} from './components/auth-tabs/auth-tabs.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {TesNavigationLogoComponent} from './components/tes-navigation-logo/tes-navigation-logo.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 const routes: Routes = [
   {
@@ -38,6 +39,7 @@ const routes: Routes = [
     MatTabsModule,
     MatStepperModule,
     MatFormFieldModule,
+    MatTooltipModule,
     MatIconModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),

@@ -20,9 +20,6 @@ export class AuthService {
     const url = environment.apiUrl + '/legalUserRegistration';
     return this.http
       .post<AuthResponseInterface>(url, data, {headers: httpHeaders})
-      .pipe(
-        map((response: any) => response),
-        tap((response: any) => console.log(response))
-      );
+      .pipe(map((response: any) => response));
   }
 }

@@ -3,58 +3,83 @@
     <div class="personal-office">
       <div class="personal-greetings">
         <h1 class="personal-greetings__title">Личный кабинет</h1>
-        <p class="personsl-greetings__content">Добро пожаловать в личный кабинет.<br>
-          Авторизуйтесь для управления вашими страховыми<br>
-          полисами. Выберите удобный способ входа:</p>
+        <p class="personsl-greetings__content">
+          Добро пожаловать в личный кабинет.<br />
+          Авторизуйтесь для управления вашими страховыми<br />
+          полисами. Выберите удобный способ входа:
+        </p>
       </div>
 
-
       <mc-auth-tabs>
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="auth-form">
-          <!-- <fieldset class="auth-form-item">
-            <label for="phone" class="auth-form-item__label">Номер телефона*</label>
-            <input type="text" class="auth-form-item__phone" placeholder="Введите ваш номер" name="phone"
-              formControlName="phone">
+        <form
+          [formGroup]="registrationForm"
+          (ngSubmit)="onSubmit()"
+          class="auth-form"
+        >
+          <fieldset class="auth-form-item">
+            <label for="phone" class="auth-form-item__label"
+              >Номер телефона*</label
+            >
+            <input
+              type="text"
+              class="auth-form-item__phone"
+              placeholder="Введите ваш номер"
+              name="phone"
+              formControlName="phone"
+            />
           </fieldset>
 
           <fieldset class="auth-form-item">
-            <label for="code" class="auth-form-item__label">Код проверки*</label>
-            <input type="text" class="auth-form-item__validation-code" placeholder="Мы выслали код на ваш номер"
-              name="code" formControlName="code">
-          </fieldset> -->
+            <div class="auth-form-item__wrapper">
+              <label for="secret_key" class="auth-form-item__label"
+                >Код проверки*</label
+              >
 
-          <fieldset class="auth-form-item">
-            <label for="email" class="auth-form-item__label">email*</label>
-            <input type="text" class="auth-form-item__phone" placeholder="email" name="email" formControlName="email">
+              <img
+                src="../../../../../assets/images/tooltip_item.svg"
+                alt="tool-tip"
+                [matTooltipClass]="{'tool-tip': true}"
+                class="example-tab-icon"
+                matTooltip="tooltip"
+                #tool="matTooltip"
+                (click)="openTooltip(tool)"
+                (focus)="tool.show()"
+              />
+            </div>
+
+            <input
+              type="text"
+              class="auth-form-item__validation-code"
+              placeholder="Мы выслали код на ваш номер"
+              name="secret_key"
+              formControlName="secret_key"
+            />
           </fieldset>
 
-          <fieldset class="auth-form-item">
-            <label for="password" class="auth-form-item__label">password*</label>
-            <input type="text" class="auth-form-item__validation-code" placeholder="password" name="password"
-              formControlName="password">
-          </fieldset>
-
-          <fieldset class="auth-form-item">
-            <label for="legalName" class="auth-form-item__label">legalName*</label>
-            <input type="text" class="auth-form-item__validation-code" placeholder="legalName" name="legalName"
-              formControlName="legalName">
-          </fieldset>
-
-          <button class="auth-form-button" type="submit" [disabled]="isSubmitting$|async">Войти <img
-              src="../../../../../assets/images/login_button.svg" alt="login"></button>
+          <button
+            class="auth-form-button"
+            type="submit"
+            [disabled]="isSubmitting$ | async"
+          >
+            Войти
+            <img
+              src="../../../../../assets/images/login_button.svg"
+              alt="login"
+            />
+          </button>
         </form>
-
       </mc-auth-tabs>
     </div>
 
     <div class="personal-service">
       <mc-tes-navigation-logo></mc-tes-navigation-logo>
-
     </div>
     <!-- <p class="">
           <a [routerLink]="['/login']">Have an account?</a>
         </p> -->
-    <mc-backend-error-messages *ngIf="backandErrors$ | async"
-      [backendErrors]="backandErrors$ | async"></mc-backend-error-messages>
+    <mc-backend-error-messages
+      *ngIf="backandErrors$ | async"
+      [backendErrors]="backandErrors$ | async"
+    ></mc-backend-error-messages>
   </div>
 </div>
