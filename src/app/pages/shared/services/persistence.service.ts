@@ -23,6 +23,7 @@ export class PersistenceService {
     const accessToken = JSON.parse(localStorage.getItem('accessToken')!);
     return accessToken;
   }
+
   // public isAuthenticated(): boolean {
   //   // get the token
   //   const token = this.getToken();
