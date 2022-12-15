@@ -11,7 +11,7 @@ import {
 const initialState: BrokerAuthStateInterface = {
   isSubmitting: false,
   currentBroker: null,
-  brokerIsLoggedIn: null,
+  brokerIsLoggedIn: false,
   validationErrors: null,
 };
 

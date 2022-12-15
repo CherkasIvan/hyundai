@@ -5,11 +5,11 @@ import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
-import {registerAction} from '../../store/register.action';
+import {userAuthAction} from '../../store/userRegister.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
-} from '../../store/selectors';
+} from '../../store/userSelectors';
 import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.interface';
 
 @Component({
@@ -50,6 +50,6 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    this.store.dispatch(registerAction({request}));
+    this.store.dispatch(userAuthAction({request}));
   }
 }

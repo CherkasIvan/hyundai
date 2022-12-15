@@ -7,11 +7,11 @@ import {Actions} from '@ngrx/effects';
 import {switchMap, map, catchError, of, tap} from 'rxjs';
 import {createEffect} from '@ngrx/effects';
 import {
-  registerAction,
-  registerFailureAction,
-  registerSuccessAction,
-} from './register.action';
-import {AuthService} from '../services/auth.service';
+  userAuthAction,
+  userAuthSuccessAction,
+  userAuthFailureAction,
+} from './userRegister.action';
+import {UserAuthService} from '../services/user-auth.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 
@@ -19,24 +19,24 @@ import {Router} from '@angular/router';
 export class RegisterEffect {
   constructor(
     private actions$: Actions,
-    private authService: AuthService,
+    private authService: UserAuthService,
     private persistenceService: PersistenceService,
     private router: Router
   ) {}
 
   public register$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(registerAction),
+      ofType(userAuthAction),
       switchMap(({request}) => {
         return this.authService.register(request).pipe(
           map((currentUser: CurrentUserInterface) => {
-            this.persistenceService.get('accessToken');
-            return registerSuccessAction({currentUser});
+            this.persistenceService.set('clientId', currentUser.clientId);
+            return userAuthSuccessAction({currentUser});
           }),
           catchError((errorResponce: HttpErrorResponse) => {
             console.error(errorResponce);
             return of(
-              registerFailureAction({errors: errorResponce.error.errors})
+              userAuthFailureAction({errors: errorResponce.error.errors})
             );
           })
         );
@@ -47,7 +47,7 @@ export class RegisterEffect {
   public redirectAfterSubmit$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(registerSuccessAction),
+        ofType(userAuthSuccessAction),
         tap(() => {
           this.router.navigateByUrl('/main');
         })

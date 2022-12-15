@@ -5,15 +5,15 @@ import {CommonModule} from '@angular/common';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
-import {MainContainerPageComponent} from '../../core-pages/main-container-page/main-container-page.component';
+import {MainContainerPageComponent} from '../main-container-page/main-container-page.component';
 
 import {RegisterComponent} from './components/register/register.component';
 import {StoreModule} from '@ngrx/store';
-import {reducers} from './store/reducers';
-import {AuthService} from './services/auth.service';
+import {reducers} from './store/userReducers';
+import {UserAuthService} from './services/user-auth.service';
 import {EffectsModule} from '@ngrx/effects';
 
-import {RegisterEffect} from './store/register.effect';
+import {RegisterEffect} from './store/userRegister.effect';
 import {BackendErrorMessagesModule} from '../shared/modules/backend-error-messages/backend-error-messages.module';
 import {PersistenceService} from '../shared/services/persistence.service';
 import {AuthTabsComponent} from './components/auth-tabs/auth-tabs.component';
@@ -50,6 +50,6 @@ const routes: Routes = [
     EffectsModule.forFeature([RegisterEffect]),
     BackendErrorMessagesModule,
   ],
-  providers: [AuthService, PersistenceService],
+  providers: [UserAuthService, PersistenceService],
 })
 export class AuthModule {}
