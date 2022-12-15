@@ -1,5 +1,4 @@
 .logo__sphere {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,31 +16,31 @@
   animation: 7s linear 0s normal none infinite running logo__sphere;
   -webkit-animation: 7s linear 0s normal none infinite running logo__sphere;
 
-  img::before {
-    content: '';
-    position: absolute;
-    // transform: scale(1, -1)
+  img {
+    width: 25px;
+    height: 25px;
+     transform: scale(0, -1)
   }
 }
 
 @keyframes logo__sphere {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  //0% {
+  //  transform: rotate(0deg);
+  //}
+  //
+  //100% {
+  //  transform: rotate(360deg);
+  //}
 }
 
 @-webkit-keyframes logo__sphere {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  //0% {
+  //  transform: rotate(0deg);
+  //}
+  //
+  //100% {
+  //  transform: rotate(360deg);
+  //}
 }
 
 .logo__sphere__second {
@@ -65,23 +64,23 @@
 }
 
 @keyframes logo__sphere__second {
-  0% {
-    transform: rotate(360deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+  //0% {
+  //  transform: rotate(360deg);
+  //}
+  //
+  //100% {
+  //  transform: rotate(0deg);
+  //}
 }
 
 @-webkit-keyframes logo__sphere__second {
-  0% {
-    transform: rotate(360deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+  //0% {
+  //  transform: rotate(360deg);
+  //}
+  //
+  //100% {
+  //  transform: rotate(0deg);
+  //}
 }
 
 .logo__sphere__third {
@@ -115,21 +114,21 @@
 }
 
 @keyframes logo__sphere__third {
-  0% {
-    transform: rotate(360deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+  //0% {
+  //  transform: rotate(360deg);
+  //}
+  //
+  //100% {
+  //  transform: rotate(0deg);
+  //}
 }
 
 @-webkit-keyframes logo__sphere__third {
-  0% {
-    transform: rotate(360deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+  //0% {
+  //  transform: rotate(360deg);
+  //}
+  //
+  //100% {
+  //  transform: rotate(0deg);
+  //}
 }

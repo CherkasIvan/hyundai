@@ -6,6 +6,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
+import { MainContainerPageModule } from './core-pages/main-container-page/main-container-page.module';
 
 import {ArticleModule} from './pages/article/article.module';
 
@@ -32,6 +33,7 @@ import {AuthModule} from './pages/auth/auth.module';
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
     BrowserAnimationsModule,
+    MainContainerPageModule
   ],
   providers: [],
   bootstrap: [AppComponent],

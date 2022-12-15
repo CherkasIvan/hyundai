@@ -5,6 +5,7 @@ import {CommonModule} from '@angular/common';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
+import { MainContainerPageComponent } from '../../core-pages/main-container-page/main-container-page.component';
 
 import {RegisterComponent} from './components/register/register.component';
 import {StoreModule} from '@ngrx/store';
@@ -26,6 +27,10 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
+  {
+    path: 'main',
+    component: MainContainerPageComponent
+  }
 ];
 
 @NgModule({

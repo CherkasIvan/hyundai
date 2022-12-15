@@ -1,6 +1,4 @@
 import {RegisterRequestInterface} from './../../types/registerRequest.interface';
-import {CurrentUserInterface} from './../../../shared/types/currentUser.interface';
-import {AppStateInterface} from 'src/app/pages/shared/types/appState.interface';
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
@@ -12,7 +10,6 @@ import {
   isSubmittingSelector,
   validationErrorsSelector,
 } from '../../store/selectors';
-import {AuthService} from '../../services/auth.service';
 import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.interface';
 
 @Component({
@@ -53,7 +50,6 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    console.log(request);
     this.store.dispatch(registerAction({request}));
   }
 }

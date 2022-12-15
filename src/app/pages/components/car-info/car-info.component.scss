@@ -1,0 +1,20 @@
+.car-info-container {
+  position: absolute;
+  width: 78%;
+  height: 80vh;
+  left: 384px;
+  top: 124px;
+  background: #FFFFFF;
+  box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
+  border-radius: 30px;
+    .car-info-title {
+      position: absolute;
+      width: 402px;
+      height: 39px;
+      left: 35px;
+      top: 47px;
+      font-size: 30px;
+      line-height: 130%;
+      color: #343E48;
+    }
+  }

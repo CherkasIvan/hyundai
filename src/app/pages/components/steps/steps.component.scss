@@ -1,0 +1,46 @@
+::ng-deep {
+  .mat-step-icon-content {
+    display: none;
+  }
+
+  .mat-step-icon {
+    .mat-icon {
+      display: none;
+    }
+  }
+
+  .mat-step-header {
+    .mat-step-icon-selected {
+      background: #E8EFF7;
+      border: 1px solid #72879E;
+    }
+    .mat-step-icon {
+      //background: #FFFFFF;
+      //border: 1px solid #CAD2DA;
+    }
+  }
+
+  .mat-step-header {
+    .mat-step-icon-state-edit {
+      background-image: url(".././assets/image/completed-step-icon.png");
+    }
+  }
+
+
+  .mat-step-icon {
+    .mat-step-icon-state-number {
+      background: #FFFFFF;
+      border: 1px solid #CAD2DA;
+    }
+  }
+
+  //.mat-step-header .mat-step-icon {
+  //  background: #FFFFFF;
+  //  border: 1px solid #CAD2DA;
+  //}
+
+  //.mat-step-header .mat-step-header-ripple {
+  //  background: #FFFFFF;
+  //  border: 1px solid #CAD2DA;
+  //}
+}
