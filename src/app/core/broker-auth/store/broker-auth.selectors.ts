@@ -3,7 +3,7 @@ import {AppStateInterface} from '../../../pages/shared/types/appState.interface'
 import {AuthStateInterface} from '../types/authState.interface';
 
 export const authFeatureSelector =
-  createFeatureSelector<AuthStateInterface>('register');
+  createFeatureSelector<AuthStateInterface>('broker-auth');
 
 export const isSubmittingSelector = createSelector(
   authFeatureSelector,

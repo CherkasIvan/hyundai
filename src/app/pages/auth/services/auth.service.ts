@@ -1,7 +1,7 @@
 import {map, Observable, tap} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {RegisterRequestInterface} from '../types/registerRequest.interface';
-import {CurrentUserInterface} from '../../shared/types/currentUser.interface';
+import {CurrentUserInterface} from '../../../pages/auth/types/currentUser.interface';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from 'src/environments/environment';
 import {AuthResponseInterface} from '../types/authResponse.interface';

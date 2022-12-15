@@ -3,14 +3,14 @@ import {Action, createReducer, on} from '@ngrx/store';
 import {AuthStateInterface} from '../types/authState.interface';
 
 import {
-  registerAction,
-  registerFailureAction,
-  registerSuccessAction,
-} from './auth.action';
+  authBrokerAction,
+  authBrokerSuccessAction,
+  authBrokerFailureAction,
+} from './boker-auth.action';
 
 const initialState: AuthStateInterface = {
   isSubmitting: false,
-  currentUser: null,
+  currentBroker: null,
   isLoggedIn: null,
   validationErrors: null,
 };
@@ -18,7 +18,7 @@ const initialState: AuthStateInterface = {
 const authReducer = createReducer(
   initialState,
   on(
-    registerAction,
+    authBrokerAction,
     (state): AuthStateInterface => ({
       ...state,
       isSubmitting: true,
@@ -26,16 +26,16 @@ const authReducer = createReducer(
     })
   ),
   on(
-    registerSuccessAction,
+    authBrokerSuccessAction,
     (state, action): AuthStateInterface => ({
       ...state,
       isSubmitting: false,
       isLoggedIn: true,
-      currentUser: action.currentUser,
+      currentBroker: action.currentBroker,
     })
   ),
   on(
-    registerFailureAction,
+    authBrokerFailureAction,
     (state, action): AuthStateInterface => ({
       ...state,
       isSubmitting: false,

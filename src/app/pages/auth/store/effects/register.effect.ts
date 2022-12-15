@@ -1,6 +1,6 @@
 import {PersistenceService} from './../../../shared/services/persistence.service';
 import {BackendErrorsInterface} from './../../../shared/types/backendErrors.interface';
-import {CurrentUserInterface} from './../../../shared/types/currentUser.interface';
+import {CurrentUserInterface} from '../../../../pages/auth/types/currentUser.interface';
 import {Injectable} from '@angular/core';
 import {ofType} from '@ngrx/effects';
 import {Actions} from '@ngrx/effects';
@@ -50,7 +50,7 @@ export class RegisterEffect {
       this.actions$.pipe(
         ofType(registerSuccessAction),
         tap(() => {
-        this.router.navigateByUrl('/main');
+          this.router.navigateByUrl('/main');
         })
       ),
     {dispatch: false}

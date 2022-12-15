@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {MatTabChangeEvent} from '@angular/material/tabs';
 
 @Component({
-  selector: 'mc-auth-tabs',
-  templateUrl: './auth-tabs.component.html',
-  styleUrls: ['./auth-tabs.component.scss'],
+  selector: 'mc-broker-auth-tabs',
+  templateUrl: './broker-auth-tabs.component.html',
+  styleUrls: ['./broker-auth-tabs.component.scss'],
 })
-export class AuthTabsComponent implements OnInit {
+export class BrokerAuthTabsComponent implements OnInit {
   public indexOfTab!: number;
   onTabChange(event: MatTabChangeEvent) {
     this.indexOfTab = event.index;

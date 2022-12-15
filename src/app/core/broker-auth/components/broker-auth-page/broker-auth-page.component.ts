@@ -1,5 +1,5 @@
-import {RegisterRequestInterface} from './../../types/registerRequest.interface';
-import {CurrentUserInterface} from '../../../../pages/shared/types/currentUser.interface';
+import {RegisterRequestInterface} from '../../types/registerRequest.interface';
+import {CurrentBrokerInterface} from '../../store/types/currentBroker.interface';
 import {AppStateInterface} from 'src/app/pages/shared/types/appState.interface';
 import {Component, OnInit} from '@angular/core';
 import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
@@ -7,20 +7,19 @@ import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
-import {registerAction} from '../../store/auth.action';
+import {authBrokerAction} from '../../store/boker-auth.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
-} from '../../store/auth.selectors';
+} from '../../store/broker-auth.selectors';
 import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.interface';
-import {AuthService} from 'src/app/core/auth/service/auth.service';
 
 @Component({
-  selector: 'mc-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  selector: 'mc-broker-auth-page',
+  templateUrl: './broker-auth-page.component.html',
+  styleUrls: ['./broker-auth-page.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class BrokerAuthPageComponent implements OnInit {
   public registrationForm!: UntypedFormGroup;
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
@@ -54,6 +53,6 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    this.store.dispatch(registerAction({request}));
+    this.store.dispatch(authBrokerAction({request}));
   }
 }

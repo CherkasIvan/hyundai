@@ -1,9 +1,9 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {AuthModule} from './/auth.module';
+import {BrokerAuthModule} from './broker-auth.module';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, AuthModule],
+  imports: [CommonModule, BrokerAuthModule],
 })
 export class CoreModule {}

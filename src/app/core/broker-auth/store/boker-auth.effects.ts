@@ -1,17 +1,17 @@
 import {PersistenceService} from '../../../pages/shared/services/persistence.service';
 import {BackendErrorsInterface} from '../../../pages/shared/types/backendErrors.interface';
-import {CurrentUserInterface} from './../../../pages/shared/types/currentUser.interface';
+import {CurrentBrokerInterface} from './types/currentBroker.interface';
 import {Injectable} from '@angular/core';
 import {ofType} from '@ngrx/effects';
 import {Actions} from '@ngrx/effects';
 import {switchMap, map, catchError, of, tap} from 'rxjs';
 import {createEffect} from '@ngrx/effects';
 import {
-  registerAction,
-  registerFailureAction,
-  registerSuccessAction,
-} from './auth.action';
-import {AuthService} from '../service/auth.service';
+  authBrokerAction,
+  authBrokerSuccessAction,
+  authBrokerFailureAction,
+} from './boker-auth.action';
+import {BrokerAuthService} from '../service/broker-auth.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 
@@ -19,25 +19,25 @@ import {Router} from '@angular/router';
 export class AuthEffects {
   constructor(
     private actions$: Actions,
-    private authService: AuthService,
+    private authService: BrokerAuthService,
     private persistenceService: PersistenceService,
     private router: Router
   ) {}
 
   public register$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(registerAction),
+      ofType(authBrokerAction),
       switchMap(({request}) => {
         return this.authService.register(request).pipe(
-          map((currentUser: CurrentUserInterface) => {
-            this.persistenceService.set('accessToken', currentUser.token);
-            return registerSuccessAction({currentUser});
+          map((currentBroker: CurrentBrokerInterface) => {
+            this.persistenceService.set('accessToken', currentBroker.token);
+            return authBrokerSuccessAction({currentBroker});
           }),
           catchError((errorResponce: HttpErrorResponse) => {
             console.error(errorResponce);
 
             return of(
-              registerFailureAction({errors: errorResponce.error.errors})
+              authBrokerFailureAction({errors: errorResponce.error.errors})
             );
           })
         );
@@ -48,7 +48,7 @@ export class AuthEffects {
   public redirectAfterSubmit$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(registerSuccessAction),
+        ofType(authBrokerSuccessAction),
         tap(() => {
           this.router.navigateByUrl('/register');
         })

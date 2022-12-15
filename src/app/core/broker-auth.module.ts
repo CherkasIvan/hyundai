@@ -11,24 +11,24 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 import {StoreModule} from '@ngrx/store';
-import {reducers} from './auth/store/auth.reducers';
-import {AuthService} from './auth/service/auth.service';
+import {reducers} from './broker-auth/store/broker-auth.reducers';
+import {BrokerAuthService} from './broker-auth/service/broker-auth.service';
 
-import {AuthEffects} from './auth/store/auth.effects';
+import {AuthEffects} from './broker-auth/store/boker-auth.effects';
 import {BackendErrorMessagesModule} from '../pages/shared/modules/backend-error-messages/backend-error-messages.module';
 import {PersistenceService} from '../pages/shared/services/persistence.service';
-import {AuthTabsComponent} from './auth/components/auth-tabs/auth-tabs.component';
-import {RegisterComponent} from './auth//components/register/register.component';
+import {BrokerAuthTabsComponent} from './broker-auth/components/broker-auth-tabs/broker-auth-tabs.component';
+import {BrokerAuthPageComponent} from './broker-auth/components/broker-auth-page/broker-auth-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: RegisterComponent,
+    component: BrokerAuthPageComponent,
   },
 ];
 
 @NgModule({
-  declarations: [RegisterComponent, AuthTabsComponent],
+  declarations: [BrokerAuthPageComponent, BrokerAuthTabsComponent],
   imports: [
     CommonModule,
     MatTabsModule,
@@ -38,10 +38,10 @@ const routes: Routes = [
     MatIconModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature('register', reducers),
+    StoreModule.forFeature('broker-auth', reducers),
     EffectsModule.forFeature([AuthEffects]),
     BackendErrorMessagesModule,
   ],
-  providers: [AuthService, PersistenceService],
+  providers: [BrokerAuthService, PersistenceService],
 })
-export class AuthModule {}
+export class BrokerAuthModule {}
