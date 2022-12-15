@@ -7,9 +7,7 @@ import {
 } from '@angular/common/http';
 import {Observable, switchMap, throwError} from 'rxjs';
 import {Router} from '@angular/router';
-import {JwtHelperService} from '@auth0/angular-jwt';
-import {PersistenceService} from '../../pages/shared/services/persistence.service';
-import {TokenService} from 'src/app/pages/shared/services/token.service';
+import {PersistenceService} from '../../../pages/shared/services/persistence.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {

@@ -14,7 +14,7 @@ import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from './core/core.module';
 import {AuthModule} from './pages/auth/auth.module';
-import {TokenInterceptor} from './core/interceptors/token.interceptor';
+import {TokenInterceptor} from './core/auth/interceptors/token.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
