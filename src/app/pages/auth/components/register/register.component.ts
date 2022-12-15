@@ -1,6 +1,6 @@
 import {RegisterRequestInterface} from './../../types/registerRequest.interface';
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
 
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
@@ -18,11 +18,11 @@ import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.i
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  public registrationForm!: FormGroup;
+  public registrationForm!: UntypedFormGroup;
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
 
-  constructor(private fb: FormBuilder, private store: Store) {}
+  constructor(private fb: UntypedFormBuilder, private store: Store) {}
 
   public ngOnInit(): void {
     this.initializeForm();

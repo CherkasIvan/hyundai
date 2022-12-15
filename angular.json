@@ -107,7 +107,6 @@
       }
     }
   },
-  "defaultProject": "ngrx-store",
   "cli": {
     "analytics": false
   }

@@ -2,7 +2,7 @@ import {RegisterRequestInterface} from './../../types/registerRequest.interface'
 import {CurrentUserInterface} from '../../../../pages/shared/types/currentUser.interface';
 import {AppStateInterface} from 'src/app/pages/shared/types/appState.interface';
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
 
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
@@ -21,12 +21,12 @@ import {AuthService} from 'src/app/core/auth/service/auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  public registrationForm!: FormGroup;
+  public registrationForm!: UntypedFormGroup;
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
   public checkboxSucces = false;
 
-  constructor(private fb: FormBuilder, private store: Store) {}
+  constructor(private fb: UntypedFormBuilder, private store: Store) {}
 
   public ngOnInit(): void {
     this.initializeForm();
