@@ -20,6 +20,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {TesNavigationLogoComponent} from './components/tes-navigation-logo/tes-navigation-logo.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {AuthGuard} from 'src/app/core/auth/guards/auth.guard';
 
 const routes: Routes = [
   {

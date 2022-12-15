@@ -4,6 +4,6 @@ import {CurrentUserInterface} from '../../../pages/shared/types/currentUser.inte
 export interface AuthStateInterface {
   isSubmitting: boolean;
   currentUser: CurrentUserInterface | null;
-  isLoggedIn: boolean | null;
+  isLoggedIn: any; //переделать!!!! boolean | null (feature for auth guard)
   validationErrors: BackendErrorsInterface | null;
 }

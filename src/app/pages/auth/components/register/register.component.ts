@@ -52,7 +52,6 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    console.log(request);
     this.store.dispatch(registerAction({request}));
   }
 }

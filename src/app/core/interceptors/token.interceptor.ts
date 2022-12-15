@@ -5,9 +5,11 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, switchMap, throwError} from 'rxjs';
 import {Router} from '@angular/router';
+import {JwtHelperService} from '@auth0/angular-jwt';
 import {PersistenceService} from '../../pages/shared/services/persistence.service';
+import {TokenService} from 'src/app/pages/shared/services/token.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -20,11 +22,12 @@ export class TokenInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    if (localStorage.getItem('accessToken')) {
-      const token = localStorage.getItem('accessToken');
+    const token = this.persistenceSesrvice.getToken();
+
+    if (token) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${token?.split('"').join('')}`,
+          Authorization: `Bearer ${token}`,
         },
       });
     }

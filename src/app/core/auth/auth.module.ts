@@ -19,6 +19,7 @@ import {BackendErrorMessagesModule} from '../../pages/shared/modules/backend-err
 import {PersistenceService} from '../../pages/shared/services/persistence.service';
 import {AuthTabsComponent} from './components/auth-tabs/auth-tabs.component';
 import {RegisterComponent} from './components/register/register.component';
+import {TokenService} from 'src/app/pages/shared/services/token.service';
 
 const routes: Routes = [
   {
@@ -42,6 +43,6 @@ const routes: Routes = [
     EffectsModule.forFeature([AuthEffects]),
     BackendErrorMessagesModule,
   ],
-  providers: [AuthService, PersistenceService],
+  providers: [AuthService, PersistenceService, TokenService],
 })
 export class AuthModule {}
