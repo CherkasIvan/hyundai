@@ -8,7 +8,7 @@ import {
 } from '@angular/router';
 import {select, Store} from '@ngrx/store';
 import {Observable, tap} from 'rxjs';
-import {AuthStateInterface} from '../types/authState.interface';
+import {AuthStateInterface} from '../types/BrokerAuthState.interface';
 
 // @Injectable()
 // export class AuthGuard implements CanActivate {

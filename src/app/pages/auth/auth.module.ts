@@ -5,7 +5,7 @@ import {CommonModule} from '@angular/common';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
-import { MainContainerPageComponent } from '../../core-pages/main-container-page/main-container-page.component';
+import {MainContainerPageComponent} from '../../core-pages/main-container-page/main-container-page.component';
 
 import {RegisterComponent} from './components/register/register.component';
 import {StoreModule} from '@ngrx/store';
@@ -13,7 +13,7 @@ import {reducers} from './store/reducers';
 import {AuthService} from './services/auth.service';
 import {EffectsModule} from '@ngrx/effects';
 
-import {RegisterEffect} from './store/effects/register.effect';
+import {RegisterEffect} from './store/register.effect';
 import {BackendErrorMessagesModule} from '../shared/modules/backend-error-messages/backend-error-messages.module';
 import {PersistenceService} from '../shared/services/persistence.service';
 import {AuthTabsComponent} from './components/auth-tabs/auth-tabs.component';
@@ -21,16 +21,13 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {TesNavigationLogoComponent} from './components/tes-navigation-logo/tes-navigation-logo.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {AuthUserRoutingModule} from './auth-user-routing.module';
 
 const routes: Routes = [
   {
-    path: 'register',
-    component: RegisterComponent,
-  },
-  {
     path: 'main',
-    component: MainContainerPageComponent
-  }
+    component: MainContainerPageComponent,
+  },
 ];
 
 @NgModule({
@@ -47,8 +44,9 @@ const routes: Routes = [
     MatTooltipModule,
     MatIconModule,
     ReactiveFormsModule,
+    AuthUserRoutingModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature('auth', reducers),
+    StoreModule.forFeature('user-auth', reducers),
     EffectsModule.forFeature([RegisterEffect]),
     BackendErrorMessagesModule,
   ],

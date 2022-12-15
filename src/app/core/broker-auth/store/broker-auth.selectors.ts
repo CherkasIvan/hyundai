@@ -1,15 +1,15 @@
 import {createFeatureSelector, createSelector} from '@ngrx/store';
 import {AppStateInterface} from '../../../pages/shared/types/appState.interface';
-import {AuthStateInterface} from '../types/authState.interface';
+import {BrokerAuthStateInterface} from '../types/BrokerAuthState.interface';
 
 export const authFeatureSelector =
-  createFeatureSelector<AuthStateInterface>('broker-auth');
+  createFeatureSelector<BrokerAuthStateInterface>('broker-auth');
 
 export const isSubmittingSelector = createSelector(
   authFeatureSelector,
-  (authState: AuthStateInterface) => authState.isSubmitting
+  (authState: BrokerAuthStateInterface) => authState.isSubmitting
 );
 export const validationErrorsSelector = createSelector(
   authFeatureSelector,
-  (authState: AuthStateInterface) => authState.validationErrors
+  (authState: BrokerAuthStateInterface) => authState.validationErrors
 );

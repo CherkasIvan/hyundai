@@ -7,7 +7,7 @@ import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
-import {authBrokerAction} from '../../store/boker-auth.action';
+import {authBrokerAction} from '../../store/broker-auth.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,

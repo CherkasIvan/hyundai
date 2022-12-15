@@ -3,7 +3,7 @@ import {AppStateInterface} from '../../shared/types/appState.interface';
 import {AuthStateInterface} from '../types/authState.interface';
 
 export const authFeatureSelector =
-  createFeatureSelector<AuthStateInterface>('auth');
+  createFeatureSelector<AuthStateInterface>('user-auth');
 
 export const isSubmittingSelector = createSelector(
   authFeatureSelector,

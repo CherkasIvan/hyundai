@@ -14,7 +14,7 @@ import {StoreModule} from '@ngrx/store';
 import {reducers} from './broker-auth/store/broker-auth.reducers';
 import {BrokerAuthService} from './broker-auth/service/broker-auth.service';
 
-import {AuthEffects} from './broker-auth/store/boker-auth.effects';
+import {BrokerAuthEffects} from './broker-auth/store/broker-auth.effects';
 import {BackendErrorMessagesModule} from '../pages/shared/modules/backend-error-messages/backend-error-messages.module';
 import {PersistenceService} from '../pages/shared/services/persistence.service';
 import {BrokerAuthTabsComponent} from './broker-auth/components/broker-auth-tabs/broker-auth-tabs.component';
@@ -39,7 +39,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('broker-auth', reducers),
-    EffectsModule.forFeature([AuthEffects]),
+    EffectsModule.forFeature([BrokerAuthEffects]),
     BackendErrorMessagesModule,
   ],
   providers: [BrokerAuthService, PersistenceService],

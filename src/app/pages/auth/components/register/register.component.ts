@@ -5,7 +5,7 @@ import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
-import {registerAction} from '../../store/actions/register.action';
+import {registerAction} from '../../store/register.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,

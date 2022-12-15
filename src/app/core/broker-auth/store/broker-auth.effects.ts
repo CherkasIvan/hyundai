@@ -10,13 +10,13 @@ import {
   authBrokerAction,
   authBrokerSuccessAction,
   authBrokerFailureAction,
-} from './boker-auth.action';
+} from './broker-auth.action';
 import {BrokerAuthService} from '../service/broker-auth.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 
 @Injectable()
-export class AuthEffects {
+export class BrokerAuthEffects {
   constructor(
     private actions$: Actions,
     private authService: BrokerAuthService,
@@ -50,7 +50,7 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(authBrokerSuccessAction),
         tap(() => {
-          this.router.navigateByUrl('/register');
+          this.router.navigateByUrl('/auth-user');
         })
       ),
     {dispatch: false}
