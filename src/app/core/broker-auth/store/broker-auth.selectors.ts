@@ -1,4 +1,5 @@
 import {createFeatureSelector, createSelector} from '@ngrx/store';
+
 import {BrokerAuthStateInterface} from '../types/BrokerAuthState.interface';
 
 export const authFeatureSelector =

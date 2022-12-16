@@ -1,8 +1,11 @@
-<div class='progress-bat-title'>Заполнено {{value}}%</div>
-<mat-progress-bar
-        class="mat-progress-bar-item"
-        [color]="color"
-        [mode]="mode"
-        [value]="value"
-        [bufferValue]="bufferValue">
-</mat-progress-bar>
+<div class="progress-bar__container">
+  <div class="progress-bat-title">Заполнено {{ value }}%</div>
+  <mat-progress-bar
+    class="mat-progress-bar-item"
+    [color]="color"
+    [mode]="mode"
+    [value]="value"
+    [bufferValue]="bufferValue"
+  >
+  </mat-progress-bar>
+</div>

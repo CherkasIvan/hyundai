@@ -1,19 +1,22 @@
-import {PersistenceService} from '../../../pages/shared/services/persistence.service';
-import {BackendErrorsInterface} from '../../../pages/shared/types/backendErrors.interface';
-import {CurrentBrokerInterface} from './types/currentBroker.interface';
+import {HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+
+import {switchMap, map, catchError, of, tap} from 'rxjs';
+
 import {ofType} from '@ngrx/effects';
 import {Actions} from '@ngrx/effects';
-import {switchMap, map, catchError, of, tap} from 'rxjs';
 import {createEffect} from '@ngrx/effects';
 import {
   authBrokerAction,
   authBrokerSuccessAction,
   authBrokerFailureAction,
 } from './broker-auth.action';
+
+import {PersistenceService} from '../../../pages/shared/services/persistence.service';
 import {BrokerAuthService} from '../service/broker-auth.service';
-import {HttpErrorResponse} from '@angular/common/http';
-import {Router} from '@angular/router';
+
+import {CurrentBrokerInterface} from './types/currentBroker.interface';
 
 @Injectable()
 export class BrokerAuthEffects {

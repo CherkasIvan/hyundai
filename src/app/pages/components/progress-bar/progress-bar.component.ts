@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
+import {Component, OnInit} from '@angular/core';
+
+import {ThemePalette} from '@angular/material/core';
 
 @Component({
   selector: 'app-progress-bar',
   templateUrl: './progress-bar.component.html',
-  styleUrls: ['./progress-bar.component.scss']
+  styleUrls: ['./progress-bar.component.scss'],
 })
 export class ProgressBarComponent implements OnInit {
   color: ThemePalette = 'primary';
@@ -12,8 +13,6 @@ export class ProgressBarComponent implements OnInit {
   value: number = 50;
   bufferValue = 75;
 
-  constructor() { }
-  ngOnInit(): void {
-  }
-
+  constructor() {}
+  ngOnInit(): void {}
 }

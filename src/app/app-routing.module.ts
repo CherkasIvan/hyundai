@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+
 import {BrokerAuthPageComponent} from './core/broker-auth/components/broker-auth-page/broker-auth-page.component';
-import {BrokersAuthGuard} from './core/broker-auth/guards/brokers-auth.guard';
+// import {BrokersAuthGuard} from './core/broker-auth/guards/brokers-auth.guard';
 // import {UsersAuthGuard} from './pages/user-auth/guards/users-auth.guard';
 
 const routes: Routes = [

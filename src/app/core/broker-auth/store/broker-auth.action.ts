@@ -1,10 +1,10 @@
 import {createAction, props} from '@ngrx/store';
 
+import {BrokerActionTypes} from './types/brokerActionTypes';
+
 import {BackendErrorsInterface} from '../../../pages/shared/types/backendErrors.interface';
 import {CurrentBrokerInterface} from './types/currentBroker.interface';
 import {RegisterRequestInterface} from '../types/registerRequest.interface';
-
-import {BrokerActionTypes} from './types/brokerActionTypes';
 
 export const authBrokerAction = createAction(
   BrokerActionTypes.BROKER_AUTH,

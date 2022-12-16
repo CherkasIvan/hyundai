@@ -1,10 +1,45 @@
 .side-bar {
-  position: absolute;
-  width: 292px;
+  min-width: 292px;
+  height: 100%;
   height: 395px;
-  left: 80px;
-  top: 124px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
   border-radius: 20px;
+}
+
+::ng-deep {
+  .mat-step-icon-content {
+    span {
+      display: none;
+    }
+  }
+
+  .mat-step-icon {
+    .mat-icon {
+      display: none;
+    }
+  }
+
+  .mat-step-header {
+    .mat-step-icon {
+      background: #ffffff;
+      border: 1px solid #cad2da;
+    }
+    .mat-step-icon-selected {
+      background: #e8eff7;
+      border: 1px solid #72879e;
+    }
+    .mat-step-icon-state-edit {
+      background-image: url('/assets/images/completed_step_icon.png');
+    }
+  }
+
+  .mat-stepper-vertical-line::before {
+    top: -10px;
+    bottom: -10px;
+  }
+  .mat-stepper-label-position-bottom .mat-horizontal-stepper-header,
+  .mat-vertical-stepper-header {
+    padding: 10px 24px;
+  }
 }
