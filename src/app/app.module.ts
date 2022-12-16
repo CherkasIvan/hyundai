@@ -4,6 +4,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyMaterialModule } from '@ngx-formly/material';
+import { FormlyMatInputModule } from '@ngx-formly/material/input';
+import { FormlyMatSliderModule } from '@ngx-formly/material/slider';
+import { FormlyMatToggleModule } from '@ngx-formly/material/toggle';
 
 import {AppRoutingModule} from './app-routing.module';
 import {MainContainerPageModule} from './pages/main-container-page/main-container-page.module';
@@ -34,6 +39,12 @@ import {UsersAuthGuard} from './pages/main-container-page/guards/users-auth.guar
     }),
     BrowserAnimationsModule,
     MainContainerPageModule,
+    FormlyModule.forRoot(),
+    FormlyMaterialModule,
+    FormlyMatToggleModule,
+    FormlyMatSliderModule,
+    FormlyMatInputModule
+
   ],
   providers: [
     BrokersAuthGuard,

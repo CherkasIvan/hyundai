@@ -202,14 +202,14 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/forms@^13.0.0 || ^14.0.0-0", "@angular/forms@^14.2.12":
+"@angular/forms@^13.0.0 || ^14.0.0-0", "@angular/forms@^14.2.12", "@angular/forms@>=13.2.0":
   "integrity" "sha512-7abYlGIT2JnAtutQUlH3fQS6QEpbfftgvsVcZJCyvX0rXL3u2w2vUQkDHJH4YJJp3AHFVCH4/l7R4VcaPnrwvA=="
   "resolved" "https://registry.npmjs.org/@angular/forms/-/forms-14.2.12.tgz"
   "version" "14.2.12"
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/material@^13.3.9":
+"@angular/material@^13.3.9", "@angular/material@>=13.0.0":
   "integrity" "sha512-FU8lcMgo+AL8ckd27B4V097ZPoIZNRHiCe3wpgkImT1qC0YwcyXZVn0MqQTTFSdC9a/aI8wPm3AbTClJEVw5Vw=="
   "resolved" "https://registry.npmjs.org/@angular/material/-/material-13.3.9.tgz"
   "version" "13.3.9"
@@ -1377,6 +1377,20 @@
   "integrity" "sha512-sLHapZLVub6mEz5b19tf1VfIV1w3tYfg7FNPLeni79aldxu1FbP1v2WmiFAnMzrswqyK0bhTtxrl+Z/CLKqyoQ=="
   "resolved" "https://registry.npmjs.org/@ngtools/webpack/-/webpack-14.2.10.tgz"
   "version" "14.2.10"
+
+"@ngx-formly/core@^6.0.2", "@ngx-formly/core@6.0.2":
+  "integrity" "sha512-DEqu+nea9RyeZjAE/HQx1eDwVsKlySh8X2wWF7fSHnF/4M7KtWQWFl0CW4fPAi58ohqacCVc/Z94jhYnxLt6ZA=="
+  "resolved" "https://registry.npmjs.org/@ngx-formly/core/-/core-6.0.2.tgz"
+  "version" "6.0.2"
+  dependencies:
+    "tslib" "^2.0.0"
+
+"@ngx-formly/material@^6.0.2":
+  "integrity" "sha512-+FgwaK3urnXHWIJCBaWCII3iDgsucZvtULTdVxjV1XbTS9rVFJKNupQKxKuXO52L9mWWB+FgfnAYIuep2bYM9A=="
+  "resolved" "https://registry.npmjs.org/@ngx-formly/material/-/material-6.0.2.tgz"
+  "version" "6.0.2"
+  dependencies:
+    "tslib" "^2.0.0"
 
 "@nodelib/fs.scandir@2.1.5":
   "integrity" "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="
@@ -5269,7 +5283,7 @@
   dependencies:
     "queue-microtask" "^1.2.2"
 
-"rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.3 || ^7.5.0", "rxjs@^7.5.5", "rxjs@~7.5.0":
+"rxjs@^6.5.3 || ^7.0.0", "rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.3 || ^7.5.0", "rxjs@^7.5.5", "rxjs@~7.5.0":
   "integrity" "sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA=="
   "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-7.5.7.tgz"
   "version" "7.5.7"

@@ -1,5 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormlyModule } from '@ngx-formly/core';
 import {ToolbarModule} from '../../components/toolbar/toolbar.module';
 import {SideBarModule} from '../../pages/components/side-bar/side-bar.module';
 import {MainContainerPageComponent} from './main-container-page.component';
@@ -27,6 +29,8 @@ import {QuestionnaireFormComponent} from './componets/processing-page/components
     ToolbarModule,
     SideBarModule,
     MainContainerPageRoutingModule,
+    ReactiveFormsModule,
+    FormlyModule,
   ],
   exports: [MainContainerPageComponent],
   bootstrap: [MainContainerPageComponent],
