@@ -8,8 +8,6 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {MainContainerPageModule} from './pages/main-container-page/main-container-page.module';
 
-import {ArticleModule} from './pages/article/article.module';
-
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -25,7 +23,6 @@ import {UsersAuthGuard} from './pages/main-container-page/guards/users-auth.guar
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ArticleModule,
     AuthModule,
     CoreModule,
     StoreModule.forRoot({}),

@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'main',
-    canActivate: [UsersAuthGuard],
+    // canActivate: [UsersAuthGuard],
     loadChildren: () =>
       import('./pages/main-container-page/main-container-page.module').then(
         (module) => module.MainContainerPageModule

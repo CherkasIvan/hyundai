@@ -22,8 +22,36 @@
     </div>
   </div>
   <main class="main-container">
-    <app-navigation></app-navigation>
-    <router-outlet></router-outlet>
+    <nav class="nav-container">
+      <ul class="nav-list">
+        <li class="nav-list-item">
+          <a
+            class="nav-list-item-link"
+            routerLink="loan-calculation"
+            [routerLinkActive]="['activated']"
+            >Расчет кредита</a
+          >
+        </li>
+        <li class="nav-list-item">
+          <a
+            class="nav-list-item-link"
+            routerLink="processing"
+            [routerLinkActive]="['activated']"
+            >Оформление</a
+          >
+        </li>
+        <li class="nav-list-item">
+          <a
+            class="nav-list-item-link"
+            routerLink="documents-payments"
+            [routerLinkActive]="['activated']"
+            >Документы и платежи</a
+          >
+        </li>
+      </ul>
+      <router-outlet></router-outlet>
+    </nav>
+    <!-- <app-navigation></app-navigation> -->
   </main>
   <!--  <div class="wrapper__container">-->
   <!--  </div>-->

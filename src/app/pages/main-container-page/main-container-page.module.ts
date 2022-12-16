@@ -1,29 +1,34 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {Routes} from '@angular/router';
-import {NavigationModule} from '../../components/navigation/navigation.module';
 import {ToolbarModule} from '../../components/toolbar/toolbar.module';
-import {CalculationLoanPageModule} from '../../pages/calculation-loan-page/calculation-loan-page.module';
 import {SideBarModule} from '../../pages/components/side-bar/side-bar.module';
-import {DocumentsPaymentsPageModule} from '../../pages/documents-payments-page/documents-payments-page.module';
-import {ProcessingPageModule} from '../../pages/processing-page/processing-page.module';
 import {MainContainerPageComponent} from './main-container-page.component';
-import {NavigationPageRoutingModule} from '../../components/navigation/navigation-page-routing.module';
 import {MainContainerPageRoutingModule} from './main-container-page-routing.module';
+import {CalculationLoanPageComponent} from './componets/calculation-loan-page/calculation-loan-page.component';
+import {CarInfoComponent} from '../components/car-info/car-info.component';
+import {DocumentsPaymentsPageComponent} from './componets/documents-payments-page/documents-payments-page.component';
+import {DocumentsComponent} from './componets/documents-payments-page/components/documents/documents.component';
+import {ProcessingPageComponent} from './componets/processing-page/processing-page.component';
+import {QuestionnaireFormComponent} from './componets/processing-page/components/questionnaire-form/questionnaire-form.component';
 
 @NgModule({
-  declarations: [MainContainerPageComponent],
+  declarations: [
+    MainContainerPageComponent,
+    CalculationLoanPageComponent,
+    DocumentsPaymentsPageComponent,
+    QuestionnaireFormComponent,
+    DocumentsComponent,
+    CarInfoComponent,
+    ProcessingPageComponent,
+    QuestionnaireFormComponent,
+  ],
   imports: [
     CommonModule,
     ToolbarModule,
-    NavigationModule,
     SideBarModule,
-    NavigationPageRoutingModule,
-    ProcessingPageModule,
-    DocumentsPaymentsPageModule,
     MainContainerPageRoutingModule,
   ],
-  exports: [MainContainerPageComponent, CalculationLoanPageModule],
+  exports: [MainContainerPageComponent],
   bootstrap: [MainContainerPageComponent],
 })
 export class MainContainerPageModule {}

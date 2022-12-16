@@ -11,14 +11,14 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 import {StoreModule} from '@ngrx/store';
-import {reducers} from './broker-auth/store/broker-auth.reducers';
-import {BrokerAuthService} from './broker-auth/service/broker-auth.service';
+import {reducers} from './core/broker-auth/store/broker-auth.reducers';
+import {BrokerAuthService} from './core/broker-auth/service/broker-auth.service';
 
-import {BrokerAuthEffects} from './broker-auth/store/broker-auth.effects';
-import {BackendErrorMessagesModule} from '../pages/shared/modules/backend-error-messages/backend-error-messages.module';
-import {PersistenceService} from '../pages/shared/services/persistence.service';
-import {BrokerAuthTabsComponent} from './broker-auth/components/broker-auth-tabs/broker-auth-tabs.component';
-import {BrokerAuthPageComponent} from './broker-auth/components/broker-auth-page/broker-auth-page.component';
+import {BrokerAuthEffects} from './core/broker-auth/store/broker-auth.effects';
+import {BackendErrorMessagesModule} from './pages/shared/modules/backend-error-messages/backend-error-messages.module';
+import {PersistenceService} from './pages/shared/services/persistence.service';
+import {BrokerAuthTabsComponent} from './core/broker-auth/components/broker-auth-tabs/broker-auth-tabs.component';
+import {BrokerAuthPageComponent} from './core/broker-auth/components/broker-auth-page/broker-auth-page.component';
 
 const routes: Routes = [
   {
