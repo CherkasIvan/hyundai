@@ -3,6 +3,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 
+import {MatDialogModule} from '@angular/material/dialog';
+
 import {FormlyModule} from '@ngx-formly/core';
 
 import {SideBarModule} from '../components/side-bar/side-bar.module';
@@ -16,23 +18,27 @@ import {ProcessingPageComponent} from './componets/processing-page/processing-pa
 import {QuestionnaireFormComponent} from './componets/processing-page/components/questionnaire-form/questionnaire-form.component';
 import {MainFormContentPageComponent} from './main-form-content-page.component';
 import {MainFormHeaderComponent} from './componets/main-form-header/main-form-header.component';
+import {InsurancePoliciesModalComponent} from './componets/processing-page/components/insurance-policies-modal/insurance-policies-modal.component';
 
 @NgModule({
   declarations: [
     MainFormHeaderComponent,
     MainFormContentPageComponent,
     CalculationLoanPageComponent,
+    InsurancePoliciesModalComponent,
     DocumentsPaymentsPageComponent,
     QuestionnaireFormComponent,
     DocumentsComponent,
     CarInfoComponent,
     ProcessingPageComponent,
     QuestionnaireFormComponent,
+    InsurancePoliciesModalComponent,
   ],
   imports: [
     CommonModule,
     SideBarModule,
     RouterModule,
+    MatDialogModule,
     ReactiveFormsModule,
     MainFormContentPageRoutingModule,
     FormlyModule,
