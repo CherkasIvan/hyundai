@@ -5,7 +5,7 @@ import {CommonModule} from '@angular/common';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
-import {MainContainerPageComponent} from '../main-container-page/main-container-page.component';
+import {MainFormContentPageComponent} from '../main-form-content/main-form-content-page.component';
 
 import {RegisterComponent} from './components/register/register.component';
 import {StoreModule} from '@ngrx/store';
@@ -26,7 +26,7 @@ import {AuthUserRoutingModule} from './auth-user-routing.module';
 const routes: Routes = [
   {
     path: 'main',
-    component: MainContainerPageComponent,
+    component: MainFormContentPageComponent,
   },
 ];
 

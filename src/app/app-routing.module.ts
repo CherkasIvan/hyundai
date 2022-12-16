@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {BrokerAuthPageComponent} from './core/broker-auth/components/broker-auth-page/broker-auth-page.component';
 import {BrokersAuthGuard} from './core/broker-auth/guards/brokers-auth.guard';
-import {UsersAuthGuard} from './pages/main-container-page/guards/users-auth.guard';
+import {UsersAuthGuard} from './pages/main-form-content/guards/users-auth.guard';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'main',
     // canActivate: [UsersAuthGuard],
     loadChildren: () =>
-      import('./pages/main-container-page/main-container-page.module').then(
+      import('./pages/main-form-content/main-form-content.page.module').then(
         (module) => module.MainContainerPageModule
       ),
   },

@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {CalculationLoanPageComponent} from './componets/calculation-loan-page/calculation-loan-page.component';
-import { DocumentsPaymentsPageComponent } from './componets/documents-payments-page/documents-payments-page.component';
-import { ProcessingPageComponent } from './componets/processing-page/processing-page.component';
-import {MainContainerPageComponent} from './main-container-page.component';
+import {DocumentsPaymentsPageComponent} from './componets/documents-payments-page/documents-payments-page.component';
+import {ProcessingPageComponent} from './componets/processing-page/processing-page.component';
+import {MainFormContentPageComponent} from './main-form-content-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainContainerPageComponent,
+    component: MainFormContentPageComponent,
     children: [
       {path: 'loan-calculation', component: CalculationLoanPageComponent},
       {path: 'processing', component: ProcessingPageComponent},
@@ -21,4 +21,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainContainerPageRoutingModule {}
+export class MainFormContentPageRoutingModule {}
