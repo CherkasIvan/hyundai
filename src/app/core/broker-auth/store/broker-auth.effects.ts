@@ -50,7 +50,7 @@ export class BrokerAuthEffects {
       this.actions$.pipe(
         ofType(authBrokerSuccessAction),
         tap(() => {
-          this.router.navigateByUrl('/auth-user');
+          this.router.navigateByUrl('/main-form/loan-calculation');
         })
       ),
     {dispatch: false}

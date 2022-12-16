@@ -20,7 +20,7 @@ import {CoreModule} from './core/core.module';
 import {AuthModule} from './pages/user-auth/auth-user.module';
 import {BrokerTokenInterceptor} from './core/broker-auth/interceptor/broker-token.interceptor';
 import {BrokersAuthGuard} from './core/broker-auth/guards/brokers-auth.guard';
-import {UsersAuthGuard} from './pages/main-form-content/guards/users-auth.guard';
+import {UsersAuthGuard} from './pages/user-auth/guards/users-auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
