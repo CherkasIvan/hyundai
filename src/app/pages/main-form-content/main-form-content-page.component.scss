@@ -14,13 +14,6 @@
   }
 }
 
-.main-container {
-  position: relative;
-  z-index: 100;
-  min-width: 100vw;
-  min-height: 100vh;
-}
-
 .main-container::before {
   content: '';
   position: absolute;
@@ -36,17 +29,17 @@
   background-size: cover;
 }
 .nav-container {
-  width: 100%;
+  width: 90%;
   height: 64px;
   display: flex;
   align-items: center;
+  margin: 0 auto;
 
   .nav-list {
     display: flex;
     gap: 42px;
 
     &-item {
-      margin-left: 42px;
       .activated {
         border-bottom: 2px solid #343e48;
         border-radius: 6px 6px 0px 0px;
