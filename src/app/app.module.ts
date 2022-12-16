@@ -1,26 +1,31 @@
-import {EffectsModule} from '@ngrx/effects';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {FormlyModule} from '@ngx-formly/core';
+
 import {FormlyMaterialModule} from '@ngx-formly/material';
 import {FormlyMatInputModule} from '@ngx-formly/material/input';
 import {FormlyMatSliderModule} from '@ngx-formly/material/slider';
 import {FormlyMatToggleModule} from '@ngx-formly/material/toggle';
 
+import {FormlyModule} from '@ngx-formly/core';
+
 import {AppRoutingModule} from './app-routing.module';
 import {MainFormContentPageModule} from './pages/main-form-content/main-form-content.page.module';
-
-import {AppComponent} from './app.component';
-import {environment} from '../environments/environment';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from './core/core.module';
 import {AuthModule} from './pages/user-auth/auth-user.module';
+
 import {BrokerTokenInterceptor} from './core/broker-auth/interceptor/broker-token.interceptor';
 import {BrokersAuthGuard} from './core/broker-auth/guards/brokers-auth.guard';
 import {UsersAuthGuard} from './pages/user-auth/guards/users-auth.guard';
+
+import {environment} from '../environments/environment';
+
+import {AppComponent} from './app.component';
 
 @NgModule({
   declarations: [AppComponent],

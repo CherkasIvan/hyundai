@@ -5,8 +5,10 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
+
+import {Observable} from 'rxjs';
+
 import {PersistenceService} from '../../../pages/shared/services/persistence.service';
 
 @Injectable()

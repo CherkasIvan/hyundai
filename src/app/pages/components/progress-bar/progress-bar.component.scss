@@ -1,7 +1,6 @@
-.progress-bat-title{
+.progress-bat-title {
   margin-left: 20px;
-  margin-top: 31px;
-  color: #343E48;
+  color: #343e48;
   font-size: 18px;
   line-height: 22px;
   font-weight: bold;
@@ -14,12 +13,12 @@
 
 ::ng-deep {
   .mat-progress-bar-buffer {
-    background: #F2F4F7;
+    background: #f2f4f7;
     box-shadow: inset 2px 2px 3px rgba(69, 77, 86, 0.04);
     border-radius: 4px;
   }
   .mat-progress-bar-fill::after {
-    background: linear-gradient(180deg, #72879E 0%, #A7B9CB 100%);
+    background: linear-gradient(180deg, #72879e 0%, #a7b9cb 100%);
 
     box-shadow: inset 2px 2px 3px rgba(69, 77, 86, 0.04);
     border-radius: 4px;

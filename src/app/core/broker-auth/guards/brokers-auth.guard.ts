@@ -4,10 +4,11 @@ import {
   CanActivate,
   Router,
   RouterStateSnapshot,
-  UrlTree,
 } from '@angular/router';
-import {select, Store} from '@ngrx/store';
+
 import {Observable, tap} from 'rxjs';
+
+import {select, Store} from '@ngrx/store';
 import {brokerIsLoggedIn} from '../store/broker-auth.selectors';
 import {BrokerAuthStateInterface} from '../types/BrokerAuthState.interface';
 

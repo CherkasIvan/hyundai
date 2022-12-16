@@ -1,18 +1,17 @@
-import {RegisterRequestInterface} from '../../types/registerRequest.interface';
-import {CurrentBrokerInterface} from '../../store/types/currentBroker.interface';
-import {AppStateInterface} from 'src/app/pages/shared/types/appState.interface';
 import {Component, OnInit} from '@angular/core';
 import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
 
-import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
+import {select, Store} from '@ngrx/store';
 import {authBrokerAction} from '../../store/broker-auth.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
 } from '../../store/broker-auth.selectors';
-import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.interface';
+
+import {RegisterRequestInterface} from '../../types/registerRequest.interface';
+import {BackendErrorsInterface} from '../../../../pages/shared/types/backendErrors.interface';
 
 @Component({
   selector: 'mc-broker-auth-page',
