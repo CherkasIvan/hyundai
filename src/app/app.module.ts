@@ -11,16 +11,16 @@ import { FormlyMatSliderModule } from '@ngx-formly/material/slider';
 import { FormlyMatToggleModule } from '@ngx-formly/material/toggle';
 
 import {AppRoutingModule} from './app-routing.module';
-import {MainContainerPageModule} from './core-pages/main-container-page/main-container-page.module';
-
-import {ArticleModule} from './pages/article/article.module';
+import {MainContainerPageModule} from './pages/main-container-page/main-container-page.module';
 
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from './core/core.module';
-import {AuthModule} from './pages/auth/auth.module';
+import {AuthModule} from './pages/user-auth/auth-user.module';
 import {BrokerTokenInterceptor} from './core/broker-auth/interceptor/broker-token.interceptor';
+import {BrokersAuthGuard} from './core/broker-auth/guards/brokers-auth.guard';
+import {UsersAuthGuard} from './pages/main-container-page/guards/users-auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +28,6 @@ import {BrokerTokenInterceptor} from './core/broker-auth/interceptor/broker-toke
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ArticleModule,
     AuthModule,
     CoreModule,
     StoreModule.forRoot({}),
@@ -48,6 +47,8 @@ import {BrokerTokenInterceptor} from './core/broker-auth/interceptor/broker-toke
 
   ],
   providers: [
+    BrokersAuthGuard,
+    UsersAuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BrokerTokenInterceptor,

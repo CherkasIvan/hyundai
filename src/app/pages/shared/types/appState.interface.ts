@@ -1,5 +1,5 @@
-import { AuthStateInterface } from "../../auth/types/authState.interface";
+import {UserAuthStateInterface} from '../../user-auth/types/userAuthState.interface';
 
 export interface AppStateInterface {
-  auth: AuthStateInterface
+  auth: UserAuthStateInterface;
 }
