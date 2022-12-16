@@ -23,11 +23,11 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'main',
+    path: 'main-form',
     // canActivate: [UsersAuthGuard],
     loadChildren: () =>
       import('./pages/main-form-content/main-form-content.page.module').then(
-        (module) => module.MainContainerPageModule
+        (module) => module.MainFormContentPageModule
       ),
   },
 ];

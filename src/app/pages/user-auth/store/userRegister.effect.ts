@@ -49,7 +49,7 @@ export class RegisterEffect {
       this.actions$.pipe(
         ofType(userAuthSuccessAction),
         tap(() => {
-          this.router.navigateByUrl('/main');
+          this.router.navigateByUrl('/main-form');
         })
       ),
     {dispatch: false}

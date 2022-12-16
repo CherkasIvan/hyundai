@@ -13,6 +13,8 @@ import {QuestionnaireFormComponent} from './componets/processing-page/components
 import {MainFormContentPageComponent} from './main-form-content-page.component';
 import {MainFormHeaderComponent} from './componets/main-form-header/main-form-header.component';
 import {RouterModule} from '@angular/router';
+import {StepsComponent} from '../components/steps/steps.component';
+import {MainFormContentPageRoutingModule} from './main-form-content-page-routing.module';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,10 @@ import {RouterModule} from '@angular/router';
     SideBarModule,
     RouterModule,
     ReactiveFormsModule,
+    MainFormContentPageRoutingModule,
     FormlyModule,
   ],
   exports: [MainFormContentPageComponent],
   bootstrap: [MainFormContentPageComponent],
 })
-export class MainContainerPageModule {}
+export class MainFormContentPageModule {}

@@ -11,7 +11,7 @@ import {FormlyMatSliderModule} from '@ngx-formly/material/slider';
 import {FormlyMatToggleModule} from '@ngx-formly/material/toggle';
 
 import {AppRoutingModule} from './app-routing.module';
-import {MainContainerPageModule} from './pages/main-form-content/main-form-content.page.module';
+import {MainFormContentPageModule} from './pages/main-form-content/main-form-content.page.module';
 
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
@@ -38,7 +38,7 @@ import {UsersAuthGuard} from './pages/main-form-content/guards/users-auth.guard'
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
     BrowserAnimationsModule,
-    MainContainerPageModule,
+    MainFormContentPageModule,
     FormlyModule.forRoot(),
     FormlyMaterialModule,
     FormlyMatToggleModule,
