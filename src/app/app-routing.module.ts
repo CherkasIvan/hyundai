@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'main-form',
     // canActivate: [UsersAuthGuard],
-    canActivate: [BrokersAuthGuard],
+    // canActivate: [BrokersAuthGuard],
     loadChildren: () =>
       import('./pages/main-form-content/main-form-content.page.module').then(
         (module) => module.MainFormContentPageModule

@@ -20,11 +20,11 @@ export class BrokersAuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> {
+  ): Observable<any> {
     return this.store.pipe(
       select(brokerIsLoggedIn),
       tap((brokerIsLoggedIn) => {
-        if (!brokerIsLoggedIn) {
+        if (!localStorage.getItem('successToken')) {
           console.log(brokerIsLoggedIn);
           this.route.navigateByUrl('/auth-broker');
         }
