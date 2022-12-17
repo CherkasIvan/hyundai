@@ -10,6 +10,8 @@ import {FormlyModule} from '@ngx-formly/core';
 import {SideBarModule} from '../components/side-bar/side-bar.module';
 import {MainFormContentPageRoutingModule} from './main-form-content-page-routing.module';
 
+import {ModalService} from '../shared/services/modal.service';
+
 import {CalculationLoanPageComponent} from './componets/calculation-loan-page/calculation-loan-page.component';
 import {CarInfoComponent} from '../components/car-info/car-info.component';
 import {DocumentsPaymentsPageComponent} from './componets/documents-payments-page/documents-payments-page.component';
@@ -43,6 +45,7 @@ import {InsurancePoliciesModalComponent} from './componets/processing-page/compo
     MainFormContentPageRoutingModule,
     FormlyModule,
   ],
+  providers: [ModalService],
   exports: [MainFormContentPageComponent],
   bootstrap: [MainFormContentPageComponent],
 })
