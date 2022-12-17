@@ -8,48 +8,58 @@ import {Component, OnInit} from '@angular/core';
 export class InsurancePolicesModalBodyComponent implements OnInit {
   public cardsObjects = [
     {
-      title: 'saurabh',
-      description: 'dd',
-      price: 'tt',
-      date: 'dd',
-      img: '',
-      status: '',
-      kasko: '',
-      osago: '',
+      img: 'ingostrah.png',
+      status: 'green',
+      kasko: {
+        label: 'КАСКО',
+        checkbox: true,
+        description: 'dd',
+        price: '51 000 ₽',
+      },
+      osago: {
+        label: 'ОСАГО',
+        checkbox: false,
+        description: 'dd',
+        price: '13 000 ₽',
+      },
     },
     {
-      title: 'aman',
-      description: 'dd',
-      price: 'tt',
-      date: 'dd',
-      img: '',
-      status: '',
-      kasko: '',
-      osago: '',
+      img: 'sovkom_strah.png',
+      status: 'yeelow',
+      kasko: {
+        label: 'КАСКО',
+        checkbox: true,
+        description: 'dd',
+        price: '51 000 ₽',
+      },
+      osago: {
+        label: 'ОСАГО',
+        checkbox: false,
+        description: 'dd',
+        price: '13 000 ₽',
+      },
     },
     {
-      title: 'jessica',
-      description: 'dd',
-      price: 'tt',
-      date: 'dd',
-      img: '',
-      status: '',
-      kasko: '',
-      osago: '',
-    },
-    {
-      title: 'rosh',
-      description: 'dd',
-      price: 'tt',
-      date: 'dd',
-      img: '',
-      status: '',
-      kasko: '',
-      osago: '',
+      img: 'vsk.png',
+      status: 'yeelow',
+      kasko: {
+        label: 'КАСКО',
+        checkbox: true,
+        description: 'dd',
+        price: '51 000 ₽',
+      },
+      osago: {
+        label: 'ОСАГО',
+        checkbox: false,
+        description: 'dd',
+        price: '13 000 ₽',
+      },
     },
   ];
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.cardsObjects);
+  }
 }

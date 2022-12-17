@@ -6,8 +6,10 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./insurance-polices-modal-card.component.scss'],
 })
 export class InsurancePolicesModalCardComponent implements OnInit {
-  @Input() public cardObj!: any;
+  @Input() public insuranceCompany!: any;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.insuranceCompany);
+  }
 }

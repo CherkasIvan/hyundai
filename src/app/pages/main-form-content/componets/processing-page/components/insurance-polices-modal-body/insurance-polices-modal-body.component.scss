@@ -1,12 +1,33 @@
-.modal-body {
-  padding: 10px 90px 0 40px;
+.modal-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
-  &__title {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    display: flex;
-    align-items: center;
-    color: #343e48;
+  .modal-body {
+    width: 100%;
+    padding: 10px 90px 0 40px;
+
+    &__title {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      display: flex;
+      align-items: center;
+      color: #343e48;
+    }
+
+    &__save-changes-button {
+      padding: 10px 26.5px;
+      background: #343e48;
+      width: 230px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      border-radius: 6px;
+      color: #ffffff;
+    }
   }
 }
