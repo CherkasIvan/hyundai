@@ -8,7 +8,11 @@ export class ModalService {
   constructor(public dialog: MatDialog) {}
 
   public insurancePolicDialog() {
-    const dialogRef = this.dialog.open(InsurancePoliciesModalComponent);
+    const dialogRef = this.dialog.open(InsurancePoliciesModalComponent, {
+      width: '740px',
+      height: '100%',
+      maxHeight: '883px',
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);

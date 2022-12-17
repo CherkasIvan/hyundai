@@ -1,0 +1,9 @@
+<div class="modal-body container">
+  <div class="modal-body__title">Выберите страховой полис</div>
+  <div class="modal-body__cards__wrapper">
+    <mc-insurance-polices-modal-card
+      *ngFor="let card of cardsObjects"
+      [cardObj]="card"
+    ></mc-insurance-polices-modal-card>
+  </div>
+</div>

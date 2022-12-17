@@ -1,0 +1,12 @@
+.modal-body {
+  padding: 10px 90px 0 40px;
+
+  &__title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: #343e48;
+  }
+}
