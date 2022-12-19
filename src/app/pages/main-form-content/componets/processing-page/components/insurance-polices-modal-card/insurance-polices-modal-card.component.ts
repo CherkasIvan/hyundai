@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FormlyFormOptions, FormlyFieldConfig} from '@ngx-formly/core';
+import {ModalService} from 'src/app/pages/shared/services/modal.service';
 
 @Component({
   selector: 'mc-insurance-polices-modal-card',
@@ -10,6 +11,7 @@ import {FormlyFormOptions, FormlyFieldConfig} from '@ngx-formly/core';
 export class InsurancePolicesModalCardComponent implements OnInit {
   @Input() public insuranceCompany!: any;
   @Output() formValueReturnEvent = new EventEmitter<any>();
+  @Output() specialOptionsEvent = new EventEmitter<any>();
 
   public formModal = new FormGroup({});
   public model: Object = {};
@@ -22,11 +24,6 @@ export class InsurancePolicesModalCardComponent implements OnInit {
       templateOptions: {
         label: this.insuranceCompany,
       },
-      // validation: {
-      //   messages: {
-      //     pattern: 'Please accept the terms',
-      //   },
-      // },
     },
   ];
 

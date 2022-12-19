@@ -13,17 +13,7 @@ export class InsurancePolicesModalOptionsComponent implements OnInit {
   formSpecialOptions = new FormGroup({});
   model = {};
   options: FormlyFormOptions = {};
-  fields: FormlyFieldConfig[] = [
-    // {
-    //   key: 'Input',
-    //   type: 'input',
-    //   props: {
-    //     label: 'Опция',
-    //     placeholder: 'опция',
-    //     required: true,
-    //   },
-    // },
-  ];
+  fields: FormlyFieldConfig[] = [];
   constructor() {}
 
   public submitForm(model: any): void {
@@ -32,7 +22,6 @@ export class InsurancePolicesModalOptionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.specialOptions.forEach((option: any) => {
-      console.log(option);
       if ('options' in option) {
         this.fields.push({
           key: option.key,

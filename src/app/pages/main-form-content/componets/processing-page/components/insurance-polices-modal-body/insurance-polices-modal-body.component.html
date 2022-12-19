@@ -12,6 +12,7 @@
 
       <mc-insurance-polices-modal-options
         [specialOptions]="options"
+        *ngIf="modalService.isShow$ | async"
       ></mc-insurance-polices-modal-options>
     </div>
   </div>

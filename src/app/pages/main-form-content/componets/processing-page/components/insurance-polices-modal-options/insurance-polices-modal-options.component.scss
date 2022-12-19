@@ -7,6 +7,11 @@
   border-radius: 20px;
 
   .options-form {
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     &__submit-button {
       font-weight: 500;
       font-size: 16px;
@@ -17,6 +22,33 @@
       height: 40px;
       background: #343e48;
       border-radius: 6px;
+    }
+  }
+
+  ::ng-deep {
+    .mat-form-field-wrapper {
+      max-width: 70%;
+    }
+
+    .mat-focused .mat-form-field-label {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      color: #343e48;
+    }
+
+    .mat-form-field-underline {
+      background-color: transparent;
+    }
+
+    .mat-form-field-ripple {
+      /*change color of underline when focused*/
+      background-color: transparent;
+    }
+
+    .mat-form-field-flex {
+      background-color: #f2f4f7;
+      border-radius: 8px;
     }
   }
 }

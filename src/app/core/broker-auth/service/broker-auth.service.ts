@@ -25,9 +25,6 @@ export class BrokerAuthService {
 
     return this.http
       .post<BrokerAuthResponseInterface>(url, data, {headers: httpHeaders})
-      .pipe(
-        map((response: any) => response),
-        tap((el) => console.log(el))
-      );
+      .pipe(map((response: any) => response));
   }
 }

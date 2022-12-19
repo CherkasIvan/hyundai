@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ModalService} from 'src/app/pages/shared/services/modal.service';
 
 @Component({
   selector: 'mc-insurance-polices-modal-body',
@@ -111,7 +112,8 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
     this.cardsObjects.push(card);
     return this.cardsObjects;
   }
-  constructor() {}
+
+  constructor(public modalService: ModalService) {}
 
   ngOnInit(): void {}
 }
