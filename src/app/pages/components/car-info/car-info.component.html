@@ -1,15 +1,41 @@
 <div class="car-info-container">
-  <div class="car-info-title">Информация об автомобиле</div>
-  <div class="car-info-content">
-    <div class="car-info-details">
+  <div class="car-info-container__title">Информация об автомобиле</div>
+  <div class="car-info-container__content">
+    <div class="car-info-container__details">
       <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
         <formly-form
           [options]="options"
           [form]="form"
-          [fields]="fields"
+          [fields]="topFields"
           [model]="model"
         ></formly-form>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <formly-form
+                [options]="options"
+                [form]="form"
+                [fields]="middleFields"
+                [model]="model"
+        ></formly-form>
+        <formly-form
+                [options]="options"
+                [form]="form"
+                [fields]="typeOfCarBodyFields"
+                [model]="model"
+        ></formly-form>
+        <div >
+          <formly-form class="car-info-container__details__slider"
+                  [options]="options"
+                  [form]="form"
+                  [fields]="sliderField"
+                  [model]="model"
+          ></formly-form>
+        </div>
+        <formly-form
+                [options]="options"
+                [form]="form"
+                [fields]="discountFiled"
+                [model]="model"
+        ></formly-form>
+        <button type="submit" class="car-info-container__details__btn btn-default">Submit</button>
       </form>
     </div>
   </div>

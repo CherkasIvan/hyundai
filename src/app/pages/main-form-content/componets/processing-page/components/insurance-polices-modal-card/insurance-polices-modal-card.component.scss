@@ -1,0 +1,20 @@
+.card-body {
+  width: 609px;
+  max-height: 207px;
+  background: #ffffff;
+  box-shadow: 2px 2px 19px rgba(52, 62, 72, 0.21);
+  border-radius: 20px;
+  margin-top: 21px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 26px 35px 0 24px;
+
+    &-card {
+      padding: 9px 17px;
+      filter: drop-shadow(2px 2px 19px rgba(52, 62, 72, 0.21));
+      border-radius: 20px;
+    }
+  }
+}

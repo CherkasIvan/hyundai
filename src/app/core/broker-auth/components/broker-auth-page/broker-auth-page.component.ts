@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 import {Observable} from 'rxjs';
 
@@ -19,12 +19,12 @@ import {BackendErrorsInterface} from '../../../../pages/shared/types/backendErro
   styleUrls: ['./broker-auth-page.component.scss'],
 })
 export class BrokerAuthPageComponent implements OnInit {
-  public registrationForm!: UntypedFormGroup;
+  public registrationForm!: FormGroup;
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
   public checkboxSucces = false;
 
-  constructor(private fb: UntypedFormBuilder, private store: Store) {}
+  constructor(private fb: FormBuilder, private store: Store) {}
 
   public ngOnInit(): void {
     this.initializeForm();

@@ -15,7 +15,9 @@ import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class CarInfoComponent implements AfterViewChecked {
-  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {
+  }
+
   form = new FormGroup({});
   options: FormlyFormOptions = {};
   model = {
@@ -30,12 +32,12 @@ export class CarInfoComponent implements AfterViewChecked {
     car_body_type: 'Седан',
     car_telematic: 'true',
   };
-  fields: FormlyFieldConfig[] = [
+  topFields: FormlyFieldConfig[] = [
     {
-      fieldGroupClassName: 'car-info-details-form',
+      fieldGroupClassName: 'car-info-container__details__form',
       fieldGroup: [
         {
-          className: 'car-info-details-form-item',
+          className: 'car-info-container__details__form__item',
           key: 'vin',
           type: 'input',
           templateOptions: {
@@ -45,7 +47,7 @@ export class CarInfoComponent implements AfterViewChecked {
           },
         },
         {
-          className: 'car-info-details-form-item',
+          className: 'car-info-container__details__form__item',
           key: 'car_mark',
           type: 'input',
           templateOptions: {
@@ -55,7 +57,7 @@ export class CarInfoComponent implements AfterViewChecked {
           },
         },
         {
-          className: 'car-info-details-form-item',
+          className: 'car-info-container__details__form__item',
           key: 'car_model',
           type: 'input',
           templateOptions: {
@@ -65,7 +67,7 @@ export class CarInfoComponent implements AfterViewChecked {
           },
         },
         {
-          className: 'car-info-details-form-item',
+          className: 'car-info-container__details__form__item',
           key: 'car_year',
           type: 'input',
           templateOptions: {
@@ -76,8 +78,10 @@ export class CarInfoComponent implements AfterViewChecked {
         },
       ],
     },
+  ];
+  middleFields: FormlyFieldConfig[] = [
     {
-      fieldGroupClassName: 'car-info-details-form',
+      fieldGroupClassName: 'car-info-container__details__form',
       fieldGroup: [
         {
           className: 'car-info-details-form-item',
@@ -90,7 +94,7 @@ export class CarInfoComponent implements AfterViewChecked {
           },
         },
         {
-          className: 'car-info-details-form-item',
+          className: 'car-info-container__details__form__item',
           key: 'engine_capacity',
           type: 'input',
           templateOptions: {
@@ -100,7 +104,7 @@ export class CarInfoComponent implements AfterViewChecked {
           },
         },
         {
-          className: 'car-info-details-form-item',
+          className: 'car-info-container__details__form__item',
           key: 'transmission',
           type: 'select',
           templateOptions: {
@@ -109,45 +113,53 @@ export class CarInfoComponent implements AfterViewChecked {
             description: 'Выберите тип трансмиссии автомобиля',
             required: true,
             options: [
-              {value: 'Механическая', label: 'Механическая'},
-              {value: 'Автоматическая', label: 'Автоматическая'},
+              { value: 'Механическая', label: 'Механическая' },
+              { value: 'Автоматическая', label: 'Автоматическая' },
             ],
           },
         },
       ],
     },
+  ];
+  typeOfCarBodyFields:  FormlyFieldConfig[] = [
+      {
+        fieldGroupClassName: 'car-info-container__details__form',
+        fieldGroup: [
+          {
+            className: 'car-info-container__details__form__item car-info-container__details__form__item__radio',
+            key: 'car_body_type',
+            type: 'radio',
+            templateOptions: {
+              label: 'Тип кузова',
+              options: [
+                { value: 1, label: 'Седан' },
+                { value: 2, label: 'Внедорожник' },
+                { value: 3, label: 'Универсал' },
+                { value: 4, label: 'Кроссовер' },
+                { value: 5, label: 'Хэтчбек' },
+                { value: 6, label: 'Минивэн' },
+              ],
+            },
+          }
+        ],
+      },
+      ];
+  sliderField: FormlyFieldConfig[] = [
     {
-      fieldGroupClassName: 'car-info-details-form',
+      fieldGroupClassName: 'car-info-container__details__form',
       fieldGroup: [
         {
-          className:
-            'car-info-details-form-item car-info-details-form-item-radio',
-          key: 'car_body_type',
-          type: 'radio',
-          templateOptions: {
-            label: 'Тип кузова',
-            options: [
-              {value: 1, label: 'Седан'},
-              {value: 2, label: 'Внедорожник'},
-              {value: 3, label: 'Универсал'},
-              {value: 4, label: 'Кроссовер'},
-              {value: 5, label: 'Хэтчбек'},
-              {value: 6, label: 'Минивэн'},
-            ],
-          },
+        className: 'car-info-container__details__form__item car-info-container__details__form__input',
+        key: 'car_price',
+        type: 'input',
+        templateOptions: {
+          label: 'Стоимость авто, руб',
+          placeholder: 'Введите стоимость автомобиля',
+          required: true,
         },
+      },
         {
-          className: 'car-info-details-form-item car-info-details-form-input',
-          key: 'car_price',
-          type: 'input',
-          templateOptions: {
-            label: 'Стоимость авто, руб',
-            placeholder: 'Введите стоимость автомобиля',
-            required: true,
-          },
-        },
-        {
-          className: 'car-info-details-form-item',
+          className: 'car-info-container__details__form__item',
           key: 'car_price',
           type: 'slider',
           templateOptions: {
@@ -156,8 +168,15 @@ export class CarInfoComponent implements AfterViewChecked {
             step: 1,
           },
         },
+      ]
+    }
+  ];
+  discountFiled: FormlyFieldConfig[] = [
+    {
+      fieldGroupClassName: 'car-info-container__details__form',
+      fieldGroup: [
         {
-          className: 'car-info-details-form-item',
+          className: 'car-info-container__details__form__item',
           key: 'car_telematic',
           type: 'toggle',
           props: {
@@ -166,8 +185,8 @@ export class CarInfoComponent implements AfterViewChecked {
             required: true,
           },
         },
-      ],
-    },
+      ]
+    }
   ];
   onSubmit(model: any) {
     console.log(this.model);

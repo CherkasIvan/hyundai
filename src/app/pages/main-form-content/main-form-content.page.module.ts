@@ -10,6 +10,8 @@ import {FormlyModule} from '@ngx-formly/core';
 import {SideBarModule} from '../components/side-bar/side-bar.module';
 import {MainFormContentPageRoutingModule} from './main-form-content-page-routing.module';
 
+import {ModalService} from '../shared/services/modal.service';
+
 import {CalculationLoanPageComponent} from './componets/calculation-loan-page/calculation-loan-page.component';
 import {CarInfoComponent} from '../components/car-info/car-info.component';
 import {DocumentsPaymentsPageComponent} from './componets/documents-payments-page/documents-payments-page.component';
@@ -19,6 +21,10 @@ import {QuestionnaireFormComponent} from './componets/processing-page/components
 import {MainFormContentPageComponent} from './main-form-content-page.component';
 import {MainFormHeaderComponent} from './componets/main-form-header/main-form-header.component';
 import {InsurancePoliciesModalComponent} from './componets/processing-page/components/insurance-policies-modal/insurance-policies-modal.component';
+import {InsurancePolicesModalHeaderComponent} from './componets/processing-page/components/insurance-polices-modal-header/insurance-polices-modal-header.component';
+import {MatIconModule} from '@angular/material/icon';
+import { InsurancePolicesModalBodyComponent } from './componets/processing-page/components/insurance-polices-modal-body/insurance-polices-modal-body.component';
+import { InsurancePolicesModalCardComponent } from './componets/processing-page/components/insurance-polices-modal-card/insurance-polices-modal-card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +39,9 @@ import {InsurancePoliciesModalComponent} from './componets/processing-page/compo
     ProcessingPageComponent,
     QuestionnaireFormComponent,
     InsurancePoliciesModalComponent,
+    InsurancePolicesModalHeaderComponent,
+    InsurancePolicesModalBodyComponent,
+    InsurancePolicesModalCardComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +51,9 @@ import {InsurancePoliciesModalComponent} from './componets/processing-page/compo
     ReactiveFormsModule,
     MainFormContentPageRoutingModule,
     FormlyModule,
+    MatIconModule,
   ],
+  providers: [ModalService],
   exports: [MainFormContentPageComponent],
   bootstrap: [MainFormContentPageComponent],
 })

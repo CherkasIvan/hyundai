@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+import {StoreRouterConnectingModule, routerReducer} from '@ngrx/router-store';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
@@ -26,6 +27,7 @@ import {UsersAuthGuard} from './pages/user-auth/guards/users-auth.guard';
 import {environment} from '../environments/environment';
 
 import {AppComponent} from './app.component';
+// import {UrlResolverService} from './pages/shared/services/url-resolver.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,9 +51,14 @@ import {AppComponent} from './app.component';
     FormlyMatToggleModule,
     FormlyMatSliderModule,
     FormlyMatInputModule,
+    StoreModule.forRoot({
+      router: routerReducer,
+    }),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     BrokersAuthGuard,
+    // UrlResolverService,
     UsersAuthGuard,
     {
       provide: HTTP_INTERCEPTORS,

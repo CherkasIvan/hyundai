@@ -1,0 +1,31 @@
+<div class="card-body container">
+  <div class="card-body__header">
+    <div class="card-body__header-card">
+      <img
+        class="card-body__header-img"
+        src="../../../../../../../assets/images/insuranses/{{
+          insuranceCompany.img
+        }}"
+        alt="{{ insuranceCompany.img }}"
+      />
+    </div>
+
+    <span class="card-body__header-status">{{ insuranceCompany.status }}</span>
+  </div>
+  <div class="card-body__casko">
+    <input type="checkbox" class="card-body__casko-checkbox" />
+    <label class="card-body__casko-label">{{ insuranceCompany.casco }}</label>
+
+    <div class="card-body__casko-description">
+      {{ insuranceCompany.casco }}
+    </div>
+    <div class="card-body__casko-price">{{ insuranceCompany.casco }}</div>
+  </div>
+  <div class="card-body__osago">
+    <input type="checkbox" class="card-body__osago-checkbox" />
+    <label class="card-body__osago-label">{{ insuranceCompany.osago }}</label>
+
+    <div class="card-body__osago-description">{{ insuranceCompany.osago }}</div>
+    <div class="card-body__osago-price">{{ insuranceCompany.osago }}</div>
+  </div>
+</div>
