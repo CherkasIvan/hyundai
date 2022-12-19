@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FormlyFormOptions, FormlyFieldConfig} from '@ngx-formly/core';
 
@@ -9,6 +9,7 @@ import {FormlyFormOptions, FormlyFieldConfig} from '@ngx-formly/core';
 })
 export class InsurancePolicesModalCardComponent implements OnInit {
   @Input() public insuranceCompany!: any;
+  @Output() formValueReturnEvent = new EventEmitter<any>();
 
   public formModal = new FormGroup({});
   public model: Object = {};
@@ -28,6 +29,10 @@ export class InsurancePolicesModalCardComponent implements OnInit {
       // },
     },
   ];
+
+  public sendFormValues(value: any) {
+    this.formValueReturnEvent.emit(value);
+  }
 
   constructor() {}
 

@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./insurance-polices-modal-body.component.scss'],
 })
 export class InsurancePolicesModalBodyComponent implements OnInit {
+  public selectedCard: Object = {};
   public cardsObjects = [
     {
       img: 'ingostrah.png',
@@ -63,6 +64,11 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
     },
   ];
 
+  public getCard(card: any): Object {
+    this.cardsObjects = [];
+    this.cardsObjects.push(card);
+    return this.cardsObjects;
+  }
   constructor() {}
 
   ngOnInit(): void {}
