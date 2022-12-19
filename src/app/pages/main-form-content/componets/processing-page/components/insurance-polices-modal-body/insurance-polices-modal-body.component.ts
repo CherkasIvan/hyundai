@@ -6,7 +6,6 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./insurance-polices-modal-body.component.scss'],
 })
 export class InsurancePolicesModalBodyComponent implements OnInit {
-  public selectedCard: Object = {};
   public cardsObjects = [
     {
       img: 'ingostrah.png',
@@ -16,12 +15,14 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
           label: 'КАСКО',
           checkbox: true,
           description: 'dd',
+          options: false,
           price: '51 000 ₽',
         },
         {
           label: 'ОСАГО',
           checkbox: false,
           description: 'dd',
+          options: false,
           price: '13 000 ₽',
         },
       ],
@@ -34,12 +35,14 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
           label: 'КАСКО',
           checkbox: true,
           description: 'dd',
+          options: true,
           price: '51 000 ₽',
         },
         {
           label: 'ОСАГО',
           checkbox: false,
           description: 'dd',
+          options: false,
           price: '13 000 ₽',
         },
       ],
@@ -52,14 +55,53 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
           label: 'КАСКО',
           checkbox: true,
           description: 'dd',
+          options: false,
           price: '51 000 ₽',
         },
         {
           label: 'ОСАГО',
           checkbox: false,
           description: 'dd',
+          options: false,
           price: '13 000 ₽',
         },
+      ],
+    },
+  ];
+
+  public options: any[] = [
+    {
+      key: 'Input1',
+      type: 'input',
+      label: 'Опция',
+      placeholder: 'опция',
+    },
+    {
+      key: 'Select1',
+      type: 'select',
+      label: 'Опция',
+      placeholder: 'опция',
+      options: [
+        {value: 1, label: 'Option 5'},
+        {value: 2, label: 'Option 6'},
+        {value: 3, label: 'Option 7'},
+      ],
+    },
+    {
+      key: 'Input2',
+      type: 'input',
+      label: 'Опция',
+      placeholder: 'опция',
+    },
+    {
+      key: 'Select2',
+      type: 'select',
+      label: 'Опция',
+      placeholder: 'опция',
+      options: [
+        {value: 1, label: 'Option 1'},
+        {value: 2, label: 'Option 2'},
+        {value: 3, label: 'Option 3'},
       ],
     },
   ];

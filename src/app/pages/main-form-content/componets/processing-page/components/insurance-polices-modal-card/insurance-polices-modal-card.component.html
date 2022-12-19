@@ -38,9 +38,13 @@
       <label class="card-content__form--label">{{ card.label }}</label>
     </div>
 
-    <div class="card-body__casko-description">
+    <div class="card-content__description">
       {{ card.description }}
     </div>
+
+    <button class="card-content__options" *ngIf="card.options">
+      Настроить опции
+    </button>
 
     <div class="card-content__price">{{ card.price }}</div>
   </form>

@@ -9,13 +9,12 @@ export class ModalService {
 
   public insurancePolicDialog() {
     const dialogRef = this.dialog.open(InsurancePoliciesModalComponent, {
-      width: '740px',
-      height: '100%',
-      maxHeight: '883px',
+      minWidth: '740px',
+      width: '100%',
+      maxHeight: '100%',
+      // maxHeight: '883px',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 }

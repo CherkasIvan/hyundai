@@ -1,0 +1,57 @@
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {FormlyFormOptions, FormlyFieldConfig} from '@ngx-formly/core';
+
+@Component({
+  selector: 'mc-insurance-polices-modal-options',
+  templateUrl: './insurance-polices-modal-options.component.html',
+  styleUrls: ['./insurance-polices-modal-options.component.scss'],
+})
+export class InsurancePolicesModalOptionsComponent implements OnInit {
+  @Input() public specialOptions!: any;
+
+  formSpecialOptions = new FormGroup({});
+  model = {};
+  options: FormlyFormOptions = {};
+  fields: FormlyFieldConfig[] = [
+    // {
+    //   key: 'Input',
+    //   type: 'input',
+    //   props: {
+    //     label: 'Опция',
+    //     placeholder: 'опция',
+    //     required: true,
+    //   },
+    // },
+  ];
+  constructor() {}
+
+  public submitForm(model: any): void {
+    console.log(model);
+  }
+
+  ngOnInit(): void {
+    this.specialOptions.forEach((option: any) => {
+      console.log(option);
+      if ('options' in option) {
+        this.fields.push({
+          key: option.key,
+          type: option.type,
+          props: {
+            label: option.label,
+            placeholder: option.placeholder,
+            options: option.options,
+          },
+        });
+      } else
+        this.fields.push({
+          key: option.key,
+          type: option.type,
+          props: {
+            label: option.label,
+            placeholder: option.placeholder,
+          },
+        });
+    });
+  }
+}

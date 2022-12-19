@@ -25,6 +25,7 @@ import {InsurancePolicesModalHeaderComponent} from './componets/processing-page/
 import {MatIconModule} from '@angular/material/icon';
 import { InsurancePolicesModalBodyComponent } from './componets/processing-page/components/insurance-polices-modal-body/insurance-polices-modal-body.component';
 import { InsurancePolicesModalCardComponent } from './componets/processing-page/components/insurance-polices-modal-card/insurance-polices-modal-card.component';
+import { InsurancePolicesModalOptionsComponent } from './componets/processing-page/components/insurance-polices-modal-options/insurance-polices-modal-options.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { InsurancePolicesModalCardComponent } from './componets/processing-page/
     InsurancePolicesModalHeaderComponent,
     InsurancePolicesModalBodyComponent,
     InsurancePolicesModalCardComponent,
+    InsurancePolicesModalOptionsComponent,
   ],
   imports: [
     CommonModule,
