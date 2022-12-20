@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MockDataService } from 'src/app/shared/services/mock-data.service';
 
 @Component({
   selector: 'app-documents-payments-page',
@@ -6,7 +7,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./documents-payments-page.component.scss'],
 })
 export class DocumentsPaymentsPageComponent implements OnInit {
-  constructor() {}
+  public currentDocuments: any = [];
+  constructor(private mockDataService: MockDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.currentDocuments = this.mockDataService.documentsPayments;
+  }
 }
