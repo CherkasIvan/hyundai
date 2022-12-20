@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { MatTabsModule } from '@angular/material/tabs';
@@ -23,6 +22,8 @@ import { TesNavigationLogoComponent } from './components/tes-navigation-logo/tes
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthUserRoutingModule } from './auth-user-routing.module';
 
+import { SharedModule } from '../../shared/shared.module';
+
 const routes: Routes = [
   {
     path: 'main',
@@ -42,13 +43,11 @@ const routes: Routes = [
     MatStepperModule,
     MatFormFieldModule,
     MatTooltipModule,
-    MatIconModule,
-    ReactiveFormsModule,
     AuthUserRoutingModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('user-auth', reducers),
     EffectsModule.forFeature([RegisterEffect]),
-    BackendErrorMessagesModule,
+    SharedModule,
   ],
   providers: [UserAuthService, PersistenceService],
 })

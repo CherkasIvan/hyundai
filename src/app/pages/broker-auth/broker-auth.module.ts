@@ -1,12 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -22,6 +19,7 @@ import { BrokerAuthPageComponent } from './components/broker-auth-page/broker-au
 import { AuthBrokerIdFormComponent } from './components/auth-broker-id-form/auth-broker-id-form.component';
 import { AuthEmailFormComponent } from './components/auth-email-form/auth-email-form.component';
 import { BrokerAuthRoutingModule } from './broker-auth-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -41,15 +39,13 @@ const routes: Routes = [
     CommonModule,
     MatTabsModule,
     MatStepperModule,
-    MatFormFieldModule,
     MatTooltipModule,
-    MatIconModule,
-    ReactiveFormsModule,
     BrokerAuthRoutingModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('broker-auth', reducers),
     EffectsModule.forFeature([BrokerAuthEffects]),
     BackendErrorMessagesModule,
+    SharedModule,
   ],
   providers: [BrokerAuthService, PersistenceService],
 })
