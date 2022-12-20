@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ModalService} from 'src/app/pages/shared/services/modal.service';
 
 @Component({
-  selector: 'mc-insurance-polices-modal-body',
+  selector: 'app-insurance-polices-modal-body',
   templateUrl: './insurance-polices-modal-body.component.html',
   styleUrls: ['./insurance-polices-modal-body.component.scss'],
 })

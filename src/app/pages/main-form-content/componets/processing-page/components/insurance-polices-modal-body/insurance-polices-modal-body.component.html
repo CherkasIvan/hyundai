@@ -3,17 +3,17 @@
     <div class="modal-body__title">Выберите страховой полис</div>
     <div class="modal-body__cards">
       <div class="modal-body__cards--wrapper">
-        <mc-insurance-polices-modal-card
+        <app-insurance-polices-modal-card
           *ngFor="let card of cardsObjects; let i = index"
           [insuranceCompany]="card"
           (click)="getCard(card)"
-        ></mc-insurance-polices-modal-card>
+        ></app-insurance-polices-modal-card>
       </div>
 
-      <mc-insurance-polices-modal-options
+      <app-insurance-polices-modal-options
         [specialOptions]="options"
         *ngIf="modalService.isShow$ | async"
-      ></mc-insurance-polices-modal-options>
+      ></app-insurance-polices-modal-options>
     </div>
   </div>
   <button class="modal-body__save-changes-button">Сохранить изменения</button>

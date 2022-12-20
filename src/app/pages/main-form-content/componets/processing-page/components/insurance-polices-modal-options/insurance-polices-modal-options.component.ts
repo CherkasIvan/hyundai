@@ -3,7 +3,7 @@ import {FormGroup} from '@angular/forms';
 import {FormlyFormOptions, FormlyFieldConfig} from '@ngx-formly/core';
 
 @Component({
-  selector: 'mc-insurance-polices-modal-options',
+  selector: 'app-insurance-polices-modal-options',
   templateUrl: './insurance-polices-modal-options.component.html',
   styleUrls: ['./insurance-polices-modal-options.component.scss'],
 })

@@ -42,8 +42,8 @@
       line-height: 130%;
     }
 
-    &__validation-code::focus,
-    &__phone::focus {
+    &__validation-code:focus,
+    &__phone:focus {
       background-color: #ffffff;
     }
   }

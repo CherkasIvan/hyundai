@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'mc-insurance-polices-modal-header',
+  selector: 'app-insurance-polices-modal-header',
   templateUrl: './insurance-polices-modal-header.component.html',
   styleUrls: ['./insurance-polices-modal-header.component.scss'],
 })

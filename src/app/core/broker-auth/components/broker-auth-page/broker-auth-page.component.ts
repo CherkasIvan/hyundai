@@ -14,7 +14,7 @@ import {RegisterRequestInterface} from '../../types/registerRequest.interface';
 import {BackendErrorsInterface} from '../../../../pages/shared/types/backendErrors.interface';
 
 @Component({
-  selector: 'mc-broker-auth-page',
+  selector: 'app-broker-auth-page',
   templateUrl: './broker-auth-page.component.html',
   styleUrls: ['./broker-auth-page.component.scss'],
 })

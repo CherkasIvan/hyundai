@@ -10,7 +10,7 @@
         </p>
       </div>
 
-      <mc-auth-tabs>
+      <app-auth-tabs>
         <form
           [formGroup]="registrationForm"
           (ngSubmit)="onSubmit()"
@@ -68,7 +68,7 @@
             />
           </button>
         </form>
-      </mc-auth-tabs>
+      </app-auth-tabs>
     </div>
 
     <div class="personal-service">
@@ -77,9 +77,9 @@
     <!-- <p class="">
           <a [routerLink]="['/login']">Have an account?</a>
         </p> -->
-    <mc-backend-error-messages
+    <app-backend-error-messages
       *ngIf="backandErrors$ | async"
       [backendErrors]="backandErrors$ | async"
-    ></mc-backend-error-messages>
+    ></app-backend-error-messages>
   </div>
 </div>

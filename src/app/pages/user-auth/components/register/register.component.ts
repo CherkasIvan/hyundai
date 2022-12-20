@@ -13,7 +13,7 @@ import {
 import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.interface';
 
 @Component({
-  selector: 'mc-register',
+  selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

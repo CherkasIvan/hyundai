@@ -11,7 +11,7 @@ import {
 import {RegisterRequestInterface} from '../../types/registerRequest.interface';
 
 @Component({
-  selector: 'mc-auth-broker-id-form',
+  selector: 'app-auth-broker-id-form',
   templateUrl: './auth-broker-id-form.component.html',
   styleUrls: ['./auth-broker-id-form.component.scss'],
 })

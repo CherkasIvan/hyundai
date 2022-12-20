@@ -14,7 +14,7 @@ import {
 import {RegisterRequestInterface} from '../../types/registerRequest.interface';
 
 @Component({
-  selector: 'mc-auth-email-form',
+  selector: 'app-auth-email-form',
   templateUrl: './auth-email-form.component.html',
   styleUrls: ['./auth-email-form.component.scss'],
 })

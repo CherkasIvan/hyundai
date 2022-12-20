@@ -4,7 +4,7 @@ import {FormlyFormOptions, FormlyFieldConfig} from '@ngx-formly/core';
 import {ModalService} from 'src/app/pages/shared/services/modal.service';
 
 @Component({
-  selector: 'mc-insurance-polices-modal-card',
+  selector: 'app-insurance-polices-modal-card',
   templateUrl: './insurance-polices-modal-card.component.html',
   styleUrls: ['./insurance-polices-modal-card.component.scss'],
 })
