@@ -14,7 +14,10 @@ const routes: Routes = [
   },
   {
     path: 'auth-broker',
-    component: BrokerAuthPageComponent,
+    loadChildren: () =>
+      import('./pages/broker-auth/broker-auth.module').then(
+        (module) => module.BrokerAuthModule
+      ),
   },
   // {
   //   path: 'auth-user',

@@ -21,6 +21,7 @@ import { BrokerAuthTabsComponent } from './components/broker-auth-tabs/broker-au
 import { BrokerAuthPageComponent } from './components/broker-auth-page/broker-auth-page.component';
 import { AuthBrokerIdFormComponent } from './components/auth-broker-id-form/auth-broker-id-form.component';
 import { AuthEmailFormComponent } from './components/auth-email-form/auth-email-form.component';
+import { BrokerAuthRoutingModule } from './broker-auth-routing.module';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
     MatTooltipModule,
     MatIconModule,
     ReactiveFormsModule,
+    BrokerAuthRoutingModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('broker-auth', reducers),
     EffectsModule.forFeature([BrokerAuthEffects]),

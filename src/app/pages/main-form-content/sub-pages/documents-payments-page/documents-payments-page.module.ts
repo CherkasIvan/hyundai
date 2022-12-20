@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
+import { DocumentsPaymentsPageRoutingModule } from './documents-payments-page-routing.module';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [DocumentsPaymentsPageRoutingModule, CommonModule],
 })
-export class DocumentsPaymentsPageModule { }
+export class DocumentsPaymentsPageModule {}
