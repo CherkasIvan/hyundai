@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import {MatDialog} from '@angular/material/dialog';
-import {BehaviorSubject} from 'rxjs';
-import {InsurancePoliciesModalComponent} from '../../main-form-content/componets/processing-page/components/insurance-policies-modal/insurance-policies-modal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { BehaviorSubject } from 'rxjs';
+import { InsurancePoliciesModalComponent } from '../../pages/main-form-content/componets/processing-page/components/insurance-policies-modal/insurance-policies-modal.component';
 
 @Injectable()
 export class ModalService {

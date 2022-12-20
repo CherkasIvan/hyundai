@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
@@ -6,10 +6,10 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import {select, Store} from '@ngrx/store';
-import {Observable, tap} from 'rxjs';
-import {userIsLoggedIn} from '../../user-auth/store/userSelectors';
-import {UserAuthStateInterface} from '../../user-auth/types/userAuthState.interface';
+import { select, Store } from '@ngrx/store';
+import { Observable, tap } from 'rxjs';
+import { userIsLoggedIn } from '../../pages/user-auth/store/userSelectors';
+import { UserAuthStateInterface } from '../../pages/user-auth/types/userAuthState.interface';
 
 @Injectable()
 export class UsersAuthGuard implements CanActivate {

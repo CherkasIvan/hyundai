@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ModalService} from 'src/app/pages/shared/services/modal.service';
+import { Component, OnInit } from '@angular/core';
+import { ModalService } from '../../../../../../shared/services/modal.service';
 
 @Component({
   selector: 'app-insurance-polices-modal-body',
@@ -83,9 +83,9 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
       label: 'Опция',
       placeholder: 'опция',
       options: [
-        {value: 1, label: 'Option 5'},
-        {value: 2, label: 'Option 6'},
-        {value: 3, label: 'Option 7'},
+        { value: 1, label: 'Option 5' },
+        { value: 2, label: 'Option 6' },
+        { value: 3, label: 'Option 7' },
       ],
     },
     {
@@ -100,9 +100,9 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
       label: 'Опция',
       placeholder: 'опция',
       options: [
-        {value: 1, label: 'Option 1'},
-        {value: 2, label: 'Option 2'},
-        {value: 3, label: 'Option 3'},
+        { value: 1, label: 'Option 1' },
+        { value: 2, label: 'Option 2' },
+        { value: 3, label: 'Option 3' },
       ],
     },
   ];

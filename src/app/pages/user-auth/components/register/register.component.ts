@@ -1,16 +1,20 @@
-import {RegisterRequestInterface} from './../../types/registerRequest.interface';
-import {Component, OnInit} from '@angular/core';
-import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
+import { RegisterRequestInterface } from './../../types/registerRequest.interface';
+import { Component, OnInit } from '@angular/core';
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators,
+} from '@angular/forms';
 
-import {select, Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
-import {userAuthAction} from '../../store/userRegister.action';
+import { userAuthAction } from '../../store/userRegister.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
 } from '../../store/userSelectors';
-import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.interface';
+import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
 
 @Component({
   selector: 'app-register',
@@ -50,6 +54,6 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    this.store.dispatch(userAuthAction({request}));
+    this.store.dispatch(userAuthAction({ request }));
   }
 }

@@ -1,9 +1,9 @@
-import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface';
+import { BackendErrorsInterface } from './backendErrors.interface';
 import { CurrentUserInterface } from './currentUser.interface';
 
 export interface UserAuthStateInterface {
   isSubmitting: boolean;
-  currentUser: CurrentUserInterface | null;
-  userIsLoggedIn: boolean;
+  currentBroker: CurrentUserInterface | null;
+  brokerIsLoggedIn: boolean;
   validationErrors: BackendErrorsInterface | null;
 }

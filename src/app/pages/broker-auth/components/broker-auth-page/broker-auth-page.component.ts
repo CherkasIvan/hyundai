@@ -1,17 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
-import {select, Store} from '@ngrx/store';
-import {authBrokerAction} from '../../store/broker-auth.action';
+import { select, Store } from '@ngrx/store';
+import { authBrokerAction } from '../../store/broker-auth.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
 } from '../../store/broker-auth.selectors';
 
-import {RegisterRequestInterface} from '../../types/registerRequest.interface';
-import {BackendErrorsInterface} from '../../../../pages/shared/types/backendErrors.interface';
+import { RegisterRequestInterface } from '../../types/registerRequest.interface';
+import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
 
 @Component({
   selector: 'app-broker-auth-page',
@@ -52,6 +52,6 @@ export class BrokerAuthPageComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    this.store.dispatch(authBrokerAction({request}));
+    this.store.dispatch(authBrokerAction({ request }));
   }
 }

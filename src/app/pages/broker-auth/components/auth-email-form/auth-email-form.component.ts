@@ -1,21 +1,28 @@
-import {Component, OnInit} from '@angular/core';
-import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
-import {Store, select} from '@ngrx/store';
-import {Observable} from 'rxjs';
-import {BackendErrorsInterface} from 'src/app/pages/shared/types/backendErrors.interface';
-import {authBrokerAction} from '../../store/broker-auth.action';
+import { Component, OnInit } from '@angular/core';
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators,
+} from '@angular/forms';
+
+import { Store, select } from '@ngrx/store';
+
+import { Observable } from 'rxjs';
+
+import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
+import { authBrokerAction } from '../../store/broker-auth.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
 } from '../../store/broker-auth.selectors';
-import {RegisterRequestInterface} from '../../types/registerRequest.interface';
+import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 
 @Component({
-  selector: 'app-auth-broker-id-form',
-  templateUrl: './auth-broker-id-form.component.html',
-  styleUrls: ['./auth-broker-id-form.component.scss'],
+  selector: 'app-auth-email-form',
+  templateUrl: './auth-email-form.component.html',
+  styleUrls: ['./auth-email-form.component.scss'],
 })
-export class AuthBrokerIdFormComponent implements OnInit {
+export class AuthEmailFormComponent implements OnInit {
   public registrationForm!: UntypedFormGroup;
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
@@ -35,8 +42,8 @@ export class AuthBrokerIdFormComponent implements OnInit {
 
   public initializeForm(): void {
     this.registrationForm = this.fb.group({
-      name: ['', Validators.required],
-      id: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
@@ -49,6 +56,6 @@ export class AuthBrokerIdFormComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    this.store.dispatch(authBrokerAction({request}));
+    this.store.dispatch(authBrokerAction({ request }));
   }
 }

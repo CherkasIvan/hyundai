@@ -1,15 +1,15 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
-import {PersistenceService} from '../../../pages/shared/services/persistence.service';
+import { PersistenceService } from '../../shared/services/persistence.service';
 
 @Injectable()
 export class BrokerTokenInterceptor implements HttpInterceptor {

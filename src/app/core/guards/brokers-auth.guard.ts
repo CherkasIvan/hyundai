@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
@@ -6,11 +6,12 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 
-import {Observable, tap} from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
-import {select, Store} from '@ngrx/store';
-import {brokerIsLoggedIn} from '../store/broker-auth.selectors';
-import {BrokerAuthStateInterface} from '../types/BrokerAuthState.interface';
+import { select, Store } from '@ngrx/store';
+import { brokerIsLoggedIn } from '../../pages/broker-auth/store/broker-auth.selectors';
+
+import { BrokerAuthStateInterface } from '../../pages/broker-auth/types/BrokerAuthState.interface';
 
 @Injectable()
 export class BrokersAuthGuard implements CanActivate {
