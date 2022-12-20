@@ -1,11 +1,8 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-
-import {BackendErrorMessagesComponent} from './backend-error-messages.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [BackendErrorMessagesComponent],
-  exports: [BackendErrorMessagesComponent],
+  declarations: [],
   imports: [CommonModule],
 })
 export class BackendErrorMessagesModule {}

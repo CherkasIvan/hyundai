@@ -1,4 +1,4 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,9 +16,7 @@ import { FormlyMatToggleModule } from '@ngx-formly/material/toggle';
 import { FormlyModule } from '@ngx-formly/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { MainFormContentPageModule } from './pages/main-form-content/main-form-content.page.module';
 import { CoreModule } from './core/core.module';
-import { AuthModule } from './pages/user-auth/auth-user.module';
 
 import { environment } from '../environments/environment';
 
@@ -31,7 +29,6 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AuthModule,
     CoreModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
@@ -41,7 +38,6 @@ import { AppComponent } from './app.component';
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
     BrowserAnimationsModule,
-    MainFormContentPageModule,
     FormlyModule.forRoot(),
     FormlyMaterialModule,
     FormlyMatToggleModule,
