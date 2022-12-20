@@ -1,32 +1,30 @@
-import { RegisterRequestInterface } from './../../types/registerRequest.interface';
 import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  Validators,
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { userAuthAction } from '../../store/userRegister.action';
+import { select, Store } from '@ngrx/store';
+import { authBrokerAction } from '../../store/broker-auth.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
-} from '../../store/userSelectors';
+} from '../../store/broker-auth.selectors';
+
+import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  selector: 'app-broker-auth-page',
+  templateUrl: './broker-auth-page.component.html',
+  styleUrls: ['./broker-auth-page.component.scss'],
 })
-export class RegisterComponent implements OnInit {
-  public registrationForm!: UntypedFormGroup;
+export class BrokerAuthPageComponent implements OnInit {
+  public registrationForm!: FormGroup;
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
+  public checkboxSucces = false;
 
-  constructor(private fb: UntypedFormBuilder, private store: Store) {}
+  constructor(private fb: FormBuilder, private store: Store) {}
 
   public ngOnInit(): void {
     this.initializeForm();
@@ -40,8 +38,8 @@ export class RegisterComponent implements OnInit {
 
   public initializeForm(): void {
     this.registrationForm = this.fb.group({
-      phone: ['', Validators.required],
-      // secret_key: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
@@ -54,6 +52,6 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    this.store.dispatch(userAuthAction({ request }));
+    this.store.dispatch(authBrokerAction({ request }));
   }
 }
