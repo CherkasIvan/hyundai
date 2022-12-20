@@ -1,15 +1,23 @@
 .card-body {
-  width: 609px;
+  display: flex;
+  flex-direction: column;
+  max-width: 609px;
   max-height: 207px;
   background: #ffffff;
   box-shadow: 2px 2px 19px rgba(52, 62, 72, 0.21);
   border-radius: 20px;
   margin-top: 21px;
+  padding: 26px 24px;
 
   &__header {
     display: flex;
     justify-content: space-between;
-    padding: 26px 35px 0 24px;
+
+    &-status {
+      width: 20px;
+      height: 20px;
+      border-radius: 2px;
+    }
 
     &-card {
       padding: 9px 17px;
@@ -17,4 +25,38 @@
       border-radius: 20px;
     }
   }
+
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+
+    &__form {
+      &--checkbox {
+        margin-right: 10px;
+      }
+    }
+
+    &__options {
+      background: #ffffff;
+      padding: 6px 22.5px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: #343e48;
+      border: 1px solid #72879e;
+      border-radius: 6px;
+    }
+  }
+}
+
+.green {
+  background: linear-gradient(173.16deg, #92f9e1 -46.88%, #27c19d 94.64%);
+  border-radius: 2px;
+}
+
+.yellow {
+  background: #efce5a;
+  background-color: yellow;
 }

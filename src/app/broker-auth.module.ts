@@ -19,6 +19,8 @@ import {BackendErrorMessagesModule} from './pages/shared/modules/backend-error-m
 import {PersistenceService} from './pages/shared/services/persistence.service';
 import {BrokerAuthTabsComponent} from './core/broker-auth/components/broker-auth-tabs/broker-auth-tabs.component';
 import {BrokerAuthPageComponent} from './core/broker-auth/components/broker-auth-page/broker-auth-page.component';
+import {AuthBrokerIdFormComponent} from './core/broker-auth/components/auth-broker-id-form/auth-broker-id-form.component';
+import {AuthEmailFormComponent} from './core/broker-auth/components/auth-email-form/auth-email-form.component';
 
 const routes: Routes = [
   {
@@ -28,7 +30,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [BrokerAuthPageComponent, BrokerAuthTabsComponent],
+  declarations: [
+    BrokerAuthPageComponent,
+    BrokerAuthTabsComponent,
+    AuthBrokerIdFormComponent,
+    AuthEmailFormComponent,
+  ],
   imports: [
     CommonModule,
     MatTabsModule,

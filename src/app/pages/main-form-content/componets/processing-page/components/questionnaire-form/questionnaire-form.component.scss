@@ -1,8 +1,58 @@
 .questionnaire-container {
   padding: 20px;
-  min-width: 100%;
+  min-width: 75vw;
   height: 80vh;
   background: #ffffff;
   box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
   border-radius: 30px;
+
+  .registration {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 130%;
+      color: #343e48;
+    }
+
+    .passport-data,
+    .residential-address,
+    .education,
+    .family,
+    .monthly_expenses {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__title {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 130%;
+        color: #343e48;
+      }
+
+      &__auto-registration {
+        padding: 11.5px 13px;
+        background: #ffffff;
+        border: 1px solid #72879e;
+        border-radius: 6px;
+
+        &-text {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 17px;
+          text-align: center;
+          color: #343e48;
+        }
+
+        &-img {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
 }

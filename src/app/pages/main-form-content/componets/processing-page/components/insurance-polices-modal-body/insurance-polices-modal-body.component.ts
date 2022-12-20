@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ModalService} from 'src/app/pages/shared/services/modal.service';
 
 @Component({
   selector: 'mc-insurance-polices-modal-body',
@@ -10,56 +11,109 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
     {
       img: 'ingostrah.png',
       status: 'green',
-      kasko: {
-        label: 'КАСКО',
-        checkbox: true,
-        description: 'dd',
-        price: '51 000 ₽',
-      },
-      osago: {
-        label: 'ОСАГО',
-        checkbox: false,
-        description: 'dd',
-        price: '13 000 ₽',
-      },
+      insurences: [
+        {
+          label: 'КАСКО',
+          checkbox: true,
+          description: 'dd',
+          options: false,
+          price: '51 000 ₽',
+        },
+        {
+          label: 'ОСАГО',
+          checkbox: false,
+          description: 'dd',
+          options: false,
+          price: '13 000 ₽',
+        },
+      ],
     },
     {
       img: 'sovkom_strah.png',
-      status: 'yeelow',
-      kasko: {
-        label: 'КАСКО',
-        checkbox: true,
-        description: 'dd',
-        price: '51 000 ₽',
-      },
-      osago: {
-        label: 'ОСАГО',
-        checkbox: false,
-        description: 'dd',
-        price: '13 000 ₽',
-      },
+      status: 'yellow',
+      insurences: [
+        {
+          label: 'КАСКО',
+          checkbox: true,
+          description: 'dd',
+          options: true,
+          price: '51 000 ₽',
+        },
+        {
+          label: 'ОСАГО',
+          checkbox: false,
+          description: 'dd',
+          options: false,
+          price: '13 000 ₽',
+        },
+      ],
     },
     {
       img: 'vsk.png',
-      status: 'yeelow',
-      kasko: {
-        label: 'КАСКО',
-        checkbox: true,
-        description: 'dd',
-        price: '51 000 ₽',
-      },
-      osago: {
-        label: 'ОСАГО',
-        checkbox: false,
-        description: 'dd',
-        price: '13 000 ₽',
-      },
+      status: 'yellow',
+      insurences: [
+        {
+          label: 'КАСКО',
+          checkbox: true,
+          description: 'dd',
+          options: false,
+          price: '51 000 ₽',
+        },
+        {
+          label: 'ОСАГО',
+          checkbox: false,
+          description: 'dd',
+          options: false,
+          price: '13 000 ₽',
+        },
+      ],
     },
   ];
 
-  constructor() {}
+  public options: any[] = [
+    {
+      key: 'Input1',
+      type: 'input',
+      label: 'Опция',
+      placeholder: 'опция',
+    },
+    {
+      key: 'Select1',
+      type: 'select',
+      label: 'Опция',
+      placeholder: 'опция',
+      options: [
+        {value: 1, label: 'Option 5'},
+        {value: 2, label: 'Option 6'},
+        {value: 3, label: 'Option 7'},
+      ],
+    },
+    {
+      key: 'Input2',
+      type: 'input',
+      label: 'Опция',
+      placeholder: 'опция',
+    },
+    {
+      key: 'Select2',
+      type: 'select',
+      label: 'Опция',
+      placeholder: 'опция',
+      options: [
+        {value: 1, label: 'Option 1'},
+        {value: 2, label: 'Option 2'},
+        {value: 3, label: 'Option 3'},
+      ],
+    },
+  ];
 
-  ngOnInit(): void {
-    console.log(this.cardsObjects);
+  public getCard(card: any): Object {
+    this.cardsObjects = [];
+    this.cardsObjects.push(card);
+    return this.cardsObjects;
   }
+
+  constructor(public modalService: ModalService) {}
+
+  ngOnInit(): void {}
 }
