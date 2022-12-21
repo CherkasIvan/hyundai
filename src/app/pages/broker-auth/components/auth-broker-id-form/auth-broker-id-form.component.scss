@@ -42,8 +42,8 @@
       line-height: 130%;
     }
 
-    &__validation-code::focus,
-    &__phone::focus {
+    &__validation-code:focus,
+    &__phone:focus {
       background-color: #ffffff;
     }
   }
@@ -72,15 +72,16 @@
       cursor: pointer;
     }
 
-    // &__success::after {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   height: 100%;
-    //   width: 100%;
-    //   background-color: transparent;
-    // }
+    &__success::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border: 1px solid #a3aed0;
+      background: transparent;
+    }
   }
 
   &-button {

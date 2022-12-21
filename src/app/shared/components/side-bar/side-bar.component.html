@@ -4,18 +4,15 @@
   <mat-vertical-stepper #stepper (selectionChange)="selectionChanged($event)">
     <mat-step
       *ngFor="let step of steps; let i = index"
-      [routerLink]="['/id:' + i]"
+      [routerLink]="['/' + step.path]"
       [editable]="true"
       [label]="step.path"
     >
       <ng-template matStepLabel>{{ step.content }}</ng-template>
       <ng-template matStepContent>
-        <router-outlet *ngIf="i === selectedStepIndex"></router-outlet>
-        <!-- <p>This content was rendered lazily</p>
-        <button mat-button matStepperNext>Next</button> -->
+        <p>{{ step.path }}</p>
+        <router-outlet></router-outlet>
       </ng-template>
     </mat-step>
   </mat-vertical-stepper>
-
-  <!-- <app-steps [steps]="currentSteps"></app-steps> -->
 </div>

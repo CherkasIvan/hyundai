@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { MockDataService } from '../../../../shared/services/mock-data.service';
 
 @Component({
   selector: 'app-processing-page',
@@ -6,14 +7,11 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./processing-page.component.scss'],
 })
 export class ProcessingPageComponent implements OnInit {
-  public processingSteps = [
-    {content: 'Личная информация'},
-    {content: 'Работа'},
-    {content: 'Сводка'},
-    {content: 'Одобрение'},
-  ];
+  public processingSteps: any = [];
 
-  constructor() {}
+  constructor(private mockDataService: MockDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.processingSteps = this.mockDataService.processingSteps;
+  }
 }

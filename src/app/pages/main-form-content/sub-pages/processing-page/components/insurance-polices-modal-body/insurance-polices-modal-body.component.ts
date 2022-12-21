@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MockDataService } from '../../../../../../shared/services/mock-data.service';
 import { ModalService } from '../../../../../../shared/services/modal.service';
 
 @Component({
@@ -7,105 +8,8 @@ import { ModalService } from '../../../../../../shared/services/modal.service';
   styleUrls: ['./insurance-polices-modal-body.component.scss'],
 })
 export class InsurancePolicesModalBodyComponent implements OnInit {
-  public cardsObjects = [
-    {
-      img: 'ingostrah.png',
-      status: 'green',
-      insurences: [
-        {
-          label: 'КАСКО',
-          checkbox: true,
-          description: 'dd',
-          options: false,
-          price: '51 000 ₽',
-        },
-        {
-          label: 'ОСАГО',
-          checkbox: false,
-          description: 'dd',
-          options: false,
-          price: '13 000 ₽',
-        },
-      ],
-    },
-    {
-      img: 'sovkom_strah.png',
-      status: 'yellow',
-      insurences: [
-        {
-          label: 'КАСКО',
-          checkbox: true,
-          description: 'dd',
-          options: true,
-          price: '51 000 ₽',
-        },
-        {
-          label: 'ОСАГО',
-          checkbox: false,
-          description: 'dd',
-          options: false,
-          price: '13 000 ₽',
-        },
-      ],
-    },
-    {
-      img: 'vsk.png',
-      status: 'yellow',
-      insurences: [
-        {
-          label: 'КАСКО',
-          checkbox: true,
-          description: 'dd',
-          options: false,
-          price: '51 000 ₽',
-        },
-        {
-          label: 'ОСАГО',
-          checkbox: false,
-          description: 'dd',
-          options: false,
-          price: '13 000 ₽',
-        },
-      ],
-    },
-  ];
-
-  public options: any[] = [
-    {
-      key: 'Input1',
-      type: 'input',
-      label: 'Опция',
-      placeholder: 'опция',
-    },
-    {
-      key: 'Select1',
-      type: 'select',
-      label: 'Опция',
-      placeholder: 'опция',
-      options: [
-        { value: 1, label: 'Option 5' },
-        { value: 2, label: 'Option 6' },
-        { value: 3, label: 'Option 7' },
-      ],
-    },
-    {
-      key: 'Input2',
-      type: 'input',
-      label: 'Опция',
-      placeholder: 'опция',
-    },
-    {
-      key: 'Select2',
-      type: 'select',
-      label: 'Опция',
-      placeholder: 'опция',
-      options: [
-        { value: 1, label: 'Option 1' },
-        { value: 2, label: 'Option 2' },
-        { value: 3, label: 'Option 3' },
-      ],
-    },
-  ];
+  public cardsObjects: any = [];
+  public options: any = [];
 
   public getCard(card: any): Object {
     this.cardsObjects = [];
@@ -113,7 +17,11 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
     return this.cardsObjects;
   }
 
-  constructor(public modalService: ModalService) {}
+  constructor(public modalService: ModalService,
+              private mockDataService: MockDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cardsObjects = this.mockDataService.insuranceCardsObjects;
+    this.options = this.mockDataService.insuranceOptions;
+  }
 }

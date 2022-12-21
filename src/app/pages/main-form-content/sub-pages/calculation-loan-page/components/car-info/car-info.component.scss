@@ -50,6 +50,7 @@
       margin-bottom: 56px;
       color: #343e48;
       margin-left: 35px;
+      flex-wrap: wrap;
 
       .mat-slide-toggle:not(.mat-checked) {
         .mat-ripple-element {
@@ -135,6 +136,8 @@
       &__form__item {
         width: 340px;
         height: 74px;
+        &__radio {
+        }
       }
 
       .mat-slider-horizontal {

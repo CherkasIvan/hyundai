@@ -39,10 +39,6 @@
   </fieldset>
 
   <fieldset class="auth-form-checkbox">
-    <label for="checkbox" class="auth-form-checkbox__label"
-      >Я принимаю условия соглашения и даю
-      <u><b>Согласие на обработку персональных данных</b></u></label
-    >
     <input
       [checked]="checkboxSucces"
       (change)="checkboxSucces = !checkboxSucces"
@@ -50,6 +46,9 @@
       class="auth-form-checkbox__success"
       name="checkbox"
     />
+    <label for="checkbox" class="auth-form-checkbox__label"
+      >Я принимаю условия соглашения и даю
+      <u><b>Согласие на обработку персональных данных</b></u></label>
   </fieldset>
 
   <button
