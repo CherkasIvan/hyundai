@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-main-form-content-page',
@@ -6,6 +6,14 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./main-form-content-page.component.scss'],
 })
 export class MainFormContentPageComponent implements OnInit {
+  public calculationSteps = [
+    { content: 'Информация об автомобиле' },
+    { content: 'Собственник' },
+    { content: 'Водители' },
+    { content: 'Параметры кредита' },
+    { content: 'Параметры страховых продуктов' },
+    { content: 'Расчет продуктов' },
+  ];
   constructor() {}
 
   ngOnInit(): void {}

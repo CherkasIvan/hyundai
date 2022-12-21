@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CalculationLoanPageComponent } from 'src/app/pages/main-form-content/sub-pages/calculation-loan-page/calculation-loan-page.component';
+
+import { CalculationLoanPageComponent } from '../../../pages/main-form-content/sub-pages/calculation-loan-page/calculation-loan-page.component';
 
 const routes: Routes = [
   { path: 'id:0', component: CalculationLoanPageComponent },

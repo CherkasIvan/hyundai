@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-calculation-loan-page',
@@ -7,12 +7,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CalculationLoanPageComponent implements OnInit {
   public calculationSteps = [
-    {content: 'Информация об автомобиле'},
-    {content: 'Собственник'},
-    {content: 'Водители'},
-    {content: 'Параметры кредита'},
-    {content: 'Параметры страховых продуктов'},
-    {content: 'Расчет продуктов'},
+    { content: 'Информация об автомобиле' },
+    { content: 'Собственник' },
+    { content: 'Водители' },
+    { content: 'Параметры кредита' },
+    { content: 'Параметры страховых продуктов' },
+    { content: 'Расчет продуктов' },
   ];
 
   constructor() {}

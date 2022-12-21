@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -13,12 +13,17 @@ export class SideBarComponent implements OnInit {
   public selectedStepIndex: number = 0;
 
   public selectionChanged($event: any) {
-    console.log($event);
     this.selectedStepIndex = $event.selectedIndex;
-    this.router.navigate([this.links + this.selectedStepIndex]);
+
+    let route: any = this.activatedRoute.parent;
+    console.log(route);
+
+    this.router.navigate([this.links + this.selectedStepIndex], {
+      relativeTo: route,
+    });
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {}
 }
