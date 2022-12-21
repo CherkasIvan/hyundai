@@ -28,6 +28,7 @@
     "@ngrx/store-devtools": "^14.3.2",
     "@ngx-formly/bootstrap": "^6.0.2",
     "@ngx-formly/core": "^6.0.2",
+    "@ngx-formly/material": "^6.0.4",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
     "rxjs": "~7.5.0",

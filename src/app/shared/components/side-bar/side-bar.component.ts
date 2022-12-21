@@ -13,8 +13,6 @@ export class SideBarComponent implements OnInit {
   public selectedStepName: string = '';
 
   public selectionChanged($event: any) {
-    console.log($event.selectedIndex);
-
     this.router.url.includes('loan-calculation')
       ? (this.selectedStepName =
           this.mockData.calculationSteps[$event.selectedIndex].path)

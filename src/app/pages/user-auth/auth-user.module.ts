@@ -13,7 +13,6 @@ import { UserAuthService } from './services/user-auth.service';
 import { EffectsModule } from '@ngrx/effects';
 
 import { RegisterEffect } from './store/userRegister.effect';
-import { BackendErrorMessagesModule } from '../../shared/modules/backend-error-messages/backend-error-messages.module';
 import { PersistenceService } from '../../shared/services/persistence.service';
 import { AuthTabsComponent } from './components/auth-tabs/auth-tabs.component';
 import { MatStepperModule } from '@angular/material/stepper';

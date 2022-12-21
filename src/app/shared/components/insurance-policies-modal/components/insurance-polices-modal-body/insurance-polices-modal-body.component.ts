@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MockDataService } from '../../../../../../shared/services/mock-data.service';
-import { ModalService } from '../../../../../../shared/services/modal.service';
+
+import { MockDataService } from '../../../../services/mock-data.service';
+import { ModalService } from '../../../../services/modal.service';
 
 @Component({
   selector: 'app-insurance-polices-modal-body',
@@ -8,6 +9,8 @@ import { ModalService } from '../../../../../../shared/services/modal.service';
   styleUrls: ['./insurance-polices-modal-body.component.scss'],
 })
 export class InsurancePolicesModalBodyComponent implements OnInit {
+  public isHiden: boolean = false;
+
   public cardsObjects: any = [];
   public options: any = [];
 
@@ -17,8 +20,10 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
     return this.cardsObjects;
   }
 
-  constructor(public modalService: ModalService,
-              private mockDataService: MockDataService) {}
+  constructor(
+    public modalService: ModalService,
+    private mockDataService: MockDataService
+  ) {}
 
   ngOnInit(): void {
     this.cardsObjects = this.mockDataService.insuranceCardsObjects;

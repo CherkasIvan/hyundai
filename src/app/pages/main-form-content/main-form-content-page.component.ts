@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MockDataService } from 'src/app/shared/services/mock-data.service';
 
 @Component({
   selector: 'app-main-form-content-page',
@@ -14,7 +16,7 @@ export class MainFormContentPageComponent implements OnInit {
     { content: 'Параметры страховых продуктов' },
     { content: 'Расчет продуктов' },
   ];
-  constructor() {}
+  constructor(private mockServise: MockDataService, private router: Router) {}
 
   ngOnInit(): void {}
 }

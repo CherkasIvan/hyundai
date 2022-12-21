@@ -16,11 +16,7 @@
     ></span>
   </div>
 
-  <form
-    class="card-content"
-    *ngFor="let card of insuranceCompany.insurences"
-    [formGroup]="formModal"
-  >
+  <form class="card-content" *ngFor="let card of insuranceCompany.insurances">
     <div class="card-content__form">
       <!-- <formly-form
         [model]="model"
@@ -42,9 +38,9 @@
       {{ card.description }}
     </div>
 
-    <button class="card-content__options" *ngIf="card.options">
+    <div class="card-content__options" *ngIf="card.options">
       Настроить опции
-    </button>
+    </div>
 
     <div class="card-content__price">{{ card.price }}</div>
   </form>

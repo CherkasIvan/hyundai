@@ -12,7 +12,6 @@ import { reducers } from './store/broker-auth.reducers';
 import { BrokerAuthService } from './service/broker-auth.service';
 
 import { BrokerAuthEffects } from './store/broker-auth.effects';
-import { BackendErrorMessagesModule } from '../../shared/modules/backend-error-messages/backend-error-messages.module';
 import { PersistenceService } from '../../shared/services/persistence.service';
 import { BrokerAuthTabsComponent } from './components/broker-auth-tabs/broker-auth-tabs.component';
 import { BrokerAuthPageComponent } from './components/broker-auth-page/broker-auth-page.component';
@@ -44,7 +43,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature('broker-auth', reducers),
     EffectsModule.forFeature([BrokerAuthEffects]),
-    BackendErrorMessagesModule,
     SharedModule,
   ],
   providers: [BrokerAuthService, PersistenceService],

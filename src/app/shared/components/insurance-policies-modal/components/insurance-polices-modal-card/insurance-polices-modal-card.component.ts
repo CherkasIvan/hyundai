@@ -8,9 +8,11 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
   styleUrls: ['./insurance-polices-modal-card.component.scss'],
 })
 export class InsurancePolicesModalCardComponent implements OnInit {
+  public isHiden: boolean = true;
+
   @Input() public insuranceCompany!: any;
   @Output() formValueReturnEvent = new EventEmitter<any>();
-  @Output() specialOptionsEvent = new EventEmitter<any>();
+  @Output() specialOptionsEvent = new EventEmitter<boolean>();
 
   public formModal = new FormGroup({});
   public model: Object = {};
@@ -26,8 +28,13 @@ export class InsurancePolicesModalCardComponent implements OnInit {
     },
   ];
 
-  public sendFormValues(value: any) {
-    this.formValueReturnEvent.emit(value);
+  public changeHidenValue(value: boolean) {
+    this.isHiden = !this.isHiden;
+  }
+
+  public sendIsHidenValues(value: any) {
+    console.log(value);
+    this.specialOptionsEvent.emit(value);
   }
 
   constructor() {}
@@ -44,6 +51,7 @@ export class InsurancePolicesModalCardComponent implements OnInit {
   // }
 
   ngOnInit(): void {
+    console.log(this.insuranceCompany);
     // this.setLabel();
   }
 }

@@ -11,8 +11,8 @@
       </div>
 
       <app-insurance-polices-modal-options
+        *ngIf="!isHiden"
         [specialOptions]="options"
-        *ngIf="modalService.isShow$ | async"
       ></app-insurance-polices-modal-options>
     </div>
   </div>

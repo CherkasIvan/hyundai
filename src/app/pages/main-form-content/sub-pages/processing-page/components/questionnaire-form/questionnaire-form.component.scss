@@ -17,16 +17,18 @@
       color: #343e48;
     }
 
+    .passport-data {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     .passport-data,
     .residential-address,
     .education,
     .family,
     .monthly_expenses {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
       &__title {
         font-style: normal;
         font-weight: 400;
@@ -54,5 +56,12 @@
         }
       }
     }
+  }
+
+  .change-options__button {
+    background: transparent;
+    padding: 10px 75px;
+    border: 1px solid #72879e;
+    border-radius: 6px;
   }
 }

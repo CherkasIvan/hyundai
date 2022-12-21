@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
-import {FormlyFormOptions, FormlyFieldConfig} from '@ngx-formly/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-insurance-polices-modal-options',
@@ -10,10 +10,10 @@ import {FormlyFormOptions, FormlyFieldConfig} from '@ngx-formly/core';
 export class InsurancePolicesModalOptionsComponent implements OnInit {
   @Input() public specialOptions!: any;
 
-  formSpecialOptions = new FormGroup({});
-  model = {};
-  options: FormlyFormOptions = {};
-  fields: FormlyFieldConfig[] = [];
+  public formSpecialOptions = new FormGroup({});
+  public model = {};
+  public options: FormlyFormOptions = {};
+  public fields: FormlyFieldConfig[] = [];
   constructor() {}
 
   public submitForm(model: any): void {
