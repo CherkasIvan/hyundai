@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { MockDataService } from '../../../../shared/services/mock-data.service';
 
 @Component({
   selector: 'app-calculation-loan-page',
@@ -6,16 +7,13 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./calculation-loan-page.component.scss'],
 })
 export class CalculationLoanPageComponent implements OnInit {
-  public calculationSteps = [
-    {content: 'Информация об автомобиле'},
-    {content: 'Собственник'},
-    {content: 'Водители'},
-    {content: 'Параметры кредита'},
-    {content: 'Параметры страховых продуктов'},
-    {content: 'Расчет продуктов'},
-  ];
+  public carOptions: any = [];
+  public calculationSteps: any = [];
 
-  constructor() {}
+  constructor(private mockDataService: MockDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.carOptions = this.mockDataService.calculationLoanData;
+    this.calculationSteps = this.mockDataService.calculationSteps;
+  }
 }
