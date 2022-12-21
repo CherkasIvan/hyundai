@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,8 +8,17 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
   @Input() public steps!: any; // НАПИСАТЬ ИНТЕРФЕЙС!
+  public links: string = 'id:';
 
-  constructor() {}
+  public selectedStepIndex: number = 0;
+
+  public selectionChanged($event: any) {
+    console.log($event);
+    this.selectedStepIndex = $event.selectedIndex;
+    this.router.navigate([this.links + this.selectedStepIndex]);
+  }
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

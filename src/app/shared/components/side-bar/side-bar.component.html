@@ -1,15 +1,18 @@
 <div class="side-bar">
   <app-progress-bar></app-progress-bar>
 
-  <mat-vertical-stepper>
-    <mat-step *ngFor="let step of steps">
+  <mat-vertical-stepper #stepper (selectionChange)="selectionChanged($event)">
+    <mat-step
+      *ngFor="let step of steps; let i = index"
+      [routerLink]="['/id:' + i]"
+      [editable]="true"
+      [label]="step.path"
+    >
       <ng-template matStepLabel>{{ step.content }}</ng-template>
       <ng-template matStepContent>
+        <router-outlet *ngIf="i === selectedStepIndex"></router-outlet>
         <!-- <p>This content was rendered lazily</p>
         <button mat-button matStepperNext>Next</button> -->
-      </ng-template>
-      <ng-template matStepperIcon="phone">
-        <mat-icon>call_end</mat-icon>
       </ng-template>
     </mat-step>
   </mat-vertical-stepper>
