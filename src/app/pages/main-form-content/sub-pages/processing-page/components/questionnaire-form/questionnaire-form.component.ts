@@ -35,7 +35,7 @@ export class QuestionnaireFormComponent implements OnInit {
       familyStatus: ['', Validators.required],
       children_counter: [0, Validators.required],
       obligatory_payments: [0, Validators.required],
-      loan_repayment: [0, Validators.required],
+      loan_repaymentuserForm: [0, Validators.required],
     });
   }
 

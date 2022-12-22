@@ -9,6 +9,7 @@ import { SideBarModule } from './components/side-bar/side-bar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { InsurancePoliciesModalModule } from './components/insurance-policies-modal/insurance-policies-modal.module';
+import { InputSliderModule } from './components/input-slider/input-slider.module';
 
 @NgModule({
   declarations: [BackendErrorMessagesComponent],
@@ -16,6 +17,7 @@ import { InsurancePoliciesModalModule } from './components/insurance-policies-mo
     CommonModule,
     FormlyModule,
     FormsModule,
+    InputSliderModule,
     InsurancePoliciesModalModule,
     ReactiveFormsModule,
     SideBarModule,
@@ -27,6 +29,7 @@ import { InsurancePoliciesModalModule } from './components/insurance-policies-mo
     FormlyModule,
     FormsModule,
     InsurancePoliciesModalModule,
+    InputSliderModule,
     ReactiveFormsModule,
     SideBarModule,
     MatIconModule,
