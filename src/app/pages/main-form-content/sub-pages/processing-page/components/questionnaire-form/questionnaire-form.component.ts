@@ -67,7 +67,6 @@ export class QuestionnaireFormComponent implements OnInit {
   public submitRegistrationForm(questionniarForm: FormGroup): void {
     const body = questionniarForm.value;
     body.educations = this.educations[this.selectedIndex];
-    console.log(body);
   }
 
   ngOnInit(): void {

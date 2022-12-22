@@ -27,7 +27,6 @@ export class BrokersAuthGuard implements CanActivate {
       select(brokerIsLoggedIn),
       tap((brokerIsLoggedIn) => {
         if (!localStorage.getItem('successToken')) {
-          console.log(brokerIsLoggedIn);
           this.route.navigateByUrl('/auth-broker');
         }
       })

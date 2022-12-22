@@ -20,8 +20,6 @@ export class RangeSliderDirective implements OnInit {
 
   ngOnInit() {
     this.values = rentPrice[this.rangeType];
-    console.log(this.values);
-    console.log(rentPrice);
     const range = this.renderer.createElement('input');
     this.renderer.setAttribute(range, 'type', 'range');
     this.renderer.setAttribute(range, 'min', '0');

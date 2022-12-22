@@ -24,9 +24,11 @@
 }
 
 .main-container {
-  width: 100%;
+  margin: 0 auto;
+  width: 90%;
   display: flex;
-  padding: 20px;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .nav-container {

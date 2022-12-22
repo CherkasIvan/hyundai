@@ -2,40 +2,27 @@
   <app-main-form-header></app-main-form-header>
 
   <nav class="nav-container">
-    <!-- <mat-tab-group>
-      <mat-tab label="Расчет кредита"></mat-tab>
-      <mat-tab label="Оформление"> </mat-tab>
-      <mat-tab label="Документы и платежи"></mat-tab>
-    </mat-tab-group> -->
     <ul class="nav-list">
-      <li class="nav-list-item">
+      <li
+        #index
+        class="nav-list-item"
+        *ngFor="let link of navigationLinks; let i = index"
+        (click)="getIndex(i)"
+      >
         <a
           class="nav-list-item-link"
-          routerLink="loan-calculation"
+          routerLink="{{ link.link }}"
           [routerLinkActive]="['activated']"
-          isActive="true"
-          >Расчет кредита</a
-        >
-      </li>
-      <li class="nav-list-item">
-        <a
-          class="nav-list-item-link"
-          routerLink="processing"
-          [routerLinkActive]="['activated']"
-          >Оформление</a
-        >
-      </li>
-      <li class="nav-list-item">
-        <a
-          class="nav-list-item-link"
-          routerLink="documents-payments"
-          [routerLinkActive]="['activated']"
-          >Документы и платежи</a
+          >{{ link.value }}</a
         >
       </li>
     </ul>
   </nav>
   <main class="main-container">
+    <app-side-bar
+      [steps]="calculationSteps"
+      [ngClass]="{ active: isNone }"
+    ></app-side-bar>
     <router-outlet></router-outlet>
   </main>
 </div>
