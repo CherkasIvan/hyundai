@@ -20,14 +20,14 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
     return this.cardsObjects;
   }
 
+  public readOutputValueEmitted(val: boolean) {
+    this.isHiden = val;
+  }
+
   constructor(
     public modalService: ModalService,
     private mockDataService: MockDataService
   ) {}
-
-  readOutputValueEmitted(val: boolean) {
-    this.isHiden = val;
-  }
 
   ngOnInit(): void {
     console.log(this.isHiden);

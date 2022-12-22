@@ -1,7 +1,7 @@
 <div class="questionnaire-container">
   <form
-    [formGroup]="formRegistration"
-    (ngSubmit)="submitRegistrationForm(model)"
+    [formGroup]="questionniarForm"
+    (ngSubmit)="submitRegistrationForm(questionniarForm)"
     class="registration"
   >
     <p class="registration-title">Оформление</p>
@@ -18,38 +18,208 @@
           >Заполнить автоматически</span
         >
       </button>
+    </div>
 
-      <formly-form
-        [form]="formRegistration"
-        [fields]="passportFields"
-        [model]="model"
-      >
-        <button type="submit" class="btn btn-default">Submit</button>
-      </formly-form>
+    <div class="passport__form-group">
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Серия и номер
+          <input
+            type="text"
+            formControlName="passport_seria"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Место рождения
+          <input
+            type="text"
+            formControlName="born_place"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Кем выдан, код подразделения
+          <input
+            type="text"
+            formControlName="passport_office"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Дата выдачи
+          <input
+            type="text"
+            formControlName="date"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item--options">
+        <input
+          type="checkbox"
+          class="form-group__item checkbox"
+          formControlName="passport_chenged"
+          name="checkbox"
+        />
+        <label for="checkbox" class="form-group__item--label">
+          Паспорт менялся
+        </label>
+      </fieldset>
     </div>
 
     <div class="residential-address">
       <div class="residential-address__title">Адрес проживания</div>
+
+      <div class="residential-address__form-group">
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">
+            Адрес регистрации
+            <input
+              type="text"
+              formControlName="passport_seria"
+              class="form-group__item--input"
+          /></label>
+        </fieldset>
+
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">
+            Дата регистрации
+            <input
+              type="text"
+              formControlName="born_place"
+              class="form-group__item--input"
+          /></label>
+        </fieldset>
+
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">
+            Адрес фактического проживания
+            <input
+              type="text"
+              formControlName="passport_office"
+              class="form-group__item--input"
+          /></label>
+        </fieldset>
+
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">
+            Статус недвижимости (где проживаете)
+            <select
+              (change)="changeStatus($event)"
+              formControlName="propertyStatus"
+              class="form-group__item--select"
+              name="property_status
+            "
+            >
+              <option value="Своя квартира">Своя квартира</option>
+              <option value="У родителей">У родителей</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset class="form-group__item--options">
+          <input
+            type="checkbox"
+            class="form-group__item checkbox"
+            formControlName="passport_chenged"
+            name="checkbox"
+          />
+          <label for="checkbox" class="form-group__item--label">
+            Паспорт менялся
+          </label>
+        </fieldset>
+      </div>
     </div>
 
     <div class="education">
-      <div class="education__title">Семья</div>
+      <div class="education__title">Образование</div>
+      <div class="education__list">
+        <button
+          class="education__list--button"
+          *ngFor="let typeOfEducation of educations; index as i"
+          type="button"
+          [ngClass]="{ active: selectedIndex === i }"
+          (click)="activateClass(i)"
+        >
+          {{ typeOfEducation }}
+        </button>
+      </div>
     </div>
 
     <div class="family">
-      <div class="family__title">Ежемесячные расходы</div>
+      <div class="family__title">Семья</div>
+      <div class="family__form-group">
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">
+            Семейное положение
+            <select
+              (change)="changeFamilyStatus($event)"
+              formControlName="familyStatus"
+              class="form-group__item--select"
+              name="property_status
+          "
+            >
+              <option value="Не женат, не замужем">Не женат, не замужем</option>
+              <option value="У родителей">Холост</option>
+            </select></label
+          >
+        </fieldset>
+
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">
+            Дети
+            <input
+              type="number"
+              formControlName="children_counter"
+              class="form-group__item--input"
+          /></label>
+        </fieldset>
+      </div>
     </div>
 
     <div class="monthly_expenses">
-      <div class="passport-data__title">Паспортные данные</div>
+      <div class="passport-data__title">Ежемесячные расходы</div>
+      <div class="family__form-group">
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">
+            Обязательные платежи*, ₽
+            <input
+              type="number"
+              min="1"
+              step="any"
+              formControlName="obligatory_payments"
+              class="form-group__item--input"
+          /></label>
+        </fieldset>
+
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">
+            Погашение кредитов*, ₽
+            <input
+              type="number"
+              min="1"
+              step="any"
+              formControlName="loan_repayment"
+              class="form-group__item--input"
+          /></label>
+        </fieldset>
+      </div>
     </div>
   </form>
 
   <button
-    class="change-options__button"
+    class="next-page__button"
     mat-button
-    (click)="openInsuranceModal()"
+    [disabled]="!questionniarForm.valid"
+    (click)="submitRegistrationForm(questionniarForm)"
   >
-    Изменить
+    Продолжить
   </button>
 </div>
