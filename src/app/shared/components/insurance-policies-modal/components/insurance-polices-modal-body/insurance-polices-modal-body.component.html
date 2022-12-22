@@ -6,6 +6,7 @@
         <app-insurance-polices-modal-card
           *ngFor="let card of cardsObjects; let i = index"
           [insuranceCompany]="card"
+          (hideOptions)="readOutputValueEmitted($event)"
           (click)="getCard(card)"
         ></app-insurance-polices-modal-card>
       </div>

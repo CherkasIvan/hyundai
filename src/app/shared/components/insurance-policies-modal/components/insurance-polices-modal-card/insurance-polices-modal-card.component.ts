@@ -12,7 +12,7 @@ export class InsurancePolicesModalCardComponent implements OnInit {
 
   @Input() public insuranceCompany!: any;
   @Output() formValueReturnEvent = new EventEmitter<any>();
-  @Output() specialOptionsEvent = new EventEmitter<boolean>();
+  @Output() hideOptions: any = new EventEmitter();
 
   public formModal = new FormGroup({});
   public model: Object = {};
@@ -28,13 +28,13 @@ export class InsurancePolicesModalCardComponent implements OnInit {
     },
   ];
 
-  public changeHidenValue(value: boolean) {
+  public changeHidenValue() {
     this.isHiden = !this.isHiden;
   }
 
   public sendIsHidenValues(value: any) {
-    console.log(value);
-    this.specialOptionsEvent.emit(value);
+    this.changeHidenValue();
+    this.hideOptions.emit(this.isHiden);
   }
 
   constructor() {}
@@ -50,8 +50,5 @@ export class InsurancePolicesModalCardComponent implements OnInit {
   //   });
   // }
 
-  ngOnInit(): void {
-    console.log(this.insuranceCompany);
-    // this.setLabel();
-  }
+  ngOnInit(): void {}
 }

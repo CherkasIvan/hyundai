@@ -38,7 +38,11 @@
       {{ card.description }}
     </div>
 
-    <div class="card-content__options" *ngIf="card.options">
+    <div
+      class="card-content__options"
+      *ngIf="card.options"
+      (click)="sendIsHidenValues(hideOptions.isHiden)"
+    >
       Настроить опции
     </div>
 

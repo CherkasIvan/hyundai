@@ -9,7 +9,7 @@ import { ModalService } from '../../../../services/modal.service';
   styleUrls: ['./insurance-polices-modal-body.component.scss'],
 })
 export class InsurancePolicesModalBodyComponent implements OnInit {
-  public isHiden: boolean = false;
+  public isHiden: boolean = true;
 
   public cardsObjects: any = [];
   public options: any = [];
@@ -25,7 +25,12 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
     private mockDataService: MockDataService
   ) {}
 
+  readOutputValueEmitted(val: boolean) {
+    this.isHiden = val;
+  }
+
   ngOnInit(): void {
+    console.log(this.isHiden);
     this.cardsObjects = this.mockDataService.insuranceCardsObjects;
     this.options = this.mockDataService.insuranceOptions;
   }
