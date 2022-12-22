@@ -1,0 +1,21 @@
+<div class="modal-container">
+  <div class="modal-body">
+    <div class="modal-body__title">Выберите страховой полис</div>
+    <div class="modal-body__cards">
+      <div class="modal-body__cards--wrapper">
+        <app-insurance-polices-modal-card
+          *ngFor="let card of cardsObjects; let i = index"
+          [insuranceCompany]="card"
+          (hideOptions)="readOutputValueEmitted($event)"
+          (click)="getCard(card)"
+        ></app-insurance-polices-modal-card>
+      </div>
+
+      <app-insurance-polices-modal-options
+        *ngIf="!isHiden"
+        [specialOptions]="options"
+      ></app-insurance-polices-modal-options>
+    </div>
+  </div>
+  <button class="modal-body__save-changes-button">Сохранить изменения</button>
+</div>

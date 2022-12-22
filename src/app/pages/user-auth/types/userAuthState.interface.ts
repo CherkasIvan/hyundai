@@ -1,5 +1,5 @@
-import {BackendErrorsInterface} from '../../shared/types/backendErrors.interface';
-import {CurrentUserInterface} from './currentUser.interface';
+import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface';
+import { CurrentUserInterface } from './currentUser.interface';
 
 export interface UserAuthStateInterface {
   isSubmitting: boolean;

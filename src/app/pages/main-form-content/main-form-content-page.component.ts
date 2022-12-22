@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MockDataService } from 'src/app/shared/services/mock-data.service';
 
 @Component({
   selector: 'app-main-form-content-page',
@@ -6,7 +8,15 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./main-form-content-page.component.scss'],
 })
 export class MainFormContentPageComponent implements OnInit {
-  constructor() {}
+  public calculationSteps = [
+    { content: 'Информация об автомобиле' },
+    { content: 'Собственник' },
+    { content: 'Водители' },
+    { content: 'Параметры кредита' },
+    { content: 'Параметры страховых продуктов' },
+    { content: 'Расчет продуктов' },
+  ];
+  constructor(private mockServise: MockDataService, private router: Router) {}
 
   ngOnInit(): void {}
 }

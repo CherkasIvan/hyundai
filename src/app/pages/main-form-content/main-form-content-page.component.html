@@ -1,34 +1,41 @@
 <div class="wrapper">
-  <mc-main-form-header></mc-main-form-header>
+  <app-main-form-header></app-main-form-header>
+
+  <nav class="nav-container">
+    <!-- <mat-tab-group>
+      <mat-tab label="Расчет кредита"></mat-tab>
+      <mat-tab label="Оформление"> </mat-tab>
+      <mat-tab label="Документы и платежи"></mat-tab>
+    </mat-tab-group> -->
+    <ul class="nav-list">
+      <li class="nav-list-item">
+        <a
+          class="nav-list-item-link"
+          routerLink="loan-calculation"
+          [routerLinkActive]="['activated']"
+          isActive="true"
+          >Расчет кредита</a
+        >
+      </li>
+      <li class="nav-list-item">
+        <a
+          class="nav-list-item-link"
+          routerLink="processing"
+          [routerLinkActive]="['activated']"
+          >Оформление</a
+        >
+      </li>
+      <li class="nav-list-item">
+        <a
+          class="nav-list-item-link"
+          routerLink="documents-payments"
+          [routerLinkActive]="['activated']"
+          >Документы и платежи</a
+        >
+      </li>
+    </ul>
+  </nav>
   <main class="main-container">
-    <nav class="nav-container">
-      <ul class="nav-list">
-        <li class="nav-list-item">
-          <a
-            class="nav-list-item-link"
-            routerLink="loan-calculation"
-            [routerLinkActive]="['activated']"
-            >Расчет кредита</a
-          >
-        </li>
-        <li class="nav-list-item">
-          <a
-            class="nav-list-item-link"
-            routerLink="processing"
-            [routerLinkActive]="['activated']"
-            >Оформление</a
-          >
-        </li>
-        <li class="nav-list-item">
-          <a
-            class="nav-list-item-link"
-            routerLink="documents-payments"
-            [routerLinkActive]="['activated']"
-            >Документы и платежи</a
-          >
-        </li>
-      </ul>
-    </nav>
     <router-outlet></router-outlet>
   </main>
 </div>

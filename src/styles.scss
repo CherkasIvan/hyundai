@@ -21,10 +21,15 @@ $ngrx-store-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$ngrx-store-theme: mat.define-light-theme((color: (primary: $ngrx-store-primary,
-        accent: $ngrx-store-accent,
-        warn: $ngrx-store-warn,
-      )));
+$ngrx-store-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $ngrx-store-primary,
+      accent: $ngrx-store-accent,
+      warn: $ngrx-store-warn,
+    ),
+  )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -39,5 +44,7 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
