@@ -8,14 +8,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-// import { FormlyMaterialModule } from '@ngx-formly/material';
-// import { FormlyMatInputModule } from '@ngx-formly/material/input';
-// import { FormlyMatSliderModule } from '@ngx-formly/material/slider';
-// import { FormlyMatToggleModule } from '@ngx-formly/material/toggle';
-
-import { FormlyModule } from '@ngx-formly/core';
-import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 
@@ -40,11 +32,6 @@ import { AppComponent } from './app.component';
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
     BrowserAnimationsModule,
-    FormlyModule.forRoot(),
-    FormlyBootstrapModule,
-    // FormlyMatToggleModule,
-    // FormlyMatSliderModule,
-    // FormlyMatInputModule,
     StoreModule.forRoot({
       router: routerReducer,
     }),

@@ -1,13 +1,67 @@
 <div class="options-container">
-  <form class="options-form" [formGroup]="formSpecialOptions">
-    <formly-form
-      [model]="model"
-      [fields]="fields"
-      [options]="options"
-      [form]="formSpecialOptions"
-    ></formly-form>
+  <form
+    [formGroup]="optionsModalForm"
+    (ngSubmit)="submitForm(optionsModalForm)"
+    class="options-form"
+  >
+    <div class="passport__form-group">
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Опция 1
+          <input
+            type="text"
+            formControlName="option_1"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
 
-    <button class="options-form__submit-button" (click)="submitForm(model)">
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Опция 2
+          <select
+            (change)="changeOption2($event)"
+            formControlName="option_2"
+            class="form-group__item--select"
+            name="property_status
+        "
+          >
+            <option value="Своя квартира">Своя квартира</option>
+            <option value="У родителей">У родителей</option>
+          </select></label
+        >
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Опция 3
+          <input
+            type="text"
+            formControlName="option_3"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Опция 4
+          <select
+            (change)="changeOption4($event)"
+            formControlName="option_4"
+            class="form-group__item--select"
+            name="property_status
+        "
+          >
+            <option value="Своя квартира">Своя квартира</option>
+            <option value="У родителей">У родителей</option>
+          </select></label
+        >
+      </fieldset>
+    </div>
+
+    <button
+      class="options-form__submit-button"
+      (click)="submitForm(optionsModalForm)"
+    >
       Пересчитать
     </button>
   </form>

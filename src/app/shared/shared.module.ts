@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { BackendErrorMessagesComponent } from './components/backend-error-messages/backend-error-messages.component';
 
-import { FormlyModule } from '@ngx-formly/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SideBarModule } from './components/side-bar/side-bar.module';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,7 +14,6 @@ import { InputSliderModule } from './components/input-slider/input-slider.module
   declarations: [BackendErrorMessagesComponent],
   imports: [
     CommonModule,
-    FormlyModule,
     FormsModule,
     InputSliderModule,
     InsurancePoliciesModalModule,
@@ -26,7 +24,6 @@ import { InputSliderModule } from './components/input-slider/input-slider.module
   ],
   exports: [
     BackendErrorMessagesComponent,
-    FormlyModule,
     FormsModule,
     InsurancePoliciesModalModule,
     InputSliderModule,

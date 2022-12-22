@@ -2,11 +2,11 @@ import {
   OnInit,
   ChangeDetectorRef,
   Component,
-  ViewEncapsulation, Input, AfterViewChecked,
+  ViewEncapsulation,
+  Input,
+  AfterViewChecked,
 } from '@angular/core';
-import {FormGroup} from '@angular/forms';
-
-import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-car-info',
@@ -17,9 +17,6 @@ import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 export class CarInfoComponent implements OnInit, AfterViewChecked {
   @Input()
   public carOptions!: any;
-
-  formSpecialOptions = new FormGroup({});
-  model = {};
   // model = {
   //   vin: 'CC123456778A99',
   //   car_mark: 'Hyundai',
@@ -32,111 +29,14 @@ export class CarInfoComponent implements OnInit, AfterViewChecked {
   //   car_body_type: 'Седан',
   //   car_telematic: 'true',
   // };
-  options: FormlyFormOptions = {};
-  fields: FormlyFieldConfig[] = [
-    {
-      fieldGroupClassName: 'car-info-container__details__form',
-      fieldGroup: [
-      ]
-    }
-  ];
-  middlefields: FormlyFieldConfig[] = [
-    {
-      fieldGroupClassName: 'car-info-container__details__form',
-      fieldGroup: [
-      ]
-    }
-  ];
-  bottomFields: FormlyFieldConfig[] = [
-    {
-      fieldGroupClassName: 'car-info-container__details__form',
-      fieldGroup: [
-      ]
-    }
-  ];
 
-  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {
-  }
+  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}
 
   public onSubmitForm(model: any): void {
     console.log(model);
   }
 
-  ngOnInit(): void {
-    this.carOptions.forEach((option: any, index: number) => {
-      switch (option.type) {
-        case "input" :
-            this.fields[0]?.fieldGroup?.push({
-              className: 'car-info-container__details__form__item',
-              key: option.key,
-              type: option.type,
-              templateOptions: {
-                label: option.templateOptions.label,
-                placeholder: option.templateOptions.placeholder,
-                required: option.templateOptions.required,
-              }
-            });
-            break;
-
-        case "select":
-          this.fields[0]?.fieldGroup?.push(
-            {
-              className: 'car-info-container__details__form__item',
-              key: option.key,
-              type: option.type,
-              templateOptions: {
-                label: option.templateOptions.label,
-                placeholder: option.templateOptions.placeholder,
-                description: option.templateOptions.description,
-                required: option.templateOptions.required,
-                options: option.templateOptions.options,
-              },
-            });
-          break;
-        case "radio":
-          this.fields[0]?.fieldGroup?.push(
-            {
-              className: 'car-info-container__details__form__item car-info-container__details__form__item__radio',
-              key: option.key,
-              type: option.type,
-              templateOptions: {
-                label: option.templateOptions.label,
-                options: option.templateOptions.options,
-              },
-            });
-          break;
-        case "slider":
-          this.fields[0]?.fieldGroup?.push(
-            {
-              className: 'car-info-container__details__form__item',
-              key: option.key,
-              type: option.type,
-              templateOptions: {
-                min: option.templateOptions.min,
-                max: option.templateOptions.max,
-                step: option.templateOptions.step,
-              },
-            });
-          break;
-        case "toggle":
-          this.fields[0]?.fieldGroup?.push(
-            {
-              className: 'car-info-container__details__form__item',
-              key: option.key,
-              type: option.type,
-              templateOptions: {
-                label: option.templateOptions.label,
-                required: option.templateOptions.required,
-              },
-            });
-      }
-      // if("select" == option.type) {
-      //
-      // } else {
-      //
-      // }
-    });
-  }
+  ngOnInit(): void {}
 
   // form = new FormGroup({});
   // options: FormlyFormOptions = {};

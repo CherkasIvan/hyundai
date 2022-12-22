@@ -30,7 +30,6 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.isHiden);
     this.cardsObjects = this.mockDataService.insuranceCardsObjects;
     this.options = this.mockDataService.insuranceOptions;
   }

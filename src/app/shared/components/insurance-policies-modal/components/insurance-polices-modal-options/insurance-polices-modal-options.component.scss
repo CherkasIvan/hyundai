@@ -12,6 +12,51 @@
     flex-direction: column;
     justify-content: space-between;
 
+    .passport__form-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      .form-group__item {
+        display: flex;
+        flex-direction: column;
+
+        &--label {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          color: #343e48;
+        }
+
+        &--select,
+        &--input {
+          margin-top: 10px;
+          width: 100%;
+          background: #f2f4f7;
+          border-radius: 8px;
+          padding: 17.5px 10px;
+        }
+        &--options {
+          margin-top: 24px;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+
+          .checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            accent-color: #72879e;
+
+            .form-group__item--label {
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 24px;
+              color: #343e48;
+            }
+          }
+        }
+      }
+    }
+
     &__submit-button {
       font-weight: 500;
       font-size: 16px;
@@ -42,7 +87,6 @@
     }
 
     .mat-form-field-ripple {
-      /*change color of underline when focused*/
       background-color: transparent;
     }
 
