@@ -1,4 +1,4 @@
-.auth-form {
+.auth-formId {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -25,8 +25,8 @@
       line-height: 130%;
     }
 
-    &__validation-code,
-    &__phone {
+    &__name,
+    &__id {
       color: #ffffff;
       background-color: transparent;
       outline: none;
@@ -34,16 +34,16 @@
       border-bottom: 1px solid #b6b6b6;
     }
 
-    &__validation-code::placeholder,
-    &__phone::placeholder {
+    &__name::placeholder,
+    &__id::placeholder {
       color: #b6b6b6;
       font-weight: 400;
       font-size: 20px;
       line-height: 130%;
     }
 
-    &__validation-code:focus,
-    &__phone:focus {
+    &__name:focus,
+    &__id:focus {
       background-color: #ffffff;
     }
   }
@@ -51,7 +51,6 @@
   &-checkbox {
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
     color: #bababa;
 
     &__label {
