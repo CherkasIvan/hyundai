@@ -9,6 +9,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class WorkComponent implements OnInit {
   public userWorksForm!: FormGroup;
   public selectedIndex: number = 0;
+  public actualValue!: number;
+  public currentFields = {
+    label: 'Ежемесячный доход, ₽',
+    actualCounter: 0,
+    formControl: 'income',
+  };
   public activateClass(index: number) {
     this.selectedIndex = index;
   }
@@ -22,6 +28,11 @@ export class WorkComponent implements OnInit {
     'Начальное или неполное среднее',
   ];
 
+  public addItem(newCounterValue: number) {
+    this.actualValue = newCounterValue;
+    console.log(this.actualValue);
+  }
+
   public initializeForm(): void {
     this.userWorksForm = this._fb.group({
       organization_name: ['', Validators.required],
@@ -31,7 +42,6 @@ export class WorkComponent implements OnInit {
       company_position: ['', Validators.required],
       type_position: ['', Validators.required],
       number_of_employes: ['', Validators.required],
-      income: [0, Validators.required],
     });
   }
 
@@ -48,6 +58,7 @@ export class WorkComponent implements OnInit {
   public submitRegistrationForm(userInfoForm: FormGroup): void {
     const body = userInfoForm.value;
     body.work_status = this.statuses[this.selectedIndex];
+    body.income = this.actualValue;
     console.log(body);
   }
 

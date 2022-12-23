@@ -10,9 +10,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { InsurancePoliciesModalModule } from './components/insurance-policies-modal/insurance-policies-modal.module';
 import { InputSliderModule } from './components/input-slider/input-slider.module';
+import { CounterButtonComponent } from './components/counter-button/counter-button.component';
 
 @NgModule({
-  declarations: [BackendErrorMessagesComponent],
+  declarations: [BackendErrorMessagesComponent, CounterButtonComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -26,6 +27,7 @@ import { InputSliderModule } from './components/input-slider/input-slider.module
   ],
   exports: [
     BackendErrorMessagesComponent,
+    CounterButtonComponent,
     FormsModule,
     InsurancePoliciesModalModule,
     InputSliderModule,

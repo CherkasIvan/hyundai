@@ -8,7 +8,7 @@ import { MockDataService } from '../../services/mock-data.service';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
-  @Input() public steps!: any; // НАПИСАТЬ ИНТЕРФЕЙС!
+  @Input() public steps!: any[]; // НАПИСАТЬ ИНТЕРФЕЙС!
 
   public selectedStepName: string = '';
 
@@ -19,7 +19,7 @@ export class SideBarComponent implements OnInit {
       : (this.selectedStepName =
           this.mockData.processingSteps[$event.selectedIndex].path);
 
-    let route: any = this.activatedRoute.firstChild;
+    let route: ActivatedRoute | null = this.activatedRoute.firstChild;
     this.router.navigate([this.selectedStepName], {
       relativeTo: route,
     });
