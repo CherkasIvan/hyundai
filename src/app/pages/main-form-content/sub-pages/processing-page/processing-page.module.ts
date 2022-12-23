@@ -9,6 +9,7 @@ import { QuestionnaireFormComponent } from './components/questionnaire-form/ques
 
 @NgModule({
   declarations: [ProcessingPageComponent, QuestionnaireFormComponent],
+  exports: [ProcessingPageComponent, QuestionnaireFormComponent],
   imports: [ProcessingPageRoutingModule, CommonModule, SharedModule],
 })
 export class ProcessingPageModule {}

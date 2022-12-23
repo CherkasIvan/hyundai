@@ -1,12 +1,11 @@
 import {
   OnInit,
-  ChangeDetectorRef,
   Component,
-  ViewEncapsulation,
-  Input,
-  AfterViewChecked,
+  ViewEncapsulation, Input
 } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatTooltip } from '@angular/material/tooltip';
+
 
 @Component({
   selector: 'app-car-info',
@@ -14,193 +13,44 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./car-info.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class CarInfoComponent implements OnInit, AfterViewChecked {
+export class CarInfoComponent implements OnInit {
   @Input()
-  public carOptions!: any;
-  // model = {
-  //   vin: 'CC123456778A99',
-  //   car_mark: 'Hyundai',
-  //   car_model: 'Solaris',
-  //   car_year: 2020,
-  //   engine_capacity: '2.0',
-  //   transmission: 'Автоматическая',
-  //   car_price: 1200000,
-  //   pts_issue_year: 2020,
-  //   car_body_type: 'Седан',
-  //   car_telematic: 'true',
-  // };
+  public carOptions!: object[];
 
-  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}
+  formCarOptions!: FormGroup
+  showTicks = false;
+  step = 1;
+  thumbLabel = false;
+  value = 0;
+  constructor(private fb: FormBuilder) {}
 
-  public onSubmitForm(model: any): void {
+  public onSubmitForm(model: FormGroup): void {
     console.log(model);
   }
 
-  ngOnInit(): void {}
+  public initializeForm(): void {
+    this.formCarOptions = this.fb.group({
+      VIN: ['CC123456778A99', Validators.required],
+      car_mark: ['Hyundai', Validators.required],
+      car_model: ['Solaris', Validators.required],
+      car_year: ['2020', Validators.required],
+      pts_issue_year: ['2020', Validators.required],
+      engine_capacity: ['2.0', Validators.required],
+      transmission: ['Автоматическая', Validators.required],
+      car_body_type: ['Седан', Validators.required],
+      car_price: ['1200000', Validators.required],
+      car_telematic: ['true', Validators.required],
+    });
+  }
 
-  // form = new FormGroup({});
-  // options: FormlyFormOptions = {};
+  ngOnInit(): void {
+    this.initializeForm();
+  }
 
-  // topFields: FormlyFieldConfig[] = [
-  //   {
-  //     fieldGroupClassName: 'car-info-container__details__form',
-  //     fieldGroup: [
-  //       {
-  //         className: 'car-info-container__details__form__item',
-  //         key: 'vin',
-  //         type: 'input',
-  //         templateOptions: {
-  //           label: 'VIN',
-  //           placeholder: 'Введите VIN',
-  //           required: true,
-  //         },
-  //       },
-  //       {
-  //         className: 'car-info-container__details__form__item',
-  //         key: 'car_mark',
-  //         type: 'input',
-  //         templateOptions: {
-  //           label: 'Марка',
-  //           placeholder: 'Введите марку автомобиля',
-  //           required: true,
-  //         },
-  //       },
-  //       {
-  //         className: 'car-info-container__details__form__item',
-  //         key: 'car_model',
-  //         type: 'input',
-  //         templateOptions: {
-  //           label: 'Модель',
-  //           placeholder: 'Введите модель автомобиля',
-  //           required: true,
-  //         },
-  //       },
-  //       {
-  //         className: 'car-info-container__details__form__item',
-  //         key: 'car_year',
-  //         type: 'input',
-  //         templateOptions: {
-  //           label: 'Год выпуска',
-  //           placeholder: 'Введите год выпуска автомобиля',
-  //           required: true,
-  //         },
-  //       },
-  //     ],
-  //   },
-  // ];
-  // middleFields: FormlyFieldConfig[] = [
-  //   {
-  //     fieldGroupClassName: 'car-info-container__details__form',
-  //     fieldGroup: [
-  //       {
-  //         className: 'car-info-details-form-item',
-  //         key: 'pts_issue_year',
-  //         type: 'input',
-  //         templateOptions: {
-  //           label: 'ПТС',
-  //           placeholder: 'Введите год выпуска автомобиля из ПТС',
-  //           required: true,
-  //         },
-  //       },
-  //       {
-  //         className: 'car-info-container__details__form__item',
-  //         key: 'engine_capacity',
-  //         type: 'input',
-  //         templateOptions: {
-  //           label: 'Объем двигателя',
-  //           placeholder: 'Введите объем двигателя автомобиля',
-  //           required: true,
-  //         },
-  //       },
-  //       {
-  //         className: 'car-info-container__details__form__item',
-  //         key: 'transmission',
-  //         type: 'select',
-  //         templateOptions: {
-  //           label: 'Трансмиссия автомобиля',
-  //           placeholder: 'Выберите тип трансмиссии автомобиля',
-  //           description: 'Выберите тип трансмиссии автомобиля',
-  //           required: true,
-  //           options: [
-  //             { value: 'Механическая', label: 'Механическая' },
-  //             { value: 'Автоматическая', label: 'Автоматическая' },
-  //           ],
-  //         },
-  //       },
-  //     ],
-  //   },
-  // ];
-  // typeOfCarBodyFields:  FormlyFieldConfig[] = [
-  //     {
-  //       fieldGroupClassName: 'car-info-container__details__form',
-  //       fieldGroup: [
-  //         {
-  //           className: 'car-info-container__details__form__item car-info-container__details__form__item__radio',
-  //           key: 'car_body_type',
-  //           type: 'radio',
-  //           templateOptions: {
-  //             label: 'Тип кузова',
-  //             options: [
-  //               { value: 1, label: 'Седан' },
-  //               { value: 2, label: 'Внедорожник' },
-  //               { value: 3, label: 'Универсал' },
-  //               { value: 4, label: 'Кроссовер' },
-  //               { value: 5, label: 'Хэтчбек' },
-  //               { value: 6, label: 'Минивэн' },
-  //             ],
-  //           },
-  //         }
-  //       ],
-  //     },
-  //     ];
-  // sliderField: FormlyFieldConfig[] = [
-  //   {
-  //     fieldGroupClassName: 'car-info-container__details__form',
-  //     fieldGroup: [
-  //       {
-  //       className: 'car-info-container__details__form__item car-info-container__details__form__input',
-  //       key: 'car_price',
-  //       type: 'input',
-  //       templateOptions: {
-  //         label: 'Стоимость авто, руб',
-  //         placeholder: 'Введите стоимость автомобиля',
-  //         required: true,
-  //       },
-  //     },
-  //       {
-  //         className: 'car-info-container__details__form__item',
-  //         key: 'car_price',
-  //         type: 'slider',
-  //         templateOptions: {
-  //           min: 0,
-  //           max: 7000000,
-  //           step: 1,
-  //         },
-  //       },
-  //     ]
-  //   }
-  // ];
-  // discountFiled: FormlyFieldConfig[] = [
-  //   {
-  //     fieldGroupClassName: 'car-info-container__details__form',
-  //     fieldGroup: [
-  //       {
-  //         className: 'car-info-container__details__form__item',
-  //         key: 'car_telematic',
-  //         type: 'toggle',
-  //         props: {
-  //           label: 'Телематическая система',
-  //           // description: 'Toggle Description',
-  //           required: true,
-  //         },
-  //       },
-  //     ]
-  //   }
-  // ];
-  // // onSubmit(model: any) {
-  // //   console.log(this.model);
-  // // }
-  ngAfterViewChecked(): void {
-    this.changeDetectorRef.detectChanges();
+  public openTooltip(tooltip: any): void {
+    tooltip.show();
+    setTimeout(() => {
+      tooltip.hide();
+    }, 1500);
   }
 }

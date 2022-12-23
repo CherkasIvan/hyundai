@@ -8,7 +8,6 @@ import { MockDataService } from 'src/app/shared/services/mock-data.service';
   styleUrls: ['./main-form-content-page.component.scss'],
 })
 export class MainFormContentPageComponent implements OnInit {
-  public isNone: boolean = false;
   public selectedIndex: number = 0;
   public navigationLinks = [
     {
@@ -36,9 +35,6 @@ export class MainFormContentPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.url.includes('documents-payments')
-      ? (this.isNone = !this.isNone)
-      : this.isNone;
     this.getIndex(this.selectedIndex);
   }
 }

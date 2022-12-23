@@ -4,6 +4,7 @@ import {
   CanActivate,
   Router,
   RouterStateSnapshot,
+  UrlTree,
 } from '@angular/router';
 
 import { Observable, tap } from 'rxjs';
@@ -22,7 +23,7 @@ export class BrokersAuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<any> {
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.store.pipe(
       select(brokerIsLoggedIn),
       tap((brokerIsLoggedIn) => {
