@@ -119,13 +119,18 @@
                 </div>
               </div>
             </div>
-            <div>
+            <div *ngIf="car_telematic">
               <div>
                 <span class='car-info-container__details__form__item__label'>Тип телематической системы:</span>
               </div>
               <div class='car-info-container__details__form__container__toggle__main'>
                 <label class='container'>
-                  <input class='car-info-container__details__form__item__input__telematic' id='misos_light' type='checkbox' formControlName='' checked="checked">
+                  <input 
+                  class='car-info-container__details__form__item__input__telematic' 
+                  id='misos_light' 
+                  type='checkbox' 
+                  formControlName='telematic_misos_light' 
+                  checked="checked">
                   <span class="checkmark"></span>
                   <img
                         src="./../../../../../../../assets/images/missos_light_icon.svg"
@@ -135,7 +140,11 @@
               </div>
               <div class='car-info-container__details__form__container__toggle__main'>
                 <label class='container'>
-                  <input class='car-info-container__details__form__item__input__telematic' id='bluelink' type='checkbox' formControlName=''>
+                  <input 
+                  class='car-info-container__details__form__item__input__telematic' 
+                  id='bluelink' 
+                  type='checkbox' 
+                  formControlName='telematic_bluelink'>
                   <span class="checkmark"></span>
                   <img
                           src="./../../../../../../../assets/images/bluelink_icon.svg"
@@ -145,14 +154,17 @@
               </div>
               <div class='car-info-container__details__form__container__toggle__main'>
                 <label class='container'>
-                  <input class='car-info-container__details__form__item__input__telematic' id='misos_PRO' type='checkbox' formControlName=''>
+                  <input 
+                  class='car-info-container__details__form__item__input__telematic' 
+                  id='misos_PRO' 
+                  type='checkbox' 
+                  formControlName='telematic_misos_pro'>
                   <span class="checkmark"></span>
                   <img
                           src="./../../../../../../../assets/images/misos_pro_icon.svg"
                   />
                   <label class='car-info-container__details__form__item__radio__label__telematic' for="misos_PRO">Misos PRO</label>
                 </label>
-
               </div>
             </div>
           </div>

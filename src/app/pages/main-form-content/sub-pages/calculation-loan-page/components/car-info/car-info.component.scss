@@ -206,8 +206,11 @@
 
 
         &__radio {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
           width: 340px;
           height: 74px;
+          gap: 5px;
 
           &__button {
           display: none;
@@ -221,7 +224,7 @@
           &__label {
             border-radius: 10px;
             background-color: #F2F4F7;
-            margin-left: 10px;
+            text-align: center;
             margin-bottom: 10px;
             padding: 6px 10px;
             font-family: 'Gilroy';

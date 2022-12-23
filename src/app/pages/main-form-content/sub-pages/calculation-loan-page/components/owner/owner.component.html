@@ -1,1 +1,68 @@
-<p>owner works!</p>
+<div class="owner-container">
+    <div class="owner-title">Кредитные и страховые продукты</div>
+    <form class="owner-form" [formGroup]="formCarOptions" (ngSubmit)="onSubmitForm(formCarOptions)">
+        <div class="owner-products-container">
+            <div class="owner-products">
+                <fieldset class="owner-products-item">
+                    <input
+                  id="checkbox_osago"
+                  type="checkbox"
+                  class="owner-products-item__checkbox"
+                  formControlName="osago"
+                  name="checkbox_osago"
+                    />
+                    <label for="checkbox_osago" class="owner-products-item__label">
+                  ОСАГО
+                    </label>
+              </fieldset>
+              <fieldset class="owner-products-item">
+                    <input
+                        id="checkbox_kasko"
+                        type="checkbox"
+                        class="owner-products-item__checkbox"
+                        formControlName="kasko"
+                        name="checkbox_kasko"
+                    />
+                    <label for="checkbox_kasko" class="owner-products-item__label">
+                    КАСКО
+                    </label>
+              </fieldset>
+              <fieldset class="owner-products-item">
+                    <input
+                        id="checkbox_credit"
+                        type="checkbox"
+                        class="owner-products-item__checkbox"
+                        formControlName="credit"
+                        name="checkbox_credit"
+                    />
+                    <label for="checkbox_credit" class="owner-products-item__label">
+                    Кредит
+                    </label>
+              </fieldset>
+             </div>
+            <div class="owner-previous-products">
+                <div class="previous-kasko">
+                    <fieldset class="previous-kasko__item">
+                        <label class="previous-kasko__item_label">
+                            Предыдущий КАСКО
+                        <select class="previous-kasko__item_select" disabled>
+                        </select>
+                        </label
+                    >
+                    </fieldset>
+                </div>
+                <div class="previous-osago">
+                    <fieldset class="previous-osago__item">
+                        <label class="previous-osago__item_label">
+                            Предыдущий ОСАГО
+                        <select class="previous-kasko__item_select" disabled>
+                        </select>
+                        </label
+                    >
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</div>
