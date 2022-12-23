@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { CarInfoComponent } from 'src/app/pages/main-form-content/sub-pages/calculation-loan-page/components/car-info/car-info.component';
 import { DriversComponent } from 'src/app/pages/main-form-content/sub-pages/calculation-loan-page/components/drivers/drivers.component';
 import { InsurensesParamsComponent } from 'src/app/pages/main-form-content/sub-pages/calculation-loan-page/components/insurenses-params/insurenses-params.component';

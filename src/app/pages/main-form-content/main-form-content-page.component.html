@@ -1,22 +1,17 @@
 <div class="wrapper">
   <app-main-form-header></app-main-form-header>
 
-  <nav class="nav-container">
-    <ul class="nav-list">
-      <li
-        #index
-        class="nav-list-item"
-        *ngFor="let link of navigationLinks; let i = index"
-        (click)="getIndex(i)"
-      >
-        <a
-          class="nav-list-item-link"
-          routerLink="{{ link.link }}"
-          [routerLinkActive]="['activated']"
-          >{{ link.value }}</a
-        >
-      </li>
-    </ul>
+  <nav class="nav-container" mat-tab-nav-bar>
+    <a
+      mat-tab-link
+      *ngFor="let link of navigationLinks; let i = index"
+      class="nav-list-item-link"
+      routerLink="{{ link.link }}"
+      [active]="navigationLinks[i].index == i"
+      (click)="getRout()"
+      [routerLinkActive]="['active']"
+      >{{ link.value }}</a
+    >
   </nav>
   <main class="main-container">
     <app-side-bar
