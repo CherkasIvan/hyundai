@@ -1,1 +1,128 @@
-<p>work works!</p>
+<form
+  class="work container"
+  [formGroup]="userWorksForm"
+  (ngSubmit)="submitRegistrationForm(userWorksForm)"
+>
+  <div class="work-header">
+    <span class="work-header__title">Работа</span>
+  </div>
+
+  <div class="work-status">
+    <span class="work-status__title">Рабочий статус</span>
+    <div class="work-status__list">
+      <input
+        type="button"
+        *ngFor="let activeStatus of statuses; index as i"
+        [value]="activeStatus"
+        [ngClass]="{ 'active-work': selectedIndex === i }"
+        (click)="activateClass(i)"
+        class="work-status__list-item"
+      />
+    </div>
+  </div>
+
+  <div class="work-place">
+    <span class="work-place__title">Место работы</span>
+
+    <div class="form-group__list">
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Название организации
+          <input
+            type="text"
+            formControlName="organization_name"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Телефон офиса
+          <input
+            type="text"
+            formControlName="office_phone"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Начало работы в компании
+          <input
+            type="text"
+            formControlName="start_work"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Стаж работы
+          <select
+            (change)="changeStatus($event)"
+            formControlName="work_experience"
+            class="form-group__item--select"
+            name="property_status
+          "
+          >
+            <option value="от 1 года до 2 лет">от 1 года до 2 лет</option>
+            <option value="от 2 года до 3 лет">от 2 года до 3 лет</option>
+            <option value="более 3 лет">более 3 лет</option>
+          </select>
+        </label>
+      </fieldset>
+    </div>
+
+    <span class="work-place__title">Место работы</span>
+
+    <div class="form-group__list">
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Должность в компании
+          <input
+            type="text"
+            formControlName="company_position"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Тип должности
+          <input
+            type="text"
+            formControlName="type_position"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Примерное количество сотрудников
+          <input
+            type="text"
+            formControlName="number_of_employes"
+            class="form-group__item--input"
+        /></label>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Ежемесячный доход, ₽
+          <input
+            type="text"
+            formControlName="income"
+            class="form-group__item--input"
+          />
+        </label>
+      </fieldset>
+    </div>
+  </div>
+
+  <input
+    class="submit-button"
+    type="button"
+    value="Подать заявку в банк"
+    (click)="submitRegistrationForm(userWorksForm)"
+  />
+</form>
