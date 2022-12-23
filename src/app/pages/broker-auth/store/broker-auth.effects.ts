@@ -53,7 +53,7 @@ export class BrokerAuthEffects {
       this.actions$.pipe(
         ofType(authBrokerSuccessAction),
         tap(() => {
-          this.router.navigateByUrl('/main-form');
+          this.router.navigateByUrl('/main-form/loan-calculation/car_info');
         })
       ),
     { dispatch: false }

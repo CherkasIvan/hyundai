@@ -9,7 +9,8 @@
 }
 
 .documents-payments {
-  width: 100%;
+  max-width: 100%;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-main-form-content-page',
@@ -10,35 +11,40 @@ import { MockDataService } from 'src/app/shared/services/mock-data.service';
 export class MainFormContentPageComponent implements OnInit {
   public routerLink!: string;
   public selectedIndex: number = 0;
+
   public navigationLinks = [
     {
       link: 'loan-calculation/car_info',
       value: 'Расчет кредита',
+      index: 0,
     },
     {
       link: 'processing/user_info',
       value: 'Оформление',
+      index: 1,
     },
     {
       link: 'documents-payments',
       value: 'Документы и платежи',
+      index: 2,
     },
   ];
 
   public calculationSteps = [];
-  constructor(private mockServise: MockDataService, private _router: Router) {}
-
-  public getIndex(index: number) {
-    this.routerLink = this._router.url;
-    console.log(this.routerLink);
-
-    this.selectedIndex = index;
-    this._router.url.includes('loan-calculation')
-      ? (this.calculationSteps = this.mockServise.calculationSteps)
-      : (this.calculationSteps = this.mockServise.processingSteps);
+  constructor(private mockServise: MockDataService, private _router: Router) {
+    this.getRout();
   }
 
-  ngOnInit(): void {
-    this.getIndex(this.selectedIndex);
+  public getRout() {
+    this._router.events
+      .pipe(filter((event: any) => event instanceof NavigationEnd))
+      .subscribe((el: any) => {
+        this.routerLink = el.urlAfterRedirects;
+        this._router.url.includes('loan-calculation')
+          ? (this.calculationSteps = this.mockServise.calculationSteps)
+          : (this.calculationSteps = this.mockServise.processingSteps);
+      });
   }
+
+  ngOnInit(): void {}
 }

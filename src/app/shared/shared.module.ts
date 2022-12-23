@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SideBarModule } from './components/side-bar/side-bar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
 import { InsurancePoliciesModalModule } from './components/insurance-policies-modal/insurance-policies-modal.module';
 import { InputSliderModule } from './components/input-slider/input-slider.module';
 
@@ -16,6 +17,7 @@ import { InputSliderModule } from './components/input-slider/input-slider.module
     CommonModule,
     FormsModule,
     InputSliderModule,
+    MatTabsModule,
     InsurancePoliciesModalModule,
     ReactiveFormsModule,
     SideBarModule,
@@ -27,6 +29,7 @@ import { InputSliderModule } from './components/input-slider/input-slider.module
     FormsModule,
     InsurancePoliciesModalModule,
     InputSliderModule,
+    MatTabsModule,
     ReactiveFormsModule,
     SideBarModule,
     MatIconModule,
