@@ -175,7 +175,7 @@ export class MockDataService {
     { content: 'Личная информация', path: 'user_info' },
     { content: 'Работа', path: 'work' },
     { content: 'Сводка', path: 'summary' },
-    { content: 'Одобрение', path: 'access' },
+    { content: 'Одобрение', path: 'approval' },
   ];
 
   public insuranceCardsObjects: Object = [

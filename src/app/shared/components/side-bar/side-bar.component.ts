@@ -20,7 +20,6 @@ export class SideBarComponent implements OnInit {
           this.mockData.processingSteps[$event.selectedIndex].path);
 
     let route: any = this.activatedRoute.firstChild;
-
     this.router.navigate([this.selectedStepName], {
       relativeTo: route,
     });

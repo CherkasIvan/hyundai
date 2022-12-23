@@ -1,7 +1,7 @@
 <div class="questionnaire-container">
   <form
-    [formGroup]="questionniarForm"
-    (ngSubmit)="submitRegistrationForm(questionniarForm)"
+    [formGroup]="userInfoForm"
+    (ngSubmit)="submitRegistrationForm(userInfoForm)"
     class="registration"
   >
     <p class="registration-title">Оформление</p>
@@ -218,8 +218,8 @@
   <button
     class="next-page__button"
     mat-button
-    [disabled]="!questionniarForm.valid"
-    (click)="submitRegistrationForm(questionniarForm)"
+    [disabled]="!userInfoForm.valid"
+    (click)="submitRegistrationForm(userInfoForm)"
   >
     Продолжить
   </button>

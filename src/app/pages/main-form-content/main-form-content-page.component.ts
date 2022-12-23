@@ -8,14 +8,15 @@ import { MockDataService } from 'src/app/shared/services/mock-data.service';
   styleUrls: ['./main-form-content-page.component.scss'],
 })
 export class MainFormContentPageComponent implements OnInit {
+  public routerLink!: string;
   public selectedIndex: number = 0;
   public navigationLinks = [
     {
-      link: 'loan-calculation',
+      link: 'loan-calculation/car_info',
       value: 'Расчет кредита',
     },
     {
-      link: 'processing',
+      link: 'processing/user_info',
       value: 'Оформление',
     },
     {
@@ -25,11 +26,14 @@ export class MainFormContentPageComponent implements OnInit {
   ];
 
   public calculationSteps = [];
-  constructor(private mockServise: MockDataService, private router: Router) {}
+  constructor(private mockServise: MockDataService, private _router: Router) {}
 
   public getIndex(index: number) {
+    this.routerLink = this._router.url;
+    console.log(this.routerLink);
+
     this.selectedIndex = index;
-    this.router.url.includes('loan-calculation')
+    this._router.url.includes('loan-calculation')
       ? (this.calculationSteps = this.mockServise.calculationSteps)
       : (this.calculationSteps = this.mockServise.processingSteps);
   }
