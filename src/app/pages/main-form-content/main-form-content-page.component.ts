@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-main-form-content-page',
@@ -30,16 +31,20 @@ export class MainFormContentPageComponent implements OnInit {
   ];
 
   public calculationSteps = [];
-  constructor(private mockServise: MockDataService, private _router: Router) {}
-
-  public getRout() {
-    this.routerLink = this._router.url;
-    this._router.url.includes('loan-calculation')
-      ? (this.calculationSteps = this.mockServise.calculationSteps)
-      : (this.calculationSteps = this.mockServise.processingSteps);
-  }
-
-  ngOnInit(): void {
+  constructor(private mockServise: MockDataService, private _router: Router) {
     this.getRout();
   }
+
+  public getRout() {
+    this._router.events
+      .pipe(filter((event: any) => event instanceof NavigationEnd))
+      .subscribe((el: any) => {
+        this.routerLink = el.urlAfterRedirects;
+        this._router.url.includes('loan-calculation')
+          ? (this.calculationSteps = this.mockServise.calculationSteps)
+          : (this.calculationSteps = this.mockServise.processingSteps);
+      });
+  }
+
+  ngOnInit(): void {}
 }
