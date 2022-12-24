@@ -36,7 +36,6 @@ import { AppComponent } from './app.component';
       router: routerReducer,
     }),
     StoreRouterConnectingModule.forRoot(),
-    // NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

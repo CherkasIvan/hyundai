@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input-slider',
@@ -7,20 +6,18 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./input-slider.component.scss'],
 })
 export class InputSliderComponent {
-  name = 'Ng Custom Slider';
-  inputForm: FormGroup;
+  min = 0;
+  max = 9999999;
+  step = 1;
+  value = 0;
 
-  constructor() {
-    this.inputForm = new FormGroup({
-      rentPrice: new FormControl('3000'),
-    });
-
-    // setInterval(() => {
-    //   this.inputForm.get('price').setValue(100);
-    // },5000);
+  public updateInputValue(event: any) {
+    this.value = event.value;
   }
 
-  output(e: any) {
-    console.log(e.target.value);
+  public updateSliderValue(event: any) {
+    this.value = event.value;
   }
+
+  constructor() {}
 }
