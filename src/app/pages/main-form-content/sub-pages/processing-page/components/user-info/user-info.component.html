@@ -175,11 +175,10 @@
         <fieldset class="form-group__item">
           <label class="form-group__item--label">
             Дети
-            <input
-              type="number"
-              formControlName="children_counter"
-              class="form-group__item--input"
-          /></label>
+            <app-counter-button
+              (currentCountValue)="addCids($event)"
+            ></app-counter-button
+          ></label>
         </fieldset>
       </div>
     </div>
@@ -187,17 +186,19 @@
     <div class="monthly_expenses">
       <div class="passport-data__title">Ежемесячные расходы</div>
       <div class="family__form-group">
-        <app-input-slider></app-input-slider>
-        <!-- <fieldset class="form-group__item">
+        <fieldset class="form-group__item">
           <label class="form-group__item--label">
             Обязательные платежи*, ₽
-            <input
+            <app-input-slider></app-input-slider>
+
+            <!-- <input
               type="number"
               min="1"
               step="any"
               formControlName="obligatory_payments"
               class="form-group__item--input"
-          /></label>
+          /> -->
+          </label>
         </fieldset>
 
         <fieldset class="form-group__item">
@@ -210,7 +211,7 @@
               formControlName="loan_repayment"
               class="form-group__item--input"
           /></label>
-        </fieldset> -->
+        </fieldset>
       </div>
     </div>
   </form>
