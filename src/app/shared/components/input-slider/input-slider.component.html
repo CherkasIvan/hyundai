@@ -1,12 +1,20 @@
-<form [formGroup]="inputForm">
-  <div style="display: flex; flex-direction: column">
-    {{ inputForm.value | json }}
-    <input
-      type="text"
-      rentRangeSlider
-      rangeType="rentPrice"
-      formControlName="rentPrice"
-      name="price"
-    />
-  </div>
-</form>
+<section class="slider container">
+  <input
+    matInput
+    class="slider-input"
+    type="number"
+    #inputValue
+    (change)="updateSliderValue($event)"
+    [(ngModel)]="value"
+  />
+  <mat-slider
+    class="example-margin"
+    [min]="min"
+    [max]="max"
+    [step]="step"
+    #sliderValue
+    (change)="updateInputValue($event)"
+    [(ngModel)]="value"
+  >
+  </mat-slider>
+</section>

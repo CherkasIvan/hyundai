@@ -15,6 +15,7 @@ import { CounterButtonComponent } from './components/counter-button/counter-butt
 @NgModule({
   declarations: [BackendErrorMessagesComponent, CounterButtonComponent],
   imports: [
+    FormsModule,
     CommonModule,
     FormsModule,
     InputSliderModule,
@@ -26,6 +27,7 @@ import { CounterButtonComponent } from './components/counter-button/counter-butt
     MatDialogModule,
   ],
   exports: [
+    FormsModule,
     BackendErrorMessagesComponent,
     CounterButtonComponent,
     FormsModule,

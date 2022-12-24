@@ -214,16 +214,16 @@
         </fieldset>
       </div>
     </div>
+
+    <button
+      class="next-page__button"
+      mat-button
+      [disabled]="!userInfoForm.valid"
+      (click)="submitRegistrationForm(userInfoForm)"
+    >
+      Продолжить
+    </button>
   </form>
 
-  <button
-    class="next-page__button"
-    mat-button
-    [disabled]="!userInfoForm.valid"
-    (click)="submitRegistrationForm(userInfoForm)"
-  >
-    Продолжить
-  </button>
-
-  <button (click)="openInsuranceModal()">Open modal</button>
+  <!-- <button (click)="openInsuranceModal()">Open modal</button> -->
 </div>
