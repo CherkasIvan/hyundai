@@ -10,11 +10,7 @@ export class WorkComponent implements OnInit {
   public userWorksForm!: FormGroup;
   public selectedIndex: number = 0;
   public actualValue!: number;
-  public currentFields = {
-    label: 'Ежемесячный доход, ₽',
-    actualCounter: 0,
-    formControl: 'income',
-  };
+
   public activateClass(index: number) {
     this.selectedIndex = index;
   }

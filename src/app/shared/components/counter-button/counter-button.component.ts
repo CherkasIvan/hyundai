@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-counter-button',
@@ -7,34 +7,32 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./counter-button.component.scss'],
 })
 export class CounterButtonComponent implements OnInit {
-  @Input() initialState!: any;
+  public initialCounter = 0;
   @Output() currentCountValue = new EventEmitter<number>();
 
-  public initCounterForm() {
-    this.initialState.formControl = new FormControl(
-      this.initialState.actualCounter
-    );
+  public counterForm!: FormGroup;
+
+  public initializeForm(): void {
+    this.counterForm = this._fb.group({
+      counterFormInput: [this.initialCounter],
+    });
   }
 
-  constructor() {}
+  constructor(private _fb: FormBuilder) {}
 
   public decrementInputValue() {
-    this.initialState.actualCounter <= 0
-      ? this.initialState.actualCounter
-      : this.initialState.actualCounter--;
-
-    this.currentCountValue.emit(this.initialState.actualCounter);
+    this.initialCounter <= 0 ? this.initialCounter : this.initialCounter--;
+    this.counterForm.get('counterFormInput')?.patchValue(this.initialCounter);
+    this.currentCountValue.emit(this.initialCounter);
   }
 
   public incrementInputValue() {
-    this.initialState.actualCounter >= 10
-      ? this.initialState.actualCounter
-      : this.initialState.actualCounter++;
-
-    this.currentCountValue.emit(this.initialState.actualCounter);
+    this.initialCounter >= 10 ? this.initialCounter : this.initialCounter++;
+    this.counterForm.get('counterFormInput')?.patchValue(this.initialCounter);
+    this.currentCountValue.emit(this.initialCounter);
   }
 
   ngOnInit(): void {
-    this.initCounterForm();
+    this.initializeForm();
   }
 }

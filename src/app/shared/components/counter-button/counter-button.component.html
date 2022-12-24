@@ -1,24 +1,20 @@
-<fieldset class="form-group__item">
-  <label class="form-group__item--label">
-    {{ initialState.label }}
-    <div class="counter-container">
-      <input
-        type="button"
-        class="counter-container__decrease button"
-        (click)="decrementInputValue()"
-        value="-"
-      />
-      <input
-        type="number"
-        class="form-group__item--input"
-        [formControl]="this.initialState.formControl"
-      />
-      <input
-        type="button"
-        value="+"
-        class="counter-container__increase button"
-        (click)="incrementInputValue()"
-      />
-    </div>
-  </label>
-</fieldset>
+<form class="counter-container" [formGroup]="counterForm">
+  <input
+    type="button"
+    class="counter-container__decrease button"
+    (click)="decrementInputValue()"
+    value="-"
+  />
+  <input
+    type="number"
+    class="form-group__item--input"
+    value="initialCounter"
+    formControlName="counterFormInput"
+  />
+  <input
+    type="button"
+    value="+"
+    class="counter-container__increase button"
+    (click)="incrementInputValue()"
+  />
+</form>
