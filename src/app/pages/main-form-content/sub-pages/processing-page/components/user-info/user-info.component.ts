@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormlyFieldConfig } from '@ngx-formly/core';
 import { ModalService } from '../../../../../../shared/services/modal.service';
 
 @Component({
-  selector: 'app-questionnaire-form',
-  templateUrl: './questionnaire-form.component.html',
-  styleUrls: ['./questionnaire-form.component.scss'],
+  selector: 'app-user-info',
+  templateUrl: './user-info.component.html',
+  styleUrls: ['./user-info.component.scss'],
 })
-export class QuestionnaireFormComponent implements OnInit {
-  public questionniarForm!: FormGroup;
+export class UserInfoComponent implements OnInit {
+  public userInfoForm!: FormGroup;
 
   public educations: string[] = [
     'Высшее',
@@ -25,7 +24,7 @@ export class QuestionnaireFormComponent implements OnInit {
   }
 
   public initializeForm(): void {
-    this.questionniarForm = this.fb.group({
+    this.userInfoForm = this.fb.group({
       passport_seria: ['', Validators.required],
       born_place: ['', Validators.required],
       passport_office: ['', Validators.required],
@@ -35,7 +34,7 @@ export class QuestionnaireFormComponent implements OnInit {
       familyStatus: ['', Validators.required],
       children_counter: [0, Validators.required],
       obligatory_payments: [0, Validators.required],
-      loan_repayment: [0, Validators.required],
+      loan_repaymentuserForm: [0, Validators.required],
     });
   }
 
@@ -52,11 +51,11 @@ export class QuestionnaireFormComponent implements OnInit {
   }
 
   get propertyStatus() {
-    return this.questionniarForm.get('propertyStatus');
+    return this.userInfoForm.get('propertyStatus');
   }
 
   get familyActualStatus() {
-    return this.questionniarForm.get('familyStatus');
+    return this.userInfoForm.get('familyStatus');
   }
 
   constructor(private modalService: ModalService, private fb: FormBuilder) {}
@@ -65,10 +64,9 @@ export class QuestionnaireFormComponent implements OnInit {
     this.modalService.insurancePolicDialog();
   }
 
-  public submitRegistrationForm(questionniarForm: FormGroup): void {
-    const body = questionniarForm.value;
+  public submitRegistrationForm(userInfoForm: FormGroup): void {
+    const body = userInfoForm.value;
     body.educations = this.educations[this.selectedIndex];
-    console.log(body);
   }
 
   ngOnInit(): void {

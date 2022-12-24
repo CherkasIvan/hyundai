@@ -1,0 +1,12 @@
+<form [formGroup]="inputForm">
+  <div style="display: flex; flex-direction: column">
+    {{ inputForm.value | json }}
+    <input
+      type="text"
+      rentRangeSlider
+      rangeType="rentPrice"
+      formControlName="rentPrice"
+      name="price"
+    />
+  </div>
+</form>

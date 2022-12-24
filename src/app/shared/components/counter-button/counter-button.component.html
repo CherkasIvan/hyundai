@@ -1,0 +1,20 @@
+<form class="counter-container" [formGroup]="counterForm">
+  <input
+    type="button"
+    class="counter-container__decrease button"
+    (click)="decrementInputValue()"
+    value="-"
+  />
+  <input
+    type="number"
+    class="form-group__item--input"
+    value="initialCounter"
+    formControlName="counterFormInput"
+  />
+  <input
+    type="button"
+    value="+"
+    class="counter-container__increase button"
+    (click)="incrementInputValue()"
+  />
+</form>

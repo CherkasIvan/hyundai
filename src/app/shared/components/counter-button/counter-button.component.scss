@@ -1,0 +1,82 @@
+.form-group__item {
+  display: flex;
+  flex-direction: column;
+
+  &--label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #343e48;
+  }
+
+  &--select,
+  &--input {
+    background: #f2f4f7;
+    border-radius: 8px;
+    padding: 17.5px 10px;
+  }
+  &--options {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      accent-color: #72879e;
+
+      .form-group__item--label {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #343e48;
+      }
+    }
+  }
+}
+
+.counter-container {
+  margin-top: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background: #f2f4f7;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+
+  .button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &__decrease {
+    margin-left: 5px;
+    background: #ffffff;
+    color: #cad2da;
+  }
+
+  &__increase {
+    margin-right: 5px;
+    background: #72879e;
+    color: #ffffff;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  background-color: #f2f4f7;
+}
+
+input[type='number'] {
+  text-align: center;
+}

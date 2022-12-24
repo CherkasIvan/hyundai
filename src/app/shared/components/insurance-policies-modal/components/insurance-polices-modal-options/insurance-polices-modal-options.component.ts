@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-insurance-polices-modal-options',
@@ -9,38 +8,44 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 })
 export class InsurancePolicesModalOptionsComponent implements OnInit {
   @Input() public specialOptions!: any;
+  public optionsModalForm!: FormGroup;
 
-  public formSpecialOptions = new FormGroup({});
-  public model = {};
-  public options: FormlyFormOptions = {};
-  public fields: FormlyFieldConfig[] = [];
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
-  public submitForm(model: any): void {
-    console.log(model);
+  public initializeForm(): void {
+    this.optionsModalForm = this.fb.group({
+      option_1: ['', Validators.required],
+      option_2: ['', Validators.required],
+      option_3: ['', Validators.required],
+      option_4: ['', Validators.required],
+    });
+  }
+
+  public submitForm(optionsModalForm: any): void {
+    console.log(optionsModalForm.value);
+  }
+
+  public changeOption2(e: any) {
+    this.option2Status?.setValue(e.target.value, {
+      onlySelf: true,
+    });
+  }
+
+  public changeOption4(e: any) {
+    this.option4Status?.setValue(e.target.value, {
+      onlySelf: true,
+    });
+  }
+
+  get option2Status() {
+    return this.optionsModalForm.get('option_2');
+  }
+
+  get option4Status() {
+    return this.optionsModalForm.get('option_4');
   }
 
   ngOnInit(): void {
-    this.specialOptions.forEach((option: any) => {
-      if ('options' in option) {
-        this.fields.push({
-          key: option.key,
-          type: option.type,
-          props: {
-            label: option.label,
-            placeholder: option.placeholder,
-            options: option.options,
-          },
-        });
-      } else
-        this.fields.push({
-          key: option.key,
-          type: option.type,
-          props: {
-            label: option.label,
-            placeholder: option.placeholder,
-          },
-        });
-    });
+    this.initializeForm();
   }
 }

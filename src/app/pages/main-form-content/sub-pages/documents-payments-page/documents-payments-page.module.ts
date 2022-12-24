@@ -8,6 +8,7 @@ import { DocumentsPaymentsPageComponent } from './documents-payments-page.compon
 
 @NgModule({
   declarations: [DocumentsComponent, DocumentsPaymentsPageComponent],
+  exports: [DocumentsComponent, DocumentsPaymentsPageComponent],
   imports: [DocumentsPaymentsPageRoutingModule, CommonModule],
 })
 export class DocumentsPaymentsPageModule {}

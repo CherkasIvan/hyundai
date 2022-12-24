@@ -8,7 +8,6 @@ import { InsurancePolicesModalOptionsComponent } from './components/insurance-po
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormlyModule } from '@ngx-formly/core';
 
 @NgModule({
   declarations: [
@@ -18,12 +17,6 @@ import { FormlyModule } from '@ngx-formly/core';
     InsurancePolicesModalOptionsComponent,
     InsurancePoliciesModalComponent,
   ],
-  imports: [
-    CommonModule,
-    MatDialogModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    FormlyModule,
-  ],
+  imports: [CommonModule, MatDialogModule, MatIconModule, ReactiveFormsModule],
 })
 export class InsurancePoliciesModalModule {}
