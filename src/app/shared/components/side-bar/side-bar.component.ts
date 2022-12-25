@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MockDataService } from '../../services/mock-data.service';
 
@@ -8,6 +9,10 @@ import { MockDataService } from '../../services/mock-data.service';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
+  color: ThemePalette = 'primary';
+  mode: any = 'determinate';
+  value: number = 50;
+  bufferValue = 75;
   @Input() public steps!: any[]; // НАПИСАТЬ ИНТЕРФЕЙС!
 
   public selectedStepName: string = '';
