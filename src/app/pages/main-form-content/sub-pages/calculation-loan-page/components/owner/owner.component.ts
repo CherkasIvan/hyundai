@@ -7,7 +7,16 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./owner.component.scss']
 })
 export class OwnerComponent implements OnInit {
-  formCarOptions!: FormGroup
+  formOwnerOptions!: FormGroup
+
+  public genders: string[] = [
+    'Женский',
+    'Мужской'
+  ];
+  public selectedIndex: number = 0;
+  public activateClass(index: number) {
+    this.selectedIndex = index;
+  }
 
   constructor( private fb: FormBuilder) { }
 
@@ -16,7 +25,7 @@ export class OwnerComponent implements OnInit {
   }
 
   public initializeForm(): void {
-    this.formCarOptions = this.fb.group({
+    this.formOwnerOptions = this.fb.group({
       osago: ['true', Validators.required],
       kasko: ['true', Validators.required],
       credit: ['true', Validators.required],
@@ -25,7 +34,7 @@ export class OwnerComponent implements OnInit {
       driver_full_name: ['Сирнов Андрей Вадимович', Validators.required],
       gender: ['Мужской', Validators.required],
       birthdate: ['2000-07-12', Validators.required],
-      birthplace: ['Москва', Validators.required],
+      bornplace: ['Москва', Validators.required],
       passport_number: ['65 11 111111', Validators.required],
       passport_issued_at: ['2066-07-12', Validators.required],
       passport_division_code: ['661-001', Validators.required],
@@ -38,6 +47,8 @@ export class OwnerComponent implements OnInit {
 }
 
 public onSubmitForm(model: FormGroup): void {
+  const body = this.formOwnerOptions.value;
+    body.gender = this.genders[this.selectedIndex];
   console.log(model);
 }
 }
