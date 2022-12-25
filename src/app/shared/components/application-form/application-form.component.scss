@@ -1,0 +1,46 @@
+.request-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 25vw;
+
+  .request__form {
+    padding: 48px 36px 74px 23px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 60%;
+    box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
+    border-radius: 30px;
+    background: #ffffff;
+
+    .form-header,
+    .form-body,
+    .form-footer {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .loan-params,
+      .insurer {
+        &__item {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  .request__button {
+    margin-top: 33px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+    background: #343e48;
+    border-radius: 6px;
+    padding: 14px 56px;
+    align-self: center;
+  }
+}
