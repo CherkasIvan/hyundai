@@ -4,16 +4,20 @@ import { CommonModule } from '@angular/common';
 import { BackendErrorMessagesComponent } from './components/backend-error-messages/backend-error-messages.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SideBarModule } from './components/side-bar/side-bar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { InsurancePoliciesModalModule } from './components/insurance-policies-modal/insurance-policies-modal.module';
 import { InputSliderModule } from './components/input-slider/input-slider.module';
 import { CounterButtonComponent } from './components/counter-button/counter-button.component';
+import { ApplicationFormComponent } from './components/application-form/application-form.component';
 
 @NgModule({
-  declarations: [BackendErrorMessagesComponent, CounterButtonComponent],
+  declarations: [
+    BackendErrorMessagesComponent,
+    CounterButtonComponent,
+    ApplicationFormComponent,
+  ],
   imports: [
     FormsModule,
     CommonModule,
@@ -22,11 +26,11 @@ import { CounterButtonComponent } from './components/counter-button/counter-butt
     MatTabsModule,
     InsurancePoliciesModalModule,
     ReactiveFormsModule,
-    SideBarModule,
     MatIconModule,
     MatDialogModule,
   ],
   exports: [
+    ApplicationFormComponent,
     FormsModule,
     BackendErrorMessagesComponent,
     CounterButtonComponent,
@@ -35,7 +39,6 @@ import { CounterButtonComponent } from './components/counter-button/counter-butt
     InputSliderModule,
     MatTabsModule,
     ReactiveFormsModule,
-    SideBarModule,
     MatIconModule,
     MatDialogModule,
   ],

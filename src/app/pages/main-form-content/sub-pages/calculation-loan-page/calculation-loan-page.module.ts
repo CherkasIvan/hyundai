@@ -8,6 +8,7 @@ import { DriversComponent } from './components/drivers/drivers.component';
 import { LoanParamsComponent } from './components/loan-params/loan-params.component';
 import { InsurensesParamsComponent } from './components/insurenses-params/insurenses-params.component';
 import { ProductCalculationComponent } from './components/product-calculation/product-calculation.component';
+import { CalculationLoanPageRoutingModule } from './calculation-loan-page-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,6 @@ import { ProductCalculationComponent } from './components/product-calculation/pr
     ProductCalculationComponent,
   ],
   exports: [CarInfoComponent],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, CalculationLoanPageRoutingModule, SharedModule],
 })
 export class CalculationLoanPageModule {}

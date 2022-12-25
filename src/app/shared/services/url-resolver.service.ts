@@ -16,8 +16,8 @@ export class UrlResolverService implements Resolve<any | null> {
   resolve(
     route: ActivatedRouteSnapshot
   ): Observable<any | null> | Observable<never> {
-    // const id = route.paramMap.get('id');
-    // const post =  this.brokerAuthService.register(id).toPromise();
+    // const id = route.paramMap.get('accessToken');
+    // const post =  this.brokerAuthService.register(accessToken).toPromise();
     // console.log("THE POST IS: ", post);
     return EMPTY;
   }
