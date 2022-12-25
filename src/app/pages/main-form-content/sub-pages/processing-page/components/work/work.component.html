@@ -109,13 +109,21 @@
       <fieldset class="form-group__item">
         <label class="form-group__item--label">
           Ежемесячный доход, ₽
+          <app-counter-button
+            (currentCountValue)="addItem($event)"
+          ></app-counter-button>
+        </label>
+      </fieldset>
+      <!-- <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Ежемесячный доход, ₽
           <input
             type="text"
             formControlName="income"
             class="form-group__item--input"
           />
         </label>
-      </fieldset>
+      </fieldset> -->
     </div>
   </div>
 

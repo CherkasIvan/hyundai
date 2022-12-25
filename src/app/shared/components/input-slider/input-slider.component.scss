@@ -1,64 +1,56 @@
-p {
-  font-family: Lato;
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .slider {
+  margin-top: 10px;
+  background: #f2f4f7;
+  border-radius: 8px;
+
+  &-input {
+    padding: 17.5px 10px;
+  }
+}
+
+::ng-deep {
+  .mat-slider-thumb {
+    right: -30px !important;
+    width: 50px !important;
+    border-radius: 150px !important;
+    background-color: #72879e !important;
+    background-image: url('/assets/images/arrows.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .mat-slider {
+    padding: 0 !important;
+  }
+
+  .mat-slider-horizontal {
+    height: 0 !important;
+  }
+
+  .mat-slider-horizontal .mat-slider-wrapper {
+    top: -3px !important;
+    right: 0.5px !important;
+    left: 0.5px !important;
+  }
+
+  .mat-accent .mat-slider-track-fill {
+    background-color: #72879e !important;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  width: 100%;
-  height: 32px;
-  background: #e6e6e6;
-  outline: none;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
   margin: 0;
-  opacity: 1;
-  margin-bottom: 22px;
-  height: 2px;
-}
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  content: '';
-  background: white;
-  height: 32px;
-  width: 32px;
-  border-radius: 100%;
-  top: 0;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  z-index: 10;
-  transition: all 0.2s;
 }
 
-.slider::-moz-range-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  content: '';
-  background: white;
-  height: 32px;
-  width: 32px;
-  border-radius: 100%;
-  top: 0;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  z-index: 10;
-  transition: all 0.2s;
-}
-
-.slider::-ms-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  content: '';
-  background: white;
-  height: 32px;
-  width: 32px;
-  border-radius: 100%;
-  top: 0;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  z-index: 10;
-  transition: all 0.2s;
+input[type='number'] {
+  -moz-appearance: textfield;
+  background-color: #f2f4f7;
+  border-radius: 8px;
 }

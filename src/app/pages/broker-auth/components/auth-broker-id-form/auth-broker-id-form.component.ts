@@ -4,6 +4,7 @@ import {
   UntypedFormBuilder,
   Validators,
 } from '@angular/forms';
+import { MatTooltip } from '@angular/material/tooltip';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
@@ -44,7 +45,7 @@ export class AuthBrokerIdFormComponent implements OnInit {
     });
   }
 
-  public openTooltip(tooltip: any): void {
+  public openTooltip(tooltip: MatTooltip): void {
     tooltip.show();
     setTimeout(() => {
       tooltip.hide();

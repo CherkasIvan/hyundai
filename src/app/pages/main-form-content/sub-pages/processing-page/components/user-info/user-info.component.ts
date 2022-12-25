@@ -9,6 +9,7 @@ import { ModalService } from '../../../../../../shared/services/modal.service';
 })
 export class UserInfoComponent implements OnInit {
   public userInfoForm!: FormGroup;
+  public kidsCouter: number = 0;
 
   public educations: string[] = [
     'Высшее',
@@ -21,6 +22,10 @@ export class UserInfoComponent implements OnInit {
   public selectedIndex: number = 0;
   public activateClass(index: number) {
     this.selectedIndex = index;
+  }
+
+  public addCids(newCounterValue: number) {
+    this.kidsCouter = newCounterValue;
   }
 
   public initializeForm(): void {
@@ -66,7 +71,9 @@ export class UserInfoComponent implements OnInit {
 
   public submitRegistrationForm(userInfoForm: FormGroup): void {
     const body = userInfoForm.value;
+    body.kids = this.kidsCouter;
     body.educations = this.educations[this.selectedIndex];
+    console.log(body);
   }
 
   ngOnInit(): void {
