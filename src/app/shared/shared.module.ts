@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { BackendErrorMessagesComponent } from './components/backend-error-messages/backend-error-messages.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SideBarModule } from './components/side-bar/side-bar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -27,7 +26,6 @@ import { ApplicationFormComponent } from './components/application-form/applicat
     MatTabsModule,
     InsurancePoliciesModalModule,
     ReactiveFormsModule,
-    SideBarModule,
     MatIconModule,
     MatDialogModule,
   ],
@@ -41,7 +39,6 @@ import { ApplicationFormComponent } from './components/application-form/applicat
     InputSliderModule,
     MatTabsModule,
     ReactiveFormsModule,
-    SideBarModule,
     MatIconModule,
     MatDialogModule,
   ],
