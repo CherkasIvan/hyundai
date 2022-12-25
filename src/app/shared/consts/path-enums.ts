@@ -1,4 +1,4 @@
-export const enum routingPath {
+export const enum routingPathEnum {
   DealerAuthentication = 'auth-broker',
   ClientAuthentication = 'auth0client',
   MainPage = 'main-form',
