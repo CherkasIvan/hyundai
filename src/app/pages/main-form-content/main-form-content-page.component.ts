@@ -6,6 +6,7 @@ import {
 } from '@angular/router';
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
 import { filter } from 'rxjs';
+import { StepsInterface } from './componets/side-bar/steps.interface';
 
 @Component({
   selector: 'app-main-form-content-page',
@@ -34,7 +35,7 @@ export class MainFormContentPageComponent implements OnInit {
     },
   ];
 
-  public calculationSteps = [];
+  public calculationSteps: StepsInterface[] = [];
   constructor(private mockServise: MockDataService, private _router: Router) {
     this.getRout();
   }

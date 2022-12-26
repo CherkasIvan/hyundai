@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { StepsInterface } from 'src/app/pages/main-form-content/componets/side-bar/steps.interface';
 import { DocumentsInterface } from 'src/app/pages/main-form-content/sub-pages/documents-payments-page/types/documents.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MockDataService {
-  public documentsPayments: any[] = [
+  public documentsPayments: DocumentsInterface[] = [
     {
       insurense: 'осаго',
       bank_img: 'sovkom_logo.svg',
@@ -163,7 +164,7 @@ export class MockDataService {
     },
   ];
 
-  public calculationSteps: any = [
+  public calculationSteps: StepsInterface[] = [
     { content: 'Информация об автомобиле', path: 'car-info' },
     { content: 'Собственник', path: 'owner' },
     { content: 'Водители', path: 'drivers' },
@@ -172,7 +173,7 @@ export class MockDataService {
     { content: 'Расчет продуктов', path: 'product-calculation' },
   ];
 
-  public processingSteps: any = [
+  public processingSteps: StepsInterface[] = [
     { content: 'Личная информация', path: 'client-info' },
     { content: 'Работа', path: 'client-job' },
     { content: 'Сводка', path: 'client-summary' },
