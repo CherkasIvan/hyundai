@@ -5,6 +5,25 @@ import { RegisterRequestInterface } from '../types/registerRequest.interface';
 
 import { UserActionTypes } from './userActionTypes';
 
+// REGISTER NEW USER //
+
+export const userRegisterAction = createAction(
+  UserActionTypes.USER_REGISTER,
+  props<{ request: any }>()
+);
+
+export const userRegisterSuccessAction = createAction(
+  UserActionTypes.USER_REGISTER_SUCCESS,
+  props<{ currentUser: CurrentUserInterface }>()
+);
+
+export const userRegisterFailureAction = createAction(
+  UserActionTypes.USER_REGISTER_FAILURE,
+  props<{ errors: BackendErrorsInterface }>()
+);
+
+// AUTH USER //
+
 export const userAuthAction = createAction(
   UserActionTypes.USER_AUTH,
   props<{ request: any }>()

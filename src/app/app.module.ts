@@ -35,7 +35,7 @@ import { AppComponent } from './app.component';
     StoreModule.forRoot({
       router: routerReducer,
     }),
-    StoreRouterConnectingModule.forRoot(),
+    // StoreRouterConnectingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

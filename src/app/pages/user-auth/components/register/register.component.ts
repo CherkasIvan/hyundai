@@ -1,15 +1,14 @@
 import { RegisterRequestInterface } from './../../types/registerRequest.interface';
 import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormBuilder, Validators, FormGroup } from '@angular/forms';
 
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { userAuthAction } from '../../store/userRegister.action';
+import {
+  userAuthAction,
+  userRegisterAction,
+} from '../../store/userRegister.action';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
@@ -23,14 +22,17 @@ import { MatTooltip } from '@angular/material/tooltip';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  public registrationForm!: UntypedFormGroup;
+  public registrationForm!: FormGroup;
+  public authForm!: FormGroup;
+
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
 
   constructor(private fb: UntypedFormBuilder, private store: Store) {}
 
   public ngOnInit(): void {
-    this.initializeForm();
+    this.initializeRegistrationForm();
+    this.initializeAuthForm();
     this.initializeValues();
   }
 
@@ -39,10 +41,17 @@ export class RegisterComponent implements OnInit {
     this.backandErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
-  public initializeForm(): void {
+  public initializeRegistrationForm(): void {
     this.registrationForm = this.fb.group({
       phone: ['', Validators.required],
       // secret_key: ['', Validators.required],
+    });
+  }
+
+  public initializeAuthForm(): void {
+    this.authForm = this.fb.group({
+      clientId: ['', Validators.required],
+      code: ['', Validators.required],
     });
   }
 
@@ -53,8 +62,13 @@ export class RegisterComponent implements OnInit {
     }, 1500);
   }
 
-  public onSubmit(): void {
+  public onSubmitRegistration(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
+    this.store.dispatch(userRegisterAction({ request }));
+  }
+
+  public onSubmitAuth(): void {
+    const request: RegisterRequestInterface = this.authForm.value;
     this.store.dispatch(userAuthAction({ request }));
   }
 }

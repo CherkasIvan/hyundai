@@ -10,7 +10,7 @@ import { AuthResponseInterface } from '../types/authResponse.interface';
 export class UserAuthService {
   constructor(private http: HttpClient) {}
 
-  public register(
+  public userRegister(
     data: RegisterRequestInterface
   ): Observable<CurrentUserInterface> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
@@ -18,6 +18,22 @@ export class UserAuthService {
     });
 
     const url = environment.apiUrl + '/registerClient';
+    return this.http
+      .post<AuthResponseInterface>(url, data, { headers: httpHeaders })
+      .pipe(
+        map((response: any) => response),
+        tap((response: any) => console.log(response))
+      );
+  }
+
+  public userAuth(
+    data: RegisterRequestInterface
+  ): Observable<CurrentUserInterface> {
+    const httpHeaders: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    const url = environment.apiUrl + '/confirmClientRegistration';
     return this.http
       .post<AuthResponseInterface>(url, data, { headers: httpHeaders })
       .pipe(

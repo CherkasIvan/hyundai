@@ -16,11 +16,7 @@
   <main class="main-container">
     <app-side-bar
       [steps]="calculationSteps"
-      *ngIf="
-        routerLink !=
-        '/
-      main-page/documents-payments'
-      "
+      *ngIf="routerLink != '/main-page/documents-payments'"
     ></app-side-bar>
     <router-outlet></router-outlet>
   </main>

@@ -10,10 +10,10 @@
         </p>
       </div>
 
-      <app-auth-tabs>
+      <!-- <app-auth-tabs>
         <form
           [formGroup]="registrationForm"
-          (ngSubmit)="onSubmit()"
+          (ngSubmit)="onSubmitRegistration()"
           class="auth-form"
         >
           <fieldset class="auth-form-item">
@@ -29,33 +29,6 @@
             />
           </fieldset>
 
-          <!--          <fieldset class="auth-form-item">-->
-          <!--            <div class="auth-form-item__wrapper">-->
-          <!--              <label for="secret_key" class="auth-form-item__label"-->
-          <!--                >Код проверки*</label-->
-          <!--              >-->
-
-          <!--              <img-->
-          <!--                src="../../../../../assets/images/tooltip_item.svg"-->
-          <!--                alt="tool-tip"-->
-          <!--                [matTooltipClass]="{'tool-tip': true}"-->
-          <!--                class="example-tab-icon"-->
-          <!--                matTooltip="tooltip"-->
-          <!--                #tool="matTooltip"-->
-          <!--                (click)="openTooltip(tool)"-->
-          <!--                (focus)="tool.show()"-->
-          <!--              />-->
-          <!--            </div>-->
-
-          <!--            <input-->
-          <!--              type="text"-->
-          <!--              class="auth-form-item__validation-code"-->
-          <!--              placeholder="Мы выслали код на ваш номер"-->
-          <!--              name="secret_key"-->
-          <!--              formControlName="secret_key"-->
-          <!--            />-->
-          <!--          </fieldset>-->
-
           <button
             class="auth-form-button"
             type="submit"
@@ -68,7 +41,49 @@
             />
           </button>
         </form>
-      </app-auth-tabs>
+      </app-auth-tabs> -->
+
+      <form
+        [formGroup]="authForm"
+        (ngSubmit)="onSubmitAuth()"
+        class="auth-form"
+      >
+        <fieldset class="auth-form-item">
+          <label for="clientId" class="auth-form-item__label">Ваш ID*</label>
+          <input
+            type="text"
+            class="auth-form-item__phone"
+            placeholder="Введите ваш номер"
+            name="clientId"
+            formControlName="clientId"
+          />
+        </fieldset>
+
+        <fieldset class="auth-form-item">
+          <label for="code" class="auth-form-item__label"
+            >Ваш код телефона*</label
+          >
+          <input
+            type="text"
+            class="auth-form-item__phone"
+            placeholder="Введите ваш номер"
+            name="code"
+            formControlName="code"
+          />
+        </fieldset>
+
+        <button
+          class="auth-form-button"
+          type="submit"
+          [disabled]="isSubmitting$ | async"
+        >
+          Войти
+          <img
+            src="../../../../../assets/images/login_button.svg"
+            alt="login"
+          />
+        </button>
+      </form>
     </div>
 
     <div class="personal-service">
@@ -81,5 +96,9 @@
       *ngIf="backandErrors$ | async"
       [backendErrors]="backandErrors$ | async"
     ></app-backend-error-messages> -->
+    <!-- <div class="auth-buttons">
+      <input type="button" value="Зарегистрироваться" />
+      <input type="button" value="Войти" />
+    </div> -->
   </div>
 </div>

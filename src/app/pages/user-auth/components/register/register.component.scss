@@ -1,6 +1,6 @@
 .auth-page {
   width: 100vw;
-  background-image: url('/assets/image/autn_client_background.png');
+  background-image: url('/assets/images/auth_client_background.png');
   //background: radial-gradient(
   //  106.64% 106.64% at 50% 50%,
   //  #515e6b 0%,
@@ -104,6 +104,18 @@
         font-weight: 500;
         font-size: 20px;
         line-height: 121%;
+      }
+    }
+
+    .auth-buttons {
+      margin-top: 50px;
+      display: flex;
+      gap: 20px;
+      align-self: flex-start;
+
+      > * {
+        text-transform: uppercase;
+        padding: 15px 20px;
       }
     }
   }
