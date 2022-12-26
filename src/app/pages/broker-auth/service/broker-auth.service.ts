@@ -24,7 +24,7 @@ export class BrokerAuthService {
     const url = environment.apiUrl + '/legalUserAuthentication';
 
     return this.http
-      .post<BrokerAuthResponseInterface>(url, data, { headers: httpHeaders })
-      .pipe(map((response: any) => response));
+      .post<CurrentBrokerInterface>(url, data, { headers: httpHeaders })
+      .pipe(map((response: CurrentBrokerInterface) => response));
   }
 }
