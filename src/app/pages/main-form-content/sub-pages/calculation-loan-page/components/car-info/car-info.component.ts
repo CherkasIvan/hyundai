@@ -1,23 +1,17 @@
-import {
-  OnInit,
-  Component,
-  ViewEncapsulation, Input
-} from '@angular/core';
+import { OnInit, Component, ViewEncapsulation, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTooltip } from '@angular/material/tooltip';
-
 
 @Component({
   selector: 'app-car-info',
   templateUrl: './car-info.component.html',
   styleUrls: ['./car-info.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class CarInfoComponent implements OnInit {
   @Input()
   public carOptions!: object[];
 
-  formCarOptions!: FormGroup
+  formCarOptions!: FormGroup;
   showTicks = false;
   step = 1;
   thumbLabel = false;
@@ -47,7 +41,7 @@ export class CarInfoComponent implements OnInit {
     this.initializeForm();
   }
 
-  public openTooltip(tooltip: any): void {
+  public openTooltip(tooltip: MatTooltip): void {
     tooltip.show();
     setTimeout(() => {
       tooltip.hide();

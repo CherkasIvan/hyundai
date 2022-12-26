@@ -241,7 +241,7 @@ export class MockDataService {
     },
   ];
 
-  public insuranceOptions: Object = [
+  public insuranceOptions: any[] = [
     {
       key: 'Input1',
       type: 'input',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MockDataService } from '../../../../services/mock-data.service';
 import { ModalService } from '../../../../services/modal.service';
+import { ModalCard } from '../../types/modal-card.interface';
 
 @Component({
   selector: 'app-insurance-polices-modal-body',
@@ -12,9 +13,9 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
   public isHiden: boolean = true;
 
   public cardsObjects: any = [];
-  public options: any = [];
+  public options: any[] = [];
 
-  public getCard(card: any): Object {
+  public getCard(card: ModalCard): Object {
     this.cardsObjects = [];
     this.cardsObjects.push(card);
     return this.cardsObjects;
@@ -32,5 +33,6 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
   ngOnInit(): void {
     this.cardsObjects = this.mockDataService.insuranceCardsObjects;
     this.options = this.mockDataService.insuranceOptions;
+    console.log(this.options);
   }
 }

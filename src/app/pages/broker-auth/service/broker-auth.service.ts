@@ -1,14 +1,14 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import {map, Observable, tap} from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
-import {CurrentBrokerInterface} from '../store/types/currentBroker.interface';
+import { CurrentBrokerInterface } from '../store/types/currentBroker.interface';
 
-import {RegisterRequestInterface} from '../types/registerRequest.interface';
-import {BrokerAuthResponseInterface} from '../store/types/brokerAuthResponse.interface';
+import { RegisterRequestInterface } from '../types/registerRequest.interface';
+import { BrokerAuthResponseInterface } from '../store/types/brokerAuthResponse.interface';
 
-import {environment} from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class BrokerAuthService {
@@ -24,7 +24,7 @@ export class BrokerAuthService {
     const url = environment.apiUrl + '/legalUserAuthentication';
 
     return this.http
-      .post<BrokerAuthResponseInterface>(url, data, {headers: httpHeaders})
+      .post<BrokerAuthResponseInterface>(url, data, { headers: httpHeaders })
       .pipe(map((response: any) => response));
   }
 }

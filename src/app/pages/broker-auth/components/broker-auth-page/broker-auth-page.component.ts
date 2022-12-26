@@ -12,6 +12,7 @@ import {
 
 import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-broker-auth-page',
@@ -43,7 +44,7 @@ export class BrokerAuthPageComponent implements OnInit {
     });
   }
 
-  public openTooltip(tooltip: any): void {
+  public openTooltip(tooltip: MatTooltip): void {
     tooltip.show();
     setTimeout(() => {
       tooltip.hide();
