@@ -12,6 +12,7 @@ import { InputSliderModule } from './components/input-slider/input-slider.module
 import { CounterButtonComponent } from './components/counter-button/counter-button.component';
 import { ApplicationFormComponent } from './components/application-form/application-form.component';
 import { InputClearerComponent } from './components/input-clearer/input-clearer.component';
+import { LoanParamsComponent } from './components/loan-params/loan-params.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { InputClearerComponent } from './components/input-clearer/input-clearer.
     CounterButtonComponent,
     ApplicationFormComponent,
     InputClearerComponent,
+    LoanParamsComponent,
   ],
   imports: [
     FormsModule,
@@ -34,6 +36,7 @@ import { InputClearerComponent } from './components/input-clearer/input-clearer.
   exports: [
     ApplicationFormComponent,
     FormsModule,
+    LoanParamsComponent,
     BackendErrorMessagesComponent,
     CounterButtonComponent,
     FormsModule,

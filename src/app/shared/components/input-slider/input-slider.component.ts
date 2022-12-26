@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
+import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
   selector: 'app-input-slider',
@@ -9,28 +10,23 @@ import { Output, EventEmitter } from '@angular/core';
 export class InputSliderComponent {
   @Output()
   componentValue:EventEmitter<number> = new EventEmitter<number>()
-  
-  min = 0;
-  max = 9999999;
-  step = 1;
-  value = 0;
+  public min: number = 0;
+  public max: number = 9999999;
+  public step: number = 1;
+  public value: any = 0;
 
-  public updateInputValue(event: any) {
+  public updateInputValue(event: MatSliderChange) {
     this.value = event.value;
-    let value = this.value;
-    this.emitComponentValue(value);
+    this.componentValue.emit(this.value);
 
   }
 
-  public updateSliderValue(event: any) {
-    this.value = event.value;
-    let value = this.value;
-    this.emitComponentValue(value);
+    public updateSliderValue(event: Event) {
+      this.value = (event.target as HTMLInputElement).value;
+    this.componentValue.emit(this.value);
   }
 
-  emitComponentValue(value: number) {
-    this.componentValue.emit(value);
-  }
+
 
   constructor() {}
 }

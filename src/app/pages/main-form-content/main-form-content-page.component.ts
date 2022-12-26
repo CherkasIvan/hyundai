@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, Event, RouterEvent } from '@angular/router';
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
 import { filter } from 'rxjs';
+import { StepsInterface } from './componets/side-bar/steps.interface';
 
 @Component({
   selector: 'app-main-form-content-page',
@@ -14,12 +15,12 @@ export class MainFormContentPageComponent implements OnInit {
 
   public navigationLinks = [
     {
-      link: 'loan-calculation/car_info',
+      link: 'loan-calculation/car-info',
       value: 'Расчет кредита',
       index: 0,
     },
     {
-      link: 'processing/user_info',
+      link: 'processing/client-info',
       value: 'Оформление',
       index: 1,
     },
@@ -30,15 +31,20 @@ export class MainFormContentPageComponent implements OnInit {
     },
   ];
 
-  public calculationSteps = [];
+  public calculationSteps: StepsInterface[] = [];
   constructor(private mockServise: MockDataService, private _router: Router) {
     this.getRout();
   }
 
   public getRout() {
     this._router.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd))
-      .subscribe((el: any) => {
+      .pipe(
+        filter(
+          (event: Event): event is NavigationEnd =>
+            event instanceof NavigationEnd
+        )
+      )
+      .subscribe((el: NavigationEnd) => {
         this.routerLink = el.urlAfterRedirects;
         this._router.url.includes('loan-calculation')
           ? (this.calculationSteps = this.mockServise.calculationSteps)

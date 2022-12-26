@@ -4,6 +4,7 @@ import {
   UntypedFormBuilder,
   Validators,
 } from '@angular/forms';
+import { MatTooltip } from '@angular/material/tooltip';
 
 import { Store, select } from '@ngrx/store';
 
@@ -47,7 +48,7 @@ export class AuthEmailFormComponent implements OnInit {
     });
   }
 
-  public openTooltip(tooltip: any): void {
+  public openTooltip(tooltip: MatTooltip): void {
     tooltip.show();
     setTimeout(() => {
       tooltip.hide();

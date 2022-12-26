@@ -1,10 +1,10 @@
-import {map, Observable, tap} from 'rxjs';
-import {Injectable} from '@angular/core';
-import {RegisterRequestInterface} from '../types/registerRequest.interface';
-import {CurrentUserInterface} from '../types/currentUser.interface';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from 'src/environments/environment';
-import {AuthResponseInterface} from '../types/authResponse.interface';
+import { map, Observable, tap } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { RegisterRequestInterface } from '../types/registerRequest.interface';
+import { CurrentUserInterface } from '../types/currentUser.interface';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { AuthResponseInterface } from '../types/authResponse.interface';
 
 @Injectable()
 export class UserAuthService {
@@ -19,7 +19,7 @@ export class UserAuthService {
 
     const url = environment.apiUrl + '/registerClient';
     return this.http
-      .post<AuthResponseInterface>(url, data, {headers: httpHeaders})
+      .post<AuthResponseInterface>(url, data, { headers: httpHeaders })
       .pipe(
         map((response: any) => response),
         tap((response: any) => console.log(response))

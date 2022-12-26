@@ -1,20 +1,17 @@
 import {
   OnInit,
-  Component,
-  ViewEncapsulation, Input, OnChanges, SimpleChanges, OnDestroy
+  Component, Input, OnDestroy
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTooltip } from '@angular/material/tooltip';
 import { Subscription } from 'rxjs';
 
-
 @Component({
   selector: 'app-car-info',
   templateUrl: './car-info.component.html',
   styleUrls: ['./car-info.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
-export class CarInfoComponent implements OnInit, OnChanges, OnDestroy {
+export class CarInfoComponent implements OnInit, OnDestroy {
   @Input()
   public carOptions!: object[];
 
@@ -34,6 +31,7 @@ export class CarInfoComponent implements OnInit, OnChanges, OnDestroy {
 
   sliderValue!: number
   formCarOptions!: FormGroup
+
   showTicks = false;
   step = 1;
   thumbLabel = false;
@@ -73,9 +71,6 @@ export class CarInfoComponent implements OnInit, OnChanges, OnDestroy {
     .subscribe((value) => this.car_telematic = value)
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-   
-  }
 
   public openTooltip(tooltip: MatTooltip): void {
     tooltip.show();

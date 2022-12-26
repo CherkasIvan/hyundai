@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
+import { StepsInterface } from 'src/app/pages/main-form-content/componets/side-bar/steps.interface';
+import { DocumentsInterface } from 'src/app/pages/main-form-content/sub-pages/documents-payments-page/types/documents.interface';
+import { ModalCardInterface } from '../components/insurance-policies-modal/types/modal-card.interface';
+import { InsuranceOptionsInterface } from '../components/insurance-policies-modal/types/insurance-options.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MockDataService {
-  public documentsPayments: Object = [
+  public documentsPayments: DocumentsInterface[] = [
     {
       insurense: 'осаго',
       bank_img: 'sovkom_logo.svg',
@@ -162,23 +166,23 @@ export class MockDataService {
     },
   ];
 
-  public calculationSteps: any = [
-    { content: 'Информация об автомобиле', path: 'car_info' },
+  public calculationSteps: StepsInterface[] = [
+    { content: 'Информация об автомобиле', path: 'car-info' },
     { content: 'Собственник', path: 'owner' },
-    { content: 'Водители', path: 'driver' },
-    { content: 'Параметры кредита', path: 'loan_params' },
-    { content: 'Параметры страховых продуктов', path: 'insurenses_params' },
-    { content: 'Расчет продуктов', path: 'product_calculation' },
+    { content: 'Водители', path: 'drivers' },
+    { content: 'Параметры кредита', path: 'loan-params' },
+    { content: 'Параметры страховых продуктов', path: 'insurenses-params' },
+    { content: 'Расчет продуктов', path: 'product-calculation' },
   ];
 
-  public processingSteps: any = [
-    { content: 'Личная информация', path: 'user_info' },
-    { content: 'Работа', path: 'work' },
-    { content: 'Сводка', path: 'summary' },
-    { content: 'Одобрение', path: 'approval' },
+  public processingSteps: StepsInterface[] = [
+    { content: 'Личная информация', path: 'client-info' },
+    { content: 'Работа', path: 'client-job' },
+    { content: 'Сводка', path: 'client-summary' },
+    { content: 'Одобрение', path: 'client-approval' },
   ];
 
-  public insuranceCardsObjects: Object = [
+  public insuranceCardsObjects: ModalCardInterface[] = [
     {
       img: 'ingostrah.png',
       status: 'green',
@@ -241,7 +245,7 @@ export class MockDataService {
     },
   ];
 
-  public insuranceOptions: Object = [
+  public insuranceOptions: InsuranceOptionsInterface[] = [
     {
       key: 'Input1',
       type: 'input',
