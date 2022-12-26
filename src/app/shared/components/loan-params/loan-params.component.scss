@@ -1,0 +1,23 @@
+.loan-params,
+.insurer {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #f3f3f3;
+
+    &-label {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      color: #232323;
+    }
+
+    &-value {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 14px;
+      color: #232323;
+    }
+  }
+}

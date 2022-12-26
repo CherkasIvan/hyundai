@@ -11,12 +11,14 @@ import { InsurancePoliciesModalModule } from './components/insurance-policies-mo
 import { InputSliderModule } from './components/input-slider/input-slider.module';
 import { CounterButtonComponent } from './components/counter-button/counter-button.component';
 import { ApplicationFormComponent } from './components/application-form/application-form.component';
+import { LoanParamsComponent } from './components/loan-params/loan-params.component';
 
 @NgModule({
   declarations: [
     BackendErrorMessagesComponent,
     CounterButtonComponent,
     ApplicationFormComponent,
+    LoanParamsComponent,
   ],
   imports: [
     FormsModule,
@@ -31,6 +33,7 @@ import { ApplicationFormComponent } from './components/application-form/applicat
   ],
   exports: [
     ApplicationFormComponent,
+    LoanParamsComponent,
     FormsModule,
     BackendErrorMessagesComponent,
     CounterButtonComponent,
