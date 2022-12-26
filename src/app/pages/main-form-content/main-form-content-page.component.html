@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <app-main-form-header></app-main-form-header>
+
+  <nav class="nav-container" mat-tab-nav-bar>
+    <a
+      mat-tab-link
+      *ngFor="let link of navigationLinks; let i = index"
+      class="nav-list-item-link"
+      routerLink="{{ link.link }}"
+      [active]="navigationLinks[i].index == i"
+      (click)="getRout()"
+      [routerLinkActive]="['active']"
+      >{{ link.value }}</a
+    >
+  </nav>
+  <main class="main-container">
+    <app-side-bar
+      [steps]="calculationSteps"
+      *ngIf="routerLink != '/main-form/documents-payments'"
+    ></app-side-bar>
+    <router-outlet></router-outlet>
+  </main>
+</div>

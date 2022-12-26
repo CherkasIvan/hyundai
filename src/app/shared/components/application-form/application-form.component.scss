@@ -1,0 +1,93 @@
+.request-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 25vw;
+
+  .request__form {
+    padding: 48px 36px 74px 23px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 60%;
+    box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
+    border-radius: 30px;
+    background: #ffffff;
+
+    .form-header {
+      display: flex;
+      flex-direction: column;
+      max-width: 60%;
+      margin-bottom: 70px;
+
+      &__title {
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 29px;
+      }
+
+      &__status {
+        text-align: center;
+        padding: 7px 8px;
+        background: linear-gradient(180deg, #d8e1ea 6.37%, #ecf2f8 100%);
+        border-radius: 10px;
+      }
+    }
+
+    .form-body {
+      margin-bottom: 42px;
+    }
+
+    .form-body,
+    .form-footer {
+      display: flex;
+      flex-direction: column;
+      color: #343e48;
+
+      &__title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 16px;
+      }
+
+      .loan-params,
+      .insurer {
+        &__item {
+          display: flex;
+          justify-content: space-between;
+          padding: 14px 0;
+          border-bottom: 1px solid #f3f3f3;
+
+          &-label {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            color: #232323;
+          }
+
+          &-value {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 14px;
+            color: #232323;
+          }
+        }
+      }
+    }
+  }
+
+  .request__button {
+    margin-top: 33px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+    background: #343e48;
+    border-radius: 6px;
+    padding: 14px 56px;
+    align-self: center;
+  }
+}

@@ -1,0 +1,73 @@
+.side-bar {
+  max-width: 292px;
+  max-height: 395px;
+  background: #ffffff;
+  box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
+  border-radius: 20px;
+  padding: 0 0 20px 0;
+}
+
+::ng-deep {
+  .mat-step-icon-content {
+    span {
+      display: none;
+    }
+  }
+
+  .mat-step-icon {
+    .mat-icon {
+      display: none;
+    }
+  }
+
+  .mat-step-header {
+    .mat-step-icon {
+      background: #ffffff;
+      border: 1px solid #cad2da;
+    }
+    .mat-step-icon-selected {
+      background: #e8eff7;
+      border: 1px solid #72879e;
+    }
+    .mat-step-icon-state-edit {
+      background-image: url('/assets/images/completed_step_icon.png');
+    }
+  }
+
+  .mat-stepper-vertical-line::before {
+    top: -10px;
+    bottom: -10px;
+  }
+  .mat-stepper-label-position-bottom .mat-horizontal-stepper-header,
+  .mat-vertical-stepper-header {
+    padding: 10px 24px;
+  }
+}
+
+.progress-bar__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .progress-bat-title {
+    color: #343e48;
+    font-size: 18px;
+    margin: 10px 20px;
+    line-height: 22px;
+    font-weight: bold;
+  }
+}
+
+::ng-deep {
+  .mat-progress-bar-buffer {
+    background: #f2f4f7;
+    box-shadow: inset 2px 2px 3px rgba(69, 77, 86, 0.04);
+    border-radius: 4px;
+  }
+  .mat-progress-bar-fill::after {
+    background: linear-gradient(180deg, #72879e 0%, #a7b9cb 100%);
+
+    box-shadow: inset 2px 2px 3px rgba(69, 77, 86, 0.04);
+    border-radius: 4px;
+  }
+}

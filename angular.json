@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "mc",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -107,7 +107,6 @@
       }
     }
   },
-  "defaultProject": "ngrx-store",
   "cli": {
     "analytics": false
   }

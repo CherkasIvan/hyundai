@@ -1,0 +1,43 @@
+<div class="card-body container">
+  <div class="card-body__header">
+    <div class="card-body__header-card">
+      <img
+        class="card-body__header-img"
+        src="../../../../../../../assets/images/insuranses/{{
+          insuranceCompany.img
+        }}"
+        alt="{{ insuranceCompany.img }}"
+      />
+    </div>
+
+    <span
+      class="card-body__header-status"
+      [ngClass]="insuranceCompany.status"
+    ></span>
+  </div>
+
+  <form class="card-content" *ngFor="let card of insuranceCompany.insurances">
+    <div class="card-content__form">
+      <input
+        type="checkbox"
+        class="card-content__form--checkbox"
+        [checked]="card.checkbox"
+      />
+      <label class="card-content__form--label">{{ card.label }}</label>
+    </div>
+
+    <div class="card-content__description">
+      {{ card.description }}
+    </div>
+
+    <div
+      class="card-content__options"
+      *ngIf="card.options"
+      (click)="sendIsHidenValues(hideOptions.isHiden)"
+    >
+      Настроить опции
+    </div>
+
+    <div class="card-content__price">{{ card.price }}</div>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider {
+  margin-top: 10px;
+  background: #f2f4f7;
+  border-radius: 8px;
+
+  &-input {
+    padding: 17.5px 10px;
+  }
+}
+
+::ng-deep {
+  .mat-slider-thumb {
+    right: -30px !important;
+    width: 50px !important;
+    border-radius: 150px !important;
+    background-color: #72879e !important;
+    background-image: url('/assets/images/arrows.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .mat-slider {
+    padding: 0 !important;
+  }
+
+  .mat-slider-horizontal {
+    height: 0 !important;
+  }
+
+  .mat-slider-horizontal .mat-slider-wrapper {
+    top: -3px !important;
+    right: 0.5px !important;
+    left: 0.5px !important;
+  }
+
+  .mat-accent .mat-slider-track-fill {
+    background-color: #72879e !important;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  background-color: #f2f4f7;
+  border-radius: 8px;
+}

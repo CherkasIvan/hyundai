@@ -1,0 +1,34 @@
+.modal-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 74px;
+  padding: 20px 40px;
+  background: linear-gradient(
+    180deg,
+    #d8e1ea 0%,
+    rgba(216, 225, 234, 0.15) 100%
+  );
+
+  &__title {
+    margin-right: 20px;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.015em;
+    color: #343e48;
+  }
+
+  &__cancel-button {
+    background-color: transparent;
+    &--img {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      color: #72879e;
+    }
+  }
+}

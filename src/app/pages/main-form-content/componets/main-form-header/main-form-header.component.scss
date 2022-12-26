@@ -1,0 +1,30 @@
+.toolbar {
+  height: 60px;
+  display: flex;
+  background: linear-gradient(180.02deg, #39434d 5.74%, #0f1923 99.98%);
+  backdrop-filter: blur(2px);
+  justify-content: space-between;
+}
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  width: 97%;
+  margin: 0 auto;
+}
+
+.title-container {
+  color: white;
+  margin-left: 27px;
+}
+
+.help-center {
+  color: white;
+  margin-right: 45px;
+}
+
+.logo__container,
+.user__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
