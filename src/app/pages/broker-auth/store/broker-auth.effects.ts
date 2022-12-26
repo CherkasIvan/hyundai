@@ -17,6 +17,7 @@ import { PersistenceService } from '../../../shared/services/persistence.service
 import { BrokerAuthService } from '../service/broker-auth.service';
 
 import { CurrentBrokerInterface } from './types/currentBroker.interface';
+import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
 
 @Injectable()
 export class BrokerAuthEffects {
@@ -53,7 +54,9 @@ export class BrokerAuthEffects {
       this.actions$.pipe(
         ofType(authBrokerSuccessAction),
         tap(() => {
-          this.router.navigateByUrl('/main-form/loan-calculation/car_info');
+          this.router.navigateByUrl(
+            `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
+          );
         })
       ),
     { dispatch: false }

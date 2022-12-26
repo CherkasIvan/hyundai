@@ -19,12 +19,12 @@ export class MainFormContentPageComponent implements OnInit {
 
   public navigationLinks = [
     {
-      link: 'loan-calculation/car_info',
+      link: 'loan-calculation/car-info',
       value: 'Расчет кредита',
       index: 0,
     },
     {
-      link: 'processing/user_info',
+      link: 'processing/client-info',
       value: 'Оформление',
       index: 1,
     },
