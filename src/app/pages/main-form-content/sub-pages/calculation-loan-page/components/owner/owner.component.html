@@ -91,6 +91,7 @@
                     </label>
               </fieldset>
              </div>
+             <app-input-clearer (componentValue)="getFullName($event)"></app-input-clearer>
              <div class="owner-personal-information">
                 <div class="gender owner-personal-information__item">
                     <div class="owner-personal-information__item--label">Пол</div>
@@ -126,7 +127,11 @@
                   </fieldset>
              </div>
              <div class="owner-personal-information">
-                <fieldset class="owner-personal-information__item">
+              <div class="owner-personal-information-title">
+                <span>Паспорт</span>
+              </div>
+              <div class="owner-personal-information-content">
+                 <fieldset class="owner-personal-information__item">
                     <label class="owner-personal-information__item--label">
                       Серия и номер паспорта
                       <input
@@ -162,9 +167,11 @@
                         class="owner-personal-information__item--input"
                     /></label>
                   </fieldset>
+              </div>
              </div>
             
         </div>
+        <button type="submit" class="">Далее</button>
     </form>
     
 </div>

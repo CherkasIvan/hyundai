@@ -7,7 +7,9 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./owner.component.scss']
 })
 export class OwnerComponent implements OnInit {
-  formOwnerOptions!: FormGroup
+  public fullName!: string;
+  
+  public formOwnerOptions!: FormGroup
 
   public genders: string[] = [
     'Женский',
@@ -31,7 +33,6 @@ export class OwnerComponent implements OnInit {
       credit: ['true', Validators.required],
       policy_holder: ['true', Validators.required],
       driver: ['true', Validators.required],
-      driver_full_name: ['Сирнов Андрей Вадимович', Validators.required],
       gender: ['Мужской', Validators.required],
       birthdate: ['2000-07-12', Validators.required],
       bornplace: ['Москва', Validators.required],
@@ -46,9 +47,13 @@ export class OwnerComponent implements OnInit {
     });
 }
 
-public onSubmitForm(model: FormGroup): void {
-  const body = this.formOwnerOptions.value;
+public getFullName(e: any) {
+  this.fullName = e;
+}
+public onSubmitForm(form: any): void {
+  const body = form.value;
     body.gender = this.genders[this.selectedIndex];
-  console.log(model);
+    body.driver_full_name = this.fullName;
+    console.log(body);
 }
 }

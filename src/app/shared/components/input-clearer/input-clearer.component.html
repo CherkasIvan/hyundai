@@ -1,0 +1,20 @@
+<form [formGroup]="inputClearedForm">
+    <label class="form-group__item--label" for="clearedInput">
+        ФИО
+    </label>
+    <div class="clearer-container">
+    <input
+      id="clearedInput"
+      type="text"
+      class="form-group__item--input"
+      formControlName="inputClearer"
+      (change)="changeValue(inputClearedForm.value)"
+    />
+    <input
+      type="button"
+      value="+"
+      class="clearer-container__clear button"
+      (click)="clearInputValue()"
+    />
+    </div>
+  </form>

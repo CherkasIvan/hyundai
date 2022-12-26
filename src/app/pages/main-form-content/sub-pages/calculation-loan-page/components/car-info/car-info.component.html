@@ -1,113 +1,103 @@
 <div class="car-info-container">
-  <div class="car-info-container__title">Информация об автомобиле</div>
-  <div class="car-info-container__content">
-    <div class="car-info-container__details">
-      <form class='car-info-container__details__form' [formGroup]="formCarOptions" (ngSubmit)="onSubmitForm(formCarOptions)">
-        <div class='car-info-container__details__form__container'>
-          <div class='car-info-container__details__form__item'>
-            <label class='car-info-container__details__form__item__label' for='VIN'>VIN</label>
-            <input class='car-info-container__details__form__item__input' id='VIN' type='text' formControlName='VIN'>
+  <div class="car-info-container-title">Информация об автомобиле</div>
+  <div class="car-info-container-content">
+    <div class="car-info-details">
+      <form class='car-info-details-form' [formGroup]="formCarOptions" (ngSubmit)="onSubmitForm(formCarOptions)">
+        <div class='car-info-form-container'>
+          <div class='car-info-item'>
+            <label class='car-info-item__label' for='VIN'>VIN</label>
+            <input class='car-info-item__input' id='VIN' type='text' formControlName='VIN'>
             <div class=''
                  *ngIf="formCarOptions.controls['VIN'].touched && formCarOptions.controls['VIN'].invalid">
-              <small class='validation-message flex-center' *ngIf="formCarOptions.controls['VIN'].invalid">
+              <small class='' *ngIf="formCarOptions.controls['VIN'].invalid">
                 Введите VIN</small>
             </div>
           </div>
-          <div class='car-info-container__details__form__item'>
-            <label class='car-info-container__details__form__item__label' for='car_mark'>Марка</label>
-            <input class='car-info-container__details__form__item__input' id='car_mark' type='text' formControlName='car_mark'>
+          <div class='car-info-item'>
+            <label class='car-info-item__label' for='car_mark'>Марка</label>
+            <input class='car-info-item__input' id='car_mark' type='text' formControlName='car_mark'>
             <div class=''
                  *ngIf="formCarOptions.controls['car_mark'].touched && formCarOptions.controls['car_mark'].invalid">
-              <small class='validation-message flex-center' *ngIf="formCarOptions.controls['car_mark'].invalid">
+              <small class='' *ngIf="formCarOptions.controls['car_mark'].invalid">
                 Введите марку авто</small>
             </div>
           </div>
-          <div class='car-info-container__details__form__item'>
-            <label class='car-info-container__details__form__item__label' for='car_model'>Модель</label>
-            <input class='car-info-container__details__form__item__input' id='car_model' type='text' formControlName='car_model'>
+          <div class='car-info-item'>
+            <label class='car-info-item__label' for='car_model'>Модель</label>
+            <input class='car-info-item__input' id='car_model' type='text' formControlName='car_model'>
             <div class=''
                  *ngIf="formCarOptions.controls['car_model'].touched && formCarOptions.controls['car_model'].invalid">
-              <small class='validation-message flex-center' *ngIf="formCarOptions.controls['car_model'].invalid">
+              <small class='' *ngIf="formCarOptions.controls['car_model'].invalid">
                 Введите модель авто</small>
             </div>
           </div>
-          <div class='car-info-container__details__form__item'>
-            <label class='car-info-container__details__form__item__label' for='car_year'>Год выпуска</label>
-            <input class='car-info-container__details__form__item__input' id='car_year' type='text' formControlName='car_year'>
+          <div class='car-info-item'>
+            <label class='car-info-item__label' for='car_year'>Год выпуска</label>
+            <input class='car-info-item__input' id='car_year' type='text' formControlName='car_year'>
             <div class=''
                  *ngIf="formCarOptions.controls['car_year'].touched && formCarOptions.controls['car_year'].invalid">
-              <small class='validation-message flex-center' *ngIf="formCarOptions.controls['car_year'].invalid">
+              <small class='' *ngIf="formCarOptions.controls['car_year'].invalid">
                 Введите год выпуска авто</small>
             </div>
           </div>
-          <div class='car-info-container__details__form__item'>
+          <div class='car-info-item'>
             <label class='car-info-container__details__form__item__label' for='pts_issue_year'>ПТС</label>
             <input class='car-info-container__details__form__item__input' id='pts_issue_year' type='text' formControlName='pts_issue_year'>
             <div class=''
                  *ngIf="formCarOptions.controls['pts_issue_year'].touched && formCarOptions.controls['pts_issue_year'].invalid">
-              <small class='validation-message flex-center' *ngIf="formCarOptions.controls['pts_issue_year'].invalid">
+              <small class='' *ngIf="formCarOptions.controls['pts_issue_year'].invalid">
                 Введите год выпуска авто из ПТС</small>
             </div>
           </div>
-          <div class='car-info-container__details__form__item'>
+          <div class='car-info-item'>
             <label class='car-info-container__details__form__item__label' for='engine_capacity'>Объем двигателя</label>
             <input class='car-info-container__details__form__item__input' id='engine_capacity' type='text' formControlName='engine_capacity'>
             <div class=''
                  *ngIf="formCarOptions.controls['engine_capacity'].touched && formCarOptions.controls['engine_capacity'].invalid">
-              <small class='validation-message flex-center' *ngIf="formCarOptions.controls['engine_capacity'].invalid">
+              <small class='' *ngIf="formCarOptions.controls['engine_capacity'].invalid">
                 Введите объем двигателя</small>
             </div>
           </div>
-          <div class='car-info-container__details__form__item'>
+          <div class='car-info-item'>
             <label class='car-info-container__details__form__item__label' for='transmission'>Трансмиссия автомобиля</label>
             <input class='car-info-container__details__form__item__input' id='transmission' type='text' formControlName='transmission'>
             <div class=''
                  *ngIf="formCarOptions.controls['transmission'].touched && formCarOptions.controls['transmission'].invalid">
-              <small class='validation-message flex-center' *ngIf="formCarOptions.controls['transmission'].invalid">
+              <small class='' *ngIf="formCarOptions.controls['transmission'].invalid">
                 Выберите тип КПП</small>
             </div>
         </div>
       </div>
-        <div class='car-info-container__details__form__container'>
-          <div class='car-info-container__details__form__item__radio'>
-            <input class='car-info-container__details__form__item__radio__button' type="radio" id="sedan" formControlName='car_body_type' value='Седан'>
-            <label class='car-info-container__details__form__item__radio__label' for="sedan">Седан</label>
-
-            <input class='car-info-container__details__form__item__radio__button' type="radio" id="off_road_vehicle" formControlName='car_body_type' value='Внедорожник'>
-            <label class='car-info-container__details__form__item__radio__label' for="off_road_vehicle">Внедорожник</label>
-
-            <input class='car-info-container__details__form__item__radio__button' type="radio" id="wagon" formControlName='car_body_type' value='Универсал'>
-            <label class='car-info-container__details__form__item__radio__label' for="wagon">Универсал</label>
-
-            <input class='car-info-container__details__form__item__radio__button' type="radio" id="crossover" formControlName='car_body_type' value='Кроссовер'>
-            <label class='car-info-container__details__form__item__radio__label' for="crossover">Кроссовер</label>
-
-            <input class='car-info-container__details__form__item__radio__button' type="radio" id="hatchback" formControlName='car_body_type' value='Хэтчбек'>
-            <label class='car-info-container__details__form__item__radio__label' for="hatchback">Хэтчбек</label>
-
-            <input class='car-info-container__details__form__item__radio__button' type="radio" id="minivan" formControlName='car_body_type' value='Минивэн'>
-            <label class='car-info-container__details__form__item__radio__label' for="minivan">Минивэн</label>
-          </div>
-          <div class='car-info-container__details__form__item'>
-            <label class='car-info-container__details__form__item__label' for='car_price'>Стоимость авто</label>
-            <input class='car-info-container__details__form__item__input' id='car_price' type='text' formControlName='car_price'>
-<!--            <input class='car-info-container__details__form__item__input__range' type='range' min='0' max='7000000' step='1'>-->
-            <div class=''
-                 *ngIf="formCarOptions.controls['car_price'].touched && formCarOptions.controls['car_price'].invalid">
-              <small class='validation-message flex-center' *ngIf="formCarOptions.controls['car_price'].invalid">
-                Введите объем двигателя</small>
+        <div class='car-info-form-container'>
+          <div class="car-body-type">
+            <div class="car-body-type__title">Тип кузова</div>
+            <div class="car-body-type__list">
+              <button
+                class="car-body-type__list--button"
+                *ngFor="let typeOfCarBody of typesOfCarBody; index as i"
+                type="button"
+                [ngClass]="{ active: selectedIndex === i }"
+                (click)="activateClass(i)">
+                {{ typeOfCarBody }}
+              </button>
             </div>
           </div>
-          <div class='car-info-container__details__form__container__toggle'>
-            <div class='car-info-container__details__form__container__toggle__main'>
-              <div>
-                <label class='car-info-container__details__form__container__toggle__switch'>
-                  <input class='car-info-container__details__form__item__input' id='telematic' type='checkbox' formControlName='car_telematic'>
-                  <span class='car-info-container__details__form__container__toggle__slider round'></span>
+          <fieldset class="form-group__item">
+            <label class="form-group__item_label">
+              Стоимость авто, руб
+              <app-input-slider (componentValue)="sliderValue"></app-input-slider>
+            </label>
+          </fieldset>
+          <div class='form-container-toggle'>
+            <div class='form-container-toggle__wrapper'>
+              
+                <label class='toggle-switch'>
+                  <input class='checkbox' id='telematic' type='checkbox' formControlName='car_telematic'>
+                  <span class='toggle-slider round'></span>
                 </label>
-              </div>
-              <div class='car-info-container__details__form__item__label__container'>
-                <label class='car-info-container__details__form__item__label car-info-container__details__form__item__label__toggle' for='telematic'>Телематическая система</label>
+              
+              <div class='form-container-toggle__label__container'>
+                <label class='form-container-toggle__label form-container-toggle__label__toggle' for='telematic'>Телематическая система</label>
                 <div>
                   <span class='label__tooltip'>Дополнительная скидка</span>
                   <img
@@ -123,49 +113,51 @@
               <div>
                 <span class='car-info-container__details__form__item__label'>Тип телематической системы:</span>
               </div>
-              <div class='car-info-container__details__form__container__toggle__main'>
-                <label class='container'>
-                  <input 
-                  class='car-info-container__details__form__item__input__telematic' 
-                  id='misos_light' 
-                  type='checkbox' 
-                  formControlName='telematic_misos_light' 
-                  checked="checked">
-                  <span class="checkmark"></span>
-                  <img
-                        src="./../../../../../../../assets/images/missos_light_icon.svg"
-                />
-                  <label class='car-info-container__details__form__item__radio__label__telematic' for="misos_light">Misos LIGHT</label>
-                </label>
-              </div>
-              <div class='car-info-container__details__form__container__toggle__main'>
-                <label class='container'>
-                  <input 
-                  class='car-info-container__details__form__item__input__telematic' 
-                  id='bluelink' 
-                  type='checkbox' 
-                  formControlName='telematic_bluelink'>
-                  <span class="checkmark"></span>
-                  <img
-                          src="./../../../../../../../assets/images/bluelink_icon.svg"
+                <fieldset class="car-info-item-telematic">
+                  <input
+                      id="telematic_misos_light"
+                      type="checkbox"
+                      class="car-info-item-telematic__checkbox"
+                      formControlName="telematic_misos_light"
+                      name="telematic_misos_light"
                   />
-                  <label class='car-info-container__details__form__item__radio__label__telematic' for="bluelink">Bluelink</label>
-                </label>
-              </div>
-              <div class='car-info-container__details__form__container__toggle__main'>
-                <label class='container'>
-                  <input 
-                  class='car-info-container__details__form__item__input__telematic' 
-                  id='misos_PRO' 
-                  type='checkbox' 
-                  formControlName='telematic_misos_pro'>
-                  <span class="checkmark"></span>
                   <img
-                          src="./../../../../../../../assets/images/misos_pro_icon.svg"
+                  src="./../../../../../../../assets/images/missos_light_icon.svg"
                   />
-                  <label class='car-info-container__details__form__item__radio__label__telematic' for="misos_PRO">Misos PRO</label>
-                </label>
-              </div>
+                  <label for="telematic_misos_light" class="car-info-item-telematic__label">
+                    Misos LIGHT
+                  </label>
+                </fieldset>
+                <fieldset class="car-info-item-telematic">
+                  <input
+                      id="telematic_bluelink"
+                      type="checkbox"
+                      class="car-info-item-telematic__checkbox"
+                      formControlName="telematic_bluelink"
+                      name="telematic_bluelink"
+                  />
+                  <img
+                  src="./../../../../../../../assets/images/bluelink_icon.svg"
+                  />
+                  <label for="telematic_bluelink" class="car-info-item-telematic__label">
+                    Bluelink
+                  </label>
+                </fieldset>
+                <fieldset class="car-info-item-telematic">
+                  <input
+                      id="telematic_misos_pro"
+                      type="checkbox"
+                      class="car-info-item-telematic__checkbox"
+                      formControlName="telematic_misos_pro"
+                      name="telematic_misos_pro"
+                  />
+                  <img
+                    src="./../../../../../../../assets/images/misos_pro_icon.svg"
+                  />
+                  <label for="telematic_misos_pro" class="car-info-item-telematic__label">
+                    Misos PRO
+                  </label>
+                </fieldset>
             </div>
           </div>
         </div>

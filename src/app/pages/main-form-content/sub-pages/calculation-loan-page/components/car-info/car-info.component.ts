@@ -18,6 +18,21 @@ export class CarInfoComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
   public carOptions!: object[];
 
+  public typesOfCarBody: string[] = [
+    'Седан',
+    'Внедорожник',
+    'Универсал',
+    'Кроссовер',
+    'Хэтчбек',
+    'Минивэн',
+  ];
+
+  public selectedIndex: number = 0;
+  public activateClass(index: number) {
+    this.selectedIndex = index;
+  }
+
+  sliderValue!: number
   formCarOptions!: FormGroup
   showTicks = false;
   step = 1;
@@ -28,7 +43,9 @@ export class CarInfoComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private fb: FormBuilder) {}
 
   public onSubmitForm(model: FormGroup): void {
-    console.log(model);
+    const body = this.formCarOptions.value;
+    body.typesOfCarBody = this.typesOfCarBody[this.selectedIndex];
+    console.log(body);
   }
 
   public initializeForm(): void {
@@ -42,7 +59,7 @@ export class CarInfoComponent implements OnInit, OnChanges, OnDestroy {
       transmission: ['Автоматическая', Validators.required],
       car_body_type: ['Седан', Validators.required],
       car_price: ['1200000', Validators.required],
-      car_telematic: ['true', Validators.required],
+      car_telematic: ['false', Validators.required],
       telematic_misos_light: ['true', Validators.required],
       telematic_bluelink: ['false', Validators.required],
       telematic_misos_pro: ['false', Validators.required],
@@ -60,7 +77,7 @@ export class CarInfoComponent implements OnInit, OnChanges, OnDestroy {
    
   }
 
-  public openTooltip(tooltip: any): void {
+  public openTooltip(tooltip: MatTooltip): void {
     tooltip.show();
     setTimeout(() => {
       tooltip.hide();

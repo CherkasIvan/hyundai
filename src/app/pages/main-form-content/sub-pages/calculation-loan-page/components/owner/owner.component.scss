@@ -135,8 +135,23 @@
   }
   .owner-personal-information {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 10px;
+
+    &-title {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 130%;
+      color: #343E48;
+    }
+
+    &-content {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
   }
 
   .gender {

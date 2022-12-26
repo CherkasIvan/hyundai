@@ -11,12 +11,14 @@ import { InsurancePoliciesModalModule } from './components/insurance-policies-mo
 import { InputSliderModule } from './components/input-slider/input-slider.module';
 import { CounterButtonComponent } from './components/counter-button/counter-button.component';
 import { ApplicationFormComponent } from './components/application-form/application-form.component';
+import { InputClearerComponent } from './components/input-clearer/input-clearer.component';
 
 @NgModule({
   declarations: [
     BackendErrorMessagesComponent,
     CounterButtonComponent,
     ApplicationFormComponent,
+    InputClearerComponent,
   ],
   imports: [
     FormsModule,
@@ -41,6 +43,7 @@ import { ApplicationFormComponent } from './components/application-form/applicat
     ReactiveFormsModule,
     MatIconModule,
     MatDialogModule,
+    InputClearerComponent
   ],
 })
 export class SharedModule {}
