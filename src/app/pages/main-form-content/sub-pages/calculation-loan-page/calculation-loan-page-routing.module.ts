@@ -12,12 +12,12 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'car_info', component: CarInfoComponent },
+      { path: 'car-info', component: CarInfoComponent },
       { path: 'owner', component: OwnerComponent },
-      { path: 'driver', component: DriversComponent },
-      { path: 'loan_params', component: LoanParamsComponent },
-      { path: 'insurenses_params', component: InsurensesParamsComponent },
-      { path: 'product_calculation', component: ProductCalculationComponent },
+      { path: 'drivers', component: DriversComponent },
+      { path: 'loan-params', component: LoanParamsComponent },
+      { path: 'insurenses-params', component: InsurensesParamsComponent },
+      { path: 'product-calculation', component: ProductCalculationComponent },
     ],
   },
 ];

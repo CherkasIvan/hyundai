@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
 
 @Component({
@@ -12,5 +13,6 @@ export class DocumentsPaymentsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentDocuments = this.mockDataService.documentsPayments;
+    console.log(this.currentDocuments);
   }
 }

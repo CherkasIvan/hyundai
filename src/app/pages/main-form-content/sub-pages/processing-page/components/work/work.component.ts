@@ -26,7 +26,6 @@ export class WorkComponent implements OnInit {
 
   public addItem(newCounterValue: number) {
     this.actualValue = newCounterValue;
-    console.log(this.actualValue);
   }
 
   public initializeForm(): void {
@@ -41,8 +40,8 @@ export class WorkComponent implements OnInit {
     });
   }
 
-  public changeStatus(e: any) {
-    this.workExperience?.setValue(e.target.value, {
+  public changeStatus(e: Event) {
+    this.workExperience?.setValue((e.target as HTMLInputElement).value, {
       onlySelf: true,
     });
   }

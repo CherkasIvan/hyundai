@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import {
+  NavigationEnd,
+  Router,
+  Event as NavigationEvent,
+  RouterEvent,
+} from '@angular/router';
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
 import { filter } from 'rxjs';
 
@@ -14,12 +19,12 @@ export class MainFormContentPageComponent implements OnInit {
 
   public navigationLinks = [
     {
-      link: 'loan-calculation/car_info',
+      link: 'loan-calculation/car-info',
       value: 'Расчет кредита',
       index: 0,
     },
     {
-      link: 'processing/user_info',
+      link: 'processing/client-info',
       value: 'Оформление',
       index: 1,
     },
@@ -37,8 +42,9 @@ export class MainFormContentPageComponent implements OnInit {
 
   public getRout() {
     this._router.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd))
+      .pipe(filter((event: NavigationEvent) => event instanceof NavigationEnd))
       .subscribe((el: any) => {
+        console.log(el);
         this.routerLink = el.urlAfterRedirects;
         this._router.url.includes('loan-calculation')
           ? (this.calculationSteps = this.mockServise.calculationSteps)

@@ -10,14 +10,13 @@ export class InsurancePolicesModalCardComponent implements OnInit {
   public isHiden: boolean = true;
 
   @Input() public insuranceCompany!: any;
-  @Output() formValueReturnEvent = new EventEmitter<any>();
-  @Output() hideOptions: any = new EventEmitter();
+  @Output() hideOptions: any = new EventEmitter<boolean>();
 
-  public changeHidenValue() {
+  public changeHidenValue(): void {
     this.isHiden = !this.isHiden;
   }
 
-  public sendIsHidenValues(value: any) {
+  public sendIsHidenValues(value: any): void {
     this.changeHidenValue();
     this.hideOptions.emit(this.isHiden);
   }

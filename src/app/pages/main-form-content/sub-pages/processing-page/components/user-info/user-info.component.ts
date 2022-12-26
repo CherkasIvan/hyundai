@@ -43,14 +43,14 @@ export class UserInfoComponent implements OnInit {
     });
   }
 
-  public changeStatus(e: any) {
-    this.propertyStatus?.setValue(e.target.value, {
+  public changeStatus(e: Event) {
+    this.propertyStatus?.setValue((e.target as HTMLInputElement).value, {
       onlySelf: true,
     });
   }
 
-  public changeFamilyStatus(e: any) {
-    this.familyActualStatus?.setValue(e.target.value, {
+  public changeFamilyStatus(e: Event) {
+    this.familyActualStatus?.setValue((e.target as HTMLInputElement).value, {
       onlySelf: true,
     });
   }

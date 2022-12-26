@@ -15,6 +15,7 @@ import {
   validationErrorsSelector,
 } from '../../store/userSelectors';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-register',
@@ -45,7 +46,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  public openTooltip(tooltip: any): void {
+  public openTooltip(tooltip: MatTooltip): void {
     tooltip.show();
     setTimeout(() => {
       tooltip.hide();
