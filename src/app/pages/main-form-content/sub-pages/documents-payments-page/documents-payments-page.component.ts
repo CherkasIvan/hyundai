@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
+import { DocumentsInterface } from './types/documents.interface';
 
 @Component({
   selector: 'app-documents-payments-page',
@@ -8,11 +9,10 @@ import { MockDataService } from 'src/app/shared/services/mock-data.service';
   styleUrls: ['./documents-payments-page.component.scss'],
 })
 export class DocumentsPaymentsPageComponent implements OnInit {
-  public currentDocuments: any = [];
+  public currentDocuments: DocumentsInterface[] = [];
   constructor(private mockDataService: MockDataService) {}
 
   ngOnInit(): void {
     this.currentDocuments = this.mockDataService.documentsPayments;
-    console.log(this.currentDocuments);
   }
 }

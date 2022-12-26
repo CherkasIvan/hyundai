@@ -3,7 +3,6 @@ import {
   NavigationEnd,
   Router,
   Event as NavigationEvent,
-  RouterEvent,
 } from '@angular/router';
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
 import { filter } from 'rxjs';
@@ -44,7 +43,6 @@ export class MainFormContentPageComponent implements OnInit {
     this._router.events
       .pipe(filter((event: NavigationEvent) => event instanceof NavigationEnd))
       .subscribe((el: any) => {
-        console.log(el);
         this.routerLink = el.urlAfterRedirects;
         this._router.url.includes('loan-calculation')
           ? (this.calculationSteps = this.mockServise.calculationSteps)

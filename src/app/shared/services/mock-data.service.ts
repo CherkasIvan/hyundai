@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { DocumentsInterface } from 'src/app/pages/main-form-content/sub-pages/documents-payments-page/types/documents.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MockDataService {
-  public documentsPayments: Object = [
+  public documentsPayments: any[] = [
     {
       insurense: 'осаго',
       bank_img: 'sovkom_logo.svg',
