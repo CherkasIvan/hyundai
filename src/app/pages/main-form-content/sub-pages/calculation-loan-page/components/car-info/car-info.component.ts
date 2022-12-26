@@ -1,25 +1,49 @@
-import { OnInit, Component, ViewEncapsulation, Input } from '@angular/core';
+import {
+  OnInit,
+  Component, Input, OnDestroy
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTooltip } from '@angular/material/tooltip';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-car-info',
   templateUrl: './car-info.component.html',
   styleUrls: ['./car-info.component.scss'],
 })
-export class CarInfoComponent implements OnInit {
+export class CarInfoComponent implements OnInit, OnDestroy {
   @Input()
   public carOptions!: object[];
 
-  formCarOptions!: FormGroup;
+  public typesOfCarBody: string[] = [
+    'Седан',
+    'Внедорожник',
+    'Универсал',
+    'Кроссовер',
+    'Хэтчбек',
+    'Минивэн',
+  ];
+
+  public selectedIndex: number = 0;
+  public activateClass(index: number) {
+    this.selectedIndex = index;
+  }
+
+  sliderValue!: number
+  formCarOptions!: FormGroup
+
   showTicks = false;
   step = 1;
   thumbLabel = false;
   value = 0;
+  car_telematic!:boolean
+  private car_telematic_sub: Subscription | undefined;
   constructor(private fb: FormBuilder) {}
 
   public onSubmitForm(model: FormGroup): void {
-    console.log(model);
+    const body = this.formCarOptions.value;
+    body.typesOfCarBody = this.typesOfCarBody[this.selectedIndex];
+    console.log(body);
   }
 
   public initializeForm(): void {
@@ -33,13 +57,20 @@ export class CarInfoComponent implements OnInit {
       transmission: ['Автоматическая', Validators.required],
       car_body_type: ['Седан', Validators.required],
       car_price: ['1200000', Validators.required],
-      car_telematic: ['true', Validators.required],
+      car_telematic: ['false', Validators.required],
+      telematic_misos_light: ['true', Validators.required],
+      telematic_bluelink: ['false', Validators.required],
+      telematic_misos_pro: ['false', Validators.required],
+
     });
   }
 
   ngOnInit(): void {
-    this.initializeForm();
+    this.initializeForm(); 
+    this.car_telematic_sub = this.formCarOptions.get('car_telematic')?.valueChanges
+    .subscribe((value) => this.car_telematic = value)
   }
+
 
   public openTooltip(tooltip: MatTooltip): void {
     tooltip.show();
@@ -47,4 +78,8 @@ export class CarInfoComponent implements OnInit {
       tooltip.hide();
     }, 1500);
   }
+
+ngOnDestroy(): void {
+  this.car_telematic_sub?.unsubscribe();
+}
 }

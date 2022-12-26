@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
 
-  &__title {
+  &-title {
     margin-top: 47px;
     margin-left: 35px;
     margin-bottom: 35px;
@@ -18,8 +18,8 @@
     line-height: 130%;
     color: #343e48;
   }
-
-  &__details {
+}
+  .car-info-details {
 
     width: 100%;
     align-items: flex-start;
@@ -41,7 +41,7 @@
       line-height: 121%;
     }
 
-    &__form {
+    .car-info-details-form {
       height: 100%;
       display: flex;
       flex-direction: row;
@@ -60,144 +60,7 @@
         align-items: flex-end;
       }
 
-      &__container {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 18px;
-        flex-wrap: wrap;
-
-        &__toggle {
-          display: flex;
-          flex-direction: column;
-
-          &__main {
-            display: flex;
-
-            .container {
-              display: flex;
-              align-items: center;
-              position: relative;
-              padding-left: 35px;
-              margin-bottom: 12px;
-              cursor: pointer;
-              font-size: 22px;
-              -webkit-user-select: none;
-              -moz-user-select: none;
-              -ms-user-select: none;
-              user-select: none;
-            }
-
-            .container input {
-              position: absolute;
-              opacity: 0;
-              cursor: pointer;
-              height: 0;
-              width: 0;
-              border: 1px solid #96959E;
-              border-radius: 10px;
-            }
-
-            .checkmark {
-              position: absolute;
-              top: 0;
-              left: 0;
-              height: 24px;
-              width: 24px;
-              background: #FFFFFF;
-              border: 1px solid #96959E;
-              border-radius: 4px;
-            }
-
-            .container input:checked ~ .checkmark {
-              background: #72879E;
-            }
-
-            .checkmark:after {
-              content: "";
-              position: absolute;
-              display: none;
-            }
-
-            .container input:checked ~ .checkmark:after {
-              display: block;
-            }
-
-            .container .checkmark:after {
-              left: 8px;
-              top: 4px;
-              width: 7px;
-              height: 11px;
-              border: solid white;
-              border-width: 0 3px 3px 0;
-              -webkit-transform: rotate(45deg);
-              -ms-transform: rotate(45deg);
-              transform: rotate(45deg);
-            }
-          }
-
-          &__switch {
-            position: relative;
-            display: inline-block;
-            width: 48px;
-            height: 20px;
-          }
-
-          &__switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-          }
-
-          &__slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #CAD2DA;
-            -webkit-transition: .4s;
-            transition: .4s;
-          }
-
-          &__slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 3px;
-            bottom: 2px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-          }
-
-          input:checked + &__slider {
-            background-color: #72879E;
-          }
-
-          input:focus + &__slider {
-            box-shadow: 0 0 1px #72879E;
-          }
-
-          input:checked + &__slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
-          }
-
-          &__slider.round {
-            border-radius: 12px;
-          }
-
-          &__slider.round:before {
-            border-radius: 50%;
-          }
-        }
-      }
-
-      &__item {
+      .car-info-item {
         display: flex;
         flex-direction: column;
         width: 340px;
@@ -206,8 +69,11 @@
 
 
         &__radio {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
           width: 340px;
           height: 74px;
+          gap: 5px;
 
           &__button {
           display: none;
@@ -221,7 +87,7 @@
           &__label {
             border-radius: 10px;
             background-color: #F2F4F7;
-            margin-left: 10px;
+            text-align: center;
             margin-bottom: 10px;
             padding: 6px 10px;
             font-family: 'Gilroy';
@@ -253,26 +119,13 @@
           color: #343E48;
           margin-bottom: 18px;
 
-          &__container {
-            display: flex;
-            flex-direction: column;
-            .label__tooltip {
-              font-family: 'Gilroy';
-              font-style: normal;
-              font-weight: 250;
-              font-size: 12px;
-              line-height: 100%;
-              color: #979797;
-              margin-left: 10px;
-              margin-right: 4px;
-
-            }
-          }
+          
           &__toggle {
             margin-left: 10px;
             margin-bottom: 0px;
           }
         }
+
         &__input {
           font-family: 'Gilroy';
           font-style: normal;
@@ -290,119 +143,256 @@
           }
         }
       }
-
-      .mat-slide-toggle:not(.mat-checked) {
-        .mat-ripple-element {
-          display: none;
-        }
-      }
-
-      .mat-slide-toggle.mat-checked {
-        .mat-ripple-element {
-          display: none;
-        }
-      }
-
-      .mat-slide-toggle-bar {
-        width: 48px;
-        height: 20px;
-      }
-
-      .mat-slide-toggle-thumb-container {
-        top: 2px;
-        left: 4px;
-
-        .mat-slide-toggle-thumb {
-          height: 16px;
-          width: 16px;
-          background-color: #FFFFFF;
-        }
-      }
-      .mat-slide-toggle.mat-checked {
-        .mat-slide-toggle-thumb-container {
-          transform: translate3d(25px, 0, 0);
-        }
-      }
-
-      .mat-slide-toggle-thumb {
-        background-color: #FFFFFF;
-      }
-
-      .mat-slide-toggle-bar {
-        background-color: #F2F4F7;
-        padding: 4px;
-      }
-
-      .mat-slide-toggle.mat-checked {
-        .mat-slide-toggle-bar {
-          background-color: #72879E;
-        }
-      }
-
-      //.mat-slider-thumb-container {
-      //  .mat-slider-thumb {
-      //    width: 52px;
-      //    height: 24px;
-      //    background: url("/assets/images/background_slider.png") right -3px top -2px;
-      //    right: -23px;
-      //    bottom: -12px;
-      //  }
-      //}
-
-      .mat-slider-track-fill {
-        background-color: #72879E;
-      }
-      .mat-radio-container, .mat-radio-ripple {
-        display: none;
-      }
-      .mat-radio-label-content {
-        padding: 6px 10px;
-      }
-      .mat-radio-button {
-        border-radius: 10px;
-        background-color: #F2F4F7;
-        margin-left: 10px;
-        margin-bottom: 10px;
-      }
-      .mat-radio-checked {
-        .mat-radio-label-content {
-          border-radius: 10px;
-          background: #72879E;
-        }
-      }
     }
-
-      .mat-slider-horizontal {
-        .mat-slider-track-background {
-          display: none;
-        }
-      }
-    .mat-slider.mat-accent{
-      .mat-slider-track-fill {
-        background: #72879E;
-      }
-    }
-
       &__form__input {
         width: 320px;
-
-        .mat-input-element {
-          background: #f2f4f7;
-          border-radius: 8px;
-          height: 56px;
-          padding-left: 5px;
-        }
-
-        .mat-form-field-underline {
-          display: none;
-        }
       }
+  }
 
-      .mat-slider {
-        position: absolute;
-        left: -345px;
-        top: 38px;
-        z-index: 100;
+    .car-info-form-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    car-info-form-container {
+      display: flex;
+      flex-direction: column;
+
+      .label__tooltip {
+        font-family: 'Gilroy';
+        font-style: normal;
+        font-weight: 250;
+        font-size: 12px;
+        line-height: 100%;
+        color: #979797;
+        margin-left: 10px;
+        margin-right: 4px;
+
       }
     }
-  }
+    .form-group__item {
+      display: flex;
+      flex-direction: column;
+
+      &_label {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #343e48;
+      }
+
+      &_select,
+      &-input {
+        margin-top: 10px;
+        width: 100%;
+        background: #f2f4f7;
+        border-radius: 8px;
+        padding: 17.5px 10px;
+      }
+      &_options {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+
+        .checkbox {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+          accent-color: #72879e;
+
+          .form-group__item--label {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #343e48;
+          }
+        }
+      }
+    }
+    .car-info-item-telematic {
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+  
+      &__checkbox {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        accent-color: #72879e;
+  
+      }
+  
+      &__label{
+          font-family: 'Gilroy';
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          color: #343e48;
+      }
+    }
+
+    form-container-toggle {
+      display: flex;
+
+      &__wrapper {
+        display: flex;
+
+
+        // .container {
+        //   display: flex;
+        //   align-items: center;
+        //   position: relative;
+        //   padding-left: 35px;
+        //   margin-bottom: 12px;
+        //   cursor: pointer;
+        //   font-size: 22px;
+        //   -webkit-user-select: none;
+        //   -moz-user-select: none;
+        //   -ms-user-select: none;
+        //   user-select: none;
+        // }
+
+        // .container input {
+        //   position: absolute;
+        //   opacity: 0;
+        //   cursor: pointer;
+        //   height: 0;
+        //   width: 0;
+        //   border: 1px solid #96959E;
+        //   border-radius: 10px;
+        // }
+
+        // .checkmark {
+        //   position: absolute;
+        //   top: 0;
+        //   left: 0;
+        //   height: 24px;
+        //   width: 24px;
+        //   background: #FFFFFF;
+        //   border: 1px solid #96959E;
+        //   border-radius: 4px;
+        // }
+
+        // .container input:checked ~ .checkmark {
+        //   background: #72879E;
+        // }
+
+        // .checkmark:after {
+        //   content: "";
+        //   position: absolute;
+        //   display: none;
+        // }
+
+        // .container input:checked ~ .checkmark:after {
+        //   display: block;
+        // }
+
+        // .container .checkmark:after {
+        //   left: 8px;
+        //   top: 4px;
+        //   width: 7px;
+        //   height: 11px;
+        //   border: solid white;
+        //   border-width: 0 3px 3px 0;
+        //   -webkit-transform: rotate(45deg);
+        //   -ms-transform: rotate(45deg);
+        //   transform: rotate(45deg);
+        // }
+      }
+
+     
+    }
+    .car-body-type {
+      display: flex;
+      flex-direction: column;
+
+      &__title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        color: #343E48;
+      }
+
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        &--button {
+          padding: 6px 10px;
+          background: #f2f4f7;
+          color: #343e48;
+          border-radius: 20px;
+        }
+      }
+    }
+
+    .active {
+      background: #72879e !important;
+      color: #ffffff !important;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: block;
+      width: 48px;
+      height: 20px;
+    }
+    
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #CAD2DA;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      width: 16px;
+      height: 16px;
+      left: 3px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    input:checked + .toggle-slider {
+      background-color: #72879E;
+    }
+    
+    input:focus + .toggle-slider {
+      box-shadow: 0 0 1px #72879E;
+    }
+    
+    input:checked + .toggle-slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+  
+    .toggle-slider.round {
+      border-radius: 34px;
+    }
+    
+    .toggle-slider.round:before {
+      border-radius: 50%;
+    }
+   
