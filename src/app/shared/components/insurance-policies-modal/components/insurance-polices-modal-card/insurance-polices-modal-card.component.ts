@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ModalCardInterface } from '../../types/modal-card.interface';
 
 @Component({
   selector: 'app-insurance-polices-modal-card',
@@ -9,14 +10,15 @@ import { FormGroup } from '@angular/forms';
 export class InsurancePolicesModalCardComponent implements OnInit {
   public isHiden: boolean = true;
 
-  @Input() public insuranceCompany!: any;
-  @Output() hideOptions: any = new EventEmitter<boolean>();
+  @Input() public insuranceCompany!: ModalCardInterface;
+  @Output() public hideOptions: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
 
   public changeHidenValue(): void {
     this.isHiden = !this.isHiden;
   }
 
-  public sendIsHidenValues(value: any): void {
+  public sendIsHidenValues(): void {
     this.changeHidenValue();
     this.hideOptions.emit(this.isHiden);
   }

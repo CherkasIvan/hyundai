@@ -1,5 +1,7 @@
-export interface ModalCard {
+import { InsurancesInterface } from './insurances.interface';
+
+export interface ModalCardInterface {
   img: string;
-  insurances: [];
+  insurances: InsurancesInterface[];
   status: string;
 }

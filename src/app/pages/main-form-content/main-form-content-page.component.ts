@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  NavigationEnd,
-  Router,
-  Event as NavigationEvent,
-} from '@angular/router';
+import { NavigationEnd, Router, Event, RouterEvent } from '@angular/router';
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
 import { filter } from 'rxjs';
 import { StepsInterface } from './componets/side-bar/steps.interface';
@@ -42,8 +38,13 @@ export class MainFormContentPageComponent implements OnInit {
 
   public getRout() {
     this._router.events
-      .pipe(filter((event: NavigationEvent) => event instanceof NavigationEnd))
-      .subscribe((el: any) => {
+      .pipe(
+        filter(
+          (event: Event): event is NavigationEnd =>
+            event instanceof NavigationEnd
+        )
+      )
+      .subscribe((el: NavigationEnd) => {
         this.routerLink = el.urlAfterRedirects;
         this._router.url.includes('loan-calculation')
           ? (this.calculationSteps = this.mockServise.calculationSteps)

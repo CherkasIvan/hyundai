@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { StepsInterface } from 'src/app/pages/main-form-content/componets/side-bar/steps.interface';
 import { DocumentsInterface } from 'src/app/pages/main-form-content/sub-pages/documents-payments-page/types/documents.interface';
+import { ModalCardInterface } from '../components/insurance-policies-modal/types/modal-card.interface';
+import { InsuranceOptionsInterface } from '../components/insurance-policies-modal/types/insurance-options.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -180,7 +182,7 @@ export class MockDataService {
     { content: 'Одобрение', path: 'client-approval' },
   ];
 
-  public insuranceCardsObjects: Object = [
+  public insuranceCardsObjects: ModalCardInterface[] = [
     {
       img: 'ingostrah.png',
       status: 'green',
@@ -243,7 +245,7 @@ export class MockDataService {
     },
   ];
 
-  public insuranceOptions: any[] = [
+  public insuranceOptions: InsuranceOptionsInterface[] = [
     {
       key: 'Input1',
       type: 'input',
