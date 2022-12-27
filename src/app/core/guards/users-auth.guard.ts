@@ -17,24 +17,24 @@ import { UserAuthStateInterface } from '../../auth/user-auth-page/types/userAuth
 @Injectable()
 export class UsersAuthGuard implements CanActivate {
   constructor(
-    private store: Store<UserAuthStateInterface>,
-    private route: Router
+    private _store: Store<UserAuthStateInterface>,
+    private _route: Router
   ) {}
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    _route: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot
   ):
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.store.pipe(
+    return this._store.pipe(
       select(userIsLoggedIn),
       tap((userIsLoggedIn) => {
         if (!userIsLoggedIn) {
-          this.route.navigateByUrl('/auth-user');
+          this._route.navigateByUrl('/auth-user');
         } else if (!localStorage.getItem('accessToken')) {
-          this.route.navigateByUrl('/auth-broker');
+          this._route.navigateByUrl('/auth-broker');
         }
       })
     );

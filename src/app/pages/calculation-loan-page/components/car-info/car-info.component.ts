@@ -25,25 +25,24 @@ export class CarInfoComponent implements OnInit, OnDestroy {
   public activateClass(index: number) {
     this.selectedIndex = index;
   }
-  public sliderValue!: number
-  public formCarOptions!: FormGroup
+  public sliderValue!: number;
+  public formCarOptions!: FormGroup;
 
   public showTicks = false;
   public step = 1;
   public thumbLabel = false;
   public value = 0;
-  public car_telematic!:boolean
+  public car_telematic!: boolean;
   private car_telematic_sub: Subscription | undefined;
-  constructor(private fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder) {}
 
   public onSubmitForm(model: FormGroup): void {
     const body = this.formCarOptions.value;
     body.typesOfCarBody = this.typesOfCarBody[this.selectedIndex];
-    console.log(body);
   }
 
   public initializeForm(): void {
-    this.formCarOptions = this.fb.group({
+    this.formCarOptions = this._fb.group({
       VIN: ['CC123456778A99', Validators.required],
       car_mark: ['Hyundai', Validators.required],
       car_model: ['Solaris', Validators.required],

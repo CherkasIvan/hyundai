@@ -4,29 +4,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-input-clearer',
   templateUrl: './input-clearer.component.html',
-  styleUrls: ['./input-clearer.component.scss']
+  styleUrls: ['./input-clearer.component.scss'],
 })
 export class InputClearerComponent implements OnInit {
   public initialValue = '';
   public inputClearedForm!: FormGroup;
 
-  @Output()
-  componentValue:EventEmitter<string> = new EventEmitter<string>()
+  @Output() public componentValue: EventEmitter<string> =
+    new EventEmitter<string>();
 
-  constructor( private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder) {}
 
-  public clearInputValue() {
-  this.inputClearedForm.reset();
-  }
-
-  public changeValue(value:string){
+  public clearInputValue(): void {
+    this.inputClearedForm.reset();
   }
 
   ngOnInit(): void {
     this.initializeForm();
-    this.inputClearedForm?.get("inputClearer")?.valueChanges.subscribe(el=>{
-    this.componentValue.emit(el);
-    })
+    this.inputClearedForm?.get('inputClearer')?.valueChanges.subscribe((el) => {
+      this.componentValue.emit(el);
+    });
   }
 
   public initializeForm(): void {

@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormBuilder, Validators, FormGroup } from '@angular/forms';
 
 import { MatTooltip } from '@angular/material/tooltip';
 
@@ -26,12 +22,12 @@ import { RegisterRequestInterface } from '../../types/registerRequest.interface'
   styleUrls: ['./auth-broker-id-form.component.scss'],
 })
 export class AuthBrokerIdFormComponent implements OnInit {
-  public registrationForm!: UntypedFormGroup;
+  public registrationForm!: FormGroup;
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
-  public checkboxSucces = false;
+  public checkboxSucces: boolean = false;
 
-  constructor(private fb: UntypedFormBuilder, private store: Store) {}
+  constructor(private _fb: UntypedFormBuilder, private _store: Store) {}
 
   public ngOnInit(): void {
     this.initializeForm();
@@ -39,12 +35,12 @@ export class AuthBrokerIdFormComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
-    this.backandErrors$ = this.store.pipe(select(validationErrorsSelector));
+    this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector));
+    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
   }
 
   public initializeForm(): void {
-    this.registrationForm = this.fb.group({
+    this.registrationForm = this._fb.group({
       name: ['', Validators.required],
       id: ['', Validators.required],
     });
@@ -59,6 +55,6 @@ export class AuthBrokerIdFormComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    this.store.dispatch(authBrokerAction({ request }));
+    this._store.dispatch(authBrokerAction({ request }));
   }
 }

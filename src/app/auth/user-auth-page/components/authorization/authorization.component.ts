@@ -28,7 +28,7 @@ export class AuthorizationComponent implements OnInit {
   constructor(
     private _store: Store,
     private _fb: FormBuilder,
-    private userAuthService: UserAuthService
+    private _userAuthService: UserAuthService
   ) {}
 
   public ngOnInit(): void {
@@ -46,7 +46,7 @@ export class AuthorizationComponent implements OnInit {
   public initializeValues(): void {
     this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector));
     this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
-    this.userAuthService.userData$.subscribe((value) => {
+    this._userAuthService.userData$.subscribe((value) => {
       this.authForm.patchValue({
         clientId: value.clientId,
         code: value.testCode,
@@ -55,7 +55,6 @@ export class AuthorizationComponent implements OnInit {
   }
 
   public onSubmitAuth(): void {
-    console.log(this.authForm.value);
     const request: RegisterRequestInterface = this.authForm.value;
     this._store.dispatch(userAuthAction({ request }));
   }

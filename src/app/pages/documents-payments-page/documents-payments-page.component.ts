@@ -11,9 +11,9 @@ import { DocumentsInterface } from './types/documents.interface';
 })
 export class DocumentsPaymentsPageComponent implements OnInit {
   public currentDocuments: DocumentsInterface[] = [];
-  constructor(private mockDataService: MockDataService) {}
+  constructor(private _mockDataService: MockDataService) {}
 
   ngOnInit(): void {
-    this.currentDocuments = this.mockDataService.documentsPayments;
+    this.currentDocuments = this._mockDataService.documentsPayments;
   }
 }

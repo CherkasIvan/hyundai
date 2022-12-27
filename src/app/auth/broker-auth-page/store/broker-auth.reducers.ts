@@ -1,6 +1,6 @@
-import {Action, createReducer, on} from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 
-import {BrokerAuthStateInterface} from '../types/BrokerAuthState.interface';
+import { BrokerAuthStateInterface } from '../types/BrokerAuthState.interface';
 
 import {
   authBrokerAction,

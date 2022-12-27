@@ -8,15 +8,17 @@ import { CurrentUserInterface } from '../types/currentUser.interface';
 import { AuthResponseInterface } from '../types/authResponse.interface';
 
 import { environment } from '../../../../environments/environment';
+import { userDataInterface } from '../types/userData.interface';
 
 @Injectable()
 export class UserAuthService {
-  public userData$: BehaviorSubject<any> = new BehaviorSubject({
+  public userData$: BehaviorSubject<userDataInterface> = new BehaviorSubject({
     clientId: '',
+    status: '',
     testCode: '',
   });
 
-  constructor(private http: HttpClient) {}
+  constructor(private _http: HttpClient) {}
 
   public userRegister(
     data: RegisterRequestInterface
@@ -26,13 +28,12 @@ export class UserAuthService {
     });
 
     const url = environment.apiUrl + '/registerClient';
-    return this.http
+    return this._http
       .post<AuthResponseInterface>(url, data, { headers: httpHeaders })
       .pipe(
         map((response: any) => response),
         tap((response: any) => {
           this.userData$.next(response);
-          console.log(this.userData$.value);
         })
       );
   }
@@ -45,11 +46,8 @@ export class UserAuthService {
     });
 
     const url = environment.apiUrl + '/confirmClientRegistration';
-    return this.http
+    return this._http
       .post<AuthResponseInterface>(url, data, { headers: httpHeaders })
-      .pipe(
-        map((response: any) => response),
-        tap((response: any) => console.log(response))
-      );
+      .pipe(map((response: any) => response));
   }
 }

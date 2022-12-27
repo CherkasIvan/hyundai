@@ -24,9 +24,9 @@ export class BrokerAuthPageComponent implements OnInit {
   public registrationForm!: FormGroup;
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
-  public checkboxSucces = false;
+  public checkboxSucces: boolean = false;
 
-  constructor(private fb: FormBuilder, private store: Store) {}
+  constructor(private _fb: FormBuilder, private _store: Store) {}
 
   public ngOnInit(): void {
     this.initializeForm();
@@ -34,12 +34,12 @@ export class BrokerAuthPageComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
-    this.backandErrors$ = this.store.pipe(select(validationErrorsSelector));
+    this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector));
+    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
   }
 
   public initializeForm(): void {
-    this.registrationForm = this.fb.group({
+    this.registrationForm = this._fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
@@ -54,6 +54,6 @@ export class BrokerAuthPageComponent implements OnInit {
 
   public onSubmit(): void {
     const request: RegisterRequestInterface = this.registrationForm.value;
-    this.store.dispatch(authBrokerAction({ request }));
+    this._store.dispatch(authBrokerAction({ request }));
   }
 }

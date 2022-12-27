@@ -1,6 +1,6 @@
-import {createFeatureSelector, createSelector} from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import {BrokerAuthStateInterface} from '../types/BrokerAuthState.interface';
+import { BrokerAuthStateInterface } from '../types/BrokerAuthState.interface';
 
 export const authFeatureSelector =
   createFeatureSelector<BrokerAuthStateInterface>('broker-auth');

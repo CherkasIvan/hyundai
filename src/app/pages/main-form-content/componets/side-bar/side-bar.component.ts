@@ -14,7 +14,6 @@ import { StepsInterface } from './steps.interface';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
-  public mode: ProgressBarMode = 'determinate';
   public value: number = 50;
   public bufferValue: number = 75;
 
@@ -23,7 +22,6 @@ export class SideBarComponent implements OnInit {
   public selectedStepName: string = '';
 
   public selectionChanged($event: StepperSelectionEvent) {
-    console.log($event);
     this.router.url.includes('loan-calculation')
       ? (this.selectedStepName =
           this.mockData.calculationSteps[$event.selectedIndex].path)

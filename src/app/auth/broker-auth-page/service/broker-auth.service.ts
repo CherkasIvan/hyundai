@@ -11,7 +11,7 @@ import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class BrokerAuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private _http: HttpClient) {}
 
   public register(
     data: RegisterRequestInterface
@@ -22,7 +22,7 @@ export class BrokerAuthService {
 
     const url = environment.apiUrl + '/legalUserAuthentication';
 
-    return this.http
+    return this._http
       .post<CurrentBrokerInterface>(url, data, { headers: httpHeaders })
       .pipe(map((response: CurrentBrokerInterface) => response));
   }

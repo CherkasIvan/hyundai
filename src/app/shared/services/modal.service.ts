@@ -10,14 +10,14 @@ import { InsurancePoliciesModalComponent } from '../components/insurance-policie
 export class ModalService {
   public isShow$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
-  public changeOptionsInfo() {
+  public changeOptionsInfo(): void {
     this.isShow$.next(!this.isShow$);
   }
 
-  constructor(public dialog: MatDialog) {}
+  constructor(private _dialog: MatDialog) {}
 
-  public insurancePolicDialog() {
-    const dialogRef = this.dialog.open(InsurancePoliciesModalComponent, {
+  public insurancePolicDialog(): void {
+    const dialogRef = this._dialog.open(InsurancePoliciesModalComponent, {
       maxHeight: '100%',
       // maxHeight: '883px',
     });
