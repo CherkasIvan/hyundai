@@ -41,8 +41,8 @@
             </div>
           </div>
           <div class='car-info-item'>
-            <label class='car-info-container__details__form__item__label' for='pts_issue_year'>ПТС</label>
-            <input class='car-info-container__details__form__item__input' id='pts_issue_year' type='text' formControlName='pts_issue_year'>
+            <label class='car-info-item__label' for='pts_issue_year'>ПТС</label>
+            <input class='car-info-item__input' id='pts_issue_year' type='text' formControlName='pts_issue_year'>
             <div class=''
                  *ngIf="formCarOptions.controls['pts_issue_year'].touched && formCarOptions.controls['pts_issue_year'].invalid">
               <small class='' *ngIf="formCarOptions.controls['pts_issue_year'].invalid">
@@ -50,8 +50,8 @@
             </div>
           </div>
           <div class='car-info-item'>
-            <label class='car-info-container__details__form__item__label' for='engine_capacity'>Объем двигателя</label>
-            <input class='car-info-container__details__form__item__input' id='engine_capacity' type='text' formControlName='engine_capacity'>
+            <label class='car-info-item__label' for='engine_capacity'>Объем двигателя</label>
+            <input class='car-info-item__input' id='engine_capacity' type='text' formControlName='engine_capacity'>
             <div class=''
                  *ngIf="formCarOptions.controls['engine_capacity'].touched && formCarOptions.controls['engine_capacity'].invalid">
               <small class='' *ngIf="formCarOptions.controls['engine_capacity'].invalid">
@@ -59,8 +59,8 @@
             </div>
           </div>
           <div class='car-info-item'>
-            <label class='car-info-container__details__form__item__label' for='transmission'>Трансмиссия автомобиля</label>
-            <input class='car-info-container__details__form__item__input' id='transmission' type='text' formControlName='transmission'>
+            <label class='car-info-item__label' for='transmission'>Трансмиссия автомобиля</label>
+            <input class='car-info-item__input' id='transmission' type='text' formControlName='transmission'>
             <div class=''
                  *ngIf="formCarOptions.controls['transmission'].touched && formCarOptions.controls['transmission'].invalid">
               <small class='' *ngIf="formCarOptions.controls['transmission'].invalid">
@@ -111,7 +111,7 @@
             </div>
             <div *ngIf="car_telematic">
               <div>
-                <span class='car-info-container__details__form__item__label'>Тип телематической системы:</span>
+                <span class='car-info-item__label'>Тип телематической системы:</span>
               </div>
                 <fieldset class="car-info-item-telematic">
                   <input
@@ -161,8 +161,8 @@
             </div>
           </div>
         </div>
-        <div class='car-info-container__details__form__button'>
-          <button type="submit" class="car-info-container__details__btn btn-default">Далее</button>
+        <div class='car-info-details-form__button'>
+          <button type="submit" class="car-info-details__btn btn-default">Далее</button>
         </div>
       </form>
     </div>

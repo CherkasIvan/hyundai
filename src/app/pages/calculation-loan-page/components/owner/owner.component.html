@@ -92,7 +92,8 @@
               </fieldset>
              </div>
              <app-input-clearer (componentValue)="getFullName($event)"></app-input-clearer>
-             <div class="owner-personal-information">
+             <div *ngIf="fullName">
+              <div class="owner-personal-information">
                 <div class="gender owner-personal-information__item">
                     <div class="owner-personal-information__item--label">Пол</div>
                     <div class="gender__list">
@@ -100,8 +101,8 @@
                         class="gender__list--button"
                         *ngFor="let typeOfGender of genders; index as i"
                         type="button" 
-                        [ngClass]="{ active: selectedIndex === i }"
-                        (click)="activateClass(i)"
+                        [ngClass]="{ active: selectedGenderIndex === i }"
+                        (click)="activateGenderClass(i)"
                       >
                         {{ typeOfGender }}
                       </button>
@@ -126,7 +127,7 @@
                     /></label>
                   </fieldset>
              </div>
-             <div class="owner-personal-information">
+              <div class="owner-personal-information">
               <div class="owner-personal-information-title">
                 <span>Паспорт</span>
               </div>
@@ -169,9 +170,66 @@
                   </fieldset>
               </div>
              </div>
-            
+             <div class="owner-personal-information family">
+              <div class="owner-personal-information-title">
+                <span>Семья</span>
+              </div>
+              <div class="owner-personal-information-content family-content">
+                <div class="marital-status owner-personal-information__item">
+                  <div class="owner-personal-information__item--label">Семейное положение</div>
+                  <div class="marital-status__list">
+                    <button
+                      class="marital-status__list--button"
+                      *ngFor="let typeOfMaritalStatus of maritalStatuses; index as i"
+                      type="button" 
+                      [ngClass]="{ active: selectedMaritalStatusIndex === i }"
+                      (click)="activateMaritalStatusClass(i)"
+                    >
+                      {{ typeOfMaritalStatus }}
+                    </button>
+                  </div>
+                </div>
+                <app-counter-button (currentCountValue)="getKidsCount($event)"></app-counter-button>
+              </div>
+             </div>
+             <div class="owner-personal-information family">
+              <div class="owner-personal-information-title">
+                <span>Контактные данные</span>
+              </div>
+              <div class="owner-personal-information-content policy-confirmation-container" >
+                <div class="policy-confirmation-content">
+                  <fieldset class="owner-personal-information__item">
+                  <label class="owner-personal-information__item--label">
+                    Электронная почта
+                    <input
+                      type="text"
+                      formControlName="email"
+                      class="owner-personal-information__item--input"
+                  /></label>
+                </fieldset>
+                <fieldset class="owner-products-item">
+                  <input
+                id="personal_data_policy_confirmation"
+                type="checkbox"
+                class="owner-products-item__checkbox"
+                formControlName="personal_data_policy_confirmation"
+                name="personal_data_policy_confirmation"
+                  />
+                  <label for="personal_data_policy_confirmation" class="owner-products-item__label policy-confirmation">
+                    Соглашаюсь с условиями обработки 
+                    моих персональных данных
+                  </label>
+            </fieldset>
+                </div>
+            <div>
+              <button type="submit" class="owner-personal-information-button">Далее</button>
+            </div>
+              </div>
+             </div>
+             <div>
+              
+             </div>
+             </div>
         </div>
-        <button type="submit" class="">Далее</button>
     </form>
-    
 </div>
