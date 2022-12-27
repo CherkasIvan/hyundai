@@ -22,8 +22,8 @@ const routes: Routes = [
   {
     path: routingPathEnum.ClientAuthentication,
     loadChildren: () =>
-      import('./pages/user-auth/auth-user.module').then(
-        (module) => module.AuthModule
+      import('./pages/user-auth-page/user-auth-page.module').then(
+        (module) => module.UserAuthPageModule
       ),
   },
   {

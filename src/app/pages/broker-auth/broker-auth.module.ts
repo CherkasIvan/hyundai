@@ -12,7 +12,6 @@ import { reducers } from './store/broker-auth.reducers';
 import { BrokerAuthEffects } from './store/broker-auth.effects';
 
 import { BrokerAuthService } from './service/broker-auth.service';
-import { PersistenceService } from '../../shared/services/persistence.service';
 
 import { BrokerAuthRoutingModule } from './broker-auth-routing.module';
 import { SharedModule } from '../../shared/shared.module';
@@ -47,6 +46,6 @@ const routes: Routes = [
     EffectsModule.forFeature([BrokerAuthEffects]),
     SharedModule,
   ],
-  providers: [BrokerAuthService, PersistenceService],
+  providers: [BrokerAuthService],
 })
 export class BrokerAuthModule {}

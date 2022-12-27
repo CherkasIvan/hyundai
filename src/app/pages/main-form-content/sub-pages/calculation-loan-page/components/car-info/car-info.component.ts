@@ -12,8 +12,6 @@ import { Subscription } from 'rxjs';
 })
 export class CarInfoComponent implements OnInit, OnDestroy {
   @Input()
-  public carOptions!: object[];
-
   public typesOfCarBody: string[] = [
     'Седан',
     'Внедорожник',
@@ -28,14 +26,14 @@ export class CarInfoComponent implements OnInit, OnDestroy {
     this.selectedIndex = index;
   }
 
-  sliderValue!: number;
-  formCarOptions!: FormGroup;
+  public sliderValue!: number;
+  public formCarOptions!: FormGroup;
 
-  showTicks = false;
-  step = 1;
-  thumbLabel = false;
-  value = 0;
-  car_telematic!: boolean;
+  public showTicks = false;
+  public step: number = 1;
+  public thumbLabel = false;
+  public value: number = 0;
+  public car_telematic!: boolean;
   private car_telematic_sub: Subscription | undefined;
   constructor(private fb: FormBuilder) {}
 

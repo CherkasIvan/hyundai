@@ -12,8 +12,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/userReducers';
 import { RegisterEffect } from './store/userRegister.effect';
 
-import { AuthUserRoutingModule } from './auth-user-routing.module';
 import { SharedModule } from '../../shared/shared.module';
+import { UserAuthRoutingModule } from './user-auth-page-routing.module';
 
 import { PersistenceService } from '../../shared/services/persistence.service';
 import { UserAuthService } from './services/user-auth.service';
@@ -22,6 +22,8 @@ import { MainFormContentPageComponent } from '../main-form-content/main-form-con
 import { AuthTabsComponent } from './components/auth-tabs/auth-tabs.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TesNavigationLogoComponent } from './components/tes-navigation-logo/tes-navigation-logo.component';
+import { AuthorizationComponent } from './components/authorization/authorization.component';
+import { UserAuthPageComponent } from './user-auth-page.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,8 @@ const routes: Routes = [
     RegisterComponent,
     AuthTabsComponent,
     TesNavigationLogoComponent,
+    AuthorizationComponent,
+    UserAuthPageComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +46,7 @@ const routes: Routes = [
     MatStepperModule,
     MatFormFieldModule,
     MatTooltipModule,
-    AuthUserRoutingModule,
+    UserAuthRoutingModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('user-auth', reducers),
     EffectsModule.forFeature([RegisterEffect]),
@@ -50,4 +54,4 @@ const routes: Routes = [
   ],
   providers: [UserAuthService, PersistenceService],
 })
-export class AuthModule {}
+export class UserAuthPageModule {}

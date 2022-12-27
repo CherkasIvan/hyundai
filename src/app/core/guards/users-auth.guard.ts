@@ -8,11 +8,11 @@ import {
 } from '@angular/router';
 
 import { select, Store } from '@ngrx/store';
-import { userIsLoggedIn } from '../../pages/user-auth/store/userSelectors';
+import { userIsLoggedIn } from '../../pages/user-auth-page/store/userSelectors';
 
 import { Observable, tap } from 'rxjs';
 
-import { UserAuthStateInterface } from '../../pages/user-auth/types/userAuthState.interface';
+import { UserAuthStateInterface } from '../../pages/user-auth-page/types/userAuthState.interface';
 
 @Injectable()
 export class UsersAuthGuard implements CanActivate {

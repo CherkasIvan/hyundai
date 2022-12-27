@@ -10,7 +10,7 @@ export class PersistenceService {
     }
   }
 
-  get(key: string): any {
+  get(key: string): string | null {
     try {
       return localStorage.getItem(JSON.parse(key));
     } catch (e) {
