@@ -13,7 +13,6 @@ export class UserAuthPageComponent implements OnInit {
   ngOnInit(): void {
     this.userAuthService.userData$.subscribe((el) => {
       this.initialState = el;
-      console.log(this.initialState);
     });
   }
 }
