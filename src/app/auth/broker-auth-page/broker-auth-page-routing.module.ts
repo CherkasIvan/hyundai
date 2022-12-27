@@ -10,4 +10,4 @@ const routes: Routes = [{ path: '', component: BrokerAuthPageComponent }];
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BrokerAuthRoutingModule {}
+export class BrokerAuthPageRoutingModule {}

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { StepsInterface } from '../../pages/main-form-content/componets/side-bar/steps.interface';
-import { DocumentsInterface } from '../../pages/main-form-content/sub-pages/documents-payments-page/types/documents.interface';
 import { ModalCardInterface } from '../components/insurance-policies-modal/types/modal-card.interface';
 import { InsuranceOptionsInterface } from '../components/insurance-policies-modal/types/insurance-options.interface';
+import { DocumentsInterface } from '../../pages/documents-payments-page/types/documents.interface';
+import { StepsInterface } from '../../pages/main-form-content/componets/side-bar/steps.interface';
 
 @Injectable({
   providedIn: 'root',

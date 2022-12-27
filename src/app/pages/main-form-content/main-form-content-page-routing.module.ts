@@ -11,14 +11,14 @@ const routes: Routes = [
       {
         path: 'loan-calculation',
         loadChildren: () =>
-          import(
-            './sub-pages/calculation-loan-page/calculation-loan-page.module'
-          ).then((module) => module.CalculationLoanPageModule),
+          import('../calculation-loan-page/calculation-loan-page.module').then(
+            (module) => module.CalculationLoanPageModule
+          ),
       },
       {
         path: 'processing',
         loadChildren: () =>
-          import('./sub-pages/processing-page/processing-page.module').then(
+          import('../processing-page/processing-page.module').then(
             (module) => module.ProcessingPageModule
           ),
       },
@@ -26,7 +26,7 @@ const routes: Routes = [
         path: 'documents-payments',
         loadChildren: () =>
           import(
-            './sub-pages/documents-payments-page/documents-payments-page.module'
+            '../documents-payments-page/documents-payments-page.module'
           ).then((module) => module.DocumentsPaymentsPageModule),
       },
     ],

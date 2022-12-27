@@ -13,7 +13,7 @@ import { BrokerAuthEffects } from './store/broker-auth.effects';
 
 import { BrokerAuthService } from './service/broker-auth.service';
 
-import { BrokerAuthRoutingModule } from './broker-auth-routing.module';
+import { BrokerAuthPageRoutingModule } from './broker-auth-page-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 
 import { BrokerAuthTabsComponent } from './components/broker-auth-tabs/broker-auth-tabs.component';
@@ -40,7 +40,7 @@ const routes: Routes = [
     MatTabsModule,
     MatStepperModule,
     MatTooltipModule,
-    BrokerAuthRoutingModule,
+    BrokerAuthPageRoutingModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('broker-auth', reducers),
     EffectsModule.forFeature([BrokerAuthEffects]),
@@ -48,4 +48,4 @@ const routes: Routes = [
   ],
   providers: [BrokerAuthService],
 })
-export class BrokerAuthModule {}
+export class BrokerAuthPageModule {}

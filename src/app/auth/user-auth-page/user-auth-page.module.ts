@@ -18,7 +18,7 @@ import { UserAuthRoutingModule } from './user-auth-page-routing.module';
 import { PersistenceService } from '../../shared/services/persistence.service';
 import { UserAuthService } from './services/user-auth.service';
 
-import { MainFormContentPageComponent } from '../main-form-content/main-form-content-page.component';
+import { MainFormContentPageComponent } from '../../pages/main-form-content/main-form-content-page.component';
 import { AuthTabsComponent } from './components/auth-tabs/auth-tabs.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TesNavigationLogoComponent } from './components/tes-navigation-logo/tes-navigation-logo.component';

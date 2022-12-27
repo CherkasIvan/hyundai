@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MockDataService } from '../../../../shared/services/mock-data.service';
+import { MockDataService } from '../../shared/services/mock-data.service';
 
 import { DocumentsInterface } from './types/documents.interface';
 
