@@ -1,0 +1,42 @@
+<div class="personal-office">
+  <div class="personal-greetings">
+    <h1 class="personal-greetings__title">Инициализировать клиента</h1>
+    <p class="personsl-greetings__content">
+      Что-бы войти в приложение<br />
+      введите ваш ID и<br />
+      последние четыре цифры позвонившего номера:
+    </p>
+  </div>
+  <form [formGroup]="authForm" (ngSubmit)="onSubmitAuth()" class="auth-form">
+    <fieldset class="auth-form-item">
+      <label for="clientId" class="auth-form-item__label">Ваш ID*</label>
+      <input
+        type="text"
+        class="auth-form-item__phone"
+        placeholder="Введите ваш номер"
+        name="clientId"
+        formControlName="clientId"
+      />
+    </fieldset>
+
+    <fieldset class="auth-form-item">
+      <label for="code" class="auth-form-item__label">Ваш код телефона*</label>
+      <input
+        type="text"
+        class="auth-form-item__phone"
+        placeholder="Введите ваш номер"
+        name="code"
+        formControlName="code"
+      />
+    </fieldset>
+
+    <button
+      class="auth-form-button"
+      type="submit"
+      [disabled]="isSubmitting$ | async"
+    >
+      Войти
+      <img src="/assets/images/login_button.svg" alt="login" />
+    </button>
+  </form>
+</div>

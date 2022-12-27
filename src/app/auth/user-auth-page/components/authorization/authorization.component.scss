@@ -1,0 +1,85 @@
+.personal-office {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .personal-greetings {
+    margin-bottom: 55px;
+
+    &__title {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 72px;
+      line-height: 100%;
+      margin-bottom: 29px;
+    }
+
+    &__content {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 140%;
+    }
+  }
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 300px;
+  margin-top: 40px;
+
+  &-item {
+    height: 36px;
+    display: flex;
+    flex-direction: column;
+
+    &__wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    &__label {
+      margin-right: 10px;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 130%;
+    }
+
+    &__validation-code,
+    &__phone {
+      color: #ffffff;
+      background-color: transparent;
+      outline: none;
+      height: 30px;
+      border-bottom: 1px solid #b6b6b6;
+    }
+
+    &__validation-code::placeholder,
+    &__phone::placeholder {
+      color: #b6b6b6;
+    }
+
+    &__validation-code::focus,
+    &__phone::focus {
+      background-color: #ffffff;
+    }
+  }
+
+  &-button {
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 76px;
+    width: 60%;
+    padding: 20px 0;
+    background: #ffffff;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 121%;
+  }
+}

@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class PersistenceService {
   set(key: string, data: any): void {
     try {
@@ -10,7 +10,7 @@ export class PersistenceService {
     }
   }
 
-  get(key: string): any {
+  get(key: string): string | null {
     try {
       return localStorage.getItem(JSON.parse(key));
     } catch (e) {

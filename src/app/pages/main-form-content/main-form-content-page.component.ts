@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, Event, RouterEvent } from '@angular/router';
-import { MockDataService } from 'src/app/shared/services/mock-data.service';
+import { NavigationEnd, Router, Event } from '@angular/router';
+
 import { filter } from 'rxjs';
+
+import { MockDataService } from '../../shared/services/mock-data.service';
+
 import { StepsInterface } from './componets/side-bar/steps.interface';
-import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
+
+import { routingPathEnum } from '../../shared/consts/routing-path-enum';
 
 @Component({
   selector: 'app-main-form-content-page',
