@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../../../../shared/shared.module';
+
 import { CarInfoComponent } from './components/car-info/car-info.component';
 import { OwnerComponent } from './components/owner/owner.component';
 import { DriversComponent } from './components/drivers/drivers.component';

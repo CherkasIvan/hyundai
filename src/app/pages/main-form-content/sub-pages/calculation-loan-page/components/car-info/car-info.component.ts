@@ -1,9 +1,8 @@
-import {
-  OnInit,
-  Component, Input, OnDestroy
-} from '@angular/core';
+import { OnInit, Component, Input, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { MatTooltip } from '@angular/material/tooltip';
+
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -29,14 +28,14 @@ export class CarInfoComponent implements OnInit, OnDestroy {
     this.selectedIndex = index;
   }
 
-  sliderValue!: number
-  formCarOptions!: FormGroup
+  sliderValue!: number;
+  formCarOptions!: FormGroup;
 
   showTicks = false;
   step = 1;
   thumbLabel = false;
   value = 0;
-  car_telematic!:boolean
+  car_telematic!: boolean;
   private car_telematic_sub: Subscription | undefined;
   constructor(private fb: FormBuilder) {}
 
@@ -61,16 +60,15 @@ export class CarInfoComponent implements OnInit, OnDestroy {
       telematic_misos_light: ['true', Validators.required],
       telematic_bluelink: ['false', Validators.required],
       telematic_misos_pro: ['false', Validators.required],
-
     });
   }
 
   ngOnInit(): void {
-    this.initializeForm(); 
-    this.car_telematic_sub = this.formCarOptions.get('car_telematic')?.valueChanges
-    .subscribe((value) => this.car_telematic = value)
+    this.initializeForm();
+    this.car_telematic_sub = this.formCarOptions
+      .get('car_telematic')
+      ?.valueChanges.subscribe((value) => (this.car_telematic = value));
   }
-
 
   public openTooltip(tooltip: MatTooltip): void {
     tooltip.show();
@@ -79,7 +77,7 @@ export class CarInfoComponent implements OnInit, OnDestroy {
     }, 1500);
   }
 
-ngOnDestroy(): void {
-  this.car_telematic_sub?.unsubscribe();
-}
+  ngOnDestroy(): void {
+    this.car_telematic_sub?.unsubscribe();
+  }
 }

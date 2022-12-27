@@ -7,7 +7,7 @@ import { CurrentBrokerInterface } from '../store/types/currentBroker.interface';
 
 import { RegisterRequestInterface } from '../types/registerRequest.interface';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class BrokerAuthService {

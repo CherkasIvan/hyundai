@@ -1,10 +1,9 @@
-import { RegisterRequestInterface } from './../../types/registerRequest.interface';
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators, FormGroup } from '@angular/forms';
 
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { MatTooltip } from '@angular/material/tooltip';
 
+import { select, Store } from '@ngrx/store';
 import {
   userAuthAction,
   userRegisterAction,
@@ -13,8 +12,11 @@ import {
   isSubmittingSelector,
   validationErrorsSelector,
 } from '../../store/userSelectors';
+
+import { Observable } from 'rxjs';
+
+import { RegisterRequestInterface } from './../../types/registerRequest.interface';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
-import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-register',

@@ -9,16 +9,18 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/broker-auth.reducers';
-import { BrokerAuthService } from './service/broker-auth.service';
-
 import { BrokerAuthEffects } from './store/broker-auth.effects';
+
+import { BrokerAuthService } from './service/broker-auth.service';
 import { PersistenceService } from '../../shared/services/persistence.service';
+
+import { BrokerAuthRoutingModule } from './broker-auth-routing.module';
+import { SharedModule } from '../../shared/shared.module';
+
 import { BrokerAuthTabsComponent } from './components/broker-auth-tabs/broker-auth-tabs.component';
 import { BrokerAuthPageComponent } from './components/broker-auth-page/broker-auth-page.component';
 import { AuthBrokerIdFormComponent } from './components/auth-broker-id-form/auth-broker-id-form.component';
 import { AuthEmailFormComponent } from './components/auth-email-form/auth-email-form.component';
-import { BrokerAuthRoutingModule } from './broker-auth-routing.module';
-import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {

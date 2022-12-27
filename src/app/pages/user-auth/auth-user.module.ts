@@ -3,25 +3,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatIconModule } from '@angular/material/icon';
-import { MainFormContentPageComponent } from '../main-form-content/main-form-content-page.component';
-
-import { RegisterComponent } from './components/register/register.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers } from './store/userReducers';
-import { UserAuthService } from './services/user-auth.service';
-import { EffectsModule } from '@ngrx/effects';
-
-import { RegisterEffect } from './store/userRegister.effect';
-import { PersistenceService } from '../../shared/services/persistence.service';
-import { AuthTabsComponent } from './components/auth-tabs/auth-tabs.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { TesNavigationLogoComponent } from './components/tes-navigation-logo/tes-navigation-logo.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AuthUserRoutingModule } from './auth-user-routing.module';
 
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers } from './store/userReducers';
+import { RegisterEffect } from './store/userRegister.effect';
+
+import { AuthUserRoutingModule } from './auth-user-routing.module';
 import { SharedModule } from '../../shared/shared.module';
+
+import { PersistenceService } from '../../shared/services/persistence.service';
+import { UserAuthService } from './services/user-auth.service';
+
+import { MainFormContentPageComponent } from '../main-form-content/main-form-content-page.component';
+import { AuthTabsComponent } from './components/auth-tabs/auth-tabs.component';
+import { RegisterComponent } from './components/register/register.component';
+import { TesNavigationLogoComponent } from './components/tes-navigation-logo/tes-navigation-logo.component';
 
 const routes: Routes = [
   {

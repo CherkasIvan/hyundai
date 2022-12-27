@@ -1,9 +1,8 @@
-import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface';
 import { createAction, props } from '@ngrx/store';
-import { CurrentUserInterface } from '../types/currentUser.interface';
-import { RegisterRequestInterface } from '../types/registerRequest.interface';
-
 import { UserActionTypes } from './userActionTypes';
+
+import { CurrentUserInterface } from '../types/currentUser.interface';
+import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface';
 
 // REGISTER NEW USER //
 

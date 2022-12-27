@@ -17,7 +17,8 @@ import { PersistenceService } from '../../../shared/services/persistence.service
 import { BrokerAuthService } from '../service/broker-auth.service';
 
 import { CurrentBrokerInterface } from './types/currentBroker.interface';
-import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
+
+import { routingPathEnum } from '../../../shared/consts/routing-path-enum';
 
 @Injectable()
 export class BrokerAuthEffects {

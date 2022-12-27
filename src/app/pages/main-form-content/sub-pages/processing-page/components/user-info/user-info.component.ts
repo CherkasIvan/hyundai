@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { ModalService } from '../../../../../../shared/services/modal.service';
 
 @Component({
@@ -39,7 +40,7 @@ export class UserInfoComponent implements OnInit {
       familyStatus: ['', Validators.required],
       children_counter: [0, Validators.required],
       obligatory_payments: [0, Validators.required],
-      loan_repaymentuserForm: [0, Validators.required],
+      loan_repayment: [0, Validators.required],
     });
   }
 

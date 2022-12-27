@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { Observable } from 'rxjs';
+import { MatTooltip } from '@angular/material/tooltip';
 
 import { select, Store } from '@ngrx/store';
 import { authBrokerAction } from '../../store/broker-auth.action';
@@ -10,9 +10,10 @@ import {
   validationErrorsSelector,
 } from '../../store/broker-auth.selectors';
 
+import { Observable } from 'rxjs';
+
 import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
-import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-broker-auth-page',

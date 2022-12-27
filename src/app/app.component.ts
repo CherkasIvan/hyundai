@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Actions } from '@ngrx/effects';
-import { pluck } from 'rxjs';
 
 @Component({
   selector: 'app-root',

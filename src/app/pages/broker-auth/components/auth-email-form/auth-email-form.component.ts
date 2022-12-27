@@ -16,6 +16,7 @@ import {
   isSubmittingSelector,
   validationErrorsSelector,
 } from '../../store/broker-auth.selectors';
+
 import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 
 @Component({

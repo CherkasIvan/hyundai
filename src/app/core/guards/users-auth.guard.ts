@@ -6,9 +6,12 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
+
 import { select, Store } from '@ngrx/store';
-import { Observable, tap } from 'rxjs';
 import { userIsLoggedIn } from '../../pages/user-auth/store/userSelectors';
+
+import { Observable, tap } from 'rxjs';
+
 import { UserAuthStateInterface } from '../../pages/user-auth/types/userAuthState.interface';
 
 @Injectable()
@@ -20,7 +23,11 @@ export class UsersAuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
     return this.store.pipe(
       select(userIsLoggedIn),
       tap((userIsLoggedIn) => {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MockDataService } from '../../../../services/mock-data.service';
 import { ModalService } from '../../../../services/modal.service';
+
 import { InsuranceOptionsInterface } from '../../types/insurance-options.interface';
 import { ModalCardInterface } from '../../types/modal-card.interface';
 

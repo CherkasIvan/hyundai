@@ -1,5 +1,5 @@
-import {BackendErrorsInterface} from '../../../../pages/shared/types/backendErrors.interface';
-import {CurrentBrokerInterface} from './currentBroker.interface';
+// import {BackendErrorsInterface} from 'pages/shared/types/backendErrors.interface';
+import { CurrentBrokerInterface } from './currentBroker.interface';
 
 export interface BrokerAuthStateInterface {
   isSubmitting: boolean;

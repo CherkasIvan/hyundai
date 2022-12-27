@@ -11,9 +11,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 
+import { AppComponent } from './app.component';
+
 import { environment } from '../environments/environment';
 
-import { AppComponent } from './app.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import {UrlResolverService} from './pages/shared/services/url-resolver.service';
 
@@ -35,7 +36,7 @@ import { AppComponent } from './app.component';
     StoreModule.forRoot({
       router: routerReducer,
     }),
-    // StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

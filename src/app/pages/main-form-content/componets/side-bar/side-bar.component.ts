@@ -1,9 +1,11 @@
-import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { Component, Input, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { ProgressBarMode } from '@angular/material/progress-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { ProgressBarMode } from '@angular/material/progress-bar';
+import { StepperSelectionEvent } from '@angular/cdk/stepper';
+
 import { MockDataService } from '../../../../shared/services/mock-data.service';
+
 import { StepsInterface } from './steps.interface';
 
 @Component({
@@ -12,7 +14,6 @@ import { StepsInterface } from './steps.interface';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
-  public color: ThemePalette = 'primary';
   public mode: ProgressBarMode = 'determinate';
   public value: number = 50;
   public bufferValue: number = 75;

@@ -1,9 +1,9 @@
-import { PersistenceService } from '../../../shared/services/persistence.service';
-import { CurrentUserInterface } from '../types/currentUser.interface';
 import { Injectable } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 import { ofType } from '@ngrx/effects';
 import { Actions } from '@ngrx/effects';
-import { switchMap, map, catchError, of, tap } from 'rxjs';
 import { createEffect } from '@ngrx/effects';
 import {
   userAuthAction,
@@ -12,10 +12,15 @@ import {
   userRegisterAction,
   userRegisterSuccessAction,
 } from './userRegister.action';
+
+import { switchMap, map, catchError, of, tap } from 'rxjs';
+
 import { UserAuthService } from '../services/user-auth.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
+import { PersistenceService } from '../../../shared/services/persistence.service';
+
+import { CurrentUserInterface } from '../types/currentUser.interface';
+
+import { routingPathEnum } from '../../../shared/consts/routing-path-enum';
 
 @Injectable()
 export class RegisterEffect {
