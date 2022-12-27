@@ -11,6 +11,7 @@ import {
   userAuthFailureAction,
   userRegisterAction,
   userRegisterSuccessAction,
+  userRegisterFailureAction,
 } from './userRegister.action';
 
 import { switchMap, map, catchError, of, tap } from 'rxjs';
@@ -36,14 +37,15 @@ export class RegisterEffect {
       ofType(userRegisterAction),
       switchMap(({ request }) => {
         return this.authService.userRegister(request).pipe(
+          tap((el) => console.log(el)),
           map((currentUser: CurrentUserInterface) => {
             this.persistenceService.set('clientId', currentUser.clientId);
-            return userAuthSuccessAction({ currentUser });
+            return userRegisterSuccessAction({ currentUser });
           }),
           catchError((errorResponce: HttpErrorResponse) => {
             console.error(errorResponce);
             return of(
-              userAuthFailureAction({ errors: errorResponce.error.errors })
+              userRegisterFailureAction({ errors: errorResponce.error.errors })
             );
           })
         );
@@ -85,16 +87,16 @@ export class RegisterEffect {
   //   { dispatch: false }
   // );
 
-  // public redirectAfterSuccessUserAuthSubmit$ = createEffect(
-  //   () =>
-  //     this.actions$.pipe(
-  //       ofType(userAuthSuccessAction),
-  //       tap(() => {
-  //         this.router.navigateByUrl(
-  //           `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
-  //         );
-  //       })
-  //     ),
-  //   { dispatch: false }
-  // );
+  public redirectAfterSuccessUserAuthSubmit$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(userAuthSuccessAction),
+        tap(() => {
+          this.router.navigateByUrl(
+            `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
+          );
+        })
+      ),
+    { dispatch: false }
+  );
 }
