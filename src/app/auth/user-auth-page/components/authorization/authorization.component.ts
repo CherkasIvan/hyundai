@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
 
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
 import { userAuthAction } from '../../store/userRegister.action';
-import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { UserAuthService } from '../../services/user-auth.service';
+import { UserRegisterRequestInterface } from '../../types/userRegisterRequest.interface';
 
 @Component({
   selector: 'app-authorization',
@@ -55,7 +55,7 @@ export class AuthorizationComponent implements OnInit {
   }
 
   public onSubmitAuth(): void {
-    const request: RegisterRequestInterface = this.authForm.value;
+    const request: UserRegisterRequestInterface = this.authForm.value;
     this._store.dispatch(userAuthAction({ request }));
   }
 }

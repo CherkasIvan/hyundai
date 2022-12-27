@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserAuthService } from './services/user-auth.service';
-
-import { userDataInterface } from './types/userData.interface';
+import { CurrentUserInterface } from './types/currentUser.interface';
 
 @Component({
   selector: 'app-user-auth-page',
@@ -10,7 +9,7 @@ import { userDataInterface } from './types/userData.interface';
   styleUrls: ['./user-auth-page.component.scss'],
 })
 export class UserAuthPageComponent implements OnInit {
-  public initialState!: userDataInterface;
+  public initialState!: CurrentUserInterface;
   constructor(private _userAuthService: UserAuthService) {}
 
   ngOnInit(): void {

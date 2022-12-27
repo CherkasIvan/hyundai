@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
 
-import { RegisterRequestInterface } from '../../types/registerRequest.interface';
+import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegisterRequest.interface';
 
 @Component({
   selector: 'app-auth-broker-id-form',
@@ -23,7 +23,7 @@ import { RegisterRequestInterface } from '../../types/registerRequest.interface'
 })
 export class AuthBrokerIdFormComponent implements OnInit {
   public registrationForm!: FormGroup;
-  public isSubmitting$?: Observable<boolean>;
+  public isBrokerSubmittingById$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
   public checkboxSucces: boolean = false;
 
@@ -35,7 +35,9 @@ export class AuthBrokerIdFormComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector));
+    this.isBrokerSubmittingById$ = this._store.pipe(
+      select(isSubmittingSelector)
+    );
     this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
   }
 
@@ -54,7 +56,7 @@ export class AuthBrokerIdFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const request: RegisterRequestInterface = this.registrationForm.value;
+    const request: BrokerRegisterRequestInterface = this.registrationForm.value;
     this._store.dispatch(authBrokerAction({ request }));
   }
 }

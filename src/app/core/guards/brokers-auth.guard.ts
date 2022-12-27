@@ -12,7 +12,7 @@ import { Observable, tap } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { brokerIsLoggedIn } from '../../auth/broker-auth-page/store/broker-auth.selectors';
 
-import { BrokerAuthStateInterface } from '../../auth/broker-auth-page/types/BrokerAuthState.interface';
+import { BrokerAuthStateInterface } from '../../auth/broker-auth-page/store/types/brokerAuthState.interface';
 
 @Injectable()
 export class BrokersAuthGuard implements CanActivate {

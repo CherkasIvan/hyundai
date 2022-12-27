@@ -3,8 +3,8 @@ import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.i
 import { CurrentBrokerInterface } from './currentBroker.interface';
 
 export interface BrokerAuthStateInterface {
-  isSubmitting: boolean;
-  currentUser: CurrentBrokerInterface | null;
-  isLoggedIn: boolean | null;
+  isBrokerSubmitting: boolean;
+  currentBroker: CurrentBrokerInterface | null;
+  brokerIsLoggedIn: boolean;
   validationErrors: BackendErrorsInterface | null;
 }

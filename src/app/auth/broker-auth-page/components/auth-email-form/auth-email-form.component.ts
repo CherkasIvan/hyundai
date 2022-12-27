@@ -16,8 +16,7 @@ import {
   isSubmittingSelector,
   validationErrorsSelector,
 } from '../../store/broker-auth.selectors';
-
-import { RegisterRequestInterface } from '../../types/registerRequest.interface';
+import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegisterRequest.interface';
 
 @Component({
   selector: 'app-auth-email-form',
@@ -26,7 +25,7 @@ import { RegisterRequestInterface } from '../../types/registerRequest.interface'
 })
 export class AuthEmailFormComponent implements OnInit {
   public registrationForm!: UntypedFormGroup;
-  public isSubmitting$?: Observable<boolean>;
+  public isBrokerSubmittingByEmail$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
   public checkboxSucces: boolean = false;
 
@@ -38,7 +37,9 @@ export class AuthEmailFormComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector));
+    this.isBrokerSubmittingByEmail$ = this._store.pipe(
+      select(isSubmittingSelector)
+    );
     this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
   }
 
@@ -57,7 +58,7 @@ export class AuthEmailFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const request: RegisterRequestInterface = this.registrationForm.value;
+    const request: BrokerRegisterRequestInterface = this.registrationForm.value;
     this._store.dispatch(authBrokerAction({ request }));
   }
 }

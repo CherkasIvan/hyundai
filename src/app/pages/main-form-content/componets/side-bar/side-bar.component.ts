@@ -6,7 +6,7 @@ import { StepperSelectionEvent } from '@angular/cdk/stepper';
 
 import { MockDataService } from '../../../../shared/services/mock-data.service';
 
-import { StepsInterface } from './steps.interface';
+import { StepsInterface } from '../types/steps.interface';
 
 @Component({
   selector: 'app-side-bar',

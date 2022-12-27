@@ -21,7 +21,7 @@
       <img
         src="../../../../../assets/images/tooltip_item.svg"
         alt="tool-tip"
-        [matTooltipClass]="{'tool-tip': true}"
+        [matTooltipClass]="{ 'tool-tip': true }"
         class="example-tab-icon"
         matTooltip="tooltip"
         #tool="matTooltip"
@@ -56,7 +56,9 @@
     class="auth-form-button"
     type="submit"
     [disabled]="
-      (isSubmitting$ | async) || !checkboxSucces || !this.registrationForm.valid
+      (isBrokerSubmittingByEmail$ | async) ||
+      !checkboxSucces ||
+      !this.registrationForm.valid
     "
   >
     Войти

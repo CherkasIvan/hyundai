@@ -56,7 +56,6 @@ export class BrokerAuthEffects {
         ofType(authBrokerSuccessAction),
         tap(() => {
           this._router.navigateByUrl(
-            // `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
             `/${routingPathEnum.ClientAuthentication}`
           );
         })

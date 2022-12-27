@@ -12,7 +12,7 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { RegisterRequestInterface } from '../../types/registerRequest.interface';
+import { UserRegisterRequestInterface } from '../../types/userRegisterRequest.interface';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
 
 @Component({
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public onSubmitRegistration(): void {
-    const request: RegisterRequestInterface = this.registrationForm.value;
+    const request: UserRegisterRequestInterface = this.registrationForm.value;
     this._store.dispatch(userRegisterAction({ request }));
   }
 }

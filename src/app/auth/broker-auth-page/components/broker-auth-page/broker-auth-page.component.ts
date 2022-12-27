@@ -12,8 +12,8 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
+import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegisterRequest.interface';
 
 @Component({
   selector: 'app-broker-auth-page',
@@ -53,7 +53,7 @@ export class BrokerAuthPageComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const request: RegisterRequestInterface = this.registrationForm.value;
+    const request: BrokerRegisterRequestInterface = this.registrationForm.value;
     this._store.dispatch(authBrokerAction({ request }));
   }
 }
