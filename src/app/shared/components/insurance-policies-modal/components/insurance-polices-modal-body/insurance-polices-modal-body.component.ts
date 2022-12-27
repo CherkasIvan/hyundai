@@ -17,7 +17,7 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
   public cardsObjects: ModalCardInterface[] = [];
   public options: InsuranceOptionsInterface[] = [];
 
-  public getCard(card: ModalCardInterface): Object {
+  public getCard(card: ModalCardInterface): ModalCardInterface[] {
     this.cardsObjects = [];
     this.cardsObjects.push(card);
     return this.cardsObjects;
