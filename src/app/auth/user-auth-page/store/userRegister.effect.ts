@@ -72,29 +72,29 @@ export class RegisterEffect {
     )
   );
 
-  public redirectAfterSuccessUserRegisterSubmit$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(userRegisterSuccessAction),
-        tap(() => {
-          this.router.navigateByUrl(
-            `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
-          );
-        })
-      ),
-    { dispatch: false }
-  );
+  // public redirectAfterSuccessUserRegisterSubmit$ = createEffect(
+  //   () =>
+  //     this.actions$.pipe(
+  //       ofType(userRegisterSuccessAction),
+  //       tap(() => {
+  //         this.router.navigateByUrl(
+  //           `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
+  //         );
+  //       })
+  //     ),
+  //   { dispatch: false }
+  // );
 
-  public redirectAfterSuccessUserAuthSubmit$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(userAuthSuccessAction),
-        tap(() => {
-          this.router.navigateByUrl(
-            `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
-          );
-        })
-      ),
-    { dispatch: false }
-  );
+  // public redirectAfterSuccessUserAuthSubmit$ = createEffect(
+  //   () =>
+  //     this.actions$.pipe(
+  //       ofType(userAuthSuccessAction),
+  //       tap(() => {
+  //         this.router.navigateByUrl(
+  //           `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
+  //         );
+  //       })
+  //     ),
+  //   { dispatch: false }
+  // );
 }

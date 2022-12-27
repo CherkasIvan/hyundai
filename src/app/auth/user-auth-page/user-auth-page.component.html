@@ -1,7 +1,11 @@
 <div class="auth-page">
   <div class="auth-page__container">
-    <app-register></app-register>
-    <app-authorization></app-authorization>
+    <app-register
+      *ngIf="initialState.clientId === '' && initialState.testCode === ''"
+    ></app-register>
+    <app-authorization
+      *ngIf="initialState.clientId != '' && initialState.testCode != ''"
+    ></app-authorization>
   </div>
 
   <div class="personal-service">

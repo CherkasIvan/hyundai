@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { map, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 import { RegisterRequestInterface } from '../types/registerRequest.interface';
 import { CurrentUserInterface } from '../types/currentUser.interface';
@@ -11,6 +11,11 @@ import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class UserAuthService {
+  public userData$: BehaviorSubject<any> = new BehaviorSubject({
+    clientId: '',
+    testCode: '',
+  });
+
   constructor(private http: HttpClient) {}
 
   public userRegister(
@@ -25,7 +30,10 @@ export class UserAuthService {
       .post<AuthResponseInterface>(url, data, { headers: httpHeaders })
       .pipe(
         map((response: any) => response),
-        tap((response: any) => console.log(response))
+        tap((response: any) => {
+          this.userData$.next(response);
+          console.log(this.userData$.value);
+        })
       );
   }
 
