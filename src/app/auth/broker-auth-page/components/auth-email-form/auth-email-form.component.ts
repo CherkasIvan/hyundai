@@ -29,7 +29,7 @@ export class AuthEmailFormComponent implements OnInit {
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
   public checkboxSucces: boolean = false;
 
-  constructor(private _fb: UntypedFormBuilder, private _store: Store) {}
+  constructor(private _fb: UntypedFormBuilder, private store: Store) {}
 
   public ngOnInit(): void {
     this.initializeForm();
@@ -37,10 +37,10 @@ export class AuthEmailFormComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isBrokerSubmittingByEmail$ = this._store.pipe(
+    this.isBrokerSubmittingByEmail$ = this.store.pipe(
       select(isSubmittingSelector)
     );
-    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
+    this.backandErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
   public initializeForm(): void {
@@ -59,6 +59,6 @@ export class AuthEmailFormComponent implements OnInit {
 
   public onSubmit(): void {
     const request: BrokerRegisterRequestInterface = this.registrationForm.value;
-    this._store.dispatch(authBrokerAction({ request }));
+    this.store.dispatch(authBrokerAction({ request }));
   }
 }

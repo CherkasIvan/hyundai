@@ -27,7 +27,7 @@ export class AuthBrokerIdFormComponent implements OnInit {
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
   public checkboxSucces: boolean = false;
 
-  constructor(private _fb: UntypedFormBuilder, private _store: Store) {}
+  constructor(private _fb: UntypedFormBuilder, private store: Store) {}
 
   public ngOnInit(): void {
     this.initializeForm();
@@ -35,10 +35,10 @@ export class AuthBrokerIdFormComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isBrokerSubmittingById$ = this._store.pipe(
+    this.isBrokerSubmittingById$ = this.store.pipe(
       select(isSubmittingSelector)
     );
-    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
+    this.backandErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
   public initializeForm(): void {
@@ -57,6 +57,6 @@ export class AuthBrokerIdFormComponent implements OnInit {
 
   public onSubmit(): void {
     const request: BrokerRegisterRequestInterface = this.registrationForm.value;
-    this._store.dispatch(authBrokerAction({ request }));
+    this.store.dispatch(authBrokerAction({ request }));
   }
 }

@@ -29,10 +29,10 @@ export class UserAuthService {
 
     const url = environment.apiUrl + '/registerClient';
     return this._http
-      .post<UserAuthResponseInterface>(url, data, { headers: httpHeaders })
+      .post<UserRegisterRequestInterface>(url, data, { headers: httpHeaders })
       .pipe(
         map((response: any) => response),
-        tap((response: any) => {
+        tap((response: CurrentUserInterface) => {
           this.userData$.next(response);
         })
       );

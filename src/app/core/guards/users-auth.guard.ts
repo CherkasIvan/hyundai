@@ -17,7 +17,7 @@ import { UserAuthStateInterface } from '../../auth/user-auth-page/types/userAuth
 @Injectable()
 export class UsersAuthGuard implements CanActivate {
   constructor(
-    private _store: Store<UserAuthStateInterface>,
+    private store: Store<UserAuthStateInterface>,
     private _route: Router
   ) {}
   canActivate(
@@ -28,7 +28,7 @@ export class UsersAuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this._store.pipe(
+    return this.store.pipe(
       select(userIsLoggedIn),
       tap((userIsLoggedIn) => {
         if (!userIsLoggedIn) {

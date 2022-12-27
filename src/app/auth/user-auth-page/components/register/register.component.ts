@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
 
-  constructor(private _fb: UntypedFormBuilder, private _store: Store) {}
+  constructor(private _fb: UntypedFormBuilder, private store: Store) {}
 
   public ngOnInit(): void {
     this.initializeRegistrationForm();
@@ -35,8 +35,8 @@ export class RegisterComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector));
-    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+    this.backandErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
   public initializeRegistrationForm(): void {
@@ -55,6 +55,6 @@ export class RegisterComponent implements OnInit {
 
   public onSubmitRegistration(): void {
     const request: UserRegisterRequestInterface = this.registrationForm.value;
-    this._store.dispatch(userRegisterAction({ request }));
+    this.store.dispatch(userRegisterAction({ request }));
   }
 }
