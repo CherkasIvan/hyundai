@@ -53,20 +53,20 @@
 }
 
 ::ng-deep .nav-list-item-link {
-  font-weight: 400 !important;
-  font-size: 16px !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
   line-height: 24px !important;
   color: #343e48 !important;
   padding: 10px !important;
 }
 
 ::ng-deep .active {
-  font-weight: 500 !important;
-  font-size: 18px !important;
-  line-height: 21px !important;
-  align-items: center !important;
-  color: #343e48 !important;
-  border-bottom: 1.5px solid #343e48 !important;
+  // font-weight: 400 !important;
+  // font-size: 16px !important;
+  // line-height: 21px !important;
+  // align-items: center !important;
+  // color: #343e48 !important;
+  // border-bottom: 1.5px solid #343e48 !important;
 }
 
 .mat-tab-nav-bar,

@@ -29,14 +29,14 @@ export class CarInfoComponent implements OnInit, OnDestroy {
     this.selectedIndex = index;
   }
 
-  sliderValue!: number
-  formCarOptions!: FormGroup
+  public sliderValue!: number
+  public formCarOptions!: FormGroup
 
-  showTicks = false;
-  step = 1;
-  thumbLabel = false;
-  value = 0;
-  car_telematic!:boolean
+  public showTicks = false;
+  public step = 1;
+  public thumbLabel = false;
+  public value = 0;
+  public car_telematic!:boolean
   private car_telematic_sub: Subscription | undefined;
   constructor(private fb: FormBuilder) {}
 
