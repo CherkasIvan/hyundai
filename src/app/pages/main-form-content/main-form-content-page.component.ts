@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, Event, RouterEvent } from '@angular/router';
-import { MockDataService } from 'src/app/shared/services/mock-data.service';
+import { NavigationEnd, Router, Event } from '@angular/router';
+
 import { filter } from 'rxjs';
+
+import { MockDataService } from '../../shared/services/mock-data.service';
+
 import { StepsInterface } from './componets/side-bar/steps.interface';
+
+import { routingPathEnum } from '../../shared/consts/routing-path-enum';
 
 @Component({
   selector: 'app-main-form-content-page',
@@ -15,17 +20,17 @@ export class MainFormContentPageComponent implements OnInit {
 
   public navigationLinks = [
     {
-      link: 'loan-calculation/car-info',
+      link: `${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`,
       value: 'Расчет кредита',
       index: 0,
     },
     {
-      link: 'processing/client-info',
+      link: `${routingPathEnum.ProcessingPage}/${routingPathEnum.ClientInfo}`,
       value: 'Оформление',
       index: 1,
     },
     {
-      link: 'documents-payments',
+      link: `${routingPathEnum.DocumentsAndPaymentsPage}`,
       value: 'Документы и платежи',
       index: 2,
     },
@@ -46,7 +51,7 @@ export class MainFormContentPageComponent implements OnInit {
       )
       .subscribe((el: NavigationEnd) => {
         this.routerLink = el.urlAfterRedirects;
-        this._router.url.includes('loan-calculation')
+        this._router.url.includes(routingPathEnum.LoanCalculationPage)
           ? (this.calculationSteps = this.mockServise.calculationSteps)
           : (this.calculationSteps = this.mockServise.processingSteps);
       });

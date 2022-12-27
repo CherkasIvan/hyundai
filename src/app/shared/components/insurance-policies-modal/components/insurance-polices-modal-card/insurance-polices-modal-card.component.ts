@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+
 import { ModalCardInterface } from '../../types/modal-card.interface';
 
 @Component({

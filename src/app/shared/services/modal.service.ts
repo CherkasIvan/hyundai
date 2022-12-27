@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
+
 import { BehaviorSubject } from 'rxjs';
+
 import { InsurancePoliciesModalComponent } from '../components/insurance-policies-modal/insurance-policies-modal.component';
 
 @Injectable()
@@ -19,7 +21,5 @@ export class ModalService {
       maxHeight: '100%',
       // maxHeight: '883px',
     });
-
-    dialogRef.afterClosed().subscribe((result) => {});
   }
 }
