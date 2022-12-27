@@ -1,7 +1,6 @@
-export interface RegisterRequestInterface {
+export interface BrokerRegisterRequestInterface {
   broker: {
     email: string;
     password: string;
-    legalName: string;
   };
 }

@@ -17,7 +17,7 @@ export class ModalService {
   constructor(private _dialog: MatDialog) {}
 
   public insurancePolicDialog(): void {
-    const dialogRef = this._dialog.open(InsurancePoliciesModalComponent, {
+    this._dialog.open(InsurancePoliciesModalComponent, {
       maxHeight: '100%',
       // maxHeight: '883px',
     });

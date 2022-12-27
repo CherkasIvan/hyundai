@@ -12,8 +12,8 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
+import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegisterRequest.interface';
 
 @Component({
   selector: 'app-broker-auth-page',
@@ -26,7 +26,7 @@ export class BrokerAuthPageComponent implements OnInit {
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
   public checkboxSucces: boolean = false;
 
-  constructor(private _fb: FormBuilder, private _store: Store) {}
+  constructor(private _fb: FormBuilder, private store: Store) {}
 
   public ngOnInit(): void {
     this.initializeForm();
@@ -34,8 +34,8 @@ export class BrokerAuthPageComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector));
-    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+    this.backandErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
   public initializeForm(): void {
@@ -53,7 +53,7 @@ export class BrokerAuthPageComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const request: RegisterRequestInterface = this.registrationForm.value;
-    this._store.dispatch(authBrokerAction({ request }));
+    const request: BrokerRegisterRequestInterface = this.registrationForm.value;
+    this.store.dispatch(authBrokerAction({ request }));
   }
 }

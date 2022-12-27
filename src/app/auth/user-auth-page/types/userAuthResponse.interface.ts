@@ -1,5 +1,5 @@
 import { CurrentUserInterface } from './currentUser.interface';
 
-export interface AuthResponseInterface {
+export interface UserAuthResponseInterface {
   user: CurrentUserInterface;
 }

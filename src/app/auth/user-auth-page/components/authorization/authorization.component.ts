@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
 
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
 import { userAuthAction } from '../../store/userRegister.action';
-import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { UserAuthService } from '../../services/user-auth.service';
+import { UserRegisterRequestInterface } from '../../types/userRegisterRequest.interface';
 
 @Component({
   selector: 'app-authorization',
@@ -26,7 +26,7 @@ export class AuthorizationComponent implements OnInit {
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
 
   constructor(
-    private _store: Store,
+    private store: Store,
     private _fb: FormBuilder,
     private _userAuthService: UserAuthService
   ) {}
@@ -44,8 +44,8 @@ export class AuthorizationComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector));
-    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+    this.backandErrors$ = this.store.pipe(select(validationErrorsSelector));
     this._userAuthService.userData$.subscribe((value) => {
       this.authForm.patchValue({
         clientId: value.clientId,
@@ -55,7 +55,7 @@ export class AuthorizationComponent implements OnInit {
   }
 
   public onSubmitAuth(): void {
-    const request: RegisterRequestInterface = this.authForm.value;
-    this._store.dispatch(userAuthAction({ request }));
+    const request: UserRegisterRequestInterface = this.authForm.value;
+    this.store.dispatch(userAuthAction({ request }));
   }
 }

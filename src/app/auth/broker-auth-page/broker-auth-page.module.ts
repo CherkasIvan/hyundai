@@ -21,13 +21,6 @@ import { BrokerAuthPageComponent } from './components/broker-auth-page/broker-au
 import { AuthBrokerIdFormComponent } from './components/auth-broker-id-form/auth-broker-id-form.component';
 import { AuthEmailFormComponent } from './components/auth-email-form/auth-email-form.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: BrokerAuthPageComponent,
-  },
-];
-
 @NgModule({
   declarations: [
     BrokerAuthPageComponent,
@@ -41,7 +34,6 @@ const routes: Routes = [
     MatStepperModule,
     MatTooltipModule,
     BrokerAuthPageRoutingModule,
-    RouterModule.forChild(routes),
     StoreModule.forFeature('broker-auth', reducers),
     EffectsModule.forFeature([BrokerAuthEffects]),
     SharedModule,

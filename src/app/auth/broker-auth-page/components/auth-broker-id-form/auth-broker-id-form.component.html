@@ -56,7 +56,9 @@
     class="auth-formId-button"
     type="submit"
     [disabled]="
-      (isSubmitting$ | async) || !checkboxSucces || !this.registrationForm.valid
+      (isBrokerSubmittingById$ | async) ||
+      !checkboxSucces ||
+      !this.registrationForm.valid
     "
   >
     Войти

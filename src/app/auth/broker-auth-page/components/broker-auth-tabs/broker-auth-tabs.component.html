@@ -12,9 +12,8 @@
       />
       <span class="tab-item__text">Email</span>
     </ng-template>
-    <ng-content select="[emailRegistration]"></ng-content>
+    <app-auth-email-form></app-auth-email-form>
   </mat-tab>
-
   <mat-tab>
     <ng-template mat-tab-label class="tab-item">
       <img
@@ -24,6 +23,6 @@
       />
       <span class="tab-item__text">По ID-дилера</span>
     </ng-template>
-    <ng-content select="[idRegistration]"></ng-content>
+    <app-auth-broker-id-form></app-auth-broker-id-form>
   </mat-tab>
 </mat-tab-group>
