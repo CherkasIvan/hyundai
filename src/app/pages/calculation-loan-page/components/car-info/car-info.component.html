@@ -85,14 +85,14 @@
           <fieldset class="form-group__item">
             <label class="form-group__item_label">
               Стоимость авто, руб
-              <app-input-slider (componentValue)="sliderValue"></app-input-slider>
+              <app-input-slider (componentValue)="getCarPrice($event)"></app-input-slider>
             </label>
           </fieldset>
           <div class='form-container-toggle'>
             <div class='form-container-toggle__wrapper'>
               
                 <label class='toggle-switch'>
-                  <input class='checkbox' id='telematic' type='checkbox' formControlName='car_telematic'>
+                  <input class='checkbox' id='telematic' type='checkbox' formControlName='car_telematic' checked>
                   <span class='toggle-slider round'></span>
                 </label>
               

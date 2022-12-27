@@ -63,7 +63,7 @@
       .car-info-item {
         display: flex;
         flex-direction: column;
-        width: 340px;
+        width: 15vw;
         height: 74px;
         border-bottom: 1px solid #CAD2DA;
 
@@ -110,7 +110,7 @@
 
         &__label {
           display: inline-flex;
-          width: 278px;
+          width: 15vw;
           height: 13px;
           font-family: 'Gilroy';
           font-weight: 400;
@@ -145,7 +145,7 @@
       }
     }
       &__form__input {
-        width: 320px;
+        width: 15vw;
       }
   }
 

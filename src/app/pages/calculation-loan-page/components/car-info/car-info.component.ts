@@ -1,4 +1,4 @@
-import { OnInit, Component, Input, OnDestroy } from '@angular/core';
+import { OnInit, Component, Input, OnDestroy, AfterViewInit, AfterContentInit, AfterContentChecked } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MatTooltip } from '@angular/material/tooltip';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './car-info.component.html',
   styleUrls: ['./car-info.component.scss'],
 })
-export class CarInfoComponent implements OnInit, OnDestroy {
+export class CarInfoComponent implements OnInit, OnDestroy, AfterContentChecked {
   @Input()
   public typesOfCarBody: string[] = [
     'Седан',
@@ -38,7 +38,7 @@ export class CarInfoComponent implements OnInit, OnDestroy {
 
   public onSubmitForm(model: FormGroup): void {
     const body = this.formCarOptions.value;
-    body.typesOfCarBody = this.typesOfCarBody[this.selectedIndex];
+    body.car_body_type = this.typesOfCarBody[this.selectedIndex];
     console.log(body);
   }
 
@@ -52,11 +52,11 @@ export class CarInfoComponent implements OnInit, OnDestroy {
       engine_capacity: ['2.0', Validators.required],
       transmission: ['Автоматическая', Validators.required],
       car_body_type: ['Седан', Validators.required],
-      car_price: ['1200000', Validators.required],
-      car_telematic: ['false', Validators.required],
-      telematic_misos_light: ['true', Validators.required],
-      telematic_bluelink: ['false', Validators.required],
-      telematic_misos_pro: ['false', Validators.required],
+      car_price: ["1200000", Validators.required],
+      car_telematic: [true, Validators.required],
+      telematic_misos_light: [true, Validators.required],
+      telematic_bluelink: [false, Validators.required],
+      telematic_misos_pro: [false, Validators.required],
     });
   }
 
@@ -65,6 +65,7 @@ export class CarInfoComponent implements OnInit, OnDestroy {
     this.car_telematic_sub = this.formCarOptions
       .get('car_telematic')
       ?.valueChanges.subscribe((value) => (this.car_telematic = value));
+    this.car_telematic = this.formCarOptions?.value.car_telematic;
   }
 
   public openTooltip(tooltip: MatTooltip): void {
@@ -72,6 +73,16 @@ export class CarInfoComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       tooltip.hide();
     }, 1500);
+  }
+
+  public getCarPrice(e: any) {
+    this.formCarOptions?.get('car_price')?.patchValue(e);
+  }
+
+  ngAfterContentChecked(): void {
+    if(!this.formCarOptions.value.car_telematic) {
+      this.formCarOptions?.patchValue({telematic_misos_light: false, telematic_bluelink: false, telematic_misos_pro: false});
+    }
   }
 
   ngOnDestroy(): void {
