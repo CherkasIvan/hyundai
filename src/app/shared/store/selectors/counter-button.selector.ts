@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+
 import { CounterButtonInterface } from '../../types/counter-button.interface';
 
 export const counterButtonFeatureSelector =

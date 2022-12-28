@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { inputClearerClearTextAction } from '../../store/actions/input-clearer.action';
 
 @Component({
   selector: 'app-input-clearer',
@@ -13,22 +15,23 @@ export class InputClearerComponent implements OnInit {
   @Output() public componentValue: EventEmitter<string> =
     new EventEmitter<string>();
 
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder, private readonly _store: Store) {}
 
   public clearInputValue(): void {
+    this._store.dispatch(inputClearerClearTextAction());
     this.inputClearedForm.reset();
-  }
-
-  ngOnInit(): void {
-    this.initializeForm();
-    this.inputClearedForm?.get('inputClearer')?.valueChanges.subscribe((el) => {
-      this.componentValue.emit(el);
-    });
   }
 
   public initializeForm(): void {
     this.inputClearedForm = this._fb.group({
       inputClearer: [this.initialValue, Validators.required],
+    });
+  }
+
+  public ngOnInit(): void {
+    this.initializeForm();
+    this.inputClearedForm?.get('inputClearer')?.valueChanges.subscribe((el) => {
+      this.componentValue.emit(el);
     });
   }
 }

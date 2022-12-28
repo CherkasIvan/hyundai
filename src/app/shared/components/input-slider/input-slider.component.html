@@ -5,7 +5,7 @@
     type="number"
     #inputValue
     (change)="updateSliderValue($event)"
-    [(ngModel)]="value"
+    [(ngModel)]="value$"
   />
   <mat-slider
     class="example-margin"
@@ -14,7 +14,7 @@
     [step]="step"
     #sliderValue
     (change)="updateInputValue($event)"
-    [(ngModel)]="value"
+    [(ngModel)]="value$"
   >
   </mat-slider>
 </section>

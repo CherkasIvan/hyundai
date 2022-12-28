@@ -22,12 +22,15 @@ export class CounterButtonComponent implements OnInit {
 
   public initializeForm(): void {
     this.counterForm = this._fb.group({
-      counterFormInput: [this.initialCounter$],
+      counterFormInput: 0,
     });
   }
 
   public initializeStoreValues(): void {
     this.initialCounter$ = this._store.pipe(select(getCounterButtonValue));
+    this.initialCounter$.subscribe((counterValue: number): void => {
+      this.currentCountValue.emit(counterValue);
+    });
   }
 
   constructor(

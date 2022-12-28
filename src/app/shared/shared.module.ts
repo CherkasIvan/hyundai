@@ -17,7 +17,8 @@ import { InputSliderComponent } from './components/input-slider/input-slider.com
 import { BackendErrorMessagesComponent } from './components/backend-error-messages/backend-error-messages.component';
 import { StoreModule } from '@ngrx/store';
 
-import { reducers } from './store/reducers/counter-button.reducer';
+import { counterReducers } from './store/reducers/counter-button.reducer';
+import { clearerReducers } from './store/reducers/input-clearer.reducer';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { reducers } from './store/reducers/counter-button.reducer';
     CommonModule,
     FormsModule,
     MatTabsModule,
-    StoreModule.forFeature('counter-button', reducers),
+    StoreModule.forFeature('counter-button', counterReducers),
+    StoreModule.forFeature('input-clearer', clearerReducers),
     InsurancePoliciesModalModule,
     ReactiveFormsModule,
     MatSliderModule,
