@@ -17,7 +17,7 @@ import { BrokerAuthStateInterface } from '../../auth/broker-auth-page/store/type
 @Injectable()
 export class BrokersAuthGuard implements CanActivate {
   constructor(
-    private store: Store<BrokerAuthStateInterface>,
+    private readonly _store: Store<BrokerAuthStateInterface>,
     private _route: Router
   ) {}
   canActivate(
@@ -28,7 +28,7 @@ export class BrokersAuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.store.pipe(
+    return this._store.pipe(
       select(brokerIsLoggedIn),
       tap((brokerIsLoggedIn) => {
         if (!localStorage.getItem('successToken')) {

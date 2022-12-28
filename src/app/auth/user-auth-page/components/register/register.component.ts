@@ -4,11 +4,11 @@ import { UntypedFormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MatTooltip } from '@angular/material/tooltip';
 
 import { select, Store } from '@ngrx/store';
-import { userRegisterAction } from '../../store/userRegister.action';
+import { userRegisterAction } from '../../store/actions/userRegister.action';
 import {
-  isSubmittingSelector,
-  validationErrorsSelector,
-} from '../../store/userSelectors';
+  isSubmittingRegisterSelector,
+  validationRegisterErrorsSelector,
+} from '../../store/selectors/userAuth.selectors';
 
 import { Observable } from 'rxjs';
 
@@ -27,7 +27,10 @@ export class RegisterComponent implements OnInit {
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsInterface | null>;
 
-  constructor(private _fb: UntypedFormBuilder, private store: Store) {}
+  constructor(
+    private _fb: UntypedFormBuilder,
+    private readonly _store: Store
+  ) {}
 
   public ngOnInit(): void {
     this.initializeRegistrationForm();
@@ -35,8 +38,10 @@ export class RegisterComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
-    this.backandErrors$ = this.store.pipe(select(validationErrorsSelector));
+    this.isSubmitting$ = this._store.pipe(select(isSubmittingRegisterSelector));
+    this.backandErrors$ = this._store.pipe(
+      select(validationRegisterErrorsSelector)
+    );
   }
 
   public initializeRegistrationForm(): void {
@@ -55,6 +60,6 @@ export class RegisterComponent implements OnInit {
 
   public onSubmitRegistration(): void {
     const request: UserRegisterRequestInterface = this.registrationForm.value;
-    this.store.dispatch(userRegisterAction({ request }));
+    this._store.dispatch(userRegisterAction({ request }));
   }
 }
