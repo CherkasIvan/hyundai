@@ -29,7 +29,7 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
 
   constructor(private _mockDataService: MockDataService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.cardsObjects = this._mockDataService.insuranceCardsObjects;
     this.options = this._mockDataService.insuranceOptions;
   }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
 
 import { MainFormContentPageComponent } from './main-form-content-page.component';
 
@@ -9,21 +10,21 @@ const routes: Routes = [
     component: MainFormContentPageComponent,
     children: [
       {
-        path: 'loan-calculation',
+        path: routingPathEnum.LoanCalculationPage,
         loadChildren: () =>
           import('../calculation-loan-page/calculation-loan-page.module').then(
             (module) => module.CalculationLoanPageModule
           ),
       },
       {
-        path: 'processing',
+        path: routingPathEnum.ProcessingPage,
         loadChildren: () =>
           import('../processing-page/processing-page.module').then(
             (module) => module.ProcessingPageModule
           ),
       },
       {
-        path: 'documents-payments',
+        path: routingPathEnum.DocumentsAndPaymentsPage,
         loadChildren: () =>
           import(
             '../documents-payments-page/documents-payments-page.module'

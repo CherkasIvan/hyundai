@@ -8,7 +8,7 @@ import {
 } from '@angular/router';
 
 import { select, Store } from '@ngrx/store';
-import { userIsLoggedIn } from '../../auth/user-auth-page/store/userSelectors';
+import { userIsLoggedIn } from '../../auth/user-auth-page/store/selectors/userAuth.selectors';
 
 import { Observable, tap } from 'rxjs';
 
@@ -17,7 +17,7 @@ import { UserAuthStateInterface } from '../../auth/user-auth-page/types/userAuth
 @Injectable()
 export class UsersAuthGuard implements CanActivate {
   constructor(
-    private store: Store<UserAuthStateInterface>,
+    private readonly _store: Store<UserAuthStateInterface>,
     private _route: Router
   ) {}
   canActivate(
@@ -28,7 +28,7 @@ export class UsersAuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.store.pipe(
+    return this._store.pipe(
       select(userIsLoggedIn),
       tap((userIsLoggedIn) => {
         if (!userIsLoggedIn) {
