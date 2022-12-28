@@ -17,7 +17,6 @@ import { UserAuthRoutingModule } from './user-auth-page-routing.module';
 import { PersistenceService } from '../../shared/services/persistence.service';
 import { UserAuthService } from './services/user-auth.service';
 
-import { MainFormContentPageComponent } from '../../pages/main-form-content/main-form-content-page.component';
 import { AuthTabsComponent } from './components/auth-tabs/auth-tabs.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TesNavigationLogoComponent } from './components/tes-navigation-logo/tes-navigation-logo.component';
@@ -25,13 +24,6 @@ import { AuthorizationComponent } from './components/authorization/authorization
 import { UserAuthPageComponent } from './user-auth-page.component';
 import { UserRegisterEffect } from './store/effects/userRegister.effect';
 import { UserAuthEffect } from './store/effects/userAuth.effect';
-
-const routes: Routes = [
-  {
-    path: 'main',
-    component: MainFormContentPageComponent,
-  },
-];
 
 @NgModule({
   declarations: [
@@ -48,7 +40,6 @@ const routes: Routes = [
     MatFormFieldModule,
     MatTooltipModule,
     UserAuthRoutingModule,
-    RouterModule.forChild(routes),
     StoreModule.forFeature('user-register', reducers),
     StoreModule.forFeature('user-auth', reducers),
     EffectsModule.forFeature([UserRegisterEffect, UserAuthEffect]),

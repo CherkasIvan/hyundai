@@ -6,8 +6,8 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { select, Store } from '@ngrx/store';
 import { authBrokerAction } from '../../store/broker-auth.action';
 import {
-  isSubmittingSelector,
-  validationErrorsSelector,
+  isBrokerSubmittingSelector,
+  validationBrokerErrorsSelector,
 } from '../../store/broker-auth.selectors';
 
 import { Observable } from 'rxjs';
@@ -34,8 +34,10 @@ export class BrokerAuthPageComponent implements OnInit {
   }
 
   public initializeValues(): void {
-    this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector));
-    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
+    this.isSubmitting$ = this._store.pipe(select(isBrokerSubmittingSelector));
+    this.backandErrors$ = this._store.pipe(
+      select(validationBrokerErrorsSelector)
+    );
   }
 
   public initializeForm(): void {

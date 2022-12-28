@@ -13,8 +13,8 @@ import { Observable } from 'rxjs';
 import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
 import { authBrokerAction } from '../../store/broker-auth.action';
 import {
-  isSubmittingSelector,
-  validationErrorsSelector,
+  isBrokerSubmittingSelector,
+  validationBrokerErrorsSelector,
 } from '../../store/broker-auth.selectors';
 import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegisterRequest.interface';
 
@@ -41,9 +41,11 @@ export class AuthEmailFormComponent implements OnInit {
 
   public initializeValues(): void {
     this.isBrokerSubmittingByEmail$ = this._store.pipe(
-      select(isSubmittingSelector)
+      select(isBrokerSubmittingSelector)
     );
-    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
+    this.backandErrors$ = this._store.pipe(
+      select(validationBrokerErrorsSelector)
+    );
   }
 
   public initializeForm(): void {

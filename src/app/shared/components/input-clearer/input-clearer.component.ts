@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./input-clearer.component.scss'],
 })
 export class InputClearerComponent implements OnInit {
-  public initialValue = '';
+  public initialValue: string = '';
   public inputClearedForm!: FormGroup;
 
   @Output() public componentValue: EventEmitter<string> =

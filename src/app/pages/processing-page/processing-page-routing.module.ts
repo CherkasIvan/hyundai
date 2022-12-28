@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
 
 import { ApprovalComponent } from './components/approval/approval.component';
 import { SummaryComponent } from './components/summary/summary.component';
@@ -10,10 +11,10 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'client-info', component: UserInfoComponent },
-      { path: 'client-job', component: WorkComponent },
-      { path: 'client-summary', component: SummaryComponent },
-      { path: 'client-approval', component: ApprovalComponent },
+      { path: routingPathEnum.ClientInfo, component: UserInfoComponent },
+      { path: routingPathEnum.ClientJobData, component: WorkComponent },
+      { path: routingPathEnum.ClientSummary, component: SummaryComponent },
+      { path: routingPathEnum.ClientApproval, component: ApprovalComponent },
     ],
   },
 ];

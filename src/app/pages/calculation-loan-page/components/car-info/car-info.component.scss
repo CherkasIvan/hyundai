@@ -1,6 +1,6 @@
 .car-info-container {
   padding: 30px;
-  width: 100%;
+  width: 70vw;
   min-height: 80vh;
   background: #ffffff;
   box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
@@ -63,7 +63,7 @@
       .car-info-item {
         display: flex;
         flex-direction: column;
-        width: 340px;
+        width: 15vw;
         height: 74px;
         border-bottom: 1px solid #CAD2DA;
 
@@ -110,7 +110,7 @@
 
         &__label {
           display: inline-flex;
-          width: 278px;
+          width: 15vw;
           height: 13px;
           font-family: 'Gilroy';
           font-weight: 400;
@@ -145,7 +145,7 @@
       }
     }
       &__form__input {
-        width: 320px;
+        width: 15vw;
       }
   }
 
@@ -154,7 +154,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 18px;
-      flex-wrap: wrap;
     }
     car-info-form-container {
       display: flex;
@@ -240,68 +239,6 @@
 
       &__wrapper {
         display: flex;
-
-
-        // .container {
-        //   display: flex;
-        //   align-items: center;
-        //   position: relative;
-        //   padding-left: 35px;
-        //   margin-bottom: 12px;
-        //   cursor: pointer;
-        //   font-size: 22px;
-        //   -webkit-user-select: none;
-        //   -moz-user-select: none;
-        //   -ms-user-select: none;
-        //   user-select: none;
-        // }
-
-        // .container input {
-        //   position: absolute;
-        //   opacity: 0;
-        //   cursor: pointer;
-        //   height: 0;
-        //   width: 0;
-        //   border: 1px solid #96959E;
-        //   border-radius: 10px;
-        // }
-
-        // .checkmark {
-        //   position: absolute;
-        //   top: 0;
-        //   left: 0;
-        //   height: 24px;
-        //   width: 24px;
-        //   background: #FFFFFF;
-        //   border: 1px solid #96959E;
-        //   border-radius: 4px;
-        // }
-
-        // .container input:checked ~ .checkmark {
-        //   background: #72879E;
-        // }
-
-        // .checkmark:after {
-        //   content: "";
-        //   position: absolute;
-        //   display: none;
-        // }
-
-        // .container input:checked ~ .checkmark:after {
-        //   display: block;
-        // }
-
-        // .container .checkmark:after {
-        //   left: 8px;
-        //   top: 4px;
-        //   width: 7px;
-        //   height: 11px;
-        //   border: solid white;
-        //   border-width: 0 3px 3px 0;
-        //   -webkit-transform: rotate(45deg);
-        //   -ms-transform: rotate(45deg);
-        //   transform: rotate(45deg);
-        // }
       }
 
      

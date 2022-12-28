@@ -7,6 +7,7 @@ import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { MockDataService } from '../../../../shared/services/mock-data.service';
 
 import { StepsInterface } from '../types/steps.interface';
+import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
 
 @Component({
   selector: 'app-side-bar',
@@ -22,7 +23,7 @@ export class SideBarComponent implements OnInit {
   public selectedStepName: string = '';
 
   public selectionChanged($event: StepperSelectionEvent) {
-    this.router.url.includes('loan-calculation')
+    this.router.url.includes(routingPathEnum.LoanCalculationPage)
       ? (this.selectedStepName =
           this.mockData.calculationSteps[$event.selectedIndex].path)
       : (this.selectedStepName =

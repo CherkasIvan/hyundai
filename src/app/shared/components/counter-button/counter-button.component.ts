@@ -7,7 +7,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./counter-button.component.scss'],
 })
 export class CounterButtonComponent implements OnInit {
-  public initialCounter = 0;
+  public initialCounter: number = 0;
   @Output() public currentCountValue = new EventEmitter<number>();
 
   public counterForm!: FormGroup;

@@ -34,13 +34,11 @@ export class UserAuthEffect {
       ofType(userAuthAction),
       switchMap(({ request }) => {
         return this._authService.userAuth(request).pipe(
-          tap((el) => console.log(el)),
           map((currentUser: CurrentUserInterface) => {
             this._persistenceService.set('clientId', currentUser.clientId);
             return userAuthSuccessAction({ currentUser });
           }),
           catchError((errorResponce: HttpErrorResponse) => {
-            console.error(errorResponce);
             return of(
               userAuthFailureAction({ errors: errorResponce.error.errors })
             );
