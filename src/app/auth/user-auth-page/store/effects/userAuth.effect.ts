@@ -9,49 +9,25 @@ import {
   userAuthAction,
   userAuthSuccessAction,
   userAuthFailureAction,
-  userRegisterAction,
-  userRegisterSuccessAction,
-  userRegisterFailureAction,
-} from './userRegister.action';
+} from '../actions/userAuth.action';
 
 import { switchMap, map, catchError, of, tap } from 'rxjs';
 
-import { UserAuthService } from '../services/user-auth.service';
-import { PersistenceService } from '../../../shared/services/persistence.service';
+import { PersistenceService } from 'src/app/shared/services/persistence.service';
+import { UserAuthService } from '../../services/user-auth.service';
 
-import { CurrentUserInterface } from '../types/currentUser.interface';
+import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
 
-import { routingPathEnum } from '../../../shared/consts/routing-path-enum';
+import { CurrentUserInterface } from '../../types/currentUser.interface';
 
 @Injectable()
-export class RegisterEffect {
+export class UserAuthEffect {
   constructor(
     private _actions$: Actions,
     private _authService: UserAuthService,
     private _persistenceService: PersistenceService,
     private _router: Router
   ) {}
-
-  public register$ = createEffect(() =>
-    this._actions$.pipe(
-      ofType(userRegisterAction),
-      switchMap(({ request }) => {
-        return this._authService.userRegister(request).pipe(
-          tap((el) => console.log(el)),
-          map((currentUser: CurrentUserInterface) => {
-            this._persistenceService.set('clientId', currentUser.clientId);
-            return userRegisterSuccessAction({ currentUser });
-          }),
-          catchError((errorResponce: HttpErrorResponse) => {
-            console.error(errorResponce);
-            return of(
-              userRegisterFailureAction({ errors: errorResponce.error.errors })
-            );
-          })
-        );
-      })
-    )
-  );
 
   public userAuth$ = createEffect(() =>
     this._actions$.pipe(
