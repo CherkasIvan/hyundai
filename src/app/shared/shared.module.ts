@@ -15,6 +15,9 @@ import { InputClearerComponent } from './components/input-clearer/input-clearer.
 import { LoanParamsComponent } from './components/loan-params/loan-params.component';
 import { InputSliderComponent } from './components/input-slider/input-slider.component';
 import { BackendErrorMessagesComponent } from './components/backend-error-messages/backend-error-messages.component';
+import { StoreModule } from '@ngrx/store';
+
+import { reducers } from './store/reducers/counter-button.reducer';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { BackendErrorMessagesComponent } from './components/backend-error-messag
     CommonModule,
     FormsModule,
     MatTabsModule,
+    StoreModule.forFeature('counter-button', reducers),
     InsurancePoliciesModalModule,
     ReactiveFormsModule,
     MatSliderModule,
