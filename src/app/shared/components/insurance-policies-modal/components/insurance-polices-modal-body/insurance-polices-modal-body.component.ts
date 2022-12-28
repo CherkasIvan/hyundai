@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MockDataService } from '../../../../services/mock-data.service';
 import { ModalService } from '../../../../services/modal.service';
 
-import { InsuranceOptionsInterface } from '../../types/insurance-options.interface';
-import { ModalCardInterface } from '../../types/modal-card.interface';
+import { InsuranceOptionsInterface } from '../../../../types/insurance-options.interface';
+import { ModalCardInterface } from '../../../../../shared/types/modal-card.interface';
 
 @Component({
   selector: 'app-insurance-polices-modal-body',
@@ -23,18 +23,14 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
     return this.cardsObjects;
   }
 
-  public readOutputValueEmitted(val: boolean) {
+  public readOutputValueEmitted(val: boolean): void {
     this.isHiden = val;
   }
 
-  constructor(
-    public modalService: ModalService,
-    private mockDataService: MockDataService
-  ) {}
+  constructor(private _mockDataService: MockDataService) {}
 
   ngOnInit(): void {
-    this.cardsObjects = this.mockDataService.insuranceCardsObjects;
-    this.options = this.mockDataService.insuranceOptions;
-    console.log(this.options);
+    this.cardsObjects = this._mockDataService.insuranceCardsObjects;
+    this.options = this._mockDataService.insuranceOptions;
   }
 }

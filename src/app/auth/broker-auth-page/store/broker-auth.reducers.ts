@@ -1,15 +1,14 @@
-import {Action, createReducer, on} from '@ngrx/store';
-
-import {BrokerAuthStateInterface} from '../types/BrokerAuthState.interface';
+import { Action, createReducer, on } from '@ngrx/store';
 
 import {
   authBrokerAction,
   authBrokerSuccessAction,
   authBrokerFailureAction,
 } from './broker-auth.action';
+import { BrokerAuthStateInterface } from './types/brokerAuthState.interface';
 
 const initialState: BrokerAuthStateInterface = {
-  isSubmitting: false,
+  isBrokerSubmitting: false,
   currentBroker: null,
   brokerIsLoggedIn: false,
   validationErrors: null,
@@ -21,7 +20,7 @@ const authReducer = createReducer(
     authBrokerAction,
     (state): BrokerAuthStateInterface => ({
       ...state,
-      isSubmitting: true,
+      isBrokerSubmitting: true,
       validationErrors: null,
     })
   ),
@@ -29,7 +28,7 @@ const authReducer = createReducer(
     authBrokerSuccessAction,
     (state, action): BrokerAuthStateInterface => ({
       ...state,
-      isSubmitting: false,
+      isBrokerSubmitting: false,
       brokerIsLoggedIn: true,
       currentBroker: action.currentBroker,
     })
@@ -38,7 +37,7 @@ const authReducer = createReducer(
     authBrokerFailureAction,
     (state, action): BrokerAuthStateInterface => ({
       ...state,
-      isSubmitting: false,
+      isBrokerSubmitting: false,
       validationErrors: action.errors,
     })
   )

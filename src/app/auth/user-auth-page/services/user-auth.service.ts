@@ -3,53 +3,51 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
-import { RegisterRequestInterface } from '../types/registerRequest.interface';
-import { CurrentUserInterface } from '../types/currentUser.interface';
-import { AuthResponseInterface } from '../types/authResponse.interface';
-
 import { environment } from '../../../../environments/environment';
+import { UserRegisterRequestInterface } from '../types/userRegisterRequest.interface';
+import { CurrentUserInterface } from '../types/currentUser.interface';
+import { UserAuthResponseInterface } from '../types/userAuthResponse.interface';
 
 @Injectable()
 export class UserAuthService {
-  public userData$: BehaviorSubject<any> = new BehaviorSubject({
-    clientId: '',
-    testCode: '',
-  });
+  public userData$: BehaviorSubject<CurrentUserInterface> = new BehaviorSubject(
+    {
+      clientId: '',
+      status: '',
+      testCode: '',
+    }
+  );
 
-  constructor(private http: HttpClient) {}
+  constructor(private _http: HttpClient) {}
 
   public userRegister(
-    data: RegisterRequestInterface
+    data: UserRegisterRequestInterface
   ): Observable<CurrentUserInterface> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
 
     const url = environment.apiUrl + '/registerClient';
-    return this.http
-      .post<AuthResponseInterface>(url, data, { headers: httpHeaders })
+    return this._http
+      .post<UserRegisterRequestInterface>(url, data, { headers: httpHeaders })
       .pipe(
         map((response: any) => response),
-        tap((response: any) => {
+        tap((response: CurrentUserInterface) => {
           this.userData$.next(response);
-          console.log(this.userData$.value);
         })
       );
   }
 
   public userAuth(
-    data: RegisterRequestInterface
+    data: UserRegisterRequestInterface
   ): Observable<CurrentUserInterface> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
 
     const url = environment.apiUrl + '/confirmClientRegistration';
-    return this.http
-      .post<AuthResponseInterface>(url, data, { headers: httpHeaders })
-      .pipe(
-        map((response: any) => response),
-        tap((response: any) => console.log(response))
-      );
+    return this._http
+      .post<UserAuthResponseInterface>(url, data, { headers: httpHeaders })
+      .pipe(map((response: any) => response));
   }
 }

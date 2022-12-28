@@ -26,20 +26,20 @@ import { routingPathEnum } from '../../../shared/consts/routing-path-enum';
 @Injectable()
 export class RegisterEffect {
   constructor(
-    private actions$: Actions,
-    private authService: UserAuthService,
-    private persistenceService: PersistenceService,
-    private router: Router
+    private _actions$: Actions,
+    private _authService: UserAuthService,
+    private _persistenceService: PersistenceService,
+    private _router: Router
   ) {}
 
   public register$ = createEffect(() =>
-    this.actions$.pipe(
+    this._actions$.pipe(
       ofType(userRegisterAction),
       switchMap(({ request }) => {
-        return this.authService.userRegister(request).pipe(
+        return this._authService.userRegister(request).pipe(
           tap((el) => console.log(el)),
           map((currentUser: CurrentUserInterface) => {
-            this.persistenceService.set('clientId', currentUser.clientId);
+            this._persistenceService.set('clientId', currentUser.clientId);
             return userRegisterSuccessAction({ currentUser });
           }),
           catchError((errorResponce: HttpErrorResponse) => {
@@ -54,13 +54,13 @@ export class RegisterEffect {
   );
 
   public userAuth$ = createEffect(() =>
-    this.actions$.pipe(
+    this._actions$.pipe(
       ofType(userAuthAction),
       switchMap(({ request }) => {
-        return this.authService.userAuth(request).pipe(
+        return this._authService.userAuth(request).pipe(
           tap((el) => console.log(el)),
           map((currentUser: CurrentUserInterface) => {
-            this.persistenceService.set('clientId', currentUser.clientId);
+            this._persistenceService.set('clientId', currentUser.clientId);
             return userAuthSuccessAction({ currentUser });
           }),
           catchError((errorResponce: HttpErrorResponse) => {
@@ -89,10 +89,10 @@ export class RegisterEffect {
 
   public redirectAfterSuccessUserAuthSubmit$ = createEffect(
     () =>
-      this.actions$.pipe(
+      this._actions$.pipe(
         ofType(userAuthSuccessAction),
         tap(() => {
-          this.router.navigateByUrl(
+          this._router.navigateByUrl(
             `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
           );
         })

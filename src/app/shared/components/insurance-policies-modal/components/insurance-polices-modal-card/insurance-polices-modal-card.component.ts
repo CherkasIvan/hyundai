@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { ModalCardInterface } from '../../types/modal-card.interface';
+import { ModalCardInterface } from '../../../../../shared/types/modal-card.interface';
 
 @Component({
   selector: 'app-insurance-polices-modal-card',

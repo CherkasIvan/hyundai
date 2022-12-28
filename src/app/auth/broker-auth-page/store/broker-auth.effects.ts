@@ -23,19 +23,19 @@ import { routingPathEnum } from '../../../shared/consts/routing-path-enum';
 @Injectable()
 export class BrokerAuthEffects {
   constructor(
-    private actions$: Actions,
-    private authService: BrokerAuthService,
-    private persistenceService: PersistenceService,
-    private router: Router
+    private _actions$: Actions,
+    private _authService: BrokerAuthService,
+    private _persistenceService: PersistenceService,
+    private _router: Router
   ) {}
 
   public register$ = createEffect(() =>
-    this.actions$.pipe(
+    this._actions$.pipe(
       ofType(authBrokerAction),
       switchMap(({ request }) => {
-        return this.authService.register(request).pipe(
+        return this._authService.register(request).pipe(
           map((currentBroker: CurrentBrokerInterface) => {
-            this.persistenceService.set('accessToken', currentBroker.token);
+            this._persistenceService.set('accessToken', currentBroker.token);
             return authBrokerSuccessAction({ currentBroker });
           }),
           catchError((errorResponce: HttpErrorResponse) => {
@@ -52,11 +52,10 @@ export class BrokerAuthEffects {
 
   public redirectAfterSubmit$ = createEffect(
     () =>
-      this.actions$.pipe(
+      this._actions$.pipe(
         ofType(authBrokerSuccessAction),
         tap(() => {
-          this.router.navigateByUrl(
-            // `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
+          this._router.navigateByUrl(
             `/${routingPathEnum.ClientAuthentication}`
           );
         })

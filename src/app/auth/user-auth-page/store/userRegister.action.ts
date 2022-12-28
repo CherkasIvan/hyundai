@@ -1,14 +1,15 @@
 import { createAction, props } from '@ngrx/store';
 import { UserActionTypes } from './userActionTypes';
 
-import { CurrentUserInterface } from '../types/currentUser.interface';
 import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface';
+import { CurrentUserInterface } from '../types/currentUser.interface';
+import { UserRegisterRequestInterface } from '../types/userRegisterRequest.interface';
 
 // REGISTER NEW USER //
 
 export const userRegisterAction = createAction(
   UserActionTypes.USER_REGISTER,
-  props<{ request: any }>()
+  props<{ request: UserRegisterRequestInterface }>()
 );
 
 export const userRegisterSuccessAction = createAction(
@@ -25,7 +26,7 @@ export const userRegisterFailureAction = createAction(
 
 export const userAuthAction = createAction(
   UserActionTypes.USER_AUTH,
-  props<{ request: any }>()
+  props<{ request: UserRegisterRequestInterface }>()
 );
 
 export const userAuthSuccessAction = createAction(

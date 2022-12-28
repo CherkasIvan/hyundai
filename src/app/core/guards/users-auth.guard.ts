@@ -18,11 +18,11 @@ import { UserAuthStateInterface } from '../../auth/user-auth-page/types/userAuth
 export class UsersAuthGuard implements CanActivate {
   constructor(
     private store: Store<UserAuthStateInterface>,
-    private route: Router
+    private _route: Router
   ) {}
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    _route: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot
   ):
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
@@ -32,9 +32,9 @@ export class UsersAuthGuard implements CanActivate {
       select(userIsLoggedIn),
       tap((userIsLoggedIn) => {
         if (!userIsLoggedIn) {
-          this.route.navigateByUrl('/auth-user');
+          this._route.navigateByUrl('/auth-user');
         } else if (!localStorage.getItem('accessToken')) {
-          this.route.navigateByUrl('/auth-broker');
+          this._route.navigateByUrl('/auth-broker');
         }
       })
     );

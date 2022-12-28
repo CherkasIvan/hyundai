@@ -21,11 +21,11 @@ export class UserInfoComponent implements OnInit {
     'Начальное или неполное среднее',
   ];
   public selectedIndex: number = 0;
-  public activateClass(index: number) {
+  public activateClass(index: number): void {
     this.selectedIndex = index;
   }
 
-  public addCids(newCounterValue: number) {
+  public addCids(newCounterValue: number): void {
     this.kidsCouter = newCounterValue;
   }
 
@@ -44,13 +44,13 @@ export class UserInfoComponent implements OnInit {
     });
   }
 
-  public changeStatus(e: Event) {
+  public changeStatus(e: Event): void {
     this.propertyStatus?.setValue((e.target as HTMLInputElement).value, {
       onlySelf: true,
     });
   }
 
-  public changeFamilyStatus(e: Event) {
+  public changeFamilyStatus(e: Event): void {
     this.familyActualStatus?.setValue((e.target as HTMLInputElement).value, {
       onlySelf: true,
     });

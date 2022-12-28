@@ -4,11 +4,11 @@ import { BrokerActionTypes } from './types/brokerActionTypes';
 
 import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface';
 import { CurrentBrokerInterface } from './types/currentBroker.interface';
-import { RegisterRequestInterface } from '../types/registerRequest.interface';
+import { BrokerRegisterRequestInterface } from './types/brokerRegisterRequest.interface';
 
 export const authBrokerAction = createAction(
   BrokerActionTypes.BROKER_AUTH,
-  props<{ request: RegisterRequestInterface }>()
+  props<{ request: BrokerRegisterRequestInterface }>()
 );
 
 export const authBrokerSuccessAction = createAction(
