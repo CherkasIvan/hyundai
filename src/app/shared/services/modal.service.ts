@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
+
 import { BehaviorSubject } from 'rxjs';
+
 import { InsurancePoliciesModalComponent } from '../components/insurance-policies-modal/insurance-policies-modal.component';
 
 @Injectable()
 export class ModalService {
   public isShow$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
-  public changeOptionsInfo() {
+  public changeOptionsInfo(): void {
     this.isShow$.next(!this.isShow$);
   }
 
-  constructor(public dialog: MatDialog) {}
+  constructor(private _dialog: MatDialog) {}
 
-  public insurancePolicDialog() {
-    const dialogRef = this.dialog.open(InsurancePoliciesModalComponent, {
+  public insurancePolicDialog(): void {
+    this._dialog.open(InsurancePoliciesModalComponent, {
       maxHeight: '100%',
       // maxHeight: '883px',
     });
-
-    dialogRef.afterClosed().subscribe((result) => {});
   }
 }

@@ -19,15 +19,22 @@ const routes: Routes = [
   {
     path: routingPathEnum.BrokerAuthentication,
     loadChildren: () =>
-      import('./pages/broker-auth/broker-auth.module').then(
-        (module) => module.BrokerAuthModule
+      import('./auth/broker-auth-page/broker-auth-page.module').then(
+        (module) => module.BrokerAuthPageModule
       ),
   },
   {
     path: routingPathEnum.ClientAuthentication,
     loadChildren: () =>
-      import('./pages/user-auth/auth-user.module').then(
-        (module) => module.AuthModule
+      import('./auth/user-auth-page/user-auth-page.module').then(
+        (module) => module.UserAuthPageModule
+      ),
+  },
+  {
+    path: routingPathEnum.ClientFilterAuth,
+    loadChildren: () =>
+      import('./auth/user-filter-page/user-filter-page.module').then(
+        (module) => module.UserFilterPageModule
       ),
   },
   {

@@ -19,26 +19,13 @@
     "@angular/forms": "^14.2.12",
     "@angular/localize": "^14.2.12",
     "@angular/material": "^13.3.9",
-<<<<<<< HEAD
-    "@angular/platform-browser": "~13.2.0",
-    "@angular/platform-browser-dynamic": "~13.2.0",
-    "@angular/router": "~13.2.0",
-    "@auth0/angular-jwt": "^5.1.0",
-    "@ngrx/effects": "^13.2.0",
-    "@ngrx/store": "^13.2.0",
-    "@ngrx/store-devtools": "^13.2.0",
-    "angular2-jwt": "^0.2.3",
-=======
     "@angular/platform-browser": "^14.2.12",
     "@angular/platform-browser-dynamic": "^14.2.12",
     "@angular/router": "^14.2.12",
     "@ngrx/effects": "^14.3.2",
-    "@ngrx/router-store": "^14.3.2",
     "@ngrx/store": "^14.3.2",
     "@ngrx/store-devtools": "^14.3.2",
-    "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
->>>>>>> ed7839c66f655bbe579ef1b941cbf57cf4ea4a9f
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -1,5 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import {
+  counterButtonDecreaseAction,
+  counterButtonIncreaseAction,
+} from '../../store/actions/counter-button.action';
+import { getCounterButtonValue } from '../../store/selectors/counter-button.selector';
+import { CounterButtonInterface } from '../../types/counter-button.interface';
 
 @Component({
   selector: 'app-counter-button',
@@ -7,32 +15,36 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./counter-button.component.scss'],
 })
 export class CounterButtonComponent implements OnInit {
-  public initialCounter = 0;
-  @Output() currentCountValue = new EventEmitter<number>();
+  public initialCounter$!: Observable<number>;
+  @Output() public currentCountValue = new EventEmitter<number>();
 
   public counterForm!: FormGroup;
 
   public initializeForm(): void {
     this.counterForm = this._fb.group({
-      counterFormInput: [this.initialCounter],
+      counterFormInput: 0,
     });
   }
 
-  constructor(private _fb: FormBuilder) {}
-
-  public decrementInputValue() {
-    this.initialCounter <= 0 ? this.initialCounter : this.initialCounter--;
-    this.counterForm.get('counterFormInput')?.patchValue(this.initialCounter);
-    this.currentCountValue.emit(this.initialCounter);
+  public initializeStoreValues(): void {
+    this.initialCounter$ = this._store.pipe(select(getCounterButtonValue));
   }
 
-  public incrementInputValue() {
-    this.initialCounter >= 10 ? this.initialCounter : this.initialCounter++;
-    this.counterForm.get('counterFormInput')?.patchValue(this.initialCounter);
-    this.currentCountValue.emit(this.initialCounter);
+  constructor(
+    private _fb: FormBuilder,
+    private readonly _store: Store<CounterButtonInterface>
+  ) {}
+
+  public decrementInputValue(): void {
+    this._store.dispatch(counterButtonDecreaseAction());
   }
 
-  ngOnInit(): void {
+  public incrementInputValue(): void {
+    this._store.dispatch(counterButtonIncreaseAction());
+  }
+
+  public ngOnInit(): void {
     this.initializeForm();
+    this.initializeStoreValues();
   }
 }

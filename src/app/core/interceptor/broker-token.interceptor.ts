@@ -14,15 +14,15 @@ import { PersistenceService } from '../../shared/services/persistence.service';
 @Injectable()
 export class BrokerTokenInterceptor implements HttpInterceptor {
   constructor(
-    public persistenceSesrvice: PersistenceService,
-    private router: Router
+    private _persistenceSesrvice: PersistenceService,
+    private _router: Router
   ) {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const token = this.persistenceSesrvice.getToken();
+    const token = this._persistenceSesrvice.getToken();
 
     if (token) {
       request = request.clone({

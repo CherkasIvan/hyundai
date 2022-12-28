@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { MockDataService } from '../../../../services/mock-data.service';
 import { ModalService } from '../../../../services/modal.service';
-import { ModalCard } from '../../types/modal-card.interface';
+
+import { InsuranceOptionsInterface } from '../../../../types/insurance-options.interface';
+import { ModalCardInterface } from '../../../../../shared/types/modal-card.interface';
 
 @Component({
   selector: 'app-insurance-polices-modal-body',
@@ -12,27 +14,23 @@ import { ModalCard } from '../../types/modal-card.interface';
 export class InsurancePolicesModalBodyComponent implements OnInit {
   public isHiden: boolean = true;
 
-  public cardsObjects: any = [];
-  public options: any[] = [];
+  public cardsObjects: ModalCardInterface[] = [];
+  public options: InsuranceOptionsInterface[] = [];
 
-  public getCard(card: ModalCard): Object {
+  public getCard(card: ModalCardInterface): ModalCardInterface[] {
     this.cardsObjects = [];
     this.cardsObjects.push(card);
     return this.cardsObjects;
   }
 
-  public readOutputValueEmitted(val: boolean) {
+  public readOutputValueEmitted(val: boolean): void {
     this.isHiden = val;
   }
 
-  constructor(
-    public modalService: ModalService,
-    private mockDataService: MockDataService
-  ) {}
+  constructor(private _mockDataService: MockDataService) {}
 
-  ngOnInit(): void {
-    this.cardsObjects = this.mockDataService.insuranceCardsObjects;
-    this.options = this.mockDataService.insuranceOptions;
-    console.log(this.options);
+  public ngOnInit(): void {
+    this.cardsObjects = this._mockDataService.insuranceCardsObjects;
+    this.options = this._mockDataService.insuranceOptions;
   }
 }

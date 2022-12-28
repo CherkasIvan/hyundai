@@ -1,0 +1,50 @@
+<div class="personal-office">
+  <div class="personal-greetings">
+    <h1 class="personal-greetings__title">Добавить клиента</h1>
+    <p class="personsl-greetings__content">
+      Добро пожаловать в личный кабинет.<br />
+      Авторизуйтесь для управления вашими страховыми<br />
+      полисами. Выберите удобный способ входа:
+    </p>
+  </div>
+
+  <app-auth-tabs>
+    <form
+      [formGroup]="registrationForm"
+      (ngSubmit)="onSubmitRegistration()"
+      class="auth-form"
+    >
+      <fieldset class="auth-form-item">
+        <label for="phone" class="auth-form-item__label">Номер телефона*</label>
+        <input
+          type="text"
+          class="auth-form-item__phone"
+          placeholder="Введите ваш номер"
+          name="phone"
+          formControlName="phone"
+        />
+      </fieldset>
+
+      <button
+        class="auth-form-button"
+        type="submit"
+        [disabled]="isSubmitting$ | async"
+      >
+        Войти
+        <img src="/assets/images/login_button.svg" alt="login" />
+      </button>
+    </form>
+  </app-auth-tabs>
+</div>
+
+<!-- <p class="">
+          <a [routerLink]="['/login']">Have an account?</a>
+        </p> -->
+<!-- <app-backend-error-messages
+      *ngIf="backandErrors$ | async"
+      [backendErrors]="backandErrors$ | async"
+    ></app-backend-error-messages> -->
+<!-- <div class="auth-buttons">
+      <input type="button" value="Зарегистрироваться" />
+      <input type="button" value="Войти" />
+    </div> -->

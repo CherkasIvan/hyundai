@@ -1,0 +1,28 @@
+.user-filter-page {
+  width: 100vw;
+  height: 100vh;
+}
+
+.user-filter-page::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-image: url('/assets/images/main-page__background.svg');
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 95%;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}

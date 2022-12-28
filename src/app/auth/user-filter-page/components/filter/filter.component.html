@@ -1,0 +1,21 @@
+<div class="filter-container">
+  <header class="filter-header">
+    <span class="filter-header__title">Поиск и фильтры</span>
+  </header>
+
+  <main class="filter-body">
+    <app-filter-input></app-filter-input>
+
+    <fieldset class="filter-options">
+      <input
+        type="checkbox"
+        class="filter-options__checkbox"
+        formControlName="passport_chenged"
+        name="checkbox"
+      />
+      <label for="checkbox" class="filter-options__label">
+        Отображать всех клиентов
+      </label>
+    </fieldset>
+  </main>
+</div>

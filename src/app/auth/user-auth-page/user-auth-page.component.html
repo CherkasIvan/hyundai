@@ -1,0 +1,14 @@
+<div class="auth-page">
+  <div class="auth-page__container">
+    <app-register
+      *ngIf="initialState.clientId === '' && initialState.testCode === ''"
+    ></app-register>
+    <app-authorization
+      *ngIf="initialState.clientId != '' && initialState.testCode != ''"
+    ></app-authorization>
+  </div>
+
+  <div class="personal-service">
+    <!--      <mc-tes-navigation-logo></mc-tes-navigation-logo>-->
+  </div>
+</div>

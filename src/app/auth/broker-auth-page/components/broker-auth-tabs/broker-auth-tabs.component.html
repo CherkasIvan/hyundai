@@ -1,0 +1,28 @@
+<mat-tab-group
+  [disableRipple]="true"
+  mat-align-tabs="center"
+  (selectedTabChange)="onTabChange($event)"
+>
+  <mat-tab>
+    <ng-template mat-tab-label class="tab-item">
+      <img
+        src="../../../../../assets/images/phone.svg"
+        class="tab-item__img"
+        alt="phone"
+      />
+      <span class="tab-item__text">Email</span>
+    </ng-template>
+    <app-auth-email-form></app-auth-email-form>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label class="tab-item">
+      <img
+        src="../../../../../assets/images/vin.svg"
+        class="tab-item__img"
+        alt="vin"
+      />
+      <span class="tab-item__text">По ID-дилера</span>
+    </ng-template>
+    <app-auth-broker-id-form></app-auth-broker-id-form>
+  </mat-tab>
+</mat-tab-group>

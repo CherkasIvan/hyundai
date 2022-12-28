@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalSpecialOptionsinterface } from './modal-special-options.interface';
+
+import { ModalSpecialOptionsinterface } from '../../../../types/modal-special-options.interface';
 
 @Component({
   selector: 'app-insurance-polices-modal-options',
@@ -11,10 +12,10 @@ export class InsurancePolicesModalOptionsComponent implements OnInit {
   @Input() public specialOptions!: ModalSpecialOptionsinterface[];
   public optionsModalForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder) {}
 
   public initializeForm(): void {
-    this.optionsModalForm = this.fb.group({
+    this.optionsModalForm = this._fb.group({
       option_1: ['', Validators.required],
       option_2: ['', Validators.required],
       option_3: ['', Validators.required],
@@ -26,13 +27,13 @@ export class InsurancePolicesModalOptionsComponent implements OnInit {
     console.log(optionsModalForm.value);
   }
 
-  public changeOption2(e: Event) {
+  public changeOption2(e: Event): void {
     this.option2Status?.setValue((e.target as HTMLInputElement).value, {
       onlySelf: true,
     });
   }
 
-  public changeOption4(e: Event) {
+  public changeOption4(e: Event): void {
     this.option4Status?.setValue((e.target as HTMLInputElement).value, {
       onlySelf: true,
     });
