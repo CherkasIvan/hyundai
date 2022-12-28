@@ -1,5 +1,6 @@
 export const enum routingPathEnum {
   BrokerAuthentication = 'auth-broker',
+  ClientFilterAuth = 'auth-filter-client',
   ClientAuthentication = 'auth-client',
 
   MainPage = 'main-page',

@@ -22,7 +22,7 @@ export class CounterButtonComponent implements OnInit {
 
   public initializeForm(): void {
     this.counterForm = this._fb.group({
-      counterFormInput: [this.initialCounter$],
+      counterFormInput: 0,
     });
   }
 

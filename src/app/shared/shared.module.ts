@@ -18,6 +18,7 @@ import { BackendErrorMessagesComponent } from './components/backend-error-messag
 import { StoreModule } from '@ngrx/store';
 
 import { reducers } from './store/reducers/counter-button.reducer';
+import { FilterInputComponent } from './components/filter-input/filter-input.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { reducers } from './store/reducers/counter-button.reducer';
     InputClearerComponent,
     LoanParamsComponent,
     InputSliderComponent,
+    FilterInputComponent,
   ],
   imports: [
     FormsModule,
@@ -42,6 +44,7 @@ import { reducers } from './store/reducers/counter-button.reducer';
   ],
   exports: [
     ApplicationFormComponent,
+    FilterInputComponent,
     InputSliderComponent,
     FormsModule,
     LoanParamsComponent,

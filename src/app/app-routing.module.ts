@@ -27,6 +27,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: routingPathEnum.ClientFilterAuth,
+    loadChildren: () =>
+      import('./auth/user-filter-page/user-filter-page.module').then(
+        (module) => module.UserFilterPageModule
+      ),
+  },
+  {
     path: routingPathEnum.MainPage,
     // resolve: {entity: UrlResolverService},
     // canActivate: [UsersAuthGuard],
