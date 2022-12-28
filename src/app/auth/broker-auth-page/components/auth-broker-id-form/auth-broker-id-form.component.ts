@@ -5,8 +5,8 @@ import { MatTooltip } from '@angular/material/tooltip';
 
 import { Store, select } from '@ngrx/store';
 import {
-  isSubmittingSelector,
-  validationErrorsSelector,
+  isBrokerSubmittingSelector,
+  validationBrokerErrorsSelector,
 } from '../../store/broker-auth.selectors';
 import { authBrokerAction } from '../../store/broker-auth.action';
 
@@ -39,9 +39,11 @@ export class AuthBrokerIdFormComponent implements OnInit {
 
   public initializeValues(): void {
     this.isBrokerSubmittingById$ = this._store.pipe(
-      select(isSubmittingSelector)
+      select(isBrokerSubmittingSelector)
     );
-    this.backandErrors$ = this._store.pipe(select(validationErrorsSelector));
+    this.backandErrors$ = this._store.pipe(
+      select(validationBrokerErrorsSelector)
+    );
   }
 
   public initializeForm(): void {

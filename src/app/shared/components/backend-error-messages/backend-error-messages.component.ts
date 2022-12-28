@@ -8,7 +8,8 @@ import { BackendErrorsInterface } from './../../types/backendErrors.interface';
   styleUrls: ['./backend-error-messages.component.scss'],
 })
 export class BackendErrorMessagesComponent implements OnInit {
-  @Input('backendErrors') backendErrorsProps!: BackendErrorsInterface | null;
+  @Input('backendErrors')
+  public backendErrorsProps!: BackendErrorsInterface | null;
   public errorMessages?: string[];
 
   constructor() {}
