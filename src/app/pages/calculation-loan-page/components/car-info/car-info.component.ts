@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTooltip } from '@angular/material/tooltip';
 
 import { Subscription } from 'rxjs';
+import { GetClientsDataService } from 'src/app/shared/services/get-client.service';
 
 @Component({
   selector: 'app-car-info',
@@ -44,12 +45,16 @@ export class CarInfoComponent
   public value = 0;
   public car_telematic!: boolean;
   private car_telematic_sub: Subscription | undefined;
-  constructor(private _fb: FormBuilder) {}
+  constructor(
+    private _fb: FormBuilder,
+    private getClents: GetClientsDataService
+    ) {}
 
   public onSubmitForm(model: FormGroup): void {
     const body = this.formCarOptions.value;
     body.car_body_type = this.typesOfCarBody[this.selectedIndex];
     console.log(body);
+    this.getClents.getClientData().subscribe((el) => console.log(el));
   }
 
   public initializeForm(): void {
