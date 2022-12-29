@@ -27,7 +27,6 @@ export class ModalService {
   public addNewClientDialog(): void {
     this._dialog.open(AddUserModalComponent, {
       width: '1031px',
-      height: '811px',
       // maxHeight: '883px',
     });
   }
