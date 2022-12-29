@@ -12,7 +12,8 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
+import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
+
 import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegisterRequest.interface';
 
 @Component({
@@ -23,7 +24,7 @@ import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegister
 export class BrokerAuthPageComponent implements OnInit {
   public registrationForm!: FormGroup;
   public isSubmitting$?: Observable<boolean>;
-  public backandErrors$!: Observable<BackendErrorsInterface | null>;
+  public backandErrors$!: Observable<BackendErrorsType | null>;
   public checkboxSucces: boolean = false;
 
   constructor(private _fb: FormBuilder, private readonly _store: Store) {}

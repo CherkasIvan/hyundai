@@ -12,8 +12,9 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { UserRegisterRequestInterface } from '../../types/userRegisterRequest.interface';
-import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
+import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
+
+import { UserRegisterRequestInterface } from '../../models/userRegisterRequest.interface';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
   public authForm!: FormGroup;
 
   public isSubmitting$?: Observable<boolean>;
-  public backandErrors$!: Observable<BackendErrorsInterface | null>;
+  public backandErrors$!: Observable<BackendErrorsType | null>;
 
   constructor(
     private _fb: UntypedFormBuilder,

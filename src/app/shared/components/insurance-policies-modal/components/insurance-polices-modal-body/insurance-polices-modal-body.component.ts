@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MockDataService } from '../../../../services/mock-data.service';
-import { ModalService } from '../../../../services/modal.service';
 
-import { InsuranceOptionsInterface } from '../../../../types/insurance-options.interface';
-import { ModalCardInterface } from '../../../../../shared/types/modal-card.interface';
+import { InsuranceOptionsInterface } from '../../../../../shared/models/interfaces/insurance-options.interface';
+import { ModalCardInterface } from '../../../../../shared/models/interfaces/modal-card.interface';
 
 @Component({
   selector: 'app-insurance-polices-modal-body',

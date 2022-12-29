@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { DocumentsInterface } from '../../types/documents.interface';
+import { DocumentsInterface } from '../../models/interfaces/documents.interface';
 
 @Component({
   selector: 'app-documents',

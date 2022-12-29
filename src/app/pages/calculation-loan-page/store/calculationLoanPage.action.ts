@@ -1,13 +1,15 @@
-import { createAction, props } from "@ngrx/store";
-import { ClientCarInterface } from "src/app/shared/types/clientCar.interface";
-import { CalculationLoanPageTypes } from "../types/calculationLoanPageTypes";
+import { createAction, props } from '@ngrx/store';
+
+import { ClientCarInterface } from '../../../shared/models/interfaces/clientCar.interface';
+
+import { CalculationLoanPageEnum } from '../models/enums/calculationLoanPage.enum';
 
 export const getCarOptionsAction = createAction(
-    CalculationLoanPageTypes.GET_CAR_OPTIONS,
-    props<{ clientId: string }>()
-  );
+  CalculationLoanPageEnum.GET_CAR_OPTIONS,
+  props<{ clientId: string }>()
+);
 
-  export const setCarOptionsAction = createAction(
-    CalculationLoanPageTypes.SET_CAR_OPTIONS,
-    props<{ carOptions: ClientCarInterface[]}>()
-  );
+export const setCarOptionsAction = createAction(
+  CalculationLoanPageEnum.SET_CAR_OPTIONS,
+  props<{ carOptions: ClientCarInterface[] }>()
+);

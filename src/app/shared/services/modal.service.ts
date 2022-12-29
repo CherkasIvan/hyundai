@@ -22,4 +22,11 @@ export class ModalService {
       // maxHeight: '883px',
     });
   }
+
+  public addNewClientDialog(): void {
+    this._dialog.open(InsurancePoliciesModalComponent, {
+      maxHeight: '100%',
+      // maxHeight: '883px',
+    });
+  }
 }

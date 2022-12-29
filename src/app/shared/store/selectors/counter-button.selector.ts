@@ -1,10 +1,10 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { CounterButtonInterface } from '../../types/counter-button.interface';
+import { CounterType } from '../../models/types/counter.type';
 
 export const counterButtonFeatureSelector =
-  createFeatureSelector<CounterButtonInterface>('counter-button');
+  createFeatureSelector<CounterType>('counter-button');
 
 export const getCounterButtonValue = createSelector(
   counterButtonFeatureSelector,
-  (state: CounterButtonInterface) => state.counter
+  (state: CounterType) => state.counter
 );

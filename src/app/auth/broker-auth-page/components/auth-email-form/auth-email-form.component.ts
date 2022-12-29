@@ -10,12 +10,14 @@ import { Store, select } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 
-import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
 import { authBrokerAction } from '../../store/broker-auth.action';
 import {
   isBrokerSubmittingSelector,
   validationBrokerErrorsSelector,
 } from '../../store/broker-auth.selectors';
+
+import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
+
 import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegisterRequest.interface';
 
 @Component({
@@ -26,7 +28,7 @@ import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegister
 export class AuthEmailFormComponent implements OnInit {
   public registrationForm!: UntypedFormGroup;
   public isBrokerSubmittingByEmail$?: Observable<boolean>;
-  public backandErrors$!: Observable<BackendErrorsInterface | null>;
+  public backandErrors$!: Observable<BackendErrorsType | null>;
   public checkboxSucces: boolean = false;
 
   constructor(
