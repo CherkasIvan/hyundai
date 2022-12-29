@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { UserAuthStateInterface } from '../models/userAuthState.interface';
+import { UserAuthStateInterface } from '../models/interfaces/user-auth-state.interface';
 
 export const authFeatureSelector =
   createFeatureSelector<UserAuthStateInterface>('user-auth');

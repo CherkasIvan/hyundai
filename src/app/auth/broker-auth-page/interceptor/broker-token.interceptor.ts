@@ -1,26 +1,27 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import {Observable, switchMap, throwError} from 'rxjs';
-import {Router} from '@angular/router';
-import {PersistenceService} from '../../../pages/shared/services/persistence.service';
+import { Router } from '@angular/router';
+
+import { Observable } from 'rxjs';
+import { PersistenceService } from 'src/app/shared/services/persistence.service';
 
 @Injectable()
-export class TokenInterceptor implements HttpInterceptor {
+export class BrokerTokenInterceptor implements HttpInterceptor {
   constructor(
-    public persistenceSesrvice: PersistenceService,
-    private router: Router
+    private _persistenceSesrvice: PersistenceService,
+    private _router: Router
   ) {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const token = this.persistenceSesrvice.getToken();
+    const token = this._persistenceSesrvice.getToken();
 
     if (token) {
       request = request.clone({

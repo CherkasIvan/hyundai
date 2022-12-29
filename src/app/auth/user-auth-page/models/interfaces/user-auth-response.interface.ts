@@ -1,4 +1,4 @@
-import { CurrentUserInterface } from './currentUser.interface';
+import { CurrentUserInterface } from './current-user.interface';
 
 export interface UserAuthResponseInterface {
   user: CurrentUserInterface;

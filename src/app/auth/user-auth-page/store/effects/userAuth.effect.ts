@@ -18,7 +18,7 @@ import { UserAuthService } from '../../services/user-auth.service';
 
 import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
 
-import { CurrentUserInterface } from '../../models/currentUser.interface';
+import { CurrentUserInterface } from '../../models/interfaces/current-user.interface';
 
 @Injectable()
 export class UserAuthEffect {

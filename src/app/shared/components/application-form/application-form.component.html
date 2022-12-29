@@ -2,7 +2,13 @@
   <div class="request__form">
     <header class="form-header">
       <span class="form-header__title">Заявка № 12345</span>
-      <span class="form-header__status">Ожидает отправки</span>
+      <span
+        class="form-header__status"
+        [ngClass]="{
+          active: routerLink === '/main-page/processing/client-approval'
+        }"
+        >Ожидает отправки</span
+      >
     </header>
     <div class="form-body">
       <span class="form-body__title">Кредит</span>
