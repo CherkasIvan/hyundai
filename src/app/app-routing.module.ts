@@ -1,14 +1,10 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-<<<<<<< HEAD
-import {RegisterComponent} from './pages/auth/components/register/register.component';
-=======
 import { routingPathEnum } from './shared/consts/routing-path-enum';
 // import { UrlResolverService } from './shared/services/url-resolver.service';
 // import {BrokersAuthGuard} from './core/broker-auth/guards/brokers-auth.guard';
 // import {UsersAuthGuard} from './pages/user-auth/guards/users-auth.guard';
->>>>>>> ed7839c66f655bbe579ef1b941cbf57cf4ea4a9f
 
 const routes: Routes = [
   {
