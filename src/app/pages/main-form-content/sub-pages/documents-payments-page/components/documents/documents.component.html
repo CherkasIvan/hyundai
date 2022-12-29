@@ -1,0 +1,45 @@
+<div class="document container">
+  <div class="document-header">
+    <span class="document-header__insurer">{{ document.insurense }}</span>
+    <div class="document-header__bank">
+      <div class="document-header__bank--logo">
+        <img
+                src="/assets/images/{{ document.bank_img }}"
+                alt="{{ document.bank_img }}"
+        />
+      </div>
+      <span class="document-header__bank--name">{{ document.bank_label }}</span>
+    </div>
+  </div>
+
+  <div class="document-body">
+    <div class="document-body__list">
+      <div
+              class="document-body__list-item"
+              *ngFor="let typeOfDoc of document.documents"
+      >
+        <span class="list-item__text">PDF</span>
+        <span class="list-item__label">{{ typeOfDoc.label }}</span>
+      </div>
+    </div>
+
+    <div class="document-body__contract-status">
+      <div class="document-body__sum">
+        <span class="document-body__sum-label">Сумма</span>
+        <span class="document-body__sum-payload">{{ document.sum }}</span>
+      </div>
+
+      <div class="document-body__treaty">
+        <span class="document-body__treaty-label">Номер договора</span>
+        <span class="document-body__treaty-payload">{{ document.treaty }}</span>
+      </div>
+
+      <div class="document-body__status">
+        <span class="document-body__status-label">Статус</span>
+        <span class="document-body__status-payload">{{ document.status }}</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="document__button">Сохранить договор</button>
+</div>

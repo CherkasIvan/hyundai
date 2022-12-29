@@ -1,0 +1,219 @@
+.owner-container {
+  padding: 30px;
+  width: 75vw;
+  min-height: 80vh;
+  background: #ffffff;
+  box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.owner-title {
+    margin-top: 35px;
+    margin-left: 30px;
+    margin-bottom: 35px;
+    width: 100%;
+    height: 3vh;
+    color: #343e48;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 130%;
+  }
+
+.owner-form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px 0px 6px;
+      gap: 18px;
+      color: #343e48;
+      margin-left: 35px;
+      flex-wrap: wrap;
+}
+
+.owner-products-container {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    width: 100%;
+    height: 30vh;
+    border-bottom: 2px solid #F3F3F3;
+}
+.owner-products {
+    display: flex;
+    gap: 80px;
+}
+
+.owner-products-item {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    &__checkbox {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      accent-color: #72879e;
+
+    }
+
+    &__label{
+        font-family: 'Gilroy';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #343e48;
+    }
+  }
+
+  .owner-previous-products {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    .previous-kasko, .previous-osago {
+        height: 8vh;
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 2px 2px 19px rgba(52, 62, 72, 0.21);
+        border-radius: 20px;
+        background: #FEFEFE;
+
+        &__item_label {
+            display: flex;
+            align-items: center;
+            font-family: 'Gilroy';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 35px;
+            letter-spacing: 0.015em;
+            color: #343E48;
+            
+        }
+
+        &__item_select {
+            margin-left: 30px;
+            border-radius: 15px;
+            width: 16px;
+            height: 16px;
+            background: #F2F4F7;
+        }
+    }
+    .previous-kasko {
+        background: url(../../../../../../../assets/images/previous_kasko_bg.png) center;
+    }
+
+    .previous-osago {
+        background: url(../../../../../../../assets/images/previous_osago_bg.png) center;
+    }
+  }
+
+  .owner-personal-information-container {
+    width: 100%;
+    height: 70vh;
+
+    .personal-information-title {
+        margin-top: 35px;
+
+        margin-bottom: 35px;
+        width: 100%;
+        height: 3vh;
+        color: #343e48;
+        font-family: 'Gilroy';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 130%;  
+    }
+  }
+  .owner-personal-information {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .gender {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 130%;
+        color: #343e48;
+      }
+
+    &__list {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+      max-width: 70%;
+
+      &--button {
+        padding: 10px 40px;
+        background: #f2f4f7;
+        color: #343e48;
+        border-radius: 20px;
+      }
+    }
+  }
+  .active {
+    background: #72879e !important;
+    color: #ffffff !important;
+  }
+
+  .owner-personal-information__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 17vw;
+
+    &_registration {
+        width: 35vw;
+      }
+
+    &--label {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #343e48;
+    }
+
+    &--select,
+    &--input {
+      margin-top: 10px;
+      width: 100%;
+      background: #f2f4f7;
+      border-radius: 8px;
+      padding: 17.5px 10px;
+    }
+    &--options {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+
+      .checkbox {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        accent-color: #72879e;
+
+        .owner-personal-information--label {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          color: #343e48;
+        }
+      }
+    }
+  }
+  

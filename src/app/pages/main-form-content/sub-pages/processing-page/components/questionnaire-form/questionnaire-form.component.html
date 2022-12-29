@@ -1,0 +1,49 @@
+<div class="questionnaire-container">
+  <form
+    [formGroup]="formRegistration"
+    (ngSubmit)="submitRegistrationForm(model)"
+    class="registration"
+  >
+    <p class="registration-title">Оформление</p>
+
+    <div class="passport-data">
+      <div class="passport-data__title">Паспортные данные</div>
+      <button class="passport-data__auto-registration">
+        <img
+          class="passport-data__auto-registration-img"
+          src="/assets/images/photo.svg"
+          alt="auto-registration"
+        />
+        <span class="passport-data__auto-registration-text"
+          >Заполнить автоматически</span
+        >
+      </button>
+
+      <formly-form
+        [form]="formRegistration"
+        [fields]="passportFields"
+        [model]="model"
+      >
+        <button type="submit" class="btn btn-default">Submit</button>
+      </formly-form>
+    </div>
+
+    <div class="residential-address">
+      <div class="residential-address__title">Адрес проживания</div>
+    </div>
+
+    <div class="education">
+      <div class="education__title">Семья</div>
+    </div>
+
+    <div class="family">
+      <div class="family__title">Ежемесячные расходы</div>
+    </div>
+
+    <div class="monthly_expenses">
+      <div class="passport-data__title">Паспортные данные</div>
+    </div>
+  </form>
+
+  <button mat-button (click)="openInsuranceModal()">Open dialog</button>
+</div>

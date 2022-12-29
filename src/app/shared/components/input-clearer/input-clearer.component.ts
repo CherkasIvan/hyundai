@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,11 +7,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./input-clearer.component.scss'],
 })
 export class InputClearerComponent implements OnInit {
-  public initialValue: string = '';
+  public initialValue = '';
   public inputClearedForm!: FormGroup;
 
-  @Output() public componentValue: EventEmitter<string> =
-    new EventEmitter<string>();
+  @Input()
+  formControlTitle!: string;
+
+  @Input()
+  showClearer: boolean = false;
+
+  @Output()
+  componentValue:EventEmitter<string> = new EventEmitter<string>()
 
   constructor(private _fb: FormBuilder) {}
 
