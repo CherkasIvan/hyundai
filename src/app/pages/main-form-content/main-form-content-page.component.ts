@@ -37,7 +37,7 @@ export class MainFormContentPageComponent implements OnInit {
   ];
 
   public calculationSteps: StepsInterface[] = [];
-  constructor(private mockServise: MockDataService, private _router: Router) {
+  constructor(private _mockServise: MockDataService, private _router: Router) {
     this.getRout();
   }
 
@@ -52,8 +52,8 @@ export class MainFormContentPageComponent implements OnInit {
       .subscribe((el: NavigationEnd) => {
         this.routerLink = el.urlAfterRedirects;
         this._router.url.includes(routingPathEnum.LoanCalculationPage)
-          ? (this.calculationSteps = this.mockServise.calculationSteps)
-          : (this.calculationSteps = this.mockServise.processingSteps);
+          ? (this.calculationSteps = this._mockServise.calculationSteps)
+          : (this.calculationSteps = this._mockServise.processingSteps);
       });
   }
 

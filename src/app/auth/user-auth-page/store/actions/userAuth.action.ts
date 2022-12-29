@@ -4,15 +4,14 @@ import { createAction, props } from '@ngrx/store';
 
 import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
 
-import { CurrentUserInterface } from '../../models/currentUser.interface';
+import { CurrentUserInterface } from '../../models/interfaces/current-user.interface';
 
 import { UserActionEnum } from '../../models/enums/userAction.enum';
-
-import { UserRegisterRequestInterface } from '../../models/userRegisterRequest.interface';
+import { UserRegisterRequestType } from '../../models/types/user-register-request.type';
 
 export const userAuthAction = createAction(
   UserActionEnum.USER_AUTH,
-  props<{ request: UserRegisterRequestInterface }>()
+  props<{ request: UserRegisterRequestType }>()
 );
 
 export const userAuthSuccessAction = createAction(

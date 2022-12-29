@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { map, Observable } from 'rxjs';
 
-import { CurrentBrokerInterface } from '../store/types/currentBroker.interface';
-import { BrokerRegisterRequestInterface } from '../store/types/brokerRegisterRequest.interface';
+import { CurrentBrokerInterface } from '../models/interfaces/current-broker.interface';
+import { BrokerRegisterRequestInterface } from '../models/interfaces/broker-register-request.interface';
 
 import { environment } from '../../../../environments/environment';
 

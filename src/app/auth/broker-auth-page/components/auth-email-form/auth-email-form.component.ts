@@ -18,7 +18,7 @@ import {
 
 import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
 
-import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegisterRequest.interface';
+import { BrokerRegisterRequestInterface } from '../../models/interfaces/broker-register-request.interface';
 
 @Component({
   selector: 'app-auth-email-form',

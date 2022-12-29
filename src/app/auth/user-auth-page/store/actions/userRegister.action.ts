@@ -4,14 +4,14 @@ import { BackendErrorsType } from '../../../../shared/models/types/backendErrors
 
 import { UserActionEnum } from '../../models/enums/userAction.enum';
 
-import { CurrentUserInterface } from '../../models/currentUser.interface';
-import { UserRegisterRequestInterface } from '../../models/userRegisterRequest.interface';
+import { CurrentUserInterface } from '../../models/interfaces/current-user.interface';
+import { UserRegisterRequestType } from '../../models/types/user-register-request.type';
 
 // REGISTER NEW USER //
 
 export const userRegisterAction = createAction(
   UserActionEnum.USER_REGISTER,
-  props<{ request: UserRegisterRequestInterface }>()
+  props<{ request: UserRegisterRequestType }>()
 );
 
 export const userRegisterSuccessAction = createAction(

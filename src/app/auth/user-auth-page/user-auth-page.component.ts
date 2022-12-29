@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserAuthService } from './services/user-auth.service';
-import { CurrentUserInterface } from './models/currentUser.interface';
+import { CurrentUserInterface } from './models/interfaces/current-user.interface';
 
 @Component({
   selector: 'app-user-auth-page',

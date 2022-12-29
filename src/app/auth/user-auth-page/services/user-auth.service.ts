@@ -5,9 +5,9 @@ import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
 
-import { UserRegisterRequestInterface } from '../models/userRegisterRequest.interface';
-import { CurrentUserInterface } from '../models/currentUser.interface';
-import { UserAuthResponseInterface } from '../models/userAuthResponse.interface';
+import { CurrentUserInterface } from '../models/interfaces/current-user.interface';
+import { UserAuthResponseInterface } from '../models/interfaces/user-auth-response.interface';
+import { UserRegisterRequestType } from '../models/types/user-register-request.type';
 
 @Injectable()
 export class UserAuthService {
@@ -22,7 +22,7 @@ export class UserAuthService {
   constructor(private _http: HttpClient) {}
 
   public userRegister(
-    data: UserRegisterRequestInterface
+    data: UserRegisterRequestType
   ): Observable<CurrentUserInterface> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export class UserAuthService {
 
     const url = environment.apiUrl + '/registerClient';
     return this._http
-      .post<UserRegisterRequestInterface>(url, data, { headers: httpHeaders })
+      .post<UserRegisterRequestType>(url, data, { headers: httpHeaders })
       .pipe(
         map((response: any) => response),
         tap((response: CurrentUserInterface) => {
@@ -40,7 +40,7 @@ export class UserAuthService {
   }
 
   public userAuth(
-    data: UserRegisterRequestInterface
+    data: UserRegisterRequestType
   ): Observable<CurrentUserInterface> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',

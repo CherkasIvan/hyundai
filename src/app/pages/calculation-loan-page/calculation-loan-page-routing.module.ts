@@ -14,12 +14,6 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'car-info', component: CarInfoComponent },
-      { path: 'owner', component: OwnerComponent },
-      { path: 'drivers', component: DriversPageComponent },
-      { path: 'loan-params', component: LoanParamsComponent },
-      { path: 'insurenses-params', component: InsurensesParamsComponent },
-      { path: 'product-calculation', component: ProductCalculationComponent },
       { path: routingPathEnum.CarInfo, component: CarInfoComponent },
       { path: routingPathEnum.CarOwner, component: OwnerComponent },
       { path: routingPathEnum.Drivers, component: DriversPageComponent },

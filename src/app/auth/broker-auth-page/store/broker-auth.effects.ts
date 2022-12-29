@@ -16,7 +16,7 @@ import {
 import { PersistenceService } from '../../../shared/services/persistence.service';
 import { BrokerAuthService } from '../service/broker-auth.service';
 
-import { CurrentBrokerInterface } from './types/currentBroker.interface';
+import { CurrentBrokerInterface } from '../models/interfaces/current-broker.interface';
 
 import { routingPathEnum } from '../../../shared/consts/routing-path-enum';
 
@@ -55,7 +55,7 @@ export class BrokerAuthEffects {
       this._actions$.pipe(
         ofType(authBrokerSuccessAction),
         tap(() => {
-          this._router.navigateByUrl(`/${routingPathEnum.ClientAuthentication}`);
+          this._router.navigateByUrl(`/${routingPathEnum.ClientFilterAuth}`);
         })
       ),
     { dispatch: false }
