@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
@@ -20,6 +20,7 @@ import { BrokerAuthTabsComponent } from './components/broker-auth-tabs/broker-au
 import { BrokerAuthPageComponent } from './components/broker-auth-page/broker-auth-page.component';
 import { AuthBrokerIdFormComponent } from './components/auth-broker-id-form/auth-broker-id-form.component';
 import { AuthEmailFormComponent } from './components/auth-email-form/auth-email-form.component';
+import { BrokerTokenInterceptor } from './interceptor/broker-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,13 @@ import { AuthEmailFormComponent } from './components/auth-email-form/auth-email-
     EffectsModule.forFeature([BrokerAuthEffects]),
     SharedModule,
   ],
-  providers: [BrokerAuthService],
+  providers: [
+    BrokerAuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BrokerTokenInterceptor,
+      multi: true,
+    },
+  ],
 })
 export class BrokerAuthPageModule {}

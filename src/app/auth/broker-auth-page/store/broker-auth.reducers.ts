@@ -5,7 +5,7 @@ import {
   authBrokerSuccessAction,
   authBrokerFailureAction,
 } from './broker-auth.action';
-import { BrokerAuthStateInterface } from './types/brokerAuthState.interface';
+import { BrokerAuthStateInterface } from '../models/interfaces/broker-auth-state.interface';
 
 const initialState: BrokerAuthStateInterface = {
   isBrokerSubmitting: false,

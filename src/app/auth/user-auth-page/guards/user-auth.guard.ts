@@ -1,23 +1,23 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
   Router,
   RouterStateSnapshot,
-  UrlTree,
 } from '@angular/router';
-import {select, Store} from '@ngrx/store';
 
-import {Observable, tap} from 'rxjs';
-import {PersistenceService} from 'src/app/pages/shared/services/persistence.service';
+import { select, Store } from '@ngrx/store';
+import { userIsLoggedIn } from '../store/userSelectors';
 
-import {AuthStateInterface} from '../types/authState.interface';
-import {isLoggedIn} from '../store/auth.selectors';
+import { PersistenceService } from '../../../shared/services/persistence.service';
+
+import { Observable, tap } from 'rxjs';
+import { UserAuthStateInterface } from '../../../shared/models/interfaces/userAuthState.interface';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class UserAuthGuard implements CanActivate {
   constructor(
-    private store: Store<AuthStateInterface>,
+    private store: Store<UserAuthStateInterface>,
     private route: Router,
     private persistenceService: PersistenceService
   ) {}
@@ -26,7 +26,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> {
     return this.store.pipe(
-      select(isLoggedIn),
+      select(userIsLoggedIn),
       tap((isLogged) => {
         console.log(isLogged);
         if (!isLogged) {

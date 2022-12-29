@@ -13,7 +13,7 @@ import { BackendErrorsType } from '../../../../shared/models/types/backendErrors
 
 import { userAuthAction } from '../../store/actions/userAuth.action';
 import { UserAuthService } from '../../services/user-auth.service';
-import { UserRegisterRequestInterface } from '../../models/userRegisterRequest.interface';
+import { UserRegisterRequestType } from '../../models/types/user-register-request.type';
 
 @Component({
   selector: 'app-authorization',
@@ -58,7 +58,7 @@ export class AuthorizationComponent implements OnInit {
   }
 
   public onSubmitAuth(): void {
-    const request: UserRegisterRequestInterface = this.authForm.value;
+    const request: UserRegisterRequestType = this.authForm.value;
     this._store.dispatch(userAuthAction({ request }));
   }
 }
