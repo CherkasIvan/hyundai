@@ -91,7 +91,10 @@
                     </label>
               </fieldset>
              </div>
-             <app-input-clearer (componentValue)="getFullName($event)"></app-input-clearer>
+             <app-input-clearer [formControlTitle]="'ФИО'"
+                                [showClearer]="true"
+                                (componentValue)="getFullName($event)">
+             </app-input-clearer>
              <div *ngIf="fullName">
               <div class="owner-personal-information">
                 <div class="gender owner-personal-information__item">
@@ -100,7 +103,7 @@
                       <button
                         class="gender__list--button"
                         *ngFor="let typeOfGender of genders; index as i"
-                        type="button" 
+                        type="button"
                         [ngClass]="{ active: selectedGenderIndex === i }"
                         (click)="activateGenderClass(i)"
                       >
@@ -181,7 +184,7 @@
                     <button
                       class="marital-status__list--button"
                       *ngFor="let typeOfMaritalStatus of maritalStatuses; index as i"
-                      type="button" 
+                      type="button"
                       [ngClass]="{ active: selectedMaritalStatusIndex === i }"
                       (click)="activateMaritalStatusClass(i)"
                     >
@@ -216,7 +219,7 @@
                 name="personal_data_policy_confirmation"
                   />
                   <label for="personal_data_policy_confirmation" class="owner-products-item__label policy-confirmation">
-                    Соглашаюсь с условиями обработки 
+                    Соглашаюсь с условиями обработки
                     моих персональных данных
                   </label>
             </fieldset>
@@ -227,7 +230,7 @@
               </div>
              </div>
              <div>
-              
+
              </div>
              </div>
         </div>

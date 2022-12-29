@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { routingPathEnum } from '../../shared/consts/routing-path-enum';
 
 import { CarInfoComponent } from './components/car-info/car-info.component';
-import { DriversComponent } from './components/drivers/drivers.component';
+import { DriversPageComponent } from './components/drivers/drivers-page.component';
 import { InsurensesParamsComponent } from './components/insurenses-params/insurenses-params.component';
 import { LoanParamsComponent } from './components/loan-params/loan-params.component';
 import { OwnerComponent } from './components/owner/owner.component';
@@ -14,9 +14,15 @@ const routes: Routes = [
   {
     path: '',
     children: [
+      { path: 'car-info', component: CarInfoComponent },
+      { path: 'owner', component: OwnerComponent },
+      { path: 'drivers', component: DriversPageComponent },
+      { path: 'loan-params', component: LoanParamsComponent },
+      { path: 'insurenses-params', component: InsurensesParamsComponent },
+      { path: 'product-calculation', component: ProductCalculationComponent },
       { path: routingPathEnum.CarInfo, component: CarInfoComponent },
       { path: routingPathEnum.CarOwner, component: OwnerComponent },
-      { path: routingPathEnum.Drivers, component: DriversComponent },
+      { path: routingPathEnum.Drivers, component: DriversPageComponent },
       { path: routingPathEnum.LoanParams, component: LoanParamsComponent },
       {
         path: routingPathEnum.InsuranceParams,

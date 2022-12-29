@@ -1,4 +1,12 @@
-import { OnInit, Component, Input, OnDestroy, AfterViewInit, AfterContentInit, AfterContentChecked } from '@angular/core';
+import {
+  OnInit,
+  Component,
+  Input,
+  OnDestroy,
+  AfterViewInit,
+  AfterContentInit,
+  AfterContentChecked,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MatTooltip } from '@angular/material/tooltip';
@@ -10,7 +18,9 @@ import { Subscription } from 'rxjs';
   templateUrl: './car-info.component.html',
   styleUrls: ['./car-info.component.scss'],
 })
-export class CarInfoComponent implements OnInit, OnDestroy, AfterContentChecked {
+export class CarInfoComponent
+  implements OnInit, OnDestroy, AfterContentChecked
+{
   @Input()
   public typesOfCarBody: string[] = [
     'Седан',
@@ -52,7 +62,7 @@ export class CarInfoComponent implements OnInit, OnDestroy, AfterContentChecked 
       engine_capacity: ['2.0', Validators.required],
       transmission: ['Автоматическая', Validators.required],
       car_body_type: ['Седан', Validators.required],
-      car_price: ["1200000", Validators.required],
+      car_price: ['1200000', Validators.required],
       car_telematic: [true, Validators.required],
       telematic_misos_light: [true, Validators.required],
       telematic_bluelink: [false, Validators.required],
@@ -75,13 +85,17 @@ export class CarInfoComponent implements OnInit, OnDestroy, AfterContentChecked 
     }, 1500);
   }
 
-  public getCarPrice(e: any) {
+  public getCarPrice(e: string | number) {
     this.formCarOptions?.get('car_price')?.patchValue(e);
   }
 
   ngAfterContentChecked(): void {
-    if(!this.formCarOptions.value.car_telematic) {
-      this.formCarOptions?.patchValue({telematic_misos_light: false, telematic_bluelink: false, telematic_misos_pro: false});
+    if (!this.formCarOptions.value.car_telematic) {
+      this.formCarOptions?.patchValue({
+        telematic_misos_light: false,
+        telematic_bluelink: false,
+        telematic_misos_pro: false,
+      });
     }
   }
 

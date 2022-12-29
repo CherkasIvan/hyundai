@@ -19,6 +19,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from './store/reducers/counter-button.reducer';
 import { FilterInputComponent } from './components/filter-input/filter-input.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FilterInputComponent } from './components/filter-input/filter-input.com
     MatSliderModule,
     MatIconModule,
     MatDialogModule,
+    MatButtonModule,
   ],
   exports: [
     ApplicationFormComponent,
@@ -56,6 +58,7 @@ import { FilterInputComponent } from './components/filter-input/filter-input.com
     ReactiveFormsModule,
     MatIconModule,
     MatDialogModule,
+    MatButtonModule,
     InputClearerComponent,
   ],
 })

@@ -9,10 +9,11 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
+import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
+
 import { userAuthAction } from '../../store/actions/userAuth.action';
 import { UserAuthService } from '../../services/user-auth.service';
-import { UserRegisterRequestInterface } from '../../types/userRegisterRequest.interface';
+import { UserRegisterRequestInterface } from '../../models/userRegisterRequest.interface';
 
 @Component({
   selector: 'app-authorization',
@@ -23,7 +24,7 @@ export class AuthorizationComponent implements OnInit {
   public authForm!: FormGroup;
 
   public isSubmitting$?: Observable<boolean>;
-  public backandErrors$!: Observable<BackendErrorsInterface | null>;
+  public backandErrors$!: Observable<BackendErrorsType | null>;
 
   constructor(
     private readonly _store: Store,

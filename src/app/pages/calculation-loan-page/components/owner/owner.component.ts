@@ -68,7 +68,7 @@ export class OwnerComponent implements OnInit {
     this.formOwnerOptions?.get('kids_amount')?.patchValue(e);
   }
 
-  public onSubmitForm(form: any): void {
+  public onSubmitForm(form: FormGroup): void {
     const body = form.value;
     body.gender = this.genders[this.selectedGenderIndex];
     body.marital_status = this.maritalStatuses[this.selectedMaritalStatusIndex];

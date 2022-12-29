@@ -1,23 +1,23 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { CounterButtonInterface } from '../../types/counter-button.interface';
+import { CounterType } from '../../models/types/counter.type';
 import {
   counterButtonDecreaseAction,
   counterButtonIncreaseAction,
 } from '../actions/counter-button.action';
 
-export const initialState: CounterButtonInterface = {
+export const initialState: CounterType = {
   counter: 0,
 };
 
 const counterButtonReducer = createReducer(
   initialState,
-  on(counterButtonIncreaseAction, (state): CounterButtonInterface => {
+  on(counterButtonIncreaseAction, (state): CounterType => {
     return {
       ...state,
       counter: state.counter >= 10 ? state.counter : state.counter + 1,
     };
   }),
-  on(counterButtonDecreaseAction, (state): CounterButtonInterface => {
+  on(counterButtonDecreaseAction, (state): CounterType => {
     return {
       ...state,
       counter: state.counter <= 0 ? state.counter : state.counter - 1,
@@ -25,7 +25,7 @@ const counterButtonReducer = createReducer(
   })
 );
 
-export function reducers(state: CounterButtonInterface, action: Action) {
+export function reducers(state: CounterType, action: Action) {
   return counterButtonReducer(state, action);
 }
 

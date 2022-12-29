@@ -1,15 +1,15 @@
 import { createAction } from '@ngrx/store';
 
-import { CounterButtonTypes } from '../../enums/counterButtonTypes';
+import { CounterButtonEnums } from '../../models/enums/counterButton.enum';
 
 export const counterButtonAction = createAction(
-  CounterButtonTypes.COUNTER_BUTTON
+  CounterButtonEnums.COUNTER_BUTTON
 );
 
 export const counterButtonIncreaseAction = createAction(
-  CounterButtonTypes.COUNTER_BUTTON_INCREASE
+  CounterButtonEnums.COUNTER_BUTTON_INCREASE
 );
 
 export const counterButtonDecreaseAction = createAction(
-  CounterButtonTypes.COUNTER_BUTTON_DECREASE
+  CounterButtonEnums.COUNTER_BUTTON_DECREASE
 );

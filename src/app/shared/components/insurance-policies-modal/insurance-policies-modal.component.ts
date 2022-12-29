@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-insurance-policies-modal',
@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./insurance-policies-modal.component.scss'],
 })
 export class InsurancePoliciesModalComponent implements OnInit {
+  public modalTitle: string = 'Настройка страхоовых полисов';
   constructor() {}
 
   ngOnInit(): void {}

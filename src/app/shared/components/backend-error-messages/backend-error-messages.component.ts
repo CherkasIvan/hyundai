@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { BackendErrorsInterface } from './../../types/backendErrors.interface';
+import { BackendErrorsType } from '../../models/types/backendErrors.type';
 
 @Component({
   selector: 'app-backend-error-messages',
@@ -8,13 +7,12 @@ import { BackendErrorsInterface } from './../../types/backendErrors.interface';
   styleUrls: ['./backend-error-messages.component.scss'],
 })
 export class BackendErrorMessagesComponent implements OnInit {
-  @Input('backendErrors')
-  public backendErrorsProps!: BackendErrorsInterface | null;
+  @Input('backendErrors') backendErrorsProps!: BackendErrorsType | null;
   public errorMessages?: string[];
 
   constructor() {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.errorMessages = Object.keys(this.backendErrorsProps!).map(
       (name: string) => {
         const messages = this.backendErrorsProps![name].join(', ');

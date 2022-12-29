@@ -1,13 +1,17 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+
 import { select, Store } from '@ngrx/store';
+
 import { Observable } from 'rxjs';
+
 import {
   counterButtonDecreaseAction,
   counterButtonIncreaseAction,
 } from '../../store/actions/counter-button.action';
 import { getCounterButtonValue } from '../../store/selectors/counter-button.selector';
-import { CounterButtonInterface } from '../../types/counter-button.interface';
+
+import { CounterType } from '../../models/types/counter.type';
 
 @Component({
   selector: 'app-counter-button',
@@ -32,7 +36,7 @@ export class CounterButtonComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private readonly _store: Store<CounterButtonInterface>
+    private readonly _store: Store<CounterType>
   ) {}
 
   public decrementInputValue(): void {

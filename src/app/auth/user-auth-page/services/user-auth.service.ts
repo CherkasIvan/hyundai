@@ -4,9 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
-import { UserRegisterRequestInterface } from '../types/userRegisterRequest.interface';
-import { CurrentUserInterface } from '../types/currentUser.interface';
-import { UserAuthResponseInterface } from '../types/userAuthResponse.interface';
+
+import { UserRegisterRequestInterface } from '../models/userRegisterRequest.interface';
+import { CurrentUserInterface } from '../models/currentUser.interface';
+import { UserAuthResponseInterface } from '../models/userAuthResponse.interface';
 
 @Injectable()
 export class UserAuthService {

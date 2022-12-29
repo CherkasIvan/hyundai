@@ -12,7 +12,7 @@ import { authBrokerAction } from '../../store/broker-auth.action';
 
 import { Observable } from 'rxjs';
 
-import { BackendErrorsInterface } from '../../../../shared/types/backendErrors.interface';
+import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
 
 import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegisterRequest.interface';
 
@@ -24,7 +24,7 @@ import { BrokerRegisterRequestInterface } from '../../store/types/brokerRegister
 export class AuthBrokerIdFormComponent implements OnInit {
   public registrationForm!: FormGroup;
   public isBrokerSubmittingById$?: Observable<boolean>;
-  public backandErrors$!: Observable<BackendErrorsInterface | null>;
+  public backandErrors$!: Observable<BackendErrorsType | null>;
   public checkboxSucces: boolean = false;
 
   constructor(

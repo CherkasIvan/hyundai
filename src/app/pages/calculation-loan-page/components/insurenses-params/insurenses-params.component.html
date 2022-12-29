@@ -1,1 +1,123 @@
-<p>insurenses-params works!</p>
+<div class="insurance-params-container">
+    <div class="insurance-params-title">Параметры страховых продуктов</div>
+    <form class="insurance-params-form" [formGroup]="formInsuranceOptions" (ngSubmit)="onSubmitForm(formInsuranceOptions)" >
+        <div class="insurance-terms-toggle">
+            <label class='toggle-switch'>
+                <input class='checkbox' id='insurance-terms' type='checkbox' formControlName="initialPolicyTerm" checked>
+                <span class='toggle-slider round'></span>
+            </label>
+            <div class='insurance-terms-toggle__label__container'>
+            <label class='insurance-terms-toggle__label' for='insurance-terms'>Срок страхования по всем продуктам 1 год</label>
+            </div>
+        </div>
+        <div class="insurance-terms">
+            <fieldset class="insurance-terms__item">
+                <label class="insurance-terms__item--label">
+                  Дата начала
+                  <input
+                    type="date"
+                    placeholder="__/__/____"
+                    formControlName="policyStartDate"
+                    class="insurance-terms__item--input"
+                /></label>
+              </fieldset>
+              <fieldset class="insurance-terms__item">
+                <label class="insurance-terms__item--label">
+                  Дата окончания
+                  <input
+                    type="date"
+                    formControlName="policyEndDate"
+                    class="insurance-terms__item--input"
+                /></label>
+              </fieldset> 
+        </div>
+        <div *ngIf="!insuranceInitialTerm">
+            <div class="insurance-terms-personal">
+                <div class="insurance-terms-personal-title">
+                    <span>ОСАГО</span>
+                </div>
+                <div class="insurance-policy-terms">
+                    <fieldset class="insurance-terms__item">
+                        <label class="insurance-terms__item--label">
+                            Срок страхования
+                          <select
+                            (change)="changeStatus($event)"
+                            formControlName="osagoInsurancePolicyTerm"
+                            class="insurance-terms__item--select"
+                            name="property_status">
+                            <option value="3 месяца">3 месяца</option>
+                            <option value="12 месяцев">12 месяцев</option>
+                          </select>
+                        </label>
+                      </fieldset>
+                      <div class="insurance-terms-osago">
+                        <fieldset class="insurance-terms__item">
+                            <label class="insurance-terms__item--label">
+                              Дата начала
+                              <input
+                                type="date"
+                                placeholder="__/__/____"
+                                formControlName="osagoPolicyStartDate"
+                                class="insurance-terms__item--input"
+                            /></label>
+                          </fieldset>
+                          <fieldset class="insurance-terms__item">
+                            <label class="insurance-terms__item--label">
+                              Дата окончания
+                              <input
+                                type="date"
+                                formControlName="osagoPolicyEndDate"
+                                class="insurance-terms__item--input"
+                            /></label>
+                          </fieldset> 
+                    </div>
+                </div>
+            </div>
+            <div class="insurance-terms-personal">
+                <div class="insurance-terms-personal-title">
+                    <span>КАСКО</span>
+                </div>
+                <div class="insurance-policy-terms">
+                    <div class="terms-kasko insurance-policy-terms__item">
+                        <div class="insurance-terms__item--label">Срок страхования</div>
+                        <div class="terms-kasko__list">
+                            <input
+                            type="button"
+                            *ngFor="let insuranceTerm of insuranceTerms; index as i"
+                            [value]="insuranceTerm"
+                            [ngClass]="{ 'active': selectedInsuranceTermIndex === i }"
+                            (click)="activateInsuranceTermClass(i)"
+                            class="terms-kasko__list--button"
+                          />
+                        </div>
+                      </div>
+                      <div class="insurance-terms-osago">
+                        <fieldset class="insurance-terms__item">
+                            <label class="insurance-terms__item--label">
+                              Дата начала
+                              <input
+                                type="date"
+                                placeholder="__/__/____"
+                                formControlName="policyStartDate"
+                                class="insurance-terms__item--input"
+                            /></label>
+                          </fieldset>
+                          <fieldset class="insurance-terms__item">
+                            <label class="insurance-terms__item--label">
+                              Дата окончания
+                              <input
+                                type="date"
+                                formControlName="policyEndDate"
+                                class="insurance-terms__item--input"
+                            /></label>
+                          </fieldset> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="insurance-terms-personal-button">Рассчитать</button>
+        </div>
+    </form>
+</div>
+

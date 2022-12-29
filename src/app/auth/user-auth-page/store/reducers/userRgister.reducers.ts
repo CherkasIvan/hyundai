@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
-import { UserRegisterStateInterface } from '../../types/userRegisterStateInterface';
+import { UserRegisterStateInterface } from '../../models/userRegisterStateInterface';
 
 import {
   userRegisterAction,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MockDataService } from '../../shared/services/mock-data.service';
 
-import { DocumentsInterface } from './types/documents.interface';
+import { DocumentsInterface } from './models/interfaces/documents.interface';
 
 @Component({
   selector: 'app-documents-payments-page',
