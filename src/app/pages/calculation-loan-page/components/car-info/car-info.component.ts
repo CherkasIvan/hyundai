@@ -54,7 +54,7 @@ export class CarInfoComponent
     const body = this.formCarOptions.value;
     body.car_body_type = this.typesOfCarBody[this.selectedIndex];
     console.log(body);
-    this.getClents.getClientData().subscribe((el) => console.log(el));
+    // this.getClents.getClientData().subscribe((el) => console.log(el));
   }
 
   public initializeForm(): void {
