@@ -25,7 +25,7 @@
                       formControlName='invalid_drivers'
                       name='checkbox'
                     />
-                    <label for='checkbox' class='form-group__item--label'>
+                    <label class='form-group__item--label'>
                       Все водители участвуют в договорах
                     </label>
                   </fieldset>
@@ -37,7 +37,9 @@
                   <div [formGroupName]='i'>
                     <div class='row mt-4 form-group'>
                       <div class='col-6 mb-4'>
-                        <input class='border-bottom w-100' type='text' [placeholder]="'Водитель ' + (i+1)">
+                        <fieldset>
+                          <input class='border-bottom w-100' type='text' formControlName='driver_title'>
+                        </fieldset>
                       </div>
                       <div class='col-6 mb-4'>
                         <fieldset class='form-group__item--options'>
@@ -47,7 +49,7 @@
                             formControlName='osago'
                             name='checkbox'
                           />
-                          <label for='checkbox' class='form-group__item--label'>
+                          <label class='form-group__item--label'>
                             ОСАГО
                           </label>
                         </fieldset>
@@ -58,7 +60,7 @@
                             formControlName='kasko'
                             name='checkbox'
                           />
-                          <label for='checkbox' class='form-group__item--label'>
+                          <label class='form-group__item--label'>
                             КАСКО
                           </label>
                         </fieldset>
@@ -69,7 +71,7 @@
                             formControlName='credit'
                             name='checkbox'
                           />
-                          <label for='checkbox' class='form-group__item--label'>
+                          <label class='form-group__item--label'>
                             Кредит
                           </label>
                         </fieldset>
@@ -191,7 +193,7 @@
                             formControlName='driver_exp_same_as_license_issued'
                             name='checkbox'
                           />
-                          <label for='checkbox' class='form-group__item--label'>
+                          <label class='form-group__item--label'>
                             <small>Совпадает с датой выдачи удостоверения</small>
                           </label>
                         </fieldset>
@@ -207,7 +209,6 @@
       <div class='tes-container-buttons'>
         <button mat-stroked-button>
           Добавить водителя
-          <mat-icon inline>plus</mat-icon>
         </button>
         <button
           class="next-page__button"

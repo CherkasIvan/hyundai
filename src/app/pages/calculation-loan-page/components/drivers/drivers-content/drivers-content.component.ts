@@ -21,23 +21,23 @@ export class DriversContentComponent implements OnInit {
 
   private initializeForm(): void {
     this.formDriversData = this.fb.group({
-      invalid_drivers: ['', Validators.required],
-      all_drivers_in_contracts: ['', Validators.required],
+      invalid_drivers: [true, Validators.required],
+      all_drivers_in_contracts: [true, Validators.required],
       drivers: this.fb.array([
         this.fb.group({
-          osago: ['', Validators.required],
-          kasko: ['', Validators.required],
+          osago: [true, Validators.required],
+          kasko: [true, Validators.required],
           credit: ['', Validators.required],
-          driver_title: ['', Validators.required],
-          driver_surname: ['', Validators.required],
-          driver_name: ['', Validators.required],
-          driver_middle_name: ['', Validators.required],
-          driver_phone_number: ['', Validators.required],
-          driver_birth_date: ['', Validators.required],
-          driver_licence_number: ['', Validators.required],
-          driver_licence_issued_by: ['', Validators.required],
-          driver_licence_issued_date: ['', Validators.required],
-          driver_exp_start: ['', Validators.required],
+          driver_title: ['Водитель 1', Validators.required],
+          driver_surname: ['Смирнов', Validators.required],
+          driver_name: ['Андрей', Validators.required],
+          driver_middle_name: ['Вадимович', Validators.required],
+          driver_phone_number: ['+7 966 000 09 09', Validators.required],
+          driver_birth_date: ['27.11.1989', Validators.required],
+          driver_licence_number: ['1234 12345678', Validators.required],
+          driver_licence_issued_by: ['ГИБДД 6421', Validators.required],
+          driver_licence_issued_date: ['21.06.2019', Validators.required],
+          driver_exp_start: ['21.06.2017', Validators.required],
           driver_exp_same_as_license_issued: ['', Validators.required]
         })
       ]),
