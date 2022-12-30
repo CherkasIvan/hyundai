@@ -15,6 +15,10 @@ export class WorkComponent implements OnInit {
     this.selectedIndex = index;
   }
 
+  public getMonthlyIncome(e: string | number) {
+    this.userWorksForm.get('monthly_income')?.patchValue(e);
+  }
+
   public statuses: string[] = [
     'Высшее',
     '2 и более высших',
@@ -24,9 +28,9 @@ export class WorkComponent implements OnInit {
     'Начальное или неполное среднее',
   ];
 
-  public addItem(newCounterValue: number) {
-    this.actualValue = newCounterValue;
-  }
+  // public addItem(newCounterValue: number) {
+  //   this.actualValue = newCounterValue;
+  // }
 
   public initializeForm(): void {
     this.userWorksForm = this._fb.group({
@@ -37,6 +41,7 @@ export class WorkComponent implements OnInit {
       company_position: ['', Validators.required],
       type_position: ['', Validators.required],
       number_of_employes: ['', Validators.required],
+      monthly_income: [0, Validators.required],
     });
   }
 
@@ -53,7 +58,6 @@ export class WorkComponent implements OnInit {
   public submitRegistrationForm(userInfoForm: FormGroup): void {
     const body = userInfoForm.value;
     body.work_status = this.statuses[this.selectedIndex];
-    body.income = this.actualValue;
     console.log(body);
   }
 

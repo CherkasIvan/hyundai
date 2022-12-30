@@ -109,9 +109,9 @@
       <fieldset class="form-group__item">
         <label class="form-group__item--label">
           Ежемесячный доход, ₽
-          <app-counter-button
-            (currentCountValue)="addItem($event)"
-          ></app-counter-button>
+          <app-input-slider
+            (componentValue)="getMonthlyIncome($event)"
+          ></app-input-slider>
         </label>
       </fieldset>
       <!-- <fieldset class="form-group__item">
