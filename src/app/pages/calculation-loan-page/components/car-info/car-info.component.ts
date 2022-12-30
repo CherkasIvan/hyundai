@@ -34,27 +34,23 @@ export class CarInfoComponent
   public selectedIndex: number = 0;
   public activateClass(index: number) {
     this.selectedIndex = index;
+    this.formCarOptions
+      ?.get('car_body_type')
+      ?.patchValue(this.typesOfCarBody[this.selectedIndex]);
   }
   public sliderValue!: number;
   public formCarOptions!: FormGroup;
 
-  public showTicks = false;
-  public step = 1;
-  public thumbLabel = false;
-  public value = 0;
+  public showTicks: boolean = false;
+  public step: number = 1;
+  public thumbLabel: boolean = false;
+  public value: number = 0;
   public car_telematic!: boolean;
   private car_telematic_sub: Subscription | undefined;
   constructor(
     private _fb: FormBuilder,
     private getClents: GetClientsDataService
   ) {}
-
-  public onSubmitForm(model: FormGroup): void {
-    const body = this.formCarOptions.value;
-    body.car_body_type = this.typesOfCarBody[this.selectedIndex];
-    console.log(body);
-    // this.getClents.getClientData().subscribe((el) => console.log(el));
-  }
 
   public initializeForm(): void {
     this.formCarOptions = this._fb.group({

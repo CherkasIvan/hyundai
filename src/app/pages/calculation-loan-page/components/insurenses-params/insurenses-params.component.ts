@@ -4,18 +4,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-insurenses-params',
   templateUrl: './insurenses-params.component.html',
-  styleUrls: ['./insurenses-params.component.scss']
+  styleUrls: ['./insurenses-params.component.scss'],
 })
 export class InsurensesParamsComponent implements OnInit, AfterContentChecked {
-
   public formInsuranceOptions!: FormGroup;
   public insuranceInitialTerm!: boolean;
   public kaskoInsurancePolicyTerm!: string[];
   public selectedIndex!: number;
   public insuranceTerms!: string[];
 
-  constructor(private _fb: FormBuilder) { 
-  }
+  constructor(private _fb: FormBuilder) {}
 
   public initializeForm(): void {
     this.formInsuranceOptions = this._fb.group({
@@ -28,22 +26,15 @@ export class InsurensesParamsComponent implements OnInit, AfterContentChecked {
       kaskoPolicyStartDate: ['18.10.2022', Validators.required],
       kaskoPolicyEndDate: ['17.10.2023', Validators.required],
       kaskoInsurancePolicyTerm: ['1 год', Validators.required],
-    
     });
   }
 
-  ngOnInit(): void {
-    this.initializeForm();
-  }
-
-  onSubmitForm(model: FormGroup): void{
-    const body = this.formInsuranceOptions.value;
-    body.kaskoInsurancePolicyTerm = this.insuranceTerms[this.selectedInsuranceTermIndex];
-    console.log(body);
-  }
   public selectedInsuranceTermIndex: number = 0;
   public activateInsuranceTermClass(index: number) {
     this.selectedInsuranceTermIndex = index;
+    this.formInsuranceOptions
+      .get('insurancePolicyTerm')
+      ?.patchValue(this.insuranceTerms[this.selectedInsuranceTermIndex]);
   }
 
   public changeStatus(e: Event) {
@@ -56,20 +47,24 @@ export class InsurensesParamsComponent implements OnInit, AfterContentChecked {
     return this.formInsuranceOptions.get('insurancePolicyTerm');
   }
 
-  ngAfterContentChecked(): void {
-    this.insuranceInitialTerm = this.formInsuranceOptions?.get('initialPolicyTerm')?.value; 
+  public ngOnInit(): void {
+    this.initializeForm();
+  }
+
+  public ngAfterContentChecked(): void {
+    this.insuranceInitialTerm =
+      this.formInsuranceOptions?.get('initialPolicyTerm')?.value;
     this.insuranceTerms = ['1 год', '2 года', '3 года', '4 года', '5 лет'];
 
-    if(!this.formInsuranceOptions.value.initialPolicyTerm) {
+    if (!this.formInsuranceOptions.value.initialPolicyTerm) {
       this.formInsuranceOptions?.patchValue({
-        osagoInsurancePolicyTerm: null, 
-        osagoPolicyStartDate: null, 
+        osagoInsurancePolicyTerm: null,
+        osagoPolicyStartDate: null,
         osagoPolicyEndDate: null,
-        kaskoInsurancePolicyTerm: null, 
-        kaskoPolicyStartDate: null, 
+        kaskoInsurancePolicyTerm: null,
+        kaskoPolicyStartDate: null,
         kaskoPolicyEndDate: null,
       });
     }
   }
-
 }

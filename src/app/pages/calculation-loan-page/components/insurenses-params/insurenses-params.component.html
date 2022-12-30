@@ -1,10 +1,6 @@
 <div class="insurance-params-container">
   <div class="insurance-params-title">Параметры страховых продуктов</div>
-  <form
-    class="insurance-params-form"
-    [formGroup]="formInsuranceOptions"
-    (ngSubmit)="onSubmitForm(formInsuranceOptions)"
-  >
+  <form class="insurance-params-form" [formGroup]="formInsuranceOptions">
     <div class="insurance-terms-toggle">
       <label class="toggle-switch">
         <input
@@ -128,10 +124,15 @@
         </div>
       </div>
     </div>
-    <div>
-      <button type="submit" class="insurance-terms-personal-button">
-        Рассчитать
-      </button>
-    </div>
+
+    <app-submit-form-button
+      [formValues]="formInsuranceOptions.value"
+      [isDisable]="!formInsuranceOptions.valid"
+      buttonText="Рассчитать"
+    ></app-submit-form-button>
+
+    <!-- <button type="submit" class="insurance-terms-personal-button">
+      Рассчитать
+    </button> -->
   </form>
 </div>

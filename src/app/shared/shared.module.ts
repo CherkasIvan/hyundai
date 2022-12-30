@@ -20,6 +20,7 @@ import { LoanParamsComponent } from './components/loan-params/loan-params.compon
 import { InputSliderComponent } from './components/input-slider/input-slider.component';
 import { BackendErrorMessagesComponent } from './components/backend-error-messages/backend-error-messages.component';
 import { FilterInputComponent } from './components/filter-input/filter-input.component';
+import { SubmitFormButtonComponent } from './components/submit-form-button/submit-form-button.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FilterInputComponent } from './components/filter-input/filter-input.com
     LoanParamsComponent,
     InputSliderComponent,
     FilterInputComponent,
+    SubmitFormButtonComponent,
   ],
   imports: [
     FormsModule,
@@ -49,6 +51,7 @@ import { FilterInputComponent } from './components/filter-input/filter-input.com
     FilterInputComponent,
     InputSliderComponent,
     FormsModule,
+    SubmitFormButtonComponent,
     LoanParamsComponent,
     BackendErrorMessagesComponent,
     CounterButtonComponent,

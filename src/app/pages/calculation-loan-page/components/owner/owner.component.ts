@@ -19,21 +19,23 @@ export class OwnerComponent implements OnInit {
 
   public activateGenderClass(index: number) {
     this.selectedGenderIndex = index;
+    this.formOwnerOptions
+      ?.get('gender')
+      ?.patchValue(this.genders[this.selectedGenderIndex]);
   }
 
   public selectedMaritalStatusIndex: number = 0;
   public activateMaritalStatusClass(index: number) {
     this.selectedMaritalStatusIndex = index;
+    this.formOwnerOptions
+      ?.get('marital_status')
+      ?.patchValue(this.maritalStatuses[this.selectedMaritalStatusIndex]);
   }
   public activateClass(index: number) {
     this.selectedIndex = index;
   }
 
   constructor(private _fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    this.initializeForm();
-  }
 
   public initializeForm(): void {
     this.formOwnerOptions = this._fb.group({
@@ -69,10 +71,7 @@ export class OwnerComponent implements OnInit {
     this.formOwnerOptions?.get('kids_amount')?.patchValue(e);
   }
 
-  public onSubmitForm(form: FormGroup): void {
-    const body = form.value;
-    body.gender = this.genders[this.selectedGenderIndex];
-    body.marital_status = this.maritalStatuses[this.selectedMaritalStatusIndex];
-    console.log(body);
+  ngOnInit(): void {
+    this.initializeForm();
   }
 }
