@@ -1,8 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 
-import { ClientCarInterface } from '../../../shared/models/interfaces/clientCar.interface';
-
 import { CalculationLoanPageEnum } from '../models/enums/calculationLoanPage.enum';
+
+import { ClientCarInterface } from '../../../shared/models/interfaces/clientCar.interface';
 
 export const getCarOptionsAction = createAction(
   CalculationLoanPageEnum.GET_CAR_OPTIONS,

@@ -10,6 +10,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/reducers/userRgister.reducers';
+import { UserRegisterEffect } from './store/effects/userRegister.effect';
+import { UserAuthEffect } from './store/effects/userAuth.effect';
 
 import { SharedModule } from '../../shared/shared.module';
 import { UserAuthRoutingModule } from './user-auth-page-routing.module';
@@ -22,8 +24,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { TesNavigationLogoComponent } from './components/tes-navigation-logo/tes-navigation-logo.component';
 import { AuthorizationComponent } from './components/authorization/authorization.component';
 import { UserAuthPageComponent } from './user-auth-page.component';
-import { UserRegisterEffect } from './store/effects/userRegister.effect';
-import { UserAuthEffect } from './store/effects/userAuth.effect';
 
 @NgModule({
   declarations: [

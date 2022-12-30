@@ -13,7 +13,7 @@ import {
 
 import { switchMap, map, catchError, of, tap } from 'rxjs';
 
-import { PersistenceService } from 'src/app/shared/services/persistence.service';
+import { PersistenceService } from '../../../../shared/services/persistence.service';
 import { UserAuthService } from '../../services/user-auth.service';
 
 import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';

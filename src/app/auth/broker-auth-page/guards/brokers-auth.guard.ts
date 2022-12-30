@@ -13,7 +13,7 @@ import { select, Store } from '@ngrx/store';
 
 import { brokerIsLoggedIn } from '../store/broker-auth.selectors';
 
-import { BrokerAuthStateInterface } from '../types/broker-auth-state.interface';
+import { BrokerAuthStateInterface } from '../models/interfaces/broker-auth-state.interface';
 
 @Injectable()
 export class BrokersAuthGuard implements CanActivate {

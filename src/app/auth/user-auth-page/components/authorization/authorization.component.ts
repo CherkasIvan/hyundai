@@ -6,13 +6,13 @@ import {
   isSubmittingAuthSelector,
   validationAuthErrorsSelector,
 } from '../../store/selectors/userAuth.selectors';
+import { userAuthAction } from '../../store/actions/userAuth.action';
 
 import { Observable } from 'rxjs';
 
-import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
-
-import { userAuthAction } from '../../store/actions/userAuth.action';
 import { UserAuthService } from '../../services/user-auth.service';
+
+import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
 import { UserRegisterRequestType } from '../../models/types/user-register-request.type';
 
 @Component({

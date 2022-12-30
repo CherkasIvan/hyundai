@@ -1,10 +1,10 @@
 import { Action, createReducer, on } from '@ngrx/store';
-
 import {
   authBrokerAction,
   authBrokerSuccessAction,
   authBrokerFailureAction,
 } from './broker-auth.action';
+
 import { BrokerAuthStateInterface } from '../models/interfaces/broker-auth-state.interface';
 
 const initialState: BrokerAuthStateInterface = {

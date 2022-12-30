@@ -9,9 +9,10 @@ import {
 import { select, Store } from '@ngrx/store';
 import { userIsLoggedIn } from '../store/userSelectors';
 
+import { Observable, tap } from 'rxjs';
+
 import { PersistenceService } from '../../../shared/services/persistence.service';
 
-import { Observable, tap } from 'rxjs';
 import { UserAuthStateInterface } from '../../../shared/models/interfaces/userAuthState.interface';
 
 @Injectable()

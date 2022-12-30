@@ -1,9 +1,10 @@
-import { CalculationLoanPageStateInterface } from '../models/interfaces/calculationLoanPageState.interface';
 import { Action, createReducer, on } from '@ngrx/store';
 import {
   getCarOptionsAction,
   setCarOptionsAction,
 } from './calculationLoanPage.action';
+
+import { CalculationLoanPageStateInterface } from '../models/interfaces/calculationLoanPageState.interface';
 
 const initialState: CalculationLoanPageStateInterface = {
   carOptions: null,

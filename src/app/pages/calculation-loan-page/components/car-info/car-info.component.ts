@@ -3,8 +3,6 @@ import {
   Component,
   Input,
   OnDestroy,
-  AfterViewInit,
-  AfterContentInit,
   AfterContentChecked,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,7 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTooltip } from '@angular/material/tooltip';
 
 import { Subscription } from 'rxjs';
-import { GetClientsDataService } from 'src/app/shared/services/get-client.service';
+
+import { GetClientsDataService } from '../../../../shared/services/get-client.service';
 
 @Component({
   selector: 'app-car-info',
@@ -48,7 +47,7 @@ export class CarInfoComponent
   constructor(
     private _fb: FormBuilder,
     private getClents: GetClientsDataService
-    ) {}
+  ) {}
 
   public onSubmitForm(model: FormGroup): void {
     const body = this.formCarOptions.value;

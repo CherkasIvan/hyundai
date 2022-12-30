@@ -5,9 +5,9 @@ import { filter } from 'rxjs';
 
 import { MockDataService } from '../../shared/services/mock-data.service';
 
-import { StepsInterface } from './models/interfaces/steps.interface';
-
 import { routingPathEnum } from '../../shared/consts/routing-path-enum';
+
+import { StepsInterface } from './models/interfaces/steps.interface';
 
 @Component({
   selector: 'app-main-form-content-page',

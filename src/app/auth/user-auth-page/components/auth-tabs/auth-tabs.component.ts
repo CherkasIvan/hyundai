@@ -9,12 +9,12 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 })
 export class AuthTabsComponent implements OnInit {
   public indexOfTab!: number;
-  onTabChange(event: MatTabChangeEvent) {
+  public onTabChange(event: MatTabChangeEvent) {
     this.indexOfTab = event.index;
   }
   constructor() {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.indexOfTab = 0;
   }
 }

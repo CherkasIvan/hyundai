@@ -6,6 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
+
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers/counter-button.reducer';
 
 import { InsurancePoliciesModalModule } from './components/insurance-policies-modal/insurance-policies-modal.module';
 
@@ -15,11 +19,7 @@ import { InputClearerComponent } from './components/input-clearer/input-clearer.
 import { LoanParamsComponent } from './components/loan-params/loan-params.component';
 import { InputSliderComponent } from './components/input-slider/input-slider.component';
 import { BackendErrorMessagesComponent } from './components/backend-error-messages/backend-error-messages.component';
-import { StoreModule } from '@ngrx/store';
-
-import { reducers } from './store/reducers/counter-button.reducer';
 import { FilterInputComponent } from './components/filter-input/filter-input.component';
-import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
