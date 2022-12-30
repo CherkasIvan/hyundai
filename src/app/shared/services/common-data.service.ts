@@ -637,10 +637,12 @@ public addDriver(): Observable<any> {
 }
 
 //Update driver info
-
-updateDriverInfo = {
+updateDriverInfoBody = {
     driver_full_name: "Иванов Иван Игнатьевич"
 }
+
+
+
 
 
 
