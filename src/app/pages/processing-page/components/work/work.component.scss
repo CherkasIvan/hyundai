@@ -112,6 +112,19 @@
     color: #ffffff;
     border-radius: 6px;
   }
+
+  // КНОПКИ МОЖНО ВЫНЕСТИ В ОДЕЛЬНУЮ КОМПОНЕНТУ И ПЕРЕИСПОЛЬЗОВАТЬ!
+  .next-page__button {
+    align-self: flex-end;
+    margin-top: 70px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    background: #343e48;
+    padding: 14px 76px;
+    border-radius: 6px;
+    color: #ffffff;
+  }
 }
 
 .active-work {

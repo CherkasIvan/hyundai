@@ -172,7 +172,7 @@
           <label class="form-group__item--label">
             Дети
             <app-counter-button
-              (currentCountValue)="addCids($event)"
+              (currentCountValue)="addChildren($event)"
             ></app-counter-button
           ></label>
         </fieldset>
@@ -202,14 +202,11 @@
       </div>
     </div>
 
-    <button
-      class="next-page__button"
-      mat-button
-      [disabled]="!userInfoForm.valid"
-      (click)="submitRegistrationForm(userInfoForm)"
-    >
-      Продолжить
-    </button>
+    <app-submit-form-button
+      [formValues]="userInfoForm.value"
+      [isDisable]="!userInfoForm.valid"
+      buttonText="Продолжить"
+    ></app-submit-form-button>
   </form>
 
   <!-- <button (click)="openInsuranceModal()">Open modal</button> -->

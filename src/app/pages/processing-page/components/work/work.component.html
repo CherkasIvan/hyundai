@@ -1,8 +1,4 @@
-<form
-  class="work container"
-  [formGroup]="userWorksForm"
-  (ngSubmit)="submitRegistrationForm(userWorksForm)"
->
+<form class="work container" [formGroup]="userWorksForm">
   <div class="work-header">
     <span class="work-header__title">Работа</span>
   </div>
@@ -127,10 +123,18 @@
     </div>
   </div>
 
-  <input
-    class="submit-button"
-    type="button"
-    value="Подать заявку в банк"
+  <app-submit-form-button
+    [formValues]="userWorksForm.value"
+    [isDisable]="!userWorksForm.valid"
+    buttonText="Подать заявку в банк"
+  ></app-submit-form-button>
+
+  <!-- <button
+    class="next-page__button"
+    mat-button
+    [disabled]="!userWorksForm.valid"
     (click)="submitRegistrationForm(userWorksForm)"
-  />
+  >
+    Подать заявку в банк
+  </button> -->
 </form>
