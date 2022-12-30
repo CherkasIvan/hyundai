@@ -22,12 +22,12 @@ export class InsurensesParamsComponent implements OnInit, AfterContentChecked {
       initialPolicyTerm: [true, Validators.required],
       policyStartDate: ['18.10.2022', Validators.required],
       policyEndDate: ['17.10.2023', Validators.required],
-      osagoInsurancePolicyTerm: ['12 месяцев', Validators.required],
-      osagoPolicyStartDate: ['18.10.2022', Validators.required],
-      osagoPolicyEndDate: ['17.10.2023', Validators.required],
-      kaskoPolicyStartDate: ['18.10.2022', Validators.required],
-      kaskoPolicyEndDate: ['17.10.2023', Validators.required],
-      kaskoInsurancePolicyTerm: ['1 год', Validators.required],
+      osagoInsurancePolicyTerm: ['12 месяцев'],
+      osagoPolicyStartDate: ['18.10.2022'],
+      osagoPolicyEndDate: ['17.10.2023'],
+      kaskoPolicyStartDate: ['18.10.2022'],
+      kaskoPolicyEndDate: ['17.10.2023'],
+      kaskoInsurancePolicyTerm: ['1 год'],
     
     });
   }
