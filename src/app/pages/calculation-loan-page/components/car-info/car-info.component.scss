@@ -154,13 +154,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 18px;
-    }
-    car-info-form-container {
-      display: flex;
-      flex-direction: column;
 
       .label__tooltip {
-        font-family: 'Gilroy';
         font-style: normal;
         font-weight: 250;
         font-size: 12px;
@@ -168,8 +163,8 @@
         color: #979797;
         margin-left: 10px;
         margin-right: 4px;
+    }
 
-      }
     }
     .form-group__item {
       display: flex;
@@ -222,7 +217,6 @@
         height: 20px;
         margin-right: 10px;
         accent-color: #72879e;
-  
       }
   
       &__label{
@@ -231,11 +225,18 @@
           font-size: 16px;
           line-height: 24px;
           color: #343e48;
+          margin-left: 5px;
       }
     }
 
     .form-container-toggle {
       display: flex;
+      flex-direction: column;
+      height: 20vh;
+
+      &__label {
+        margin-left: 10px;
+      }
 
       &__wrapper {
         display: flex;

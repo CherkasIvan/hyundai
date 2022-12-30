@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { select, Store } from '@ngrx/store';
+import { CounterType } from 'src/app/shared/models/types/counter.type';
+import { counterButtonFeatureSelector} from 'src/app/shared/store/selectors/counter-button.selector';
 
 @Component({
   selector: 'app-owner',
@@ -16,6 +19,7 @@ export class OwnerComponent implements OnInit {
 
   public maritalStatuses: string[] = ['Женат/Замужем', 'Холост', 'В разводе'];
   public selectedGenderIndex: number = 0;
+
   public activateGenderClass(index: number) {
     this.selectedGenderIndex = index;
   }
@@ -28,7 +32,9 @@ export class OwnerComponent implements OnInit {
     this.selectedIndex = index;
   }
 
-  constructor(private _fb: FormBuilder) {}
+  constructor(
+    private _fb: FormBuilder
+    ) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -72,7 +78,6 @@ export class OwnerComponent implements OnInit {
     const body = form.value;
     body.gender = this.genders[this.selectedGenderIndex];
     body.marital_status = this.maritalStatuses[this.selectedMaritalStatusIndex];
-
     console.log(body);
   }
 }

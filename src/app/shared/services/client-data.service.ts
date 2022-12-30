@@ -33,7 +33,7 @@ export class ClientDataService {
       'Content-Type': 'application/json',
     });
 
-    const url = environment.apiUrl + '/legalUserAuthentication';
+    const url = environment.apiUrl + '';
 
     return this.http
       .post<ClientCarInterface[]>(url, client_id, { headers: httpHeaders })

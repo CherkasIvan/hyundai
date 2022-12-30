@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
+import { CoreModule } from './core/core.module';
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import {UrlResolverService} from './pages/shared/services/url-resolver.service';
@@ -22,6 +23,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CoreModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

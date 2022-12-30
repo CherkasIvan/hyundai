@@ -100,7 +100,7 @@
         (componentValue)="getFullName($event)"
       >
       </app-input-clearer>
-      <div *ngIf="fullName">
+      <div *ngIf="fullName" class="owner-personal-information wrapper">
         <div class="owner-personal-information">
           <div class="gender owner-personal-information__item">
             <div class="owner-personal-information__item--label">Пол</div>
@@ -110,8 +110,7 @@
                 *ngFor="let typeOfGender of genders; index as i"
                 type="button"
                 [ngClass]="{ active: selectedGenderIndex === i }"
-                (click)="activateGenderClass(i)"
-              >
+                (click)="activateGenderClass(i)">
                 {{ typeOfGender }}
               </button>
             </div>
@@ -192,8 +191,7 @@
                   class="marital-status__list--button"
                   *ngFor="
                     let typeOfMaritalStatus of maritalStatuses;
-                    index as i
-                  "
+                    index as i"
                   type="button"
                   [ngClass]="{ active: selectedMaritalStatusIndex === i }"
                   (click)="activateMaritalStatusClass(i)"

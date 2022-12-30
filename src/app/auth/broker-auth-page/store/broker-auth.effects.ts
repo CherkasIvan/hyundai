@@ -55,7 +55,9 @@ export class BrokerAuthEffects {
       this._actions$.pipe(
         ofType(authBrokerSuccessAction),
         tap(() => {
-          this._router.navigateByUrl(`/${routingPathEnum.ClientFilterAuth}`);
+          this._router.navigateByUrl(
+            `/${routingPathEnum.ClientAuthentication}`
+          );
         })
       ),
     { dispatch: false }
