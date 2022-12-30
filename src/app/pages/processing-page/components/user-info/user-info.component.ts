@@ -29,6 +29,14 @@ export class UserInfoComponent implements OnInit {
     this.kidsCouter = newCounterValue;
   }
 
+  public obligatoryPayments(newCounterValue: string | number): void {
+    this.userInfoForm.get('obligatory_payments')?.patchValue(newCounterValue);
+  }
+
+  public loanRepayment(newCounterValue: string | number): void {
+    this.userInfoForm.get('loan_repayment')?.patchValue(newCounterValue);
+  }
+
   public initializeForm(): void {
     this.userInfoForm = this.fb.group({
       passport_seria: ['', Validators.required],
