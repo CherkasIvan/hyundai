@@ -8,11 +8,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 
 import { environment } from '../environments/environment';
-import { CoreModule } from './core/core.module';
+
+import { AppComponent } from './app.component';
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import {UrlResolverService} from './pages/shared/services/url-resolver.service';

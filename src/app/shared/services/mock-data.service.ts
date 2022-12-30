@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DocumentsInterface } from 'src/app/pages/documents-payments-page/models/interfaces/documents.interface';
 
+import { DocumentsInterface } from '../../pages/documents-payments-page/models/interfaces/documents.interface';
 import { StepsInterface } from '../../pages/main-form-content/models/interfaces/steps.interface';
 import { InsuranceOptionsInterface } from '../models/interfaces/insurance-options.interface';
 import { ModalCardInterface } from '../models/interfaces/modal-card.interface';

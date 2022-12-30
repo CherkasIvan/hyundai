@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { BackendErrorsType } from '../../models/types/backendErrors.type';
 
 @Component({

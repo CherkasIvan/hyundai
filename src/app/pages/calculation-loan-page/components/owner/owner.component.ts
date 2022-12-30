@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { select, Store } from '@ngrx/store';
-import { CounterType } from 'src/app/shared/models/types/counter.type';
-import { counterButtonFeatureSelector} from 'src/app/shared/store/selectors/counter-button.selector';
 
 @Component({
   selector: 'app-owner',
@@ -32,9 +29,7 @@ export class OwnerComponent implements OnInit {
     this.selectedIndex = index;
   }
 
-  constructor(
-    private _fb: FormBuilder
-    ) {}
+  constructor(private _fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.initializeForm();
