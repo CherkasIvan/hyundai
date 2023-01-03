@@ -1,1 +1,62 @@
-<div class="client-list-container"></div>
+<div class="client-list-container">
+  <app-clients-list-header></app-clients-list-header>
+
+  <div *ngIf="allClints$ | async as clients">
+    <table
+      mat-table
+      [dataSource]="clients"
+      class="clients-table mat-elevation-z8"
+      matSort
+    >
+      <ng-container matColumnDef="ФИО">
+        <th mat-header-cell *matHeaderCellDef>ФИО</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.first_name }} {{ element.last_name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Марка авто">
+        <th mat-header-cell *matHeaderCellDef>Марка авто</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="модель">
+        <th mat-header-cell *matHeaderCellDef>модель</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="vin">
+        <th mat-header-cell *matHeaderCellDef>vin</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="КАСКО">
+        <th mat-header-cell *matHeaderCellDef>КАСКО</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="ОСАГО">
+        <th mat-header-cell *matHeaderCellDef>ОСАГО</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="кредитные продукты">
+        <th mat-header-cell *matHeaderCellDef>кредитные продукты</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Телефон">
+        <th mat-header-cell *matHeaderCellDef>Телефон</th>
+        <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+</div>

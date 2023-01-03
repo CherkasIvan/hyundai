@@ -4,4 +4,10 @@
   background: #ffffff;
   filter: drop-shadow(2px 2px 19px rgba(52, 62, 72, 0.21));
   border-radius: 20px;
+
+  .clients-table {
+    width: 100% !important;
+    max-height: 500px !important;
+    overflow: auto !important;
+  }
 }
