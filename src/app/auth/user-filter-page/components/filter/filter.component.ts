@@ -11,7 +11,7 @@ import { ModalService } from 'src/app/shared/services/modal.service';
 export class FilterComponent implements OnInit {
   public filterForm!: FormGroup;
 
-  constructor(private _modalService: ModalService, private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder) {}
 
   private initializeForm(): void {
     this.filterForm = this._fb.group({
@@ -51,10 +51,6 @@ export class FilterComponent implements OnInit {
 
   get getInsurer() {
     return this.filterForm.get('insurance');
-  }
-
-  public openAddUserModal() {
-    this._modalService.addNewClientDialog();
   }
 
   public applyFilters(filterValue: FormGroup) {
