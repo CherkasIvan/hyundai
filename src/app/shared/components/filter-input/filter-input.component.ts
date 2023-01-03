@@ -16,7 +16,7 @@ export class FilterInputComponent implements OnInit {
 
   public initializeForm(): void {
     this.searchForm = this._fb.group({
-      counterFormInput: 0,
+      searchFormInput: '',
     });
   }
 

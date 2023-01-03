@@ -17,15 +17,15 @@ export class InsurensesParamsComponent implements OnInit, AfterContentChecked {
 
   public initializeForm(): void {
     this.formInsuranceOptions = this._fb.group({
-      initialPolicyTerm: [true, Validators.required],
-      policyStartDate: ['18.10.2022', Validators.required],
-      policyEndDate: ['17.10.2023', Validators.required],
-      osagoInsurancePolicyTerm: ['12 месяцев', Validators.required],
-      osagoPolicyStartDate: ['18.10.2022', Validators.required],
-      osagoPolicyEndDate: ['17.10.2023', Validators.required],
-      kaskoPolicyStartDate: ['18.10.2022', Validators.required],
-      kaskoPolicyEndDate: ['17.10.2023', Validators.required],
-      kaskoInsurancePolicyTerm: ['1 год', Validators.required],
+      initialPolicyTerm: [true],
+      policyStartDate: [''],
+      policyEndDate: [''],
+      osagoInsurancePolicyTerm: [''],
+      osagoPolicyStartDate: [''],
+      osagoPolicyEndDate: [''],
+      kaskoPolicyStartDate: [''],
+      kaskoPolicyEndDate: [''],
+      kaskoInsurancePolicyTerm: [''],
     });
   }
 
@@ -33,7 +33,7 @@ export class InsurensesParamsComponent implements OnInit, AfterContentChecked {
   public activateInsuranceTermClass(index: number) {
     this.selectedInsuranceTermIndex = index;
     this.formInsuranceOptions
-      .get('insurancePolicyTerm')
+      .get('kaskoInsurancePolicyTerm')
       ?.patchValue(this.insuranceTerms[this.selectedInsuranceTermIndex]);
   }
 
@@ -56,7 +56,7 @@ export class InsurensesParamsComponent implements OnInit, AfterContentChecked {
       this.formInsuranceOptions?.get('initialPolicyTerm')?.value;
     this.insuranceTerms = ['1 год', '2 года', '3 года', '4 года', '5 лет'];
 
-    if (!this.formInsuranceOptions.value.initialPolicyTerm) {
+    if (this.formInsuranceOptions.value.initialPolicyTerm) {
       this.formInsuranceOptions?.patchValue({
         osagoInsurancePolicyTerm: null,
         osagoPolicyStartDate: null,
@@ -64,6 +64,11 @@ export class InsurensesParamsComponent implements OnInit, AfterContentChecked {
         kaskoInsurancePolicyTerm: null,
         kaskoPolicyStartDate: null,
         kaskoPolicyEndDate: null,
+      });
+    } else {
+      this.formInsuranceOptions?.patchValue({
+        policyStartDate: null,
+        policyEndDate: null,
       });
     }
   }

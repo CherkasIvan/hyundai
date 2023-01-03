@@ -1,8 +1,8 @@
 <div class="documents-payments container">
   <span class="documents-payments__title">Документы</span>
   <app-documents
-          [document]="document"
-          *ngFor="let document of currentDocuments; let i = index"
+    [document]="document"
+    *ngFor="let document of currentDocuments; let i = index"
   ></app-documents>
   <div class="documents-payments__buttons">
     <button class="documents-payments__buttons--print">
@@ -13,4 +13,3 @@
     </button>
   </div>
 </div>
-

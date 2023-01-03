@@ -11,7 +11,10 @@ export class SubmitFormButtonComponent implements OnInit {
   @Input() formValues!: FormGroup;
   @Input() isDisable!: boolean;
   @Input() buttonText!: string;
-  constructor(private _router: Router, private activaterRout: ActivatedRoute) {}
+  constructor(
+    private _router: Router,
+    private _activatedRout: ActivatedRoute
+  ) {}
 
   public sendFormValues(form: FormGroup) {
     console.log(form);

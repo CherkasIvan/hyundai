@@ -1,188 +1,188 @@
 .insurance-params-container {
-    padding: 30px;
-    width: 70vw;
-    min-height: 80vh;
-    background: #ffffff;
-    box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
+  padding: 30px;
+  width: 70vw;
+  min-height: 80vh;
+  background: #ffffff;
+  box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  .insurance-params-title {
+    margin-top: 7px;
+    margin-left: 35px;
     margin-bottom: 20px;
-  
-    .insurance-params-title {
-      margin-top: 7px;
-      margin-left: 35px;
-      margin-bottom: 20px;
-      width: 502px;
-      height: 39px;
-      font-size: 30px;
-      line-height: 130%;
-      color: #343e48;
-    }
+    width: 502px;
+    height: 39px;
+    font-size: 30px;
+    line-height: 130%;
+    color: #343e48;
   }
+}
 
 .insurance-params-form {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    // align-items: flex-start;
-    padding: 0px 0px 6px;
-    gap: 18px;
-    color: #343e48;
-    margin-left: 35px;
-    flex-wrap: wrap;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  // align-items: flex-start;
+  padding: 0px 0px 6px;
+  gap: 18px;
+  color: #343e48;
+  margin-left: 35px;
+  flex-wrap: wrap;
 }
 
 .toggle-switch {
-    position: relative;
-    display: block;
-    width: 48px;
-    height: 20px;
-  }
-  
-  .toggle-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .toggle-slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #CAD2DA;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .toggle-slider:before {
-    position: absolute;
-    content: "";
-    width: 16px;
-    height: 16px;
-    left: 3px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .toggle-slider {
-    background-color: #72879E;
-  }
-  
-  input:focus + .toggle-slider {
-    box-shadow: 0 0 1px #72879E;
-  }
-  
-  input:checked + .toggle-slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+  position: relative;
+  display: block;
+  width: 48px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cad2da;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: '';
+  width: 16px;
+  height: 16px;
+  left: 3px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .toggle-slider {
+  background-color: #72879e;
+}
+
+input:focus + .toggle-slider {
+  box-shadow: 0 0 1px #72879e;
+}
+
+input:checked + .toggle-slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.toggle-slider.round {
+  border-radius: 34px;
+}
+
+.toggle-slider.round:before {
+  border-radius: 50%;
+}
+
+.insurance-terms-toggle {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.insurance-terms {
+  display: flex;
+  gap: 30px;
+}
+
+.insurance-terms__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 17vw;
+
+  &--label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #343e48;
+    margin-top: 25px;
   }
 
-  .toggle-slider.round {
-    border-radius: 34px;
+  &--select,
+  &--input {
+    margin-top: 10px;
+    width: 100%;
+    background: #f2f4f7;
+    border-radius: 8px;
+    padding: 17.5px 10px;
   }
-  
-  .toggle-slider.round:before {
-    border-radius: 50%;
-  }
+}
 
-  .insurance-terms-toggle {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
+.insurance-terms-personal {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10vh;
 
-  .insurance-terms {
-    display: flex;
-    gap: 30px;
-  }
-
-  .insurance-terms__item {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 17vw;
-  
-    &--label {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      color: #343e48;
-      margin-top: 25px;
-    }
-  
-    &--select,
-    &--input {
-      margin-top: 10px;
-      width: 100%;
-      background: #f2f4f7;
-      border-radius: 8px;
-      padding: 17.5px 10px;
-    }
+  &-button {
+    width: 213px;
+    height: 52px;
+    background: #343e48;
+    border-radius: 6px;
+    color: #ffffff;
   }
 
-  .insurance-terms-personal {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10vh;
-
-    &-button {
-        width: 213px;
-        height: 52px;
-        background: #343e48;
-        border-radius: 6px;
-        color: #ffffff;
-      }
-
-    &-title {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 22px;
-        line-height: 130%;
-        margin-bottom: 1vh;
-      }
+  &-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 130%;
+    margin-bottom: 1vh;
   }
+}
 
 .insurance-terms-osago {
-    display: flex;
-    gap: 30px;
+  display: flex;
+  gap: 30px;
 }
 .terms-kasko {
-    display: flex;
-    flex-direction: column;
-  
-    &__title {
-      font-style: normal;
-      font-weight: 400;
-      font-size: 22px;
-      line-height: 130%;
-      color: #343e48;
-    }
-  
-    &__list {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 10px;
-      min-width: 70%;
-  
-      &--button {
-        padding: 10px 10px;
-        background: #f2f4f7;
-        color: #343e48;
-        border-radius: 20px;
-        width: 131px;
-        height: 38px;
-      }
-    }
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 130%;
+    color: #343e48;
   }
 
-  .active {
-    background: #72879e !important;
-    color: #ffffff !important;
+  &__list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    min-width: 70%;
+
+    &--button {
+      padding: 10px 10px;
+      background: #f2f4f7;
+      color: #343e48;
+      border-radius: 20px;
+      width: 131px;
+      height: 38px;
+    }
   }
+}
+
+.active {
+  background: #72879e !important;
+  color: #ffffff !important;
+}
