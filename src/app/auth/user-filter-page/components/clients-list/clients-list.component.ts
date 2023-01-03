@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { BehaviorSubject } from 'rxjs';
+import { ClientDataService } from 'src/app/shared/services/client-data.service';
 import { GetUsersService } from '../../services/get-users.service';
 
 @Component({
@@ -29,13 +30,18 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
   ];
 
   public allClints$: BehaviorSubject<any> = new BehaviorSubject([]);
-  constructor(private _getUsers: GetUsersService) {}
+  constructor(private _getUsers: GetUsersService,
+              private clientDataService: ClientDataService) {}
 
   public ngOnInit(): void {
     this._getUsers.getClients().subscribe((el) => {
       this.allClints$.next(el.clients);
       this.dataSource = el.clients;
     });
+
+    this.clientDataService.currentSearchValue$.subscribe((value) => {
+      this.searchFilter(value);
+    })
   }
 
   public ngAfterViewInit() {
@@ -45,5 +51,9 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  public searchFilter(searchValue: string) {
+    this.dataSource.filter = searchValue.trim().toLowerCase();
   }
 }
