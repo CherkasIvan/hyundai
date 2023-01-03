@@ -4,8 +4,8 @@
     <div class="document-header__bank">
       <div class="document-header__bank--logo">
         <img
-                src="/assets/images/{{ document.bank_img }}"
-                alt="{{ document.bank_img }}"
+          src="/assets/images/{{ document.bank_img }}"
+          alt="{{ document.bank_img }}"
         />
       </div>
       <span class="document-header__bank--name">{{ document.bank_label }}</span>
@@ -15,8 +15,8 @@
   <div class="document-body">
     <div class="document-body__list">
       <div
-              class="document-body__list-item"
-              *ngFor="let typeOfDoc of document.documents"
+        class="document-body__list-item"
+        *ngFor="let typeOfDoc of document.documents"
       >
         <span class="list-item__text">PDF</span>
         <span class="list-item__label">{{ typeOfDoc.label }}</span>

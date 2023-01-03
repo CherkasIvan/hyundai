@@ -6,7 +6,7 @@
         <label class="form-group__item--label">ФИО</label>
         <input
           type="text"
-          formControlName="driver_middle_name"
+          formControlName="client_fullname"
           class="form-group__item--input"
         />
       </fieldset>
@@ -16,8 +16,8 @@
           <label class="form-group__item--label">
             Марка
             <select
-              (change)="changeCarMark($event)"
-              formControlName="familyStatus"
+              (change)="changeCarBrand($event)"
+              formControlName="car_brand"
               class="form-group__item--select"
               name="property_status
           "
@@ -33,7 +33,7 @@
         <label class="form-group__item--label">Телефон</label>
         <input
           type="text"
-          formControlName="driver_middle_name"
+          formControlName="client_phone"
           class="form-group__item--input"
         />
       </fieldset>
@@ -43,7 +43,7 @@
           Модель
           <select
             (change)="changeModel($event)"
-            formControlName="familyStatus"
+            formControlName="car_model"
             class="form-group__item--select"
             name="property_status
           "
@@ -58,7 +58,7 @@
         <label class="form-group__item--label">Email</label>
         <input
           type="text"
-          formControlName="driver_middle_name"
+          formControlName="client_email"
           class="form-group__item--input"
         />
       </fieldset>
@@ -67,7 +67,7 @@
         <label class="form-group__item--label">VIN</label>
         <input
           type="text"
-          formControlName="driver_middle_name"
+          formControlName="car_vin"
           class="form-group__item--input"
         />
       </fieldset>
@@ -76,11 +76,11 @@
         <input
           type="checkbox"
           class="form-group__item checkbox"
-          formControlName="passport_chenged"
+          formControlName="loan_program"
           name="checkbox"
         />
         <label for="checkbox" class="form-group__item--label">
-          Есть Кредитная программа
+          Есть кредитная программа
         </label>
       </fieldset>
 
@@ -88,7 +88,7 @@
         <input
           type="checkbox"
           class="form-group__item checkbox"
-          formControlName="passport_chenged"
+          formControlName="kasko"
           name="checkbox"
         />
         <label for="checkbox" class="form-group__item--label">
@@ -116,7 +116,7 @@
           Страховая
           <select
             (change)="changeInsurer($event)"
-            formControlName="familyStatus"
+            formControlName="insurens_agency"
             class="form-group__item--select"
             name="property_status
         "
@@ -132,7 +132,7 @@
           Банк
           <select
             (change)="changeBank($event)"
-            formControlName="familyStatus"
+            formControlName="bank"
             class="form-group__item--select"
             name="property_status
         "
@@ -152,6 +152,11 @@
       mat-button
       mat-dialog-close
     />
-    <input class="modal-buttons__save" type="button" value="Сохранить" />
+    <input
+      class="modal-buttons__save"
+      type="button"
+      value="Сохранить"
+      (click)="saveForm(addUserForm)"
+    />
   </footer>
 </div>

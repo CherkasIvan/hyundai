@@ -14,7 +14,6 @@
   }
 
   &-content {
-
   }
 
   &-buttons {
@@ -31,7 +30,6 @@
     }
   }
 }
-
 
 .form-group {
   fieldset {
@@ -104,29 +102,29 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #CAD2DA;
-  -webkit-transition: .4s;
-  transition: .4s;
+  background-color: #cad2da;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .toggle-slider:before {
   position: absolute;
-  content: "";
+  content: '';
   width: 16px;
   height: 16px;
   left: 3px;
   bottom: 2px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .toggle-slider {
-  background-color: #72879E;
+  background-color: #72879e;
 }
 
 input:focus + .toggle-slider {
-  box-shadow: 0 0 1px #72879E;
+  box-shadow: 0 0 1px #72879e;
 }
 
 input:checked + .toggle-slider:before {

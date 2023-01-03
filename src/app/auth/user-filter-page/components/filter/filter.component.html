@@ -3,20 +3,87 @@
     <span class="filter-header__title">Поиск и фильтры</span>
   </header>
 
-  <main class="filter-body">
+  <form class="filter-body" [formGroup]="filterForm">
     <app-filter-input></app-filter-input>
 
     <fieldset class="filter-options">
       <input
         type="checkbox"
         class="filter-options__checkbox"
-        formControlName="passport_chenged"
+        formControlName="all_clients"
         name="checkbox"
       />
       <label for="checkbox" class="filter-options__label">
         Отображать всех клиентов
       </label>
     </fieldset>
-    <button (click)="openAddUserModal()">awrsdg</button>
-  </main>
+
+    <fieldset class="form-group__item">
+      <label class="form-group__item--label">
+        Марка
+        <select
+          (change)="changeCarBrand($event)"
+          formControlName="car_brand"
+          class="form-group__item--select"
+          name="property_status
+      "
+        >
+          <option value="Не женат, не замужем">Не женат, не замужем</option>
+          <option value="У родителей">Холост</option>
+        </select></label
+      >
+    </fieldset>
+
+    <fieldset class="form-group__item">
+      <label class="form-group__item--label">
+        Модель
+        <select
+          (change)="changeModel($event)"
+          formControlName="car_model"
+          class="form-group__item--select"
+          name="property_status
+      "
+        >
+          <option value="Не женат, не замужем">Не женат, не замужем</option>
+          <option value="У родителей">Холост</option>
+        </select></label
+      >
+    </fieldset>
+
+    <fieldset class="form-group__item">
+      <label class="form-group__item--label">
+        Страхование
+        <select
+          (change)="changeInsurer($event)"
+          formControlName="insurance"
+          class="form-group__item--select"
+          name="property_status
+      "
+        >
+          <option value="Не женат, не замужем">Не женат, не замужем</option>
+          <option value="У родителей">Холост</option>
+        </select></label
+      >
+    </fieldset>
+
+    <fieldset class="filter-options">
+      <input
+        type="checkbox"
+        class="filter-options__checkbox"
+        formControlName="have_loan"
+        name="checkbox"
+      />
+      <label for="checkbox" class="filter-options__label">Есть кредит</label>
+    </fieldset>
+
+    <div class="filter-buttons">
+      <button class="filter-buttons__cancel" (click)="clearFields()">
+        Отменить
+      </button>
+      <button class="filter-buttons__apply" (click)="applyFilters(filterForm)">
+        Применить
+      </button>
+    </div>
+    <!-- <button (click)="openAddUserModal()">awrsdg</button> -->
+  </form>
 </div>

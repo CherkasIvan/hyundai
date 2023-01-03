@@ -5,6 +5,10 @@
   filter: drop-shadow(2px 2px 19px rgba(52, 62, 72, 0.21));
   border-radius: 20px;
 
+  .filter-header {
+    margin-bottom: 24px;
+  }
+
   .filter-header,
   .filter-body {
     padding: 24px;
@@ -16,10 +20,63 @@
       line-height: 31px;
       color: #343e48;
     }
+
+    .form-group__item {
+      display: flex;
+      flex-direction: column;
+
+      &--label {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #343e48;
+      }
+
+      &--select,
+      &--input {
+        margin-top: 10px;
+        width: 100%;
+        background: #f2f4f7;
+        border-radius: 8px;
+        padding: 17.5px 10px;
+      }
+      &--options {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        accent-color: #72879e;
+      }
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+
+      > * {
+        border-radius: 6px;
+        width: 100%;
+        padding: 11px 20px;
+      }
+
+      &__cancel {
+        border: 1px solid #72879e;
+        background: #ffffff;
+        color: #343e48;
+      }
+
+      &__apply {
+        color: #ffffff;
+        background: #343e48;
+      }
+    }
   }
 
   .filter-options {
-    margin-top: 24px;
+    margin: 24px 0;
     display: flex;
     align-items: center;
     flex-direction: row;
