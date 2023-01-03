@@ -13,7 +13,6 @@ import {
 import { Observable } from 'rxjs';
 
 import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
-
 import { BrokerRegisterRequestInterface } from '../../models/interfaces/broker-register-request.interface';
 
 @Component({

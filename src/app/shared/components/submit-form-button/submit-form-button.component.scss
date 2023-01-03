@@ -1,0 +1,15 @@
+.container {
+  margin-top: 70px;
+  display: flex;
+  justify-content: flex-end;
+
+  .next-page__button {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    background: #343e48;
+    padding: 14px 76px;
+    border-radius: 6px;
+    color: #ffffff;
+  }
+}

@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 import { UserFilterPageRoutingModule } from './user-filter-page-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-
-import { MatIconModule } from '@angular/material/icon';
 
 import { ModalService } from '../../shared/services/modal.service';
 

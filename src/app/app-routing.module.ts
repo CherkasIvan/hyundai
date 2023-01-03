@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { routingPathEnum } from './shared/consts/routing-path-enum';
-// import { UrlResolverService } from './shared/services/url-resolver.service';
-// import {BrokersAuthGuard} from './core/broker-auth/guards/brokers-auth.guard';
-// import {UsersAuthGuard} from './pages/user-auth/guards/users-auth.guard';
 
 const routes: Routes = [
   {

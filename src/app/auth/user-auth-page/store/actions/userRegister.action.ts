@@ -1,10 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 
-import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
-
 import { UserActionEnum } from '../../models/enums/userAction.enum';
 
 import { CurrentUserInterface } from '../../models/interfaces/current-user.interface';
+import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
 import { UserRegisterRequestType } from '../../models/types/user-register-request.type';
 
 // REGISTER NEW USER //

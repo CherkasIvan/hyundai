@@ -21,12 +21,24 @@ export class UserInfoComponent implements OnInit {
     'Начальное или неполное среднее',
   ];
   public selectedIndex: number = 0;
+
   public activateClass(index: number): void {
     this.selectedIndex = index;
+    this.userInfoForm
+      .get('educations')
+      ?.patchValue(this.educations[this.selectedIndex]);
   }
 
-  public addCids(newCounterValue: number): void {
-    this.kidsCouter = newCounterValue;
+  public addChildren(newCounterValue: number): void {
+    this.userInfoForm.get('children_counter')?.patchValue(newCounterValue);
+  }
+
+  public obligatoryPayments(newCounterValue: string | number): void {
+    this.userInfoForm.get('obligatory_payments')?.patchValue(newCounterValue);
+  }
+
+  public loanRepayment(newCounterValue: string | number): void {
+    this.userInfoForm.get('loan_repayment')?.patchValue(newCounterValue);
   }
 
   public initializeForm(): void {
@@ -34,6 +46,7 @@ export class UserInfoComponent implements OnInit {
       passport_seria: ['', Validators.required],
       born_place: ['', Validators.required],
       passport_office: ['', Validators.required],
+      educations: ['', Validators.required],
       date: ['', Validators.required],
       passport_chenged: ['', Validators.required],
       propertyStatus: ['', Validators.required],
@@ -71,10 +84,7 @@ export class UserInfoComponent implements OnInit {
   }
 
   public submitRegistrationForm(userInfoForm: FormGroup): void {
-    const body = userInfoForm.value;
-    body.kids = this.kidsCouter;
-    body.educations = this.educations[this.selectedIndex];
-    console.log(body);
+    console.log(userInfoForm.value);
   }
 
   ngOnInit(): void {

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { DocumentsInterface } from 'src/app/pages/documents-payments-page/models/interfaces/documents.interface';
 
+import { DocumentsInterface } from '../../pages/documents-payments-page/models/interfaces/documents.interface';
 import { StepsInterface } from '../../pages/main-form-content/models/interfaces/steps.interface';
+import { CalculationLoanDataInterface } from '../models/interfaces/calculation-loan-data.interface';
 import { InsuranceOptionsInterface } from '../models/interfaces/insurance-options.interface';
 import { ModalCardInterface } from '../models/interfaces/modal-card.interface';
 
@@ -48,9 +49,8 @@ export class MockDataService {
     },
   ];
 
-  public calculationLoanData: Object = [
+  public calculationLoanData: CalculationLoanDataInterface[] = [
     {
-      key: 'vin',
       type: 'input',
       templateOptions: {
         label: 'VIN',
@@ -59,7 +59,6 @@ export class MockDataService {
       },
     },
     {
-      key: 'car_mark',
       type: 'input',
       templateOptions: {
         label: 'Марка',
@@ -68,7 +67,6 @@ export class MockDataService {
       },
     },
     {
-      key: 'car_model',
       type: 'input',
       templateOptions: {
         label: 'Модель',
@@ -77,7 +75,6 @@ export class MockDataService {
       },
     },
     {
-      key: 'car_year',
       type: 'input',
       templateOptions: {
         label: 'Год выпуска',
@@ -86,7 +83,6 @@ export class MockDataService {
       },
     },
     {
-      key: 'pts_issue_year',
       type: 'input',
       templateOptions: {
         label: 'ПТС',
@@ -95,7 +91,6 @@ export class MockDataService {
       },
     },
     {
-      key: 'engine_capacity',
       type: 'input',
       templateOptions: {
         label: 'Объем двигателя',
@@ -104,8 +99,6 @@ export class MockDataService {
       },
     },
     {
-      className: 'car-info-container__details__form__item',
-      key: 'transmission',
       type: 'select',
       templateOptions: {
         label: 'Трансмиссия автомобиля',
@@ -119,9 +112,6 @@ export class MockDataService {
       },
     },
     {
-      className:
-        'car-info-container__details__form__item car-info-container__details__form__item__radio',
-      key: 'car_body_type',
       type: 'radio',
       templateOptions: {
         label: 'Тип кузова',
@@ -136,9 +126,6 @@ export class MockDataService {
       },
     },
     {
-      className:
-        'car-info-container__details__form__item car-info-container__details__form__input',
-      key: 'car_price',
       type: 'input',
       templateOptions: {
         label: 'Стоимость авто, руб',
@@ -147,8 +134,6 @@ export class MockDataService {
       },
     },
     {
-      className: 'car-info-container__details__form__item',
-      key: 'car_price',
       type: 'slider',
       templateOptions: {
         min: 0,
@@ -157,8 +142,6 @@ export class MockDataService {
       },
     },
     {
-      className: 'car-info-container__details__form__item',
-      key: 'car_telematic',
       type: 'toggle',
       templateOptions: {
         label: 'Телематическая система',

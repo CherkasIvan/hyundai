@@ -1,9 +1,11 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { CounterType } from '../../models/types/counter.type';
+
 import {
   counterButtonDecreaseAction,
   counterButtonIncreaseAction,
 } from '../actions/counter-button.action';
+
+import { CounterType } from '../../models/types/counter.type';
 
 export const initialState: CounterType = {
   counter: 0,

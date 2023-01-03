@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ProgressBarMode } from '@angular/material/progress-bar';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 
 import { MockDataService } from '../../../../shared/services/mock-data.service';
 
-import { StepsInterface } from '../../models/interfaces/steps.interface';
 import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
+
+import { StepsInterface } from '../../models/interfaces/steps.interface';
 
 @Component({
   selector: 'app-side-bar',

@@ -1,200 +1,204 @@
-<div class='container tes-container'>
-  <div class='row'>
-    <div class='col-12'>
-      <div class='tes-container-title'>Водители</div>
+<div class="container tes-container">
+  <div class="row">
+    <div class="col-12">
+      <div class="tes-container-title">Водители</div>
     </div>
-    <div class='col-12'>
-      <div class='tes-container-content'>
-        <div class='driver-info-details'>
-          <form class='driver-info-details-form' [formGroup]='formDriversData'
-                (ngSubmit)='onSubmitForm()'>
-            <div class='driver-info-details-form-container'>
-              <div class='row'>
-                <div class='col-6'>
-                  <label class='toggle-switch'>
-                    <input class='checkbox' id='invalidDrivers' type='checkbox' formControlName='invalid_drivers'>
-                    <span class='toggle-slider round'></span>
+    <div class="col-12">
+      <div class="tes-container-content">
+        <div class="driver-info-details">
+          <form class="driver-info-details-form" [formGroup]="formDriversData">
+            <div class="driver-info-details-form-container">
+              <div class="row">
+                <div class="col-6">
+                  <label class="toggle-switch">
+                    <input
+                      class="checkbox"
+                      id="invalidDrivers"
+                      type="checkbox"
+                      formControlName="invalid_drivers"
+                    />
+                    <span class="toggle-slider round"></span>
                   </label>
                   Водители без ограничений
                 </div>
-                <div class='col-6'>
-                  <fieldset class='form-group__item--options'>
+                <div class="col-6">
+                  <fieldset class="form-group__item--options">
                     <input
-                      type='checkbox'
-                      class='form-group__item checkbox'
-                      formControlName='invalid_drivers'
-                      name='checkbox'
+                      type="checkbox"
+                      class="form-group__item checkbox"
+                      formControlName="invalid_drivers"
+                      name="checkbox"
                     />
-                    <label class='form-group__item--label'>
+                    <label class="form-group__item--label">
                       Все водители участвуют в договорах
                     </label>
                   </fieldset>
                 </div>
               </div>
 
-              <div formArrayName='drivers'>
-                <div *ngFor='let driver of drivers.controls; let i=index'>
-                  <div [formGroupName]='i'>
-                    <div class='row mt-4 form-group'>
-                      <div class='col-6 mb-4'>
+              <div formArrayName="drivers">
+                <div *ngFor="let driver of drivers.controls; let i = index">
+                  <div [formGroupName]="i">
+                    <div class="row mt-4 form-group">
+                      <div class="col-6 mb-4">
                         <fieldset>
-                          <input class='border-bottom w-100' type='text' formControlName='driver_title'>
+                          <input
+                            class="border-bottom w-100"
+                            type="text"
+                            formControlName="driver_title"
+                          />
                         </fieldset>
                       </div>
-                      <div class='col-6 mb-4'>
-                        <fieldset class='form-group__item--options'>
+                      <div class="col-6 mb-4">
+                        <fieldset class="form-group__item--options">
                           <input
-                            type='checkbox'
-                            class='form-group__item checkbox'
-                            formControlName='osago'
-                            name='checkbox'
+                            type="checkbox"
+                            class="form-group__item checkbox"
+                            formControlName="osago"
+                            name="checkbox"
                           />
-                          <label class='form-group__item--label'>
-                            ОСАГО
-                          </label>
+                          <label class="form-group__item--label"> ОСАГО </label>
                         </fieldset>
-                        <fieldset class='form-group__item--options'>
+                        <fieldset class="form-group__item--options">
                           <input
-                            type='checkbox'
-                            class='form-group__item checkbox'
-                            formControlName='kasko'
-                            name='checkbox'
+                            type="checkbox"
+                            class="form-group__item checkbox"
+                            formControlName="kasko"
+                            name="checkbox"
                           />
-                          <label class='form-group__item--label'>
-                            КАСКО
-                          </label>
+                          <label class="form-group__item--label"> КАСКО </label>
                         </fieldset>
-                        <fieldset class='form-group__item--options'>
+                        <fieldset class="form-group__item--options">
                           <input
-                            type='checkbox'
-                            class='form-group__item checkbox'
-                            formControlName='credit'
-                            name='checkbox'
+                            type="checkbox"
+                            class="form-group__item checkbox"
+                            formControlName="credit"
+                            name="checkbox"
                           />
-                          <label class='form-group__item--label'>
+                          <label class="form-group__item--label">
                             Кредит
                           </label>
                         </fieldset>
                       </div>
-                      <div class='col-4'>
-                        <fieldset class='form-group__item'>
-                          <label class='form-group__item--label'>
+                      <div class="col-4">
+                        <fieldset class="form-group__item">
+                          <label class="form-group__item--label">
                             Фамилия
                           </label>
                           <input
-                            type='text'
-                            formControlName='driver_surname'
-                            class='form-group__item--input'
+                            type="text"
+                            formControlName="driver_surname"
+                            class="form-group__item--input"
                           />
                         </fieldset>
                       </div>
-                      <div class='col-4'>
-                        <fieldset class='form-group__item'>
-                          <label class='form-group__item--label'>
-                            Имя
-                          </label>
+                      <div class="col-4">
+                        <fieldset class="form-group__item">
+                          <label class="form-group__item--label"> Имя </label>
                           <input
-                            type='text'
-                            formControlName='driver_name'
-                            class='form-group__item--input'
+                            type="text"
+                            formControlName="driver_name"
+                            class="form-group__item--input"
                           />
                         </fieldset>
                       </div>
-                      <div class='col-4'>
-                        <fieldset class='form-group__item'>
-                          <label class='form-group__item--label'>
+                      <div class="col-4">
+                        <fieldset class="form-group__item">
+                          <label class="form-group__item--label">
                             Отчество
                           </label>
                           <input
-                            type='text'
-                            formControlName='driver_middle_name'
-                            class='form-group__item--input'
+                            type="text"
+                            formControlName="driver_middle_name"
+                            class="form-group__item--input"
                           />
                         </fieldset>
                       </div>
-                      <div class='col-6'>
-                        <fieldset class='form-group__item'>
-                          <label class='form-group__item--label'>
+                      <div class="col-6">
+                        <fieldset class="form-group__item">
+                          <label class="form-group__item--label">
                             Введите номер телефона
                           </label>
                           <input
-                            type='text'
-                            formControlName='driver_phone_number'
-                            class='form-group__item--input'
+                            type="text"
+                            formControlName="driver_phone_number"
+                            class="form-group__item--input"
                           />
                         </fieldset>
                       </div>
-                      <div class='col-6'>
-                        <fieldset class='form-group__item'>
-                          <label class='form-group__item--label'>
+                      <div class="col-6">
+                        <fieldset class="form-group__item">
+                          <label class="form-group__item--label">
                             Дата рождения
                           </label>
                           <input
-                            type='text'
-                            formControlName='driver_birth_date'
-                            class='form-group__item--input'
+                            type="text"
+                            formControlName="driver_birth_date"
+                            class="form-group__item--input"
                           />
                         </fieldset>
                       </div>
-                      <div class='col-6'>
-                        <fieldset class='form-group__item'>
-                          <label class='form-group__item--label'>
+                      <div class="col-6">
+                        <fieldset class="form-group__item">
+                          <label class="form-group__item--label">
                             Водительское удостоверение №
                           </label>
                           <input
-                            type='text'
-                            formControlName='driver_licence_number'
-                            class='form-group__item--input'
+                            type="text"
+                            formControlName="driver_licence_number"
+                            class="form-group__item--input"
                           />
                         </fieldset>
                       </div>
-                      <div class='col-6'>
-                        <fieldset class='form-group__item'>
-                          <label class='form-group__item--label'>
+                      <div class="col-6">
+                        <fieldset class="form-group__item">
+                          <label class="form-group__item--label">
                             Кем выдано
                           </label>
                           <input
-                            type='text'
-                            formControlName='driver_licence_issued_by'
-                            class='form-group__item--input'
+                            type="text"
+                            formControlName="driver_licence_issued_by"
+                            class="form-group__item--input"
                           />
                         </fieldset>
                       </div>
-                      <div class='col-6'>
-                        <fieldset class='form-group__item'>
-                          <label class='form-group__item--label'>
+                      <div class="col-6">
+                        <fieldset class="form-group__item">
+                          <label class="form-group__item--label">
                             Дата выдачи
                           </label>
                           <input
-                            type='text'
-                            formControlName='driver_licence_issued_date'
-                            class='form-group__item--input'
+                            type="text"
+                            formControlName="driver_licence_issued_date"
+                            class="form-group__item--input"
                           />
                         </fieldset>
                       </div>
-                      <div class='col-6'>
-                        <fieldset class='form-group__item'>
-                          <label class='form-group__item--label'>
+                      <div class="col-6">
+                        <fieldset class="form-group__item">
+                          <label class="form-group__item--label">
                             Дата начала стажа вождения
                           </label>
                           <input
-                            type='text'
-                            formControlName='driver_exp_start'
-                            class='form-group__item--input'
+                            type="text"
+                            formControlName="driver_exp_start"
+                            class="form-group__item--input"
                           />
                         </fieldset>
                       </div>
-                      <div class='col-6'></div>
-                      <div class='col-6'>
-                        <fieldset class='form-group__item--options mt-2'>
+                      <div class="col-6"></div>
+                      <div class="col-6">
+                        <fieldset class="form-group__item--options mt-2">
                           <input
-                            type='checkbox'
-                            class='form-group__item checkbox'
-                            formControlName='driver_exp_same_as_license_issued'
-                            name='checkbox'
+                            type="checkbox"
+                            class="form-group__item checkbox"
+                            formControlName="driver_exp_same_as_license_issued"
+                            name="checkbox"
                           />
-                          <label class='form-group__item--label'>
-                            <small>Совпадает с датой выдачи удостоверения</small>
+                          <label class="form-group__item--label">
+                            <small
+                              >Совпадает с датой выдачи удостоверения</small
+                            >
                           </label>
                         </fieldset>
                       </div>
@@ -206,18 +210,21 @@
           </form>
         </div>
       </div>
-      <div class='tes-container-buttons'>
-        <button mat-stroked-button>
-          Добавить водителя
-        </button>
-        <button
+      <div class="tes-container-buttons">
+        <button mat-stroked-button>Добавить водителя</button>
+        <!-- <button
           class="next-page__button"
           mat-button
           [disabled]="!formDriversData.valid"
           (click)="onSubmitForm()"
         >
           Продолжить
-        </button>
+        </button> -->
+        <app-submit-form-button
+          [formValues]="formDriversData.value"
+          [isDisable]="!formDriversData.valid"
+          buttonText="Продолжить"
+        ></app-submit-form-button>
       </div>
     </div>
   </div>

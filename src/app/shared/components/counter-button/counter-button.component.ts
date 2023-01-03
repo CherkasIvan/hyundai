@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { select, Store } from '@ngrx/store';
 
-import { Observable, pipe, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import {
   counterButtonDecreaseAction,
@@ -32,8 +32,7 @@ export class CounterButtonComponent implements OnInit {
 
   public initializeStoreValues(): void {
     this.initialCounter$ = this._store.pipe(select(getCounterButtonValue));
-    this.initialCounter$.subscribe((el) => this.currentCountValue.emit(el)
-    )
+    this.initialCounter$.subscribe((el) => this.currentCountValue.emit(el));
   }
 
   constructor(
