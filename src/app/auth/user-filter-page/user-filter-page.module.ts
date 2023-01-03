@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 import { UserFilterPageRoutingModule } from './user-filter-page-routing.module';
 import { SharedModule } from '../../shared/shared.module';
@@ -31,6 +32,7 @@ import { ClientsListHeaderComponent } from './components/clients-list-header/cli
     CommonModule,
     MatFormFieldModule,
     MatPaginatorModule,
+    MatSortModule,
     MatInputModule,
     MatTableModule,
     MatIconModule,
