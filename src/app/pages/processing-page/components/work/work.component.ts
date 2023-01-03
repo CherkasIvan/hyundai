@@ -38,8 +38,8 @@ export class WorkComponent implements OnInit {
       start_work: ['', Validators.required],
       work_experience: ['', Validators.required],
       work_status: ['', Validators.required],
-      company_position: ['', Validators.required],
-      type_position: ['', Validators.required],
+      employee_position: ['', Validators.required],
+      type_employee_position: ['', Validators.required],
       number_of_employes: ['', Validators.required],
       monthly_income: [0, Validators.required],
     });
