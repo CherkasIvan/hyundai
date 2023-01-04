@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, Event } from '@angular/router';
+import { NavigationEnd, Router, Event, ActivatedRoute } from '@angular/router';
 
 import { filter } from 'rxjs';
 
@@ -53,7 +53,7 @@ export class MainFormContentPageComponent implements OnInit {
   ];
 
   public navigationSteps: StepsInterface[] = [];
-  constructor(private _router: Router) {
+  constructor(private _router: Router, private _route: ActivatedRoute) {
     this.getRout();
   }
 
@@ -73,6 +73,8 @@ export class MainFormContentPageComponent implements OnInit {
           this.navigationSteps = this.processingPagesSteps;
         }
       });
+    console.log(this.routerLink);
+    console.log(this._route?.routeConfig?.path); // ИСПОЛЬЗОВАТЬ ДЛЯ NgClass
   }
 
   ngOnInit(): void {}

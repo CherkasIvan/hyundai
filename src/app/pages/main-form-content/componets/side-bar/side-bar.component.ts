@@ -15,22 +15,26 @@ import { StepsInterface } from '../../models/interfaces/steps.interface';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
-  public value: number = 50;
-  public bufferValue: number = 75;
+  public sideBarPercantage!: number;
+  public initIndex: number = 0;
 
   @Input() public steps!: StepsInterface[];
 
   public selectedStepName: string = '';
 
   public selectionChanged($event: StepperSelectionEvent) {
+    this.initIndex = $event.selectedIndex;
     this._router.url.includes(routingPathEnum.LoanCalculationPage)
       ? (this.selectedStepName = this.steps[$event.selectedIndex].path)
       : (this.selectedStepName = this.steps[$event.selectedIndex].path);
 
     let route: ActivatedRoute | null = this._activatedRoute.firstChild;
+
     this._router.navigate([this.selectedStepName], {
       relativeTo: route,
     });
+    this.sideBarPercantage =
+      Math.round(100 / this.steps.length) * $event.selectedIndex;
   }
 
   constructor(
@@ -38,5 +42,17 @@ export class SideBarComponent implements OnInit {
     private _activatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
+  public setIndex() {
+    this.steps.forEach((el, index) => {
+      this._router.url.includes(el.path)
+        ? (this.initIndex = index)
+        : this.initIndex;
+    });
+  }
+  ngOnInit(): void {
+    this.setIndex();
+
+    this.sideBarPercantage =
+      Math.round(100 / this.steps.length) * this.initIndex;
+  }
 }
