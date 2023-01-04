@@ -1,23 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { map } from 'rxjs';
+import { GetUsersService } from '../../services/get-users.service';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent implements OnInit, AfterViewChecked{
   public filterForm!: FormGroup;
+  public carMarkFilterParams: string[] = [];
 
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder,
+              private _getUsersService: GetUsersService) {}
 
   private initializeForm(): void {
     this.filterForm = this._fb.group({
       all_clients: ['', Validators.required],
       car_brand: ['', Validators.required],
       car_model: ['', Validators.required],
-      insurance: ['', Validators.required],
       have_loan: ['', Validators.required],
+      have_casko: ['', Validators.required],
+      have_osago: ['', Validators.required],
     });
   }
 
@@ -61,5 +66,17 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this._getUsersService.clientCarMark$
+    .subscribe((value) => value.forEach((el: any) => {
+      console.log(value);
+      this.carMarkFilterParams.push(el.first_name);
+      this.carMarkFilterParams = Array.from(new Set(this.carMarkFilterParams));
+    }))
+  }
+
+  ngAfterViewChecked(): void {
+    // console.log(this.filterForm.get('have_osago')?.value)
+    
+    
   }
 }

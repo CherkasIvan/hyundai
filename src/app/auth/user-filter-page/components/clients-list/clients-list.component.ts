@@ -75,10 +75,12 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
     this._getUsers.getClients().subscribe((el) => {
       this.dataSource.data = el.clients;
       this.sortedData = el.clients.slice();
+      this._getUserService.setFilterParams(this.dataSource.data.filter((el) => el.first_name))
     });
 
     this._getUserService.currentSearchValue$.subscribe((value) => {
       this.searchFilter(value);
+
     });
   }
 

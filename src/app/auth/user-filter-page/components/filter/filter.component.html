@@ -15,8 +15,7 @@
           name="property_status
       "
         >
-          <option value="Не женат, не замужем">Hyundai</option>
-          <option value="У родителей">KIA</option>
+          <option *ngFor="let carMark of carMarkFilterParams" value="carMark">{{carMark}}</option>
         </select></label
       >
     </fieldset>
@@ -31,8 +30,8 @@
           name="property_status
       "
         >
-          <option value="Не женат, не замужем">Solaris</option>
-          <option value="У родителей">RIO</option>
+          <option value="Solaris">Solaris</option>
+          <option value="RIO">RIO</option>
         </select></label
       >
     </fieldset>
@@ -49,7 +48,7 @@
       <input
         type="checkbox"
         class="filter-options__checkbox"
-        formControlName="have_loan"
+        formControlName="have_casko"
         name="checkbox"
       />
       <label for="checkbox" class="filter-options__label">Есть КАСКО</label>
@@ -58,7 +57,7 @@
       <input
         type="checkbox"
         class="filter-options__checkbox"
-        formControlName="have_loan"
+        formControlName="have_osago"
         name="checkbox"
       />
       <label for="checkbox" class="filter-options__label">Есть ОСАГО</label>

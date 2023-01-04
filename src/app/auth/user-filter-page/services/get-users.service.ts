@@ -13,6 +13,9 @@ export class GetUsersService {
   public searchValue$ = new BehaviorSubject<string>('');
   public currentSearchValue$ = this.searchValue$.asObservable();
 
+  public carMark$ = new BehaviorSubject<any>('');
+  public clientCarMark$ = this.carMark$.asObservable();
+
   constructor(private _http: HttpClient) {}
 
   public getClients(body = {}): Observable<any> {
@@ -24,13 +27,16 @@ export class GetUsersService {
     return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
       tap((response: any) => {
         this.allClints$.next(response.clients);
-        console.log(response);
+        // console.log(response);
       })
     );
   }
 
   public searchClient(searchValue: any) {
-    console.log(searchValue);
     this.searchValue$.next(searchValue);
+  }
+
+  public setFilterParams (params: any) {
+    this.carMark$.next(params);
   }
 }
