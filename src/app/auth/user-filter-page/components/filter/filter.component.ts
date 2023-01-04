@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { ModalService } from 'src/app/shared/services/modal.service';
-
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
