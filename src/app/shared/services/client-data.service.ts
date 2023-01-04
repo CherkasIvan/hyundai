@@ -28,8 +28,7 @@ export class ClientDataService {
       time_to: '',
     });
 
-  public searchValue$ = new BehaviorSubject<string>('');
-  public currentSearchValue$ = this.searchValue$.asObservable();
+  
 
 
   constructor(private http: HttpClient) {}
@@ -54,7 +53,5 @@ export class ClientDataService {
       );
   }
 
-public searchClient(searchValue: any) {
-  this.searchValue$.next(searchValue);
-}
+
 }

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { BehaviorSubject, Observable } from 'rxjs';
-import { ClientDataService } from '../../services/client-data.service';
+import { Observable } from 'rxjs';
+import { GetUsersService } from 'src/app/auth/user-filter-page/services/get-users.service';
 
 @Component({
   selector: 'app-filter-input',
@@ -10,10 +10,6 @@ import { ClientDataService } from '../../services/client-data.service';
   styleUrls: ['./filter-input.component.scss'],
 })
 export class FilterInputComponent implements OnInit {
-  public initialCounter$!: Observable<number>;
-  @Output() public currentSearchValue = new EventEmitter<string>();
-
-
   public searchForm!: FormGroup;
   public searchValue!: string
 
@@ -24,7 +20,7 @@ export class FilterInputComponent implements OnInit {
   }
 
   constructor(private _fb: FormBuilder,
-              private clientDataService: ClientDataService) {}
+              private getUserService: GetUsersService) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -33,9 +29,7 @@ export class FilterInputComponent implements OnInit {
   public onSearchValue(event: Event) {
     if (event.target) {
       this.searchValue = (event.target as HTMLInputElement).value;
-      this.clientDataService.searchClient(this.searchValue);
-      // this.currentSearchValue.emit(this.searchValue);
-      // this.currentSearchValue$.next(this.searchValue);
+      this.getUserService.searchClient(this.searchValue);
     }
   }
 }

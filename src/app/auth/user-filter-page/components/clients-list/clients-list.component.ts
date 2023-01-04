@@ -1,11 +1,15 @@
+
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { BehaviorSubject } from 'rxjs';
-import { ClientDataService } from 'src/app/shared/services/client-data.service';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+
 import { GetUsersService } from '../../services/get-users.service';
+
+
 
 @Component({
   selector: 'app-clients-list',
@@ -14,9 +18,10 @@ import { GetUsersService } from '../../services/get-users.service';
 })
 export class ClientsListComponent implements OnInit, AfterViewInit {
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
+  public client_profile: any
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   public displayedColumns: string[] = [
     'ФИО',
@@ -29,24 +34,35 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
     'Телефон',
   ];
 
-  public allClints$: BehaviorSubject<any> = new BehaviorSubject([]);
-  constructor(private _getUsers: GetUsersService,
-              private clientDataService: ClientDataService) {}
+
+  constructor(
+    private _getUsers: GetUsersService,
+    private _liveAnnouncer: LiveAnnouncer,
+    private _getUserService: GetUsersService
+  ) {}
+
+  public announceSortChange(sortState: Sort) {
+    console.log(sortState);
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
+  }
 
   public ngOnInit(): void {
     this._getUsers.getClients().subscribe((el) => {
-      this.allClints$.next(el.clients);
-      this.dataSource = el.clients;
+      this.dataSource.data = el.clients;
     });
 
-    this.clientDataService.currentSearchValue$.subscribe((value) => {
+    this._getUserService.currentSearchValue$.subscribe((value) => {
       this.searchFilter(value);
     })
   }
 
   public ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    setTimeout(() => (this.dataSource.paginator = this.paginator));
+    setTimeout(() => (this.dataSource.sort = this.sort));
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
@@ -55,5 +71,11 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
 
   public searchFilter(searchValue: string) {
     this.dataSource.filter = searchValue.trim().toLowerCase();
+  }
+
+  public selectedClient(client: any) {
+    const client_id = client.client_id
+    console.log(client.client_id);
+    this._getUserService.getClients({ids:[client_id]}).subscribe((value) => console.log(value))
   }
 }

@@ -8,6 +8,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class GetUsersService {
+  public allClints$: BehaviorSubject<any> = new BehaviorSubject([]);
+
+  public searchValue$ = new BehaviorSubject<string>('');
+  public currentSearchValue$ = this.searchValue$.asObservable();
+
   constructor(private _http: HttpClient) {}
 
   public getClients(body = {}): Observable<any> {
@@ -18,8 +23,14 @@ export class GetUsersService {
 
     return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
       tap((response: any) => {
+        this.allClints$.next(response.clients);
         console.log(response);
       })
     );
+  }
+
+  public searchClient(searchValue: any) {
+    console.log(searchValue);
+    this.searchValue$.next(searchValue);
   }
 }
