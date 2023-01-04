@@ -21,6 +21,9 @@ import { InputSliderComponent } from './components/input-slider/input-slider.com
 import { BackendErrorMessagesComponent } from './components/backend-error-messages/backend-error-messages.component';
 import { FilterInputComponent } from './components/filter-input/filter-input.component';
 import { SubmitFormButtonComponent } from './components/submit-form-button/submit-form-button.component';
+import { TesInputBasicComponent } from './components/tes-input-basic/tes-input-basic.component';
+import { TesInputCheckboxComponent } from './components/tes-input-checkbox/tes-input-checkbox.component';
+import { TesInputSlideToggleComponent } from './components/tes-input-slide-toggle/tes-input-slide-toggle.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { SubmitFormButtonComponent } from './components/submit-form-button/submi
     InputSliderComponent,
     FilterInputComponent,
     SubmitFormButtonComponent,
+    TesInputBasicComponent,
+    TesInputCheckboxComponent,
+    TesInputSlideToggleComponent,
   ],
   imports: [
     FormsModule,
@@ -63,6 +69,9 @@ import { SubmitFormButtonComponent } from './components/submit-form-button/submi
     MatDialogModule,
     MatButtonModule,
     InputClearerComponent,
-  ],
+    TesInputBasicComponent,
+    TesInputCheckboxComponent,
+    TesInputSlideToggleComponent,
+  ]
 })
 export class SharedModule {}

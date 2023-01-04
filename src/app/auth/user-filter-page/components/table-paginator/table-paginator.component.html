@@ -1,0 +1,16 @@
+<div class="pagination">
+  <button [disabled]="value === 1" (click)="selectPage(1)"></button>
+  <button [disabled]="value === 1" (click)="selectPage(value - 1)"></button>
+  <button *ngFor="let page of visiblePages" (click)="selectPage(page)">
+    {{ page }}
+  </button>
+  <button
+    [disabled]="value === totalPages"
+    (click)="selectPage(value + 1)"
+  ></button>
+  <button
+    [disabled]="value === totalPages"
+    (click)="selectPage(totalPages)"
+  ></button>
+</div>
+<!-- [ngClass]="value === page && 'selected'" -->

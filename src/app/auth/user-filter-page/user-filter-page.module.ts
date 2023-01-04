@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { forwardRef, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatInputModule } from '@angular/material/input';
@@ -18,6 +18,8 @@ import { ClientsListComponent } from './components/clients-list/clients-list.com
 import { UserFilterPageComponent } from './user-filter-page.component';
 import { AddUserModalComponent } from './components/add-user-modal/add-user-modal.component';
 import { ClientsListHeaderComponent } from './components/clients-list-header/clients-list-header.component';
+import { TablePaginatorComponent } from './components/table-paginator/table-paginator.component';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ClientsListHeaderComponent } from './components/clients-list-header/cli
     ClientsListComponent,
     AddUserModalComponent,
     ClientsListHeaderComponent,
+    TablePaginatorComponent,
   ],
   imports: [
     UserFilterPageRoutingModule,
@@ -38,6 +41,13 @@ import { ClientsListHeaderComponent } from './components/clients-list-header/cli
     MatIconModule,
     SharedModule,
   ],
-  providers: [ModalService],
+  providers: [
+    ModalService,
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => TablePaginatorComponent),
+      multi: true,
+    },
+  ],
 })
 export class UserFilterPageModule {}

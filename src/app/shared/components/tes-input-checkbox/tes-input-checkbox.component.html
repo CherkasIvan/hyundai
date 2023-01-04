@@ -1,0 +1,11 @@
+<fieldset class='tes-fieldset'>
+  <input type='checkbox'
+         class='tes-fieldset-input-checkbox'
+         [(ngModel)]='value'
+         (ngModelChange)='onModelChange($event)'
+  >
+  <label class='tes-fieldset-label'>
+    <small *ngIf='small; else elseBlock'>{{ label }}</small>
+    <ng-template #elseBlock>{{ label }}</ng-template>
+  </label>
+</fieldset>
