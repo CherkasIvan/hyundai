@@ -6,7 +6,8 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ImagePickerConf, NgpImagePickerComponent } from 'ngp-image-picker';
+
+import { ImagePickerConf } from 'ngp-image-picker';
 
 import { ModalService } from '../../../../shared/services/modal.service';
 
@@ -16,23 +17,32 @@ import { ModalService } from '../../../../shared/services/modal.service';
   styleUrls: ['./user-info.component.scss'],
 })
 export class UserInfoComponent implements OnInit {
-  @ViewChild('img', { read: TemplateRef }) img!: TemplateRef<any>;
+  @ViewChild('img', { read: TemplateRef }) public img!: TemplateRef<any>;
   @ViewChild('content', { read: ViewContainerRef })
-  contentRef!: ViewContainerRef;
+  public contentRef!: ViewContainerRef;
+  public imgCounter: number = 0;
 
-  config: ImagePickerConf = {
+  public config: ImagePickerConf = {
     borderRadius: '8px',
     width: '70px',
     height: '70px',
     language: 'ru',
   };
 
-  onImageChange(e: any) {
+  public onImageChange(e: any) {
     console.log(e);
   }
 
-  createNewUploader() {
-    this.contentRef.createEmbeddedView(this.img);
+  public createNewUploader(): void {
+    const descriptionsArr = [
+      'Главный разворот',
+      'Паспорт, разворот с регистрацией',
+    ];
+    this.imgCounter = this.contentRef.length;
+
+    this.contentRef.createEmbeddedView(this.img, {
+      $implicit: { descriptions: descriptionsArr[this.imgCounter] },
+    });
   }
 
   public userInfoForm!: FormGroup;
@@ -107,11 +117,7 @@ export class UserInfoComponent implements OnInit {
     return this.userInfoForm.get('familyStatus');
   }
 
-  constructor(
-    private modalService: ModalService,
-    private fb: FormBuilder,
-    private viewContainerRef: ViewContainerRef
-  ) {}
+  constructor(private modalService: ModalService, private fb: FormBuilder) {}
 
   public openInsuranceModal(): void {
     this.modalService.insurancePolicDialog();

@@ -24,5 +24,10 @@ export class PersistenceService {
     return accessToken;
   }
 
+  public getClientId(): string {
+    const clientId = JSON.parse(localStorage.getItem('clientId')!);
+    return clientId;
+  }
+
   constructor() {}
 }
