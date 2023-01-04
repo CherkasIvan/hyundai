@@ -67,11 +67,14 @@ export class FilterComponent implements OnInit, AfterViewChecked{
   ngOnInit(): void {
     this.initializeForm();
     this._getUsersService.clientCarMark$
-    .subscribe((value) => value.forEach((el: any) => {
-      console.log(value);
+    .subscribe((value) => {
+      const arr = Array.from(value);
+      arr.forEach((el: any) => {
       this.carMarkFilterParams.push(el.first_name);
       this.carMarkFilterParams = Array.from(new Set(this.carMarkFilterParams));
-    }))
+    })
+    }
+    )
   }
 
   ngAfterViewChecked(): void {

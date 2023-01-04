@@ -31,7 +31,7 @@
       width: 100%;
       display: grid;
       gap: 20px;
-      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
 
       .form-group__item {
         display: flex;
@@ -94,6 +94,12 @@
     }
 
     &__save {
+      padding: 10px 50px;
+      align-self: center;
+      justify-self: center;
+      text-transform: uppercase;
+      border-radius: 8px;
+      max-width: 40%;
       color: #ffffff;
       background: #343e48;
     }

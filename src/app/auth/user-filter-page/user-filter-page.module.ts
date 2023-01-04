@@ -1,5 +1,6 @@
 import { forwardRef, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,6 +13,7 @@ import { UserFilterPageRoutingModule } from './user-filter-page-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 
 import { ModalService } from '../../shared/services/modal.service';
+import { UserAuthService } from './services/user-auth.service';
 
 import { FilterComponent } from './components/filter/filter.component';
 import { ClientsListComponent } from './components/clients-list/clients-list.component';
@@ -19,7 +21,6 @@ import { UserFilterPageComponent } from './user-filter-page.component';
 import { AddUserModalComponent } from './components/add-user-modal/add-user-modal.component';
 import { ClientsListHeaderComponent } from './components/clients-list-header/clients-list-header.component';
 import { TablePaginatorComponent } from './components/table-paginator/table-paginator.component';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
   providers: [
     ModalService,
+    UserAuthService,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => TablePaginatorComponent),

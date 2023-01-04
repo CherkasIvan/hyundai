@@ -12,10 +12,8 @@
           (change)="changeCarBrand($event)"
           formControlName="car_brand"
           class="form-group__item--select"
-          name="property_status
-      "
-        >
-          <option *ngFor="let carMark of carMarkFilterParams" value="carMark">{{carMark}}</option>
+          name="property_status">
+          <option *ngFor="let carMark of carMarkFilterParams" [value]="carMark">{{carMark}}</option>
         </select></label
       >
     </fieldset>

@@ -12,7 +12,7 @@ import {
 
 import { switchMap, tap, map, catchError, of } from 'rxjs';
 
-import { UserAuthService } from '../../services/user-auth.service';
+import { UserAuthService } from '../../../user-filter-page/services/user-auth.service';
 import { PersistenceService } from '../../../../shared/services/persistence.service';
 
 import { CurrentUserInterface } from '../../models/interfaces/current-user.interface';
