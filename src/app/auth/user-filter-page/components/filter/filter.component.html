@@ -5,19 +5,6 @@
 
   <form class="filter-body" [formGroup]="filterForm">
     <app-filter-input></app-filter-input>
-
-    <!-- <fieldset class="filter-options">
-      <input
-        type="checkbox"
-        class="filter-options__checkbox"
-        formControlName="all_clients"
-        name="checkbox"
-      />
-      <label for="checkbox" class="filter-options__label">
-        Отображать всех клиентов
-      </label>
-    </fieldset> -->
-
     <fieldset class="form-group__item">
       <label class="form-group__item--label">
         Марка
@@ -49,23 +36,6 @@
         </select></label
       >
     </fieldset>
-
-    <!-- <fieldset class="form-group__item">
-      <label class="form-group__item--label">
-        Номер телефона
-        <select
-          (change)="changeInsurer($event)"
-          formControlName="insurance"
-          class="form-group__item--select"
-          name="property_status
-      "
-        >
-          <option value="Не женат, не замужем">Не женат, не замужем</option>
-          <option value="У родителей">Холост</option>
-        </select></label
-      >
-    </fieldset> -->
-
     <fieldset class="filter-options">
       <input
         type="checkbox"
@@ -98,9 +68,6 @@
       <button class="filter-buttons__cancel" (click)="clearFields()">
         Очистить фильтр
       </button>
-      <!-- <button class="filter-buttons__apply" (click)="applyFilters(filterForm)">
-        Применить
-      </button> -->
     </div>
   </form>
 </div>
