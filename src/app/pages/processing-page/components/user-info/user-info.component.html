@@ -7,6 +7,7 @@
       <button
         class="passport-data__auto-registration"
         (click)="createNewUploader()"
+        [disabled]="imgCounter >= 1"
       >
         <img
           class="passport-data__auto-registration-img"
@@ -73,11 +74,14 @@
       </fieldset>
     </div>
 
-    <ng-template #img>
-      <ngp-image-picker
-        [_config]="config"
-        ($imageChanged)="onImageChange($event)"
-      ></ngp-image-picker>
+    <ng-template #img let-options>
+      <div class="picker__container">
+        <ngp-image-picker
+          [_config]="config"
+          ($imageChanged)="onImageChange($event)"
+        ></ngp-image-picker>
+        <span class="picker__label">{{ options.descriptions }}</span>
+      </div>
     </ng-template>
 
     <div class="dnd__container"><ng-container #content> </ng-container></div>
