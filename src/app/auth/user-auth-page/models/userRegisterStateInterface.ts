@@ -1,5 +1,4 @@
 import { BackendErrorsType } from '../../../shared/models/types/backendErrors.type';
-
 import { CurrentUserInterface } from './interfaces/current-user.interface';
 
 export interface UserRegisterStateInterface {

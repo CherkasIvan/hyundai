@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
+
+import { routingPathEnum } from '../../shared/consts/routing-path-enum';
 
 import { ApprovalComponent } from './components/approval/approval.component';
 import { SummaryComponent } from './components/summary/summary.component';

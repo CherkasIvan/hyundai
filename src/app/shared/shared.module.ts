@@ -6,6 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
+
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers/counter-button.reducer';
 
 import { InsurancePoliciesModalModule } from './components/insurance-policies-modal/insurance-policies-modal.module';
 
@@ -15,11 +19,11 @@ import { InputClearerComponent } from './components/input-clearer/input-clearer.
 import { LoanParamsComponent } from './components/loan-params/loan-params.component';
 import { InputSliderComponent } from './components/input-slider/input-slider.component';
 import { BackendErrorMessagesComponent } from './components/backend-error-messages/backend-error-messages.component';
-import { StoreModule } from '@ngrx/store';
-
-import { reducers } from './store/reducers/counter-button.reducer';
 import { FilterInputComponent } from './components/filter-input/filter-input.component';
-import { MatButtonModule } from '@angular/material/button';
+import { SubmitFormButtonComponent } from './components/submit-form-button/submit-form-button.component';
+import { TesInputBasicComponent } from './components/tes-input-basic/tes-input-basic.component';
+import { TesInputCheckboxComponent } from './components/tes-input-checkbox/tes-input-checkbox.component';
+import { TesInputSlideToggleComponent } from './components/tes-input-slide-toggle/tes-input-slide-toggle.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,10 @@ import { MatButtonModule } from '@angular/material/button';
     LoanParamsComponent,
     InputSliderComponent,
     FilterInputComponent,
+    SubmitFormButtonComponent,
+    TesInputBasicComponent,
+    TesInputCheckboxComponent,
+    TesInputSlideToggleComponent,
   ],
   imports: [
     FormsModule,
@@ -49,6 +57,7 @@ import { MatButtonModule } from '@angular/material/button';
     FilterInputComponent,
     InputSliderComponent,
     FormsModule,
+    SubmitFormButtonComponent,
     LoanParamsComponent,
     BackendErrorMessagesComponent,
     CounterButtonComponent,
@@ -60,6 +69,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatDialogModule,
     MatButtonModule,
     InputClearerComponent,
-  ],
+    TesInputBasicComponent,
+    TesInputCheckboxComponent,
+    TesInputSlideToggleComponent,
+  ]
 })
 export class SharedModule {}

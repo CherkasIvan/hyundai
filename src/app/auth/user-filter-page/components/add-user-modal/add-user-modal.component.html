@@ -1,10 +1,182 @@
 <div class="modal-container">
   <app-modal-header [title]="modalTitle"></app-modal-header>
   <main class="modal-body">
-    <form class="add-user-form" [formGroup]="addUserForm"></form>
+    <form class="add-user-form" [formGroup]="addUserForm">
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">ФИО</label>
+        <input
+          type="text"
+          formControlName="client_fullname"
+          class="form-group__item--input"
+        />
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">
+            Марка
+            <select
+              (change)="changeCarBrand($event)"
+              formControlName="car_brand"
+              class="form-group__item--select"
+              name="property_status
+          "
+            >
+              <option value="Не женат, не замужем">Не женат, не замужем</option>
+              <option value="У родителей">Холост</option>
+            </select></label
+          >
+        </fieldset>
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">Телефон</label>
+        <input
+          type="text"
+          formControlName="client_phone"
+          class="form-group__item--input"
+        />
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Модель
+          <select
+            (change)="changeModel($event)"
+            formControlName="car_model"
+            class="form-group__item--select"
+            name="property_status
+          "
+          >
+            <option value="Не женат, не замужем">Не женат, не замужем</option>
+            <option value="У родителей">Холост</option>
+          </select></label
+        >
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">Email</label>
+        <input
+          type="text"
+          formControlName="client_email"
+          class="form-group__item--input"
+        />
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">VIN</label>
+        <input
+          type="text"
+          formControlName="car_vin"
+          class="form-group__item--input"
+        />
+      </fieldset>
+
+      <form [formGroup]="addNewClientForm">
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">Code</label>
+          <input
+            type="text"
+            formControlName="code"
+            class="form-group__item--input"
+          />
+        </fieldset>
+
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">Client id</label>
+          <input
+            type="text"
+            formControlName="client_id"
+            class="form-group__item--input"
+          />
+        </fieldset>
+      </form>
+      <!-- <fieldset class="form-group__item--options">
+        <input
+          type="checkbox"
+          class="form-group__item checkbox"
+          formControlName="loan_program"
+          name="checkbox"
+        />
+        <label for="checkbox" class="form-group__item--label">
+          Есть кредитная программа
+        </label>
+      </fieldset>
+
+      <fieldset class="form-group__item--options">
+        <input
+          type="checkbox"
+          class="form-group__item checkbox"
+          formControlName="kasko"
+          name="checkbox"
+        />
+        <label for="checkbox" class="form-group__item--label">
+          Есть полис КАСКО
+        </label>
+      </fieldset>
+
+      <div class="education">
+        <div class="education__title">Образование</div>
+        <div class="education__list">
+          <button
+            class="education__list--button"
+            *ngFor="let typeOfEducation of educations; index as i"
+            type="button"
+            [ngClass]="{ active: selectedIndex === i }"
+            (click)="activateClass(i)"
+          >
+            {{ typeOfEducation }}
+          </button>
+        </div>
+      </div>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Страховая
+          <select
+            (change)="changeInsurer($event)"
+            formControlName="insurens_agency"
+            class="form-group__item--select"
+            name="property_status
+        "
+          >
+            <option value="Не женат, не замужем">Не женат, не замужем</option>
+            <option value="У родителей">Холост</option>
+          </select></label
+        >
+      </fieldset>
+
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Банк
+          <select
+            (change)="changeBank($event)"
+            formControlName="bank"
+            class="form-group__item--select"
+            name="property_status
+        "
+          >
+            <option value="Не женат, не замужем">Не женат, не замужем</option>
+            <option value="У родителей">Холост</option>
+          </select></label
+        >
+      </fieldset> -->
+      >>>>>>> 1a23ba915cfb6a66349b2956b264adcb34c65369
+    </form>
   </main>
   <footer class="modal-buttons">
-    <input class="modal-buttons__cancel" type="button" value="Отменить" />
-    <input class="modal-buttons__save" type="button" value="Сохранить" />
+    <input
+      class="modal-buttons__cancel"
+      type="button"
+      value="Отменить"
+      mat-button
+      mat-dialog-close
+    />
+    <input
+      class="modal-buttons__save"
+      type="button"
+      value="Сохранить"
+      (click)="saveForm(addUserForm)"
+    />
   </footer>
 </div>

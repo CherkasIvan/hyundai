@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { NgpImagePickerModule } from 'ngp-image-picker';
+
 import { ProcessingPageRoutingModule } from './processing-page-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 
@@ -17,6 +19,11 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     ApprovalComponent,
   ],
   exports: [UserInfoComponent],
-  imports: [CommonModule, ProcessingPageRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    NgpImagePickerModule,
+    ProcessingPageRoutingModule,
+    SharedModule,
+  ],
 })
 export class ProcessingPageModule {}

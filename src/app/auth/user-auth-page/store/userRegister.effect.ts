@@ -19,9 +19,9 @@ import { switchMap, map, catchError, of, tap } from 'rxjs';
 import { UserAuthService } from '../services/user-auth.service';
 import { PersistenceService } from '../../../shared/services/persistence.service';
 
-import { CurrentUserInterface } from '../models/interfaces/current-user.interface';
-
 import { routingPathEnum } from '../../../shared/consts/routing-path-enum';
+
+import { CurrentUserInterface } from '../models/interfaces/current-user.interface';
 
 @Injectable()
 export class RegisterEffect {

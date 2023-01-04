@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ImagePickerConf, NgpImagePickerComponent } from 'ngp-image-picker';
 
 import { ModalService } from '../../../../shared/services/modal.service';
 
@@ -9,6 +16,25 @@ import { ModalService } from '../../../../shared/services/modal.service';
   styleUrls: ['./user-info.component.scss'],
 })
 export class UserInfoComponent implements OnInit {
+  @ViewChild('img', { read: TemplateRef }) img!: TemplateRef<any>;
+  @ViewChild('content', { read: ViewContainerRef })
+  contentRef!: ViewContainerRef;
+
+  config: ImagePickerConf = {
+    borderRadius: '8px',
+    width: '70px',
+    height: '70px',
+    language: 'ru',
+  };
+
+  onImageChange(e: any) {
+    console.log(e);
+  }
+
+  createNewUploader() {
+    this.contentRef.createEmbeddedView(this.img);
+  }
+
   public userInfoForm!: FormGroup;
   public kidsCouter: number = 0;
 
@@ -21,12 +47,24 @@ export class UserInfoComponent implements OnInit {
     'Начальное или неполное среднее',
   ];
   public selectedIndex: number = 0;
+
   public activateClass(index: number): void {
     this.selectedIndex = index;
+    this.userInfoForm
+      .get('educations')
+      ?.patchValue(this.educations[this.selectedIndex]);
   }
 
-  public addCids(newCounterValue: number): void {
-    this.kidsCouter = newCounterValue;
+  public addChildren(newCounterValue: number): void {
+    this.userInfoForm.get('children_counter')?.patchValue(newCounterValue);
+  }
+
+  public obligatoryPayments(newCounterValue: string | number): void {
+    this.userInfoForm.get('obligatory_payments')?.patchValue(newCounterValue);
+  }
+
+  public loanRepayment(newCounterValue: string | number): void {
+    this.userInfoForm.get('loan_repayment')?.patchValue(newCounterValue);
   }
 
   public initializeForm(): void {
@@ -34,7 +72,12 @@ export class UserInfoComponent implements OnInit {
       passport_seria: ['', Validators.required],
       born_place: ['', Validators.required],
       passport_office: ['', Validators.required],
-      date: ['', Validators.required],
+      educations: ['', Validators.required],
+      passport_issue_date: ['', Validators.required],
+      residential_address: ['', Validators.required],
+      registration_date: ['', Validators.required],
+      address_of_actual_residence: ['', Validators.required],
+      matched_client_registered_address: ['', Validators.required],
       passport_chenged: ['', Validators.required],
       propertyStatus: ['', Validators.required],
       familyStatus: ['', Validators.required],
@@ -64,17 +107,18 @@ export class UserInfoComponent implements OnInit {
     return this.userInfoForm.get('familyStatus');
   }
 
-  constructor(private modalService: ModalService, private fb: FormBuilder) {}
+  constructor(
+    private modalService: ModalService,
+    private fb: FormBuilder,
+    private viewContainerRef: ViewContainerRef
+  ) {}
 
   public openInsuranceModal(): void {
     this.modalService.insurancePolicDialog();
   }
 
   public submitRegistrationForm(userInfoForm: FormGroup): void {
-    const body = userInfoForm.value;
-    body.kids = this.kidsCouter;
-    body.educations = this.educations[this.selectedIndex];
-    console.log(body);
+    console.log(userInfoForm.value);
   }
 
   ngOnInit(): void {

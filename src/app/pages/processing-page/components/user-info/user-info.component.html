@@ -1,14 +1,13 @@
 <div class="questionnaire-container">
-  <form
-    [formGroup]="userInfoForm"
-    (ngSubmit)="submitRegistrationForm(userInfoForm)"
-    class="registration"
-  >
+  <form [formGroup]="userInfoForm" class="registration">
     <p class="registration-title">Оформление</p>
 
     <div class="passport-data">
       <div class="passport-data__title">Паспортные данные</div>
-      <button class="passport-data__auto-registration">
+      <button
+        class="passport-data__auto-registration"
+        (click)="createNewUploader()"
+      >
         <img
           class="passport-data__auto-registration-img"
           src="/assets/images/photo.svg"
@@ -56,7 +55,7 @@
           Дата выдачи
           <input
             type="text"
-            formControlName="date"
+            formControlName="passport_issue_date"
             class="form-group__item--input"
         /></label>
       </fieldset>
@@ -74,6 +73,15 @@
       </fieldset>
     </div>
 
+    <ng-template #img>
+      <ngp-image-picker
+        [_config]="config"
+        ($imageChanged)="onImageChange($event)"
+      ></ngp-image-picker>
+    </ng-template>
+
+    <div class="dnd__container"><ng-container #content> </ng-container></div>
+
     <div class="residential-address">
       <div class="residential-address__title">Адрес проживания</div>
 
@@ -83,7 +91,7 @@
             Адрес регистрации
             <input
               type="text"
-              formControlName="passport_seria"
+              formControlName="residential_address"
               class="form-group__item--input"
           /></label>
         </fieldset>
@@ -93,7 +101,7 @@
             Дата регистрации
             <input
               type="text"
-              formControlName="born_place"
+              formControlName="registration_date"
               class="form-group__item--input"
           /></label>
         </fieldset>
@@ -103,7 +111,7 @@
             Адрес фактического проживания
             <input
               type="text"
-              formControlName="passport_office"
+              formControlName="address_of_actual_residence"
               class="form-group__item--input"
           /></label>
         </fieldset>
@@ -128,11 +136,11 @@
           <input
             type="checkbox"
             class="form-group__item checkbox"
-            formControlName="passport_chenged"
+            formControlName="matched_client_registered_address"
             name="checkbox"
           />
           <label for="checkbox" class="form-group__item--label">
-            Паспорт менялся
+            Совпадает с адресом регистрации
           </label>
         </fieldset>
       </div>
@@ -167,7 +175,7 @@
           "
             >
               <option value="Не женат, не замужем">Не женат, не замужем</option>
-              <option value="У родителей">Холост</option>
+              <option value="Холост">Холост</option>
             </select></label
           >
         </fieldset>
@@ -176,7 +184,7 @@
           <label class="form-group__item--label">
             Дети
             <app-counter-button
-              (currentCountValue)="addCids($event)"
+              (currentCountValue)="addChildren($event)"
             ></app-counter-button
           ></label>
         </fieldset>
@@ -189,41 +197,29 @@
         <fieldset class="form-group__item">
           <label class="form-group__item--label">
             Обязательные платежи*, ₽
-            <app-input-slider></app-input-slider>
-
-            <!-- <input
-              type="number"
-              min="1"
-              step="any"
-              formControlName="obligatory_payments"
-              class="form-group__item--input"
-          /> -->
+            <app-input-slider
+              (componentValue)="obligatoryPayments($event)"
+            ></app-input-slider>
           </label>
         </fieldset>
 
         <fieldset class="form-group__item">
           <label class="form-group__item--label">
             Погашение кредитов*, ₽
-            <input
-              type="number"
-              min="1"
-              step="any"
-              formControlName="loan_repayment"
-              class="form-group__item--input"
-          /></label>
+            <app-input-slider
+              (componentValue)="loanRepayment($event)"
+            ></app-input-slider
+          ></label>
         </fieldset>
       </div>
     </div>
 
-    <button
-      class="next-page__button"
-      mat-button
-      [disabled]="!userInfoForm.valid"
-      (click)="submitRegistrationForm(userInfoForm)"
-    >
-      Продолжить
-    </button>
+    <app-submit-form-button
+      [formValues]="userInfoForm.value"
+      [isDisable]="!userInfoForm.valid"
+      buttonText="Продолжить"
+    ></app-submit-form-button>
   </form>
 
-  <button (click)="openInsuranceModal()">Open modal</button>
+  <!-- <button (click)="openInsuranceModal()">Open modal</button> -->
 </div>

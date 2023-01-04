@@ -4,4 +4,45 @@
   background: #ffffff;
   filter: drop-shadow(2px 2px 19px rgba(52, 62, 72, 0.21));
   border-radius: 20px;
+
+  .table-container {
+    padding: 20px;
+
+    .clients-table {
+      width: 100% !important;
+      border-radius: 20px !important;
+
+      th {
+        background: #f2f4f7;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 30px;
+        letter-spacing: 0.501286px;
+        text-transform: uppercase;
+        color: #111827;
+      }
+
+      th,
+      td {
+        border: 1px solid #e2e2e2;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-sort-header-container {
+    justify-content: center;
+  }
+
+  .mat-header-cell,
+  .mat-cell {
+    justify-content: center;
+    align-items: center;
+  }
 }

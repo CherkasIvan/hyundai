@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
 
 import { MainFormContentPageComponent } from './main-form-content-page.component';

@@ -17,7 +17,6 @@ import {
 } from '../../store/broker-auth.selectors';
 
 import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
-
 import { BrokerRegisterRequestInterface } from '../../models/interfaces/broker-register-request.interface';
 
 @Component({

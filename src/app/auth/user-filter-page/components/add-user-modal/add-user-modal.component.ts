@@ -9,35 +9,54 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddUserModalComponent implements OnInit {
   public modalTitle: string = 'Добавить клиента';
   public addUserForm!: FormGroup;
+  public addNewClientForm!: FormGroup;
 
   private initializeForm(): void {
     this.addUserForm = this._fb.group({
-      invalid_drivers: ['', Validators.required],
-      all_drivers_in_contracts: ['', Validators.required],
-      drivers: this._fb.array([
-        this._fb.group({
-          osago: ['', Validators.required],
-          kasko: ['', Validators.required],
-          credit: ['', Validators.required],
-          driver_title: ['', Validators.required],
-          driver_surname: ['', Validators.required],
-          driver_name: ['', Validators.required],
-          driver_middle_name: ['', Validators.required],
-          driver_phone_number: ['', Validators.required],
-          driver_birth_date: ['', Validators.required],
-          driver_licence_number: ['', Validators.required],
-          driver_licence_issued_by: ['', Validators.required],
-          driver_licence_issued_date: ['', Validators.required],
-          driver_exp_start: ['', Validators.required],
-          driver_exp_same_as_license_issued: ['', Validators.required],
-        }),
-      ]),
+      client_fullname: ['', Validators.required],
+      car_brand: ['', Validators.required],
+      client_phone: ['', Validators.required],
+      car_model: ['', Validators.required],
+      client_email: ['', Validators.required],
+      car_vin: ['', Validators.required],
+    });
+  }
+
+  private initializeNewClientForm(): void {
+    this.addNewClientForm = this._fb.group({
+      code: ['', Validators.required],
+      client_id: ['', Validators.required],
     });
   }
 
   constructor(private _fb: FormBuilder) {}
 
+  public changeModel(e: Event) {
+    this.getModel?.setValue((e.target as HTMLInputElement).value, {
+      onlySelf: true,
+    });
+  }
+
+  get getModel() {
+    return this.addUserForm.get('car_model');
+  }
+
+  public changeCarBrand(e: Event) {
+    this.getCar?.setValue((e.target as HTMLInputElement).value, {
+      onlySelf: true,
+    });
+  }
+
+  get getCar() {
+    return this.addUserForm.get('car_brand');
+  }
+
+  public saveForm(formData: FormGroup) {
+    console.log(formData.value);
+  }
+
   ngOnInit(): void {
     this.initializeForm();
+    this.initializeNewClientForm();
   }
 }

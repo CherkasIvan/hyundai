@@ -1,10 +1,6 @@
 <div class="owner-container">
   <div class="owner-title">Кредитные и страховые продукты</div>
-  <form
-    class="owner-form"
-    [formGroup]="formOwnerOptions"
-    (ngSubmit)="onSubmitForm(formOwnerOptions)"
-  >
+  <form class="owner-form" [formGroup]="formOwnerOptions">
     <div class="owner-products-container">
       <div class="owner-products">
         <fieldset class="owner-products-item">
@@ -100,7 +96,7 @@
         (componentValue)="getFullName($event)"
       >
       </app-input-clearer>
-      <div *ngIf="fullName">
+      <div *ngIf="fullName" class="owner-personal-information wrapper">
         <div class="owner-personal-information">
           <div class="gender owner-personal-information__item">
             <div class="owner-personal-information__item--label">Пол</div>
@@ -240,14 +236,22 @@
                 </label>
               </fieldset>
             </div>
-            <div>
-              <button type="submit" class="owner-personal-information-button">
-                Далее
-              </button>
-            </div>
+
+            <app-submit-form-button
+              [formValues]="formOwnerOptions.value"
+              [isDisable]="!formOwnerOptions.valid"
+              buttonText="Далее"
+            ></app-submit-form-button>
+
+            <!-- <button
+              class="next-page__button"
+              mat-button
+              [disabled]="!formOwnerOptions.valid"
+            >
+              Далее
+            </button> -->
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   </form>

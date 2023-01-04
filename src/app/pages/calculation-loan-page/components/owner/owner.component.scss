@@ -76,21 +76,22 @@
   width: 100%;
   display: flex;
   gap: 20px;
+
   .previous-kasko,
   .previous-osago {
     height: 8vh;
-    width: 30%;
+    min-width: 30%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     box-shadow: 2px 2px 19px rgba(52, 62, 72, 0.21);
     border-radius: 20px;
     background: #fefefe;
+    padding: 20px;
 
     &__item_label {
       display: flex;
       align-items: center;
-      font-family: 'Gilroy';
       font-style: normal;
       font-weight: 500;
       font-size: 30px;
@@ -176,6 +177,7 @@
 .gender {
   display: flex;
   flex-direction: column;
+  margin-right: 20px;
 
   &__title {
     font-style: normal;

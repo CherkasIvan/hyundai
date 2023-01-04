@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+
 import { CounterType } from '../../models/types/counter.type';
 
 export const counterButtonFeatureSelector =

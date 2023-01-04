@@ -12,8 +12,8 @@ export class InputSliderComponent {
   @Output() public componentValue: EventEmitter<number | string> =
     new EventEmitter<number | string>();
   public min: number = 0;
-  public max: number = 9999999;
-  public step: number = 1;
+  public max: number = 15000000;
+  public step: number = 500;
   public value: number | string = 0;
 
   public updateInputValue(event: MatSliderChange) {

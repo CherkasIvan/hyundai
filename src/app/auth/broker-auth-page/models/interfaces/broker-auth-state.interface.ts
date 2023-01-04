@@ -1,6 +1,4 @@
-// import {BackendErrorsInterface} from 'pages/shared/types/backendErrors.interface';
-
-import { BackendErrorsType } from 'src/app/shared/models/types/backendErrors.type';
+import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
 import { CurrentBrokerInterface } from './current-broker.interface';
 
 export interface BrokerAuthStateInterface {

@@ -1,0 +1,17 @@
+.tes-fieldset {
+  margin-top: 20px;
+
+  &-label {
+    font-weight: 400;
+    font-size: 16px;
+    color: #343e48;
+  }
+
+  &-basic-input {
+    margin-top: 10px;
+    width: 100%;
+    background: #f2f4f7;
+    border-radius: 8px;
+    padding: 17.5px 10px;
+  }
+}

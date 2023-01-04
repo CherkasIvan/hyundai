@@ -8,6 +8,7 @@
     type="text"
     class="form-group__item--input"
     placeholder="Поиск"
-    formControlName="serchFormInput"
+    formControlName="searchFormInput"
+    (input)="onSearchValue($event)"
   />
 </form>

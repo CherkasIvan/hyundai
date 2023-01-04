@@ -1,20 +1,20 @@
 <form [formGroup]="inputClearedForm">
-    <label class="form-group__item--label" for="clearedInput">
-      {{formControlTitle}}
-    </label>
-    <div class="clearer-container">
+  <label class="form-group__item--label" for="clearedInput">
+    {{ formControlTitle }}
+  </label>
+  <div class="clearer-container">
     <input
       id="clearedInput"
       type="text"
       class="form-group__item--input"
       formControlName="inputClearer"
     />
-    <input
-      type="button"
-      value="+"
+    <button
       class="clearer-container__clear button"
       (click)="clearInputValue()"
-      *ngIf='showClearer'
-    />
+      *ngIf="showClearer"
+    >
+      +
+    </button>
   </div>
 </form>

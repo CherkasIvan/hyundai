@@ -1,0 +1,21 @@
+export interface Client {
+    id: string,
+    client_id: string,
+    dealer_id: string,
+    created_at: string,
+    phone: string,
+    first_name: string,
+    last_name: string,
+    email: string,
+    active: number,
+    patronymic: string,
+    gender: number,
+    birthdate: string,
+    passport_number: string,
+    passport_issued_at: string,
+    passport_division_code: string,
+    residence_address: string,
+    marital_status: number,
+    kids_amount: number,
+    personal_data_policy_confirmation: boolean
+}

@@ -30,7 +30,49 @@
     .add-user-form {
       width: 100%;
       display: grid;
+      gap: 20px;
       grid-template-columns: 1fr 1fr;
+
+      .form-group__item {
+        display: flex;
+        flex-direction: column;
+
+        &--label {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          color: #343e48;
+        }
+
+        &--select,
+        &--input {
+          margin-top: 10px;
+          width: 100%;
+          background: #f2f4f7;
+          border-radius: 8px;
+          padding: 17.5px 10px;
+        }
+        &--options {
+          margin-top: 24px;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          accent-color: #72879e;
+        }
+      }
+    }
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+    .form-group__item--label {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #343e48;
     }
   }
 
@@ -39,6 +81,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 50px;
 
     > * {
       padding: 10px 50px;
@@ -55,4 +98,75 @@
       background: #343e48;
     }
   }
+}
+
+.education {
+  &__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 130%;
+    color: #343e48;
+  }
+
+  &__auto-registration {
+    padding: 11.5px 13px;
+    background: #ffffff;
+    border: 1px solid #72879e;
+    border-radius: 6px;
+
+    &-text {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: #343e48;
+    }
+
+    &-img {
+      margin-right: 10px;
+    }
+  }
+}
+
+.education {
+  display: flex;
+  flex-direction: column;
+
+  &__list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+
+    &--button {
+      background: #f2f4f7;
+      color: #343e48;
+      border-radius: 20px;
+    }
+  }
+}
+
+.change-options__button {
+  background: transparent;
+  padding: 10px 75px;
+  border: 1px solid #72879e;
+  border-radius: 6px;
+}
+
+.next-page__button {
+  align-self: flex-end;
+  margin-top: 70px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  background: #343e48;
+  padding: 14px 76px;
+  border-radius: 6px;
+  color: #ffffff;
+}
+
+.active {
+  background: #72879e !important;
+  color: #ffffff !important;
 }
