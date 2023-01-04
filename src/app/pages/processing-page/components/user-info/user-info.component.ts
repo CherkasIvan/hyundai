@@ -27,10 +27,14 @@ export class UserInfoComponent implements OnInit {
     width: '70px',
     height: '70px',
     language: 'ru',
+    hideDeleteBtn: true,
+    hideDownloadBtn: true,
+    hideEditBtn: true,
+    hideAddBtn: true,
   };
 
   public onImageChange(e: any) {
-    console.log(e);
+    // console.log(e);
   }
 
   public createNewUploader(): void {
