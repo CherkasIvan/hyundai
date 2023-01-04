@@ -17,7 +17,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { UserAuthRoutingModule } from './user-auth-page-routing.module';
 
 import { PersistenceService } from '../../shared/services/persistence.service';
-import { UserAuthService } from './services/user-auth.service';
+import { UserAuthService } from '../user-filter-page/services/user-auth.service';
 
 import { AuthTabsComponent } from './components/auth-tabs/auth-tabs.component';
 import { RegisterComponent } from './components/register/register.component';

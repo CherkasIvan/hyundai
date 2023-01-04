@@ -27,14 +27,14 @@ export class CommonDataService {
     email: 'adasdas@asdasd.ru',
   };
 
-  public editClientsDetails(): Observable<any> {
+  public editClientsDetails(body: any): Observable<any> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     const url = environment.apiUrl + '/editClientDetails';
 
     return this.http
-      .post<any>(url, this.clientsDetailsBody, { headers: httpHeaders })
+      .post<any>(url, body, { headers: httpHeaders })
       .pipe(tap((response: any) => console.log(response)));
   }
 

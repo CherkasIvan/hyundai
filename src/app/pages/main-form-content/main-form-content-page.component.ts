@@ -53,7 +53,11 @@ export class MainFormContentPageComponent implements OnInit {
   ];
 
   public navigationSteps: StepsInterface[] = [];
-  constructor(private _router: Router, private _route: ActivatedRoute) {
+  constructor(
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
+  ) {
+
     this.getRout();
   }
 
@@ -67,14 +71,15 @@ export class MainFormContentPageComponent implements OnInit {
       )
       .subscribe((el: NavigationEnd) => {
         this.routerLink = el.urlAfterRedirects;
+
         if (this._router.url.includes(routingPathEnum.LoanCalculationPage)) {
           this.navigationSteps = this.calculationPagesSteps;
         } else if (this._router.url.includes(routingPathEnum.ProcessingPage)) {
           this.navigationSteps = this.processingPagesSteps;
         }
       });
-    console.log(this.routerLink);
-    console.log(this._route?.routeConfig?.path); // ИСПОЛЬЗОВАТЬ ДЛЯ NgClass
+    console.log(this._activatedRoute.firstChild?.routeConfig?.path); // ИСПОЛЬЗОВАТЬ ДЛЯ NgClass
+
   }
 
   ngOnInit(): void {}

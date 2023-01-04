@@ -14,6 +14,7 @@ import { ModalService } from '../../shared/services/modal.service';
 import { MainFormContentPageComponent } from './main-form-content-page.component';
 import { MainFormHeaderComponent } from './componets/main-form-header/main-form-header.component';
 import { SideBarComponent } from './componets/side-bar/side-bar.component';
+import { SideBarService } from './services/side-bar.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { SideBarComponent } from './componets/side-bar/side-bar.component';
     SharedModule,
     MatTabsModule,
   ],
-  providers: [ModalService],
+  providers: [ModalService, SideBarService],
   exports: [MainFormContentPageComponent],
   bootstrap: [MainFormContentPageComponent],
 })
