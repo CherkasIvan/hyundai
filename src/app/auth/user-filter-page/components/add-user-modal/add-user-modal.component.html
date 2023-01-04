@@ -72,76 +72,25 @@
         />
       </fieldset>
 
-      <fieldset class="form-group__item--options">
-        <input
-          type="checkbox"
-          class="form-group__item checkbox"
-          formControlName="loan_program"
-          name="checkbox"
-        />
-        <label for="checkbox" class="form-group__item--label">
-          Есть кредитная программа
-        </label>
-      </fieldset>
+      <form [formGroup]="addNewClientForm">
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">Code</label>
+          <input
+            type="text"
+            formControlName="code"
+            class="form-group__item--input"
+          />
+        </fieldset>
 
-      <fieldset class="form-group__item--options">
-        <input
-          type="checkbox"
-          class="form-group__item checkbox"
-          formControlName="kasko"
-          name="checkbox"
-        />
-        <label for="checkbox" class="form-group__item--label">
-          Есть полис КАСКО
-        </label>
-      </fieldset>
-
-      <div class="education">
-        <div class="education__title">Образование</div>
-        <div class="education__list">
-          <button
-            class="education__list--button"
-            *ngFor="let typeOfEducation of educations; index as i"
-            type="button"
-            [ngClass]="{ active: selectedIndex === i }"
-            (click)="activateClass(i)"
-          >
-            {{ typeOfEducation }}
-          </button>
-        </div>
-      </div>
-
-      <fieldset class="form-group__item">
-        <label class="form-group__item--label">
-          Страховая
-          <select
-            (change)="changeInsurer($event)"
-            formControlName="insurens_agency"
-            class="form-group__item--select"
-            name="property_status
-        "
-          >
-            <option value="Не женат, не замужем">Не женат, не замужем</option>
-            <option value="У родителей">Холост</option>
-          </select></label
-        >
-      </fieldset>
-
-      <fieldset class="form-group__item">
-        <label class="form-group__item--label">
-          Банк
-          <select
-            (change)="changeBank($event)"
-            formControlName="bank"
-            class="form-group__item--select"
-            name="property_status
-        "
-          >
-            <option value="Не женат, не замужем">Не женат, не замужем</option>
-            <option value="У родителей">Холост</option>
-          </select></label
-        >
-      </fieldset>
+        <fieldset class="form-group__item">
+          <label class="form-group__item--label">Client id</label>
+          <input
+            type="text"
+            formControlName="client_id"
+            class="form-group__item--input"
+          />
+        </fieldset>
+      </form>
     </form>
   </main>
   <footer class="modal-buttons">

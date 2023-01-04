@@ -9,21 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddUserModalComponent implements OnInit {
   public modalTitle: string = 'Добавить клиента';
   public addUserForm!: FormGroup;
-  public educations: string[] = [
-    '1 год',
-    '2 года',
-    '3 года',
-    '5 лет',
-    '10 лет',
-    '15 лет',
-  ];
-  public selectedIndex: number = 0;
-  public activateClass(index: number): void {
-    this.selectedIndex = index;
-    this.addUserForm
-      .get('educations')
-      ?.patchValue(this.educations[this.selectedIndex]);
-  }
+  public addNewClientForm!: FormGroup;
 
   private initializeForm(): void {
     this.addUserForm = this._fb.group({
@@ -33,12 +19,13 @@ export class AddUserModalComponent implements OnInit {
       car_model: ['', Validators.required],
       client_email: ['', Validators.required],
       car_vin: ['', Validators.required],
-      loan_program: ['', Validators.required],
-      kasko: ['', Validators.required],
-      educations: ['', Validators.required],
-      insurens_agency: ['', Validators.required],
-      bank: ['', Validators.required],
+    });
+  }
+
+  private initializeNewClientForm(): void {
+    this.addNewClientForm = this._fb.group({
       code: ['', Validators.required],
+      client_id: ['', Validators.required],
     });
   }
 
@@ -51,7 +38,7 @@ export class AddUserModalComponent implements OnInit {
   }
 
   get getModel() {
-    return this.addUserForm.get('insurancePolicyTerm');
+    return this.addUserForm.get('car_model');
   }
 
   public changeCarBrand(e: Event) {
@@ -61,27 +48,7 @@ export class AddUserModalComponent implements OnInit {
   }
 
   get getCar() {
-    return this.addUserForm.get('insurancePolicyTerm');
-  }
-
-  public changeInsurer(e: Event) {
-    this.getCar?.setValue((e.target as HTMLInputElement).value, {
-      onlySelf: true,
-    });
-  }
-
-  get getInsurer() {
-    return this.addUserForm.get('insurancePolicyTerm');
-  }
-
-  public changeBank(e: Event) {
-    this.getCar?.setValue((e.target as HTMLInputElement).value, {
-      onlySelf: true,
-    });
-  }
-
-  get getBank() {
-    return this.addUserForm.get('insurancePolicyTerm');
+    return this.addUserForm.get('car_brand');
   }
 
   public saveForm(formData: FormGroup) {
@@ -90,5 +57,6 @@ export class AddUserModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.initializeNewClientForm();
   }
 }
