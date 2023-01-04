@@ -22,6 +22,7 @@ export class SideBarComponent implements OnInit {
 
   public selectionChanged($event: StepperSelectionEvent) {
     this._sideBarService.initIndex$.next($event.selectedIndex);
+
     this._router.url.includes(routingPathEnum.LoanCalculationPage)
       ? (this.selectedStepName = this.steps[$event.selectedIndex].path)
       : (this.selectedStepName = this.steps[$event.selectedIndex].path);
@@ -46,4 +47,5 @@ export class SideBarComponent implements OnInit {
       this.sideBarPercantage = el;
     });
   }
+
 }
