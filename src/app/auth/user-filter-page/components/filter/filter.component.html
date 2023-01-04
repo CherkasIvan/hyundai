@@ -52,7 +52,7 @@
 
     <fieldset class="form-group__item">
       <label class="form-group__item--label">
-        Страхование
+        Номер телефона
         <select
           (change)="changeInsurer($event)"
           formControlName="insurance"
@@ -74,6 +74,24 @@
         name="checkbox"
       />
       <label for="checkbox" class="filter-options__label">Есть кредит</label>
+    </fieldset>
+    <fieldset class="filter-options">
+      <input
+        type="checkbox"
+        class="filter-options__checkbox"
+        formControlName="have_loan"
+        name="checkbox"
+      />
+      <label for="checkbox" class="filter-options__label">Есть КАСКО</label>
+    </fieldset>
+    <fieldset class="filter-options">
+      <input
+        type="checkbox"
+        class="filter-options__checkbox"
+        formControlName="have_loan"
+        name="checkbox"
+      />
+      <label for="checkbox" class="filter-options__label">Есть ОСАГО</label>
     </fieldset>
 
     <div class="filter-buttons">

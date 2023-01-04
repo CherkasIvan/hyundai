@@ -1,0 +1,12 @@
+<fieldset class='tes-fieldset'>
+  <label class='tes-fieldset-label'>
+    {{ label }}
+  </label>
+  <input type='text'
+         class='tes-fieldset-basic-input'
+         [ngModel]='value'
+         [placeholder]="placeholder ?? ''"
+         (change)='onModelChange($event)'
+         (keyup)='onModelChange($event)'
+  >
+</fieldset>

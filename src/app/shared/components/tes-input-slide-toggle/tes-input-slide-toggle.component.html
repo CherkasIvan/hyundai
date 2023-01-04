@@ -1,0 +1,10 @@
+<fieldset class='tes-fieldset'>
+  <label class='toggle-switch'>
+    <input class='checkbox'
+           type='checkbox'
+           [(ngModel)]='value'
+           (ngModelChange)='onModelChange($event)'>
+    <span class='toggle-slider round'></span>
+  </label>
+  {{ label }}
+</fieldset>
