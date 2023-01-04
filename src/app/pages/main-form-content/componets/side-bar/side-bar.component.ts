@@ -23,22 +23,19 @@ export class SideBarComponent implements OnInit {
   public selectedStepName: string = '';
 
   public selectionChanged($event: StepperSelectionEvent) {
-    this.router.url.includes(routingPathEnum.LoanCalculationPage)
-      ? (this.selectedStepName =
-          this.mockData.calculationSteps[$event.selectedIndex].path)
-      : (this.selectedStepName =
-          this.mockData.processingSteps[$event.selectedIndex].path);
+    this._router.url.includes(routingPathEnum.LoanCalculationPage)
+      ? (this.selectedStepName = this.steps[$event.selectedIndex].path)
+      : (this.selectedStepName = this.steps[$event.selectedIndex].path);
 
-    let route: ActivatedRoute | null = this.activatedRoute.firstChild;
-    this.router.navigate([this.selectedStepName], {
+    let route: ActivatedRoute | null = this._activatedRoute.firstChild;
+    this._router.navigate([this.selectedStepName], {
       relativeTo: route,
     });
   }
 
   constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private mockData: MockDataService
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {}

@@ -4,7 +4,10 @@
 
     <div class="passport-data">
       <div class="passport-data__title">Паспортные данные</div>
-      <button class="passport-data__auto-registration">
+      <button
+        class="passport-data__auto-registration"
+        (click)="createNewUploader()"
+      >
         <img
           class="passport-data__auto-registration-img"
           src="/assets/images/photo.svg"
@@ -69,6 +72,15 @@
         </label>
       </fieldset>
     </div>
+
+    <ng-template #img>
+      <ngp-image-picker
+        [_config]="config"
+        ($imageChanged)="onImageChange($event)"
+      ></ngp-image-picker>
+    </ng-template>
+
+    <div class="dnd__container"><ng-container #content> </ng-container></div>
 
     <div class="residential-address">
       <div class="residential-address__title">Адрес проживания</div>

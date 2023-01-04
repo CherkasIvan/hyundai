@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ImagePickerConf, NgpImagePickerComponent } from 'ngp-image-picker';
 
 import { ModalService } from '../../../../shared/services/modal.service';
 
@@ -9,6 +16,25 @@ import { ModalService } from '../../../../shared/services/modal.service';
   styleUrls: ['./user-info.component.scss'],
 })
 export class UserInfoComponent implements OnInit {
+  @ViewChild('img', { read: TemplateRef }) img!: TemplateRef<any>;
+  @ViewChild('content', { read: ViewContainerRef })
+  contentRef!: ViewContainerRef;
+
+  config: ImagePickerConf = {
+    borderRadius: '8px',
+    width: '70px',
+    height: '70px',
+    language: 'ru',
+  };
+
+  onImageChange(e: any) {
+    console.log(e);
+  }
+
+  createNewUploader() {
+    this.contentRef.createEmbeddedView(this.img);
+  }
+
   public userInfoForm!: FormGroup;
   public kidsCouter: number = 0;
 
@@ -81,7 +107,11 @@ export class UserInfoComponent implements OnInit {
     return this.userInfoForm.get('familyStatus');
   }
 
-  constructor(private modalService: ModalService, private fb: FormBuilder) {}
+  constructor(
+    private modalService: ModalService,
+    private fb: FormBuilder,
+    private viewContainerRef: ViewContainerRef
+  ) {}
 
   public openInsuranceModal(): void {
     this.modalService.insurancePolicDialog();

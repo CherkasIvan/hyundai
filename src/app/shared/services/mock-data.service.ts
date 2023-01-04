@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { DocumentsInterface } from '../../pages/documents-payments-page/models/interfaces/documents.interface';
-import { StepsInterface } from '../../pages/main-form-content/models/interfaces/steps.interface';
-import { CalculationLoanDataInterface } from '../models/interfaces/calculation-loan-data.interface';
 import { InsuranceOptionsInterface } from '../models/interfaces/insurance-options.interface';
 import { ModalCardInterface } from '../models/interfaces/modal-card.interface';
 
@@ -47,123 +45,6 @@ export class MockDataService {
         { img: null, label: 'Счет' },
       ],
     },
-  ];
-
-  public calculationLoanData: CalculationLoanDataInterface[] = [
-    {
-      type: 'input',
-      templateOptions: {
-        label: 'VIN',
-        placeholder: 'Введите VIN',
-        required: true,
-      },
-    },
-    {
-      type: 'input',
-      templateOptions: {
-        label: 'Марка',
-        placeholder: 'Введите марку автомобиля',
-        required: true,
-      },
-    },
-    {
-      type: 'input',
-      templateOptions: {
-        label: 'Модель',
-        placeholder: 'Введите модель автомобиля',
-        required: true,
-      },
-    },
-    {
-      type: 'input',
-      templateOptions: {
-        label: 'Год выпуска',
-        placeholder: 'Введите год выпуска автомобиля',
-        required: true,
-      },
-    },
-    {
-      type: 'input',
-      templateOptions: {
-        label: 'ПТС',
-        placeholder: 'Введите год выпуска автомобиля из ПТС',
-        required: true,
-      },
-    },
-    {
-      type: 'input',
-      templateOptions: {
-        label: 'Объем двигателя',
-        placeholder: 'Введите объем двигателя автомобиля',
-        required: true,
-      },
-    },
-    {
-      type: 'select',
-      templateOptions: {
-        label: 'Трансмиссия автомобиля',
-        placeholder: 'Выберите тип трансмиссии автомобиля',
-        description: 'Выберите тип трансмиссии автомобиля',
-        required: true,
-        options: [
-          { value: 'Механическая', label: 'Механическая' },
-          { value: 'Автоматическая', label: 'Автоматическая' },
-        ],
-      },
-    },
-    {
-      type: 'radio',
-      templateOptions: {
-        label: 'Тип кузова',
-        options: [
-          { value: 1, label: 'Седан' },
-          { value: 2, label: 'Внедорожник' },
-          { value: 3, label: 'Универсал' },
-          { value: 4, label: 'Кроссовер' },
-          { value: 5, label: 'Хэтчбек' },
-          { value: 6, label: 'Минивэн' },
-        ],
-      },
-    },
-    {
-      type: 'input',
-      templateOptions: {
-        label: 'Стоимость авто, руб',
-        placeholder: 'Введите стоимость автомобиля',
-        required: true,
-      },
-    },
-    {
-      type: 'slider',
-      templateOptions: {
-        min: 0,
-        max: 7000000,
-        step: 1,
-      },
-    },
-    {
-      type: 'toggle',
-      templateOptions: {
-        label: 'Телематическая система',
-        required: true,
-      },
-    },
-  ];
-
-  public calculationSteps: StepsInterface[] = [
-    { content: 'Информация об автомобиле', path: 'car-info' },
-    { content: 'Собственник', path: 'owner' },
-    { content: 'Водители', path: 'drivers' },
-    { content: 'Параметры кредита', path: 'loan-params' },
-    { content: 'Параметры страховых продуктов', path: 'insurenses-params' },
-    { content: 'Расчет продуктов', path: 'product-calculation' },
-  ];
-
-  public processingSteps: StepsInterface[] = [
-    { content: 'Личная информация', path: 'client-info' },
-    { content: 'Работа', path: 'client-job' },
-    { content: 'Сводка', path: 'client-summary' },
-    { content: 'Одобрение', path: 'client-approval' },
   ];
 
   public insuranceCardsObjects: ModalCardInterface[] = [

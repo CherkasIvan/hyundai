@@ -18,6 +18,22 @@ export class MainFormContentPageComponent implements OnInit {
   public routerLink!: string;
   public selectedIndex: number = 0;
 
+  public calculationPagesSteps: StepsInterface[] = [
+    { content: 'Информация об автомобиле', path: 'car-info' },
+    { content: 'Собственник', path: 'owner' },
+    { content: 'Водители', path: 'drivers' },
+    { content: 'Параметры кредита', path: 'loan-params' },
+    { content: 'Параметры страховых продуктов', path: 'insurenses-params' },
+    { content: 'Расчет продуктов', path: 'product-calculation' },
+  ];
+
+  public processingPagesSteps: StepsInterface[] = [
+    { content: 'Личная информация', path: 'client-info' },
+    { content: 'Работа', path: 'client-job' },
+    { content: 'Сводка', path: 'client-summary' },
+    { content: 'Одобрение', path: 'client-approval' },
+  ];
+
   public navigationLinks = [
     {
       link: `${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`,
@@ -36,8 +52,8 @@ export class MainFormContentPageComponent implements OnInit {
     },
   ];
 
-  public calculationSteps: StepsInterface[] = [];
-  constructor(private _mockServise: MockDataService, private _router: Router) {
+  public navigationSteps: StepsInterface[] = [];
+  constructor(private _router: Router) {
     this.getRout();
   }
 
@@ -51,9 +67,11 @@ export class MainFormContentPageComponent implements OnInit {
       )
       .subscribe((el: NavigationEnd) => {
         this.routerLink = el.urlAfterRedirects;
-        this._router.url.includes(routingPathEnum.LoanCalculationPage)
-          ? (this.calculationSteps = this._mockServise.calculationSteps)
-          : (this.calculationSteps = this._mockServise.processingSteps);
+        if (this._router.url.includes(routingPathEnum.LoanCalculationPage)) {
+          this.navigationSteps = this.calculationPagesSteps;
+        } else if (this._router.url.includes(routingPathEnum.ProcessingPage)) {
+          this.navigationSteps = this.processingPagesSteps;
+        }
       });
   }
 
