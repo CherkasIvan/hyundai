@@ -14,6 +14,7 @@ import { GetUsersService } from '../../services/get-users.service';
 export class ClientsListComponent implements OnInit, AfterViewInit {
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public sortedData: any;
+  public client_profile: any;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
@@ -29,7 +30,10 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
     'Телефон',
   ];
 
-  constructor(private _getUsers: GetUsersService) {}
+  constructor(
+    private _getUsers: GetUsersService,
+    private _getUserService: GetUsersService
+  ) {}
 
   public compare(a: number | string, b: number | string, isAsc: boolean) {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
@@ -72,6 +76,10 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
       this.dataSource.data = el.clients;
       this.sortedData = el.clients.slice();
     });
+
+    this._getUserService.currentSearchValue$.subscribe((value) => {
+      this.searchFilter(value);
+    });
   }
 
   public ngAfterViewInit() {
@@ -81,5 +89,17 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  public searchFilter(searchValue: string) {
+    this.dataSource.filter = searchValue.trim().toLowerCase();
+  }
+
+  public selectedClient(client: any) {
+    const client_id = client.client_id;
+    console.log(client.client_id);
+    this._getUserService
+      .getClients({ ids: [client_id] })
+      .subscribe((value) => console.log(value));
   }
 }

@@ -52,7 +52,7 @@
           Дата выдачи
           <input
             type="text"
-            formControlName="date"
+            formControlName="passport_issue_date"
             class="form-group__item--input"
         /></label>
       </fieldset>
@@ -79,7 +79,7 @@
             Адрес регистрации
             <input
               type="text"
-              formControlName="passport_seria"
+              formControlName="residential_address"
               class="form-group__item--input"
           /></label>
         </fieldset>
@@ -89,7 +89,7 @@
             Дата регистрации
             <input
               type="text"
-              formControlName="born_place"
+              formControlName="registration_date"
               class="form-group__item--input"
           /></label>
         </fieldset>
@@ -99,7 +99,7 @@
             Адрес фактического проживания
             <input
               type="text"
-              formControlName="passport_office"
+              formControlName="address_of_actual_residence"
               class="form-group__item--input"
           /></label>
         </fieldset>
@@ -124,11 +124,11 @@
           <input
             type="checkbox"
             class="form-group__item checkbox"
-            formControlName="passport_chenged"
+            formControlName="matched_client_registered_address"
             name="checkbox"
           />
           <label for="checkbox" class="form-group__item--label">
-            Паспорт менялся
+            Совпадает с адресом регистрации
           </label>
         </fieldset>
       </div>

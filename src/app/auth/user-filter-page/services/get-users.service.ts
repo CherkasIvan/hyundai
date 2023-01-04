@@ -10,6 +10,9 @@ import { environment } from 'src/environments/environment';
 export class GetUsersService {
   public allClints$: BehaviorSubject<any> = new BehaviorSubject([]);
 
+  public searchValue$ = new BehaviorSubject<string>('');
+  public currentSearchValue$ = this.searchValue$.asObservable();
+
   constructor(private _http: HttpClient) {}
 
   public getClients(body = {}): Observable<any> {
@@ -24,5 +27,10 @@ export class GetUsersService {
         console.log(response);
       })
     );
+  }
+
+  public searchClient(searchValue: any) {
+    console.log(searchValue);
+    this.searchValue$.next(searchValue);
   }
 }
