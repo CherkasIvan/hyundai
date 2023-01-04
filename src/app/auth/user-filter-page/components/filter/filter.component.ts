@@ -75,8 +75,5 @@ export class FilterComponent implements OnInit, AfterViewChecked{
   }
 
   ngAfterViewChecked(): void {
-    // console.log(this.filterForm.get('have_osago')?.value)
-    
-    
   }
 }
