@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class SideBarService {

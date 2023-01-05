@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 
-import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
+import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
 
 import { StepsInterface } from '../../models/interfaces/steps.interface';
 import { SideBarService } from '../../services/side-bar.service';

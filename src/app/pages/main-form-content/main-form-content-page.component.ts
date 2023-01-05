@@ -3,8 +3,6 @@ import { NavigationEnd, Router, Event, ActivatedRoute } from '@angular/router';
 
 import { filter } from 'rxjs';
 
-import { MockDataService } from '../../shared/services/mock-data.service';
-
 import { routingPathEnum } from '../../shared/consts/routing-path-enum';
 
 import { StepsInterface } from './models/interfaces/steps.interface';
