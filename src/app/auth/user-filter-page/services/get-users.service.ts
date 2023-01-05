@@ -17,6 +17,10 @@ export class GetUsersService {
   public carMark$ = new BehaviorSubject<any>('');
   public clientCarMark$ = this.carMark$.asObservable();
 
+  public carMarkFilterValue$ = new BehaviorSubject<string>('');
+  public currentCarMarkFilterValue$ = this.carMarkFilterValue$.asObservable();
+
+
   constructor(private _http: HttpClient) {}
 
   public getClients(body = {}): Observable<any> {
@@ -39,5 +43,9 @@ export class GetUsersService {
 
   public setFilterParams (params: any) {
     this.carMark$.next(params);
+  }
+
+  public filterCarsMark (params: any) {
+    this.carMarkFilterValue$.next(params);
   }
 }

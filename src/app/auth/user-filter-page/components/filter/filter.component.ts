@@ -30,6 +30,8 @@ export class FilterComponent implements OnInit, AfterViewChecked{
     this.getCar?.setValue((e.target as HTMLInputElement).value, {
       onlySelf: true,
     });
+
+    this._getUsersService.filterCarsMark(this.getCar?.value);
   }
 
   get getCar() {

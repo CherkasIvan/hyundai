@@ -20,7 +20,7 @@ export class FilterInputComponent implements OnInit {
   }
 
   constructor(private _fb: FormBuilder,
-              private getUserService: GetUsersService) {}
+              private _getUserService: GetUsersService) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -29,7 +29,7 @@ export class FilterInputComponent implements OnInit {
   public onSearchValue(event: Event) {
     if (event.target) {
       this.searchValue = (event.target as HTMLInputElement).value;
-      this.getUserService.searchClient(this.searchValue);
+      this._getUserService.searchClient(this.searchValue);
     }
   }
 }
