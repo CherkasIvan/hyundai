@@ -16,7 +16,7 @@ import { BackendErrorsType } from '../../../../shared/models/types/backendErrors
 import { BrokerRegisterRequestInterface } from '../../models/interfaces/broker-register-request.interface';
 
 @Component({
-  selector: 'app-broker-auth-page',
+  selector: 'tes-broker-auth-page',
   templateUrl: './broker-auth-page.component.html',
   styleUrls: ['./broker-auth-page.component.scss'],
 })

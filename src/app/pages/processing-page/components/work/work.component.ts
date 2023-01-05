@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-work',
+  selector: 'tes-work',
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss'],
 })

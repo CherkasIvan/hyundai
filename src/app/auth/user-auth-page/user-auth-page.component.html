@@ -1,11 +1,11 @@
 <div class="auth-page">
   <div class="auth-page__container">
-    <app-register
+    <tes-register
       *ngIf="initialState.clientId === '' && initialState.testCode === ''"
-    ></app-register>
-    <app-authorization
+    ></tes-register>
+    <tes-authorization
       *ngIf="initialState.clientId != '' && initialState.testCode != ''"
-    ></app-authorization>
+    ></tes-authorization>
   </div>
 
   <div class="personal-service">

@@ -20,7 +20,7 @@ import { BackendErrorsType } from '../../../../shared/models/types/backendErrors
 import { BrokerRegisterRequestInterface } from '../../models/interfaces/broker-register-request.interface';
 
 @Component({
-  selector: 'app-auth-email-form',
+  selector: 'tes-auth-email-form',
   templateUrl: './auth-email-form.component.html',
   styleUrls: ['./auth-email-form.component.scss'],
 })

@@ -9,7 +9,7 @@ import { PersistenceService } from 'src/app/shared/services/persistence.service'
 import { UserAuthService } from '../../services/user-auth.service';
 
 @Component({
-  selector: 'app-add-user-modal',
+  selector: 'tes-add-user-modal',
   templateUrl: './add-user-modal.component.html',
   styleUrls: ['./add-user-modal.component.scss'],
 })

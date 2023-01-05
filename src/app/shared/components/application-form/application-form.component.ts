@@ -4,7 +4,7 @@ import { NavigationEnd, Router, Event } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
-  selector: 'app-application-form',
+  selector: 'tes-application-form',
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.scss'],
 })

@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <app-main-form-header></app-main-form-header>
+  <tes-main-form-header></tes-main-form-header>
 
   <nav class="nav-container" mat-tab-nav-bar>
     <a
@@ -14,10 +14,10 @@
     >
   </nav>
   <main class="main-container">
-    <app-side-bar
+    <tes-side-bar
       [steps]="navigationSteps"
       *ngIf="routerLink != '/main-page/documents-payments'"
-    ></app-side-bar>
+    ></tes-side-bar>
     <router-outlet></router-outlet>
   </main>
 </div>

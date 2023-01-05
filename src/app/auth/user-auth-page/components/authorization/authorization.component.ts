@@ -16,7 +16,7 @@ import { BackendErrorsType } from '../../../../shared/models/types/backendErrors
 import { UserRegisterRequestType } from '../../models/types/user-register-request.type';
 
 @Component({
-  selector: 'app-authorization',
+  selector: 'tes-authorization',
   templateUrl: './authorization.component.html',
   styleUrls: ['./authorization.component.scss'],
 })

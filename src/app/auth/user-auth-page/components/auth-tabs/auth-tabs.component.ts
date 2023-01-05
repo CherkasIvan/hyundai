@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
-  selector: 'app-auth-tabs',
+  selector: 'tes-auth-tabs',
   templateUrl: './auth-tabs.component.html',
   styleUrls: ['./auth-tabs.component.scss'],
 })

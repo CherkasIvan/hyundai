@@ -10,7 +10,7 @@ import { routingPathEnum } from '../../shared/consts/routing-path-enum';
 import { StepsInterface } from './models/interfaces/steps.interface';
 
 @Component({
-  selector: 'app-main-form-content-page',
+  selector: 'tes-main-form-content-page',
   templateUrl: './main-form-content-page.component.html',
   styleUrls: ['./main-form-content-page.component.scss'],
 })
@@ -57,7 +57,6 @@ export class MainFormContentPageComponent implements OnInit {
     private _router: Router,
     private _activatedRoute: ActivatedRoute
   ) {
-
     this.getRout();
   }
 
@@ -79,7 +78,6 @@ export class MainFormContentPageComponent implements OnInit {
         }
       });
     console.log(this._activatedRoute.firstChild?.routeConfig?.path); // ИСПОЛЬЗОВАТЬ ДЛЯ NgClass
-
   }
 
   ngOnInit(): void {}

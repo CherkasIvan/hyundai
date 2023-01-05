@@ -28,9 +28,6 @@ export class ClientDataService {
       time_to: '',
     });
 
-  
-
-
   constructor(private http: HttpClient) {}
 
   public getClientCars(client_id: string): Observable<ClientCarInterface[]> {
@@ -52,6 +49,4 @@ export class ClientDataService {
         })
       );
   }
-
-
 }

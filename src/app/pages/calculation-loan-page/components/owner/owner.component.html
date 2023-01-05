@@ -90,12 +90,12 @@
           </label>
         </fieldset>
       </div>
-      <app-input-clearer
+      <tes-input-clearer
         [formControlTitle]="'ФИО'"
         [showClearer]="true"
         (componentValue)="getFullName($event)"
       >
-      </app-input-clearer>
+      </tes-input-clearer>
       <div *ngIf="fullName" class="owner-personal-information wrapper">
         <div class="owner-personal-information">
           <div class="gender owner-personal-information__item">
@@ -198,9 +198,9 @@
                 </button>
               </div>
             </div>
-            <app-counter-button
+            <tes-counter-button
               (currentCountValue)="getKidsCount($event)"
-            ></app-counter-button>
+            ></tes-counter-button>
           </div>
         </div>
         <div class="owner-personal-information family">
@@ -237,11 +237,11 @@
               </fieldset>
             </div>
 
-            <app-submit-form-button
+            <tes-submit-form-button
               [formValues]="formOwnerOptions.value"
               [isDisable]="!formOwnerOptions.valid"
               buttonText="Далее"
-            ></app-submit-form-button>
+            ></tes-submit-form-button>
 
             <!-- <button
               class="next-page__button"

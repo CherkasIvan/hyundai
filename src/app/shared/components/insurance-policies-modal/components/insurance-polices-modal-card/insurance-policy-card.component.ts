@@ -1,16 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { ModalCardInterface } from '../../../../../shared/models/interfaces/modal-card.interface';
+import { InsurancePolicyCardInterface } from '../../../../models/interfaces/insurance-policy-card.interface';
 
 @Component({
-  selector: 'app-insurance-polices-modal-card',
-  templateUrl: './insurance-polices-modal-card.component.html',
-  styleUrls: ['./insurance-polices-modal-card.component.scss'],
+  selector: 'insurance-policy-card',
+  templateUrl: './insurance-policy-card.component.html',
+  styleUrls: ['./insurance-policy-card.component.scss'],
 })
-export class InsurancePolicesModalCardComponent implements OnInit {
+export class InsurancePolicyCardComponent implements OnInit {
   public isHiden: boolean = true;
 
-  @Input() public insuranceCompany!: ModalCardInterface;
+  @Input() public insuranceCompany!: InsurancePolicyCardInterface;
   @Output() public hideOptions: EventEmitter<boolean> =
     new EventEmitter<boolean>();
 

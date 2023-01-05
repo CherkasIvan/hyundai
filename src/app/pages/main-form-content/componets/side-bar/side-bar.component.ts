@@ -9,7 +9,7 @@ import { StepsInterface } from '../../models/interfaces/steps.interface';
 import { SideBarService } from '../../services/side-bar.service';
 
 @Component({
-  selector: 'app-side-bar',
+  selector: 'tes-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss'],
 })
@@ -47,5 +47,4 @@ export class SideBarComponent implements OnInit {
       this.sideBarPercantage = el;
     });
   }
-
 }
