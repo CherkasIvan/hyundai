@@ -1,8 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { Observable } from 'rxjs';
-import { GetUsersService } from 'src/app/auth/user-filter-page/services/get-users.service';
+import { GetUsersService } from '../../../auth/user-filter-page/services/get-users.service';
 
 @Component({
   selector: 'tes-filter-input',

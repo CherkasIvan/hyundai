@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MatDialog } from '@angular/material/dialog';
+
 import { InsurancePoliceCalculationDialog } from './dialogs/insurance-policy-calculation-dialog/insurance-policy-calculation-dialog.component';
+
 import { filter, map } from 'rxjs';
 
 @Component({

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { select, Store } from '@ngrx/store';
 
 import { MatTooltip } from '@angular/material/tooltip';
 
-import { select, Store } from '@ngrx/store';
 import { authBrokerAction } from '../../store/broker-auth.action';
 import {
   isBrokerSubmittingSelector,
