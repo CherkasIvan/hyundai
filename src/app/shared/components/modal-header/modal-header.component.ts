@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-modal-header',
+  selector: 'tes-modal-header',
   templateUrl: './modal-header.component.html',
   styleUrls: ['./modal-header.component.scss'],
 })

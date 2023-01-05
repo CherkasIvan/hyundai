@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MockDataService } from '../../../../services/mock-data.service';
 
 import { InsuranceOptionsInterface } from '../../../../../shared/models/interfaces/insurance-options.interface';
-import { ModalCardInterface } from '../../../../../shared/models/interfaces/modal-card.interface';
+import { InsurancePolicyCardInterface } from '../../../../models/interfaces/insurance-policy-card.interface';
 
 @Component({
   selector: 'app-insurance-polices-modal-body',
@@ -13,10 +13,10 @@ import { ModalCardInterface } from '../../../../../shared/models/interfaces/moda
 export class InsurancePolicesModalBodyComponent implements OnInit {
   public isHiden: boolean = true;
 
-  public cardsObjects: ModalCardInterface[] = [];
+  public cardsObjects: InsurancePolicyCardInterface[] = [];
   public options: InsuranceOptionsInterface[] = [];
 
-  public getCard(card: ModalCardInterface): ModalCardInterface[] {
+  public getCard(card: InsurancePolicyCardInterface): InsurancePolicyCardInterface[] {
     this.cardsObjects = [];
     this.cardsObjects.push(card);
     return this.cardsObjects;

@@ -19,7 +19,7 @@ export class ModalService {
 
   public insurancePolicDialog(): void {
     this._dialog.open(InsurancePoliciesModalComponent, {
-      maxHeight: '100%',
+      height: '100%',
       // maxHeight: '883px',
     });
   }

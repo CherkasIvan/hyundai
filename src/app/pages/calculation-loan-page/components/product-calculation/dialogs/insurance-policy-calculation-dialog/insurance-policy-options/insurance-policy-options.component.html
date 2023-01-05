@@ -1,0 +1,35 @@
+<div class='wrapper'>
+  <div class='row'>
+    <div class='col-12 block-title'>
+      Выберите опции
+    </div>
+  </div>
+
+  <div class="row options-container">
+    <div class='col-12'>
+      <div class='col-7'>
+        <form
+          [formGroup]="optionsModalForm"
+          (ngSubmit)="submitForm(optionsModalForm)"
+          class="options-form"
+        >
+          <div class="passport__form-group">
+            <tes-input-basic [label]='"Опция 1"' formControlName='option_1'></tes-input-basic>
+            <tes-input-basic [label]='"Опция 2"' formControlName='option_2'></tes-input-basic>
+            <tes-input-basic [label]='"Опция 3"' formControlName='option_3'></tes-input-basic>
+            <tes-input-basic [label]='"Опция 4"' formControlName='option_4'></tes-input-basic>
+          </div>
+        </form>
+      </div>
+      <div class='col'></div>
+
+      <button
+        class="submit-button"
+        (click)="submitForm(optionsModalForm)"
+      >
+        Пересчитать
+      </button>
+    </div>
+  </div>
+
+</div>

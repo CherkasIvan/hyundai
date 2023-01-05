@@ -1,10 +1,8 @@
 .modal-header {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-height: 74px;
-  padding: 20px 40px;
+  padding: 1rem 2rem;
   background: linear-gradient(
     180deg,
     #d8e1ea 0%,
@@ -12,13 +10,9 @@
   );
 
   &__title {
-    margin-right: 20px;
+    margin-right: 1rem;
     font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.015em;
+    font-size: 1.5rem;
     color: #343e48;
   }
 
@@ -26,8 +20,8 @@
     background-color: transparent;
     &--img {
       cursor: pointer;
-      width: 30px;
-      height: 30px;
+      width: 2rem;
+      height: 2rem;
       color: #72879e;
     }
   }

@@ -3,12 +3,12 @@
     <div class="modal-body__title">Выберите страховой полис</div>
     <div class="modal-body__cards">
       <div class="modal-body__cards--wrapper">
-        <app-insurance-polices-modal-card
+        <insurance-policy-card
           *ngFor="let card of cardsObjects; let i = index"
           [insuranceCompany]="card"
           (hideOptions)="readOutputValueEmitted($event)"
           (click)="getCard(card)"
-        ></app-insurance-polices-modal-card>
+        ></insurance-policy-card>
       </div>
 
       <app-insurance-polices-modal-options

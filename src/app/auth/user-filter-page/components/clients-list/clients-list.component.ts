@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
@@ -14,7 +14,7 @@ import { GetUsersService } from '../../services/get-users.service';
   templateUrl: './clients-list.component.html',
   styleUrls: ['./clients-list.component.scss'],
 })
-export class ClientsListComponent implements OnInit, AfterViewInit {
+export class ClientsListComponent implements OnInit, AfterViewInit, AfterViewChecked{
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public sortedData: any;
   public client_profile: any;
@@ -79,12 +79,21 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
   public ngOnInit(): void {
     this._getUsers.getClients().subscribe((el) => {
       this.dataSource.data = el.clients;
+      // this.dataSource.data = el.clients.filter((el: { first_name: any; }) => el.first_name);
       this.sortedData = el.clients.slice();
+      this._getUserService.setFilterParams(this.dataSource.data.filter((el) => el.first_name))
     });
 
     this._getUserService.currentSearchValue$.subscribe((value) => {
       this.searchFilter(value);
+
     });
+
+    this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
+      this.searchFilter(value);
+    }) 
+    
+    
   }
 
   public ngAfterViewInit() {
@@ -94,6 +103,13 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+
+   
+  }
+
+  public ngAfterViewChecked(): void {
+    // console.log(this.dataSource.filteredData); 
+       console.log(this.getTableData().filter((el) => el.first_name));
   }
 
   public searchFilter(searchValue: string) {
@@ -110,5 +126,9 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
         );
       }
     });
+  }
+
+  public getTableData(){
+    return this.dataSource.data;
   }
 }
