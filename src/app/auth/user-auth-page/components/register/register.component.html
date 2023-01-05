@@ -8,7 +8,7 @@
     </p>
   </div>
 
-  <app-auth-tabs>
+  <tes-auth-tabs>
     <form
       [formGroup]="registrationForm"
       (ngSubmit)="onSubmitRegistration()"
@@ -34,16 +34,16 @@
         <img src="/assets/images/login_button.svg" alt="login" />
       </button>
     </form>
-  </app-auth-tabs>
+  </tes-auth-tabs>
 </div>
 
 <!-- <p class="">
           <a [routerLink]="['/login']">Have an account?</a>
         </p> -->
-<!-- <app-backend-error-messages
+<!-- <tes-backend-error-messages
       *ngIf="backandErrors$ | async"
       [backendErrors]="backandErrors$ | async"
-    ></app-backend-error-messages> -->
+    ></tes-backend-error-messages> -->
 <!-- <div class="auth-buttons">
       <input type="button" value="Зарегистрироваться" />
       <input type="button" value="Войти" />

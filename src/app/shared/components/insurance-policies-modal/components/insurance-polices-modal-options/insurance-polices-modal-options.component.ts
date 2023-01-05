@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalSpecialOptionsinterface } from '../../../../../shared/models/interfaces/modal-special-options.interface';
 
 @Component({
-  selector: 'app-insurance-polices-modal-options',
+  selector: 'tes-insurance-polices-modal-options',
   templateUrl: './insurance-polices-modal-options.component.html',
   styleUrls: ['./insurance-polices-modal-options.component.scss'],
 })

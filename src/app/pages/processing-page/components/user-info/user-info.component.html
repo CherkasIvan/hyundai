@@ -7,6 +7,7 @@
       <button
         class="passport-data__auto-registration"
         (click)="createNewUploader()"
+        [disabled]="imgCounter >= 1"
       >
         <img
           class="passport-data__auto-registration-img"
@@ -73,11 +74,14 @@
       </fieldset>
     </div>
 
-    <ng-template #img>
-      <ngp-image-picker
-        [_config]="config"
-        ($imageChanged)="onImageChange($event)"
-      ></ngp-image-picker>
+    <ng-template #img let-options>
+      <div class="picker__container">
+        <ngp-image-picker
+          [_config]="config"
+          ($imageChanged)="onImageChange($event)"
+        ></ngp-image-picker>
+        <span class="picker__label">{{ options.descriptions }}</span>
+      </div>
     </ng-template>
 
     <div class="dnd__container"><ng-container #content> </ng-container></div>
@@ -183,9 +187,9 @@
         <fieldset class="form-group__item">
           <label class="form-group__item--label">
             Дети
-            <app-counter-button
+            <tes-counter-button
               (currentCountValue)="addChildren($event)"
-            ></app-counter-button
+            ></tes-counter-button
           ></label>
         </fieldset>
       </div>
@@ -197,28 +201,28 @@
         <fieldset class="form-group__item">
           <label class="form-group__item--label">
             Обязательные платежи*, ₽
-            <app-input-slider
+            <tes-input-slider
               (componentValue)="obligatoryPayments($event)"
-            ></app-input-slider>
+            ></tes-input-slider>
           </label>
         </fieldset>
 
         <fieldset class="form-group__item">
           <label class="form-group__item--label">
             Погашение кредитов*, ₽
-            <app-input-slider
+            <tes-input-slider
               (componentValue)="loanRepayment($event)"
-            ></app-input-slider
+            ></tes-input-slider
           ></label>
         </fieldset>
       </div>
     </div>
 
-    <app-submit-form-button
+    <tes-submit-form-button
       [formValues]="userInfoForm.value"
       [isDisable]="!userInfoForm.valid"
       buttonText="Продолжить"
-    ></app-submit-form-button>
+    ></tes-submit-form-button>
   </form>
 
   <!-- <button (click)="openInsuranceModal()">Open modal</button> -->

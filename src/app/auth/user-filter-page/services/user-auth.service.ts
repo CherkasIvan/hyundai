@@ -5,9 +5,9 @@ import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
 
-import { CurrentUserInterface } from '../models/interfaces/current-user.interface';
-import { UserAuthResponseInterface } from '../models/interfaces/user-auth-response.interface';
-import { UserRegisterRequestType } from '../models/types/user-register-request.type';
+import { CurrentUserInterface } from '../../user-auth-page/models/interfaces/current-user.interface';
+import { UserAuthResponseInterface } from '../../user-auth-page/models/interfaces/user-auth-response.interface';
+import { UserRegisterRequestType } from '../../user-auth-page/models/types/user-register-request.type';
 
 @Injectable()
 export class UserAuthService {
@@ -34,6 +34,7 @@ export class UserAuthService {
       .pipe(
         map((response: any) => response),
         tap((response: CurrentUserInterface) => {
+          console.log(response);
           this.userData$.next(response);
         })
       );

@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DocumentsInterface } from '../../models/interfaces/documents.interface';
 
 @Component({
-  selector: 'app-documents',
+  selector: 'tes-documents',
   templateUrl: './documents.component.html',
   styleUrls: ['./documents.component.scss'],
 })

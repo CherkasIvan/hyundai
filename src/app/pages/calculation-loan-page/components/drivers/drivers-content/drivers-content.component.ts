@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-drivers-content',
+  selector: 'tes-drivers-content',
   templateUrl: './drivers-content.component.html',
-  styleUrls: ['./drivers-content.component.scss']
+  styleUrls: ['./drivers-content.component.scss'],
 })
 export class DriversContentComponent implements OnInit {
   public formDriversData!: FormGroup;
@@ -28,8 +28,8 @@ export class DriversContentComponent implements OnInit {
           driver_licence_issued_by: ['ГИБДД 6421', Validators.required],
           driver_licence_issued_date: ['21.06.2019', Validators.required],
           driver_exp_start: ['21.06.2017', Validators.required],
-          driver_exp_same_as_license_issued: [false, Validators.required]
-        })
+          driver_exp_same_as_license_issued: [false, Validators.required],
+        }),
       ]),
     });
   }
@@ -42,9 +42,7 @@ export class DriversContentComponent implements OnInit {
     this.initializeForm();
   }
 
-  private initializeForm(): void {
-
-  }
+  private initializeForm(): void {}
 
   public onSubmitForm(): void {
     const body = this.formDriversData.value;

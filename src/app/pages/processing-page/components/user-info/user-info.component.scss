@@ -16,6 +16,21 @@
       margin-top: 16px;
     }
 
+    .picker__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .picker__label {
+        margin-top: 7px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #979797;
+      }
+    }
+
     .family__form-group,
     .residential-address__form-group,
     .passport__form-group {

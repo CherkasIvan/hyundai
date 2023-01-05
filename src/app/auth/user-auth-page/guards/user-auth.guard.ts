@@ -29,7 +29,6 @@ export class UserAuthGuard implements CanActivate {
     return this.store.pipe(
       select(userIsLoggedIn),
       tap((isLogged) => {
-        console.log(isLogged);
         if (!isLogged) {
           this.route.navigateByUrl('/');
         }

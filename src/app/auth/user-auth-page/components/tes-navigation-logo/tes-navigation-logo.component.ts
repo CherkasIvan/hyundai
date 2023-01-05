@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tes-navigation-logo',
+  selector: 'tes-tes-navigation-logo',
   templateUrl: './tes-navigation-logo.component.html',
   styleUrls: ['./tes-navigation-logo.component.scss'],
 })

@@ -162,9 +162,9 @@
           <fieldset class="form-group__item">
             <label class="form-group__item_label">
               Стоимость авто, руб
-              <app-input-slider
+              <tes-input-slider
                 (componentValue)="getCarPrice($event)"
-              ></app-input-slider>
+              ></tes-input-slider>
             </label>
           </fieldset>
           <div class="form-container-toggle">
@@ -257,11 +257,11 @@
         </div>
 
         <div class="car-info-details-form__button">
-          <app-submit-form-button
+          <tes-submit-form-button
             [formValues]="formCarOptions.value"
             [isDisable]="!formCarOptions.valid"
             buttonText="Далее"
-          ></app-submit-form-button>
+          ></tes-submit-form-button>
         </div>
       </form>
     </div>

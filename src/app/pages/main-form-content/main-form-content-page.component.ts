@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, Event } from '@angular/router';
+import { NavigationEnd, Router, Event, ActivatedRoute } from '@angular/router';
 
 import { filter } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { routingPathEnum } from '../../shared/consts/routing-path-enum';
 import { StepsInterface } from './models/interfaces/steps.interface';
 
 @Component({
-  selector: 'app-main-form-content-page',
+  selector: 'tes-main-form-content-page',
   templateUrl: './main-form-content-page.component.html',
   styleUrls: ['./main-form-content-page.component.scss'],
 })
@@ -53,7 +53,10 @@ export class MainFormContentPageComponent implements OnInit {
   ];
 
   public navigationSteps: StepsInterface[] = [];
-  constructor(private _router: Router) {
+  constructor(
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
+  ) {
     this.getRout();
   }
 
@@ -67,12 +70,14 @@ export class MainFormContentPageComponent implements OnInit {
       )
       .subscribe((el: NavigationEnd) => {
         this.routerLink = el.urlAfterRedirects;
+
         if (this._router.url.includes(routingPathEnum.LoanCalculationPage)) {
           this.navigationSteps = this.calculationPagesSteps;
         } else if (this._router.url.includes(routingPathEnum.ProcessingPage)) {
           this.navigationSteps = this.processingPagesSteps;
         }
       });
+    console.log(this._activatedRoute.firstChild?.routeConfig?.path); // ИСПОЛЬЗОВАТЬ ДЛЯ NgClass
   }
 
   ngOnInit(): void {}

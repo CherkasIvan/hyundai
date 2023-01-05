@@ -1,0 +1,51 @@
+<div class='row'>
+  <div class='col-12 block-title'>
+    Выберите страховой полис
+  </div>
+</div>
+
+<ng-container *ngFor='let card of insuranceCompanies; let i = index'>
+  <div class="card-body">
+    <div class="card-body__header">
+      <div class="card-body__header-card">
+        <img
+          class="card-body__header-img"
+          src="assets/images/insuranses/{{
+          card.img
+        }}"
+          alt="{{ card.img }}"
+        />
+      </div>
+
+      <span
+        class="card-body__header-status"
+        [ngClass]="card.status"
+      ></span>
+    </div>
+
+    <form class="card-content" *ngFor="let card of card.insurances">
+      <div class="card-content__form">
+        <input
+          type="checkbox"
+          class="card-content__form--checkbox"
+          [checked]="card.checkbox"
+        />
+        <label class="card-content__form--label">{{ card.label }}</label>
+      </div>
+
+      <div class="card-content__description">
+        {{ card.description }}
+      </div>
+
+      <div
+        class="card-content__options-button"
+        *ngIf="card.options"
+        (click)="sendIsHiddenValues()"
+      >
+        Настроить опции
+      </div>
+
+      <div class="card-content__price">{{ card.price }}</div>
+    </form>
+  </div>
+</ng-container>

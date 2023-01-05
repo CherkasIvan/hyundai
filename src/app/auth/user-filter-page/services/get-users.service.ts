@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,13 @@ export class GetUsersService {
 
   public searchValue$ = new BehaviorSubject<string>('');
   public currentSearchValue$ = this.searchValue$.asObservable();
+
+  public carMark$ = new BehaviorSubject<any>('');
+  public clientCarMark$ = this.carMark$.asObservable();
+
+  public carMarkFilterValue$ = new BehaviorSubject<string>('');
+  public currentCarMarkFilterValue$ = this.carMarkFilterValue$.asObservable();
+
 
   constructor(private _http: HttpClient) {}
 
@@ -24,13 +32,20 @@ export class GetUsersService {
     return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
       tap((response: any) => {
         this.allClints$.next(response.clients);
-        console.log(response);
+        // console.log(response);
       })
     );
   }
 
   public searchClient(searchValue: any) {
-    console.log(searchValue);
     this.searchValue$.next(searchValue);
+  }
+
+  public setFilterParams (params: any) {
+    this.carMark$.next(params);
+  }
+
+  public filterCarsMark (params: any) {
+    this.carMarkFilterValue$.next(params);
   }
 }

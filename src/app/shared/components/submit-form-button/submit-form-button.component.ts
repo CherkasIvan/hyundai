@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-submit-form-button',
+  selector: 'tes-submit-form-button',
   templateUrl: './submit-form-button.component.html',
   styleUrls: ['./submit-form-button.component.scss'],
 })

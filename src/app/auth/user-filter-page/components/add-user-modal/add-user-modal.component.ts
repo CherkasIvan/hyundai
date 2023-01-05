@@ -1,62 +1,110 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import { Router } from '@angular/router';
+import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
+import { CommonDataService } from 'src/app/shared/services/common-data.service';
+import { ModalService } from 'src/app/shared/services/modal.service';
+import { PersistenceService } from 'src/app/shared/services/persistence.service';
+import { UserAuthService } from '../../services/user-auth.service';
 
 @Component({
-  selector: 'app-add-user-modal',
+  selector: 'tes-add-user-modal',
   templateUrl: './add-user-modal.component.html',
   styleUrls: ['./add-user-modal.component.scss'],
 })
 export class AddUserModalComponent implements OnInit {
+  public indexOfTab!: number;
+  public onTabChange(event: MatTabChangeEvent) {
+    this.indexOfTab = event.index;
+  }
+
+  public nextStep() {
+    if (this.indexOfTab != 2) {
+      this.indexOfTab = this.indexOfTab + 1;
+    }
+  }
+
   public modalTitle: string = 'Добавить клиента';
   public addUserForm!: FormGroup;
   public addNewClientForm!: FormGroup;
+  public edditClientForm!: FormGroup;
 
-  private initializeForm(): void {
+  private initializeForms(): void {
     this.addUserForm = this._fb.group({
-      client_fullname: ['', Validators.required],
-      car_brand: ['', Validators.required],
-      client_phone: ['', Validators.required],
-      car_model: ['', Validators.required],
-      client_email: ['', Validators.required],
-      car_vin: ['', Validators.required],
+      phone: ['', Validators.required],
+      test: true,
     });
-  }
 
-  private initializeNewClientForm(): void {
     this.addNewClientForm = this._fb.group({
       code: ['', Validators.required],
-      client_id: ['', Validators.required],
+      clientId: ['', Validators.required],
+    });
+
+    this.edditClientForm = this._fb.group({
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      patronymic: ['', Validators.required],
+      email: ['', Validators.required],
     });
   }
 
-  constructor(private _fb: FormBuilder) {}
-
-  public changeModel(e: Event) {
-    this.getModel?.setValue((e.target as HTMLInputElement).value, {
-      onlySelf: true,
+  public initializeValues(): void {
+    this._userServics.userData$.subscribe((value) => {
+      this.addNewClientForm.patchValue({
+        clientId: value.clientId,
+        code: value.testCode,
+      });
     });
   }
 
-  get getModel() {
-    return this.addUserForm.get('car_model');
-  }
+  constructor(
+    private _fb: FormBuilder,
+    private _userServics: UserAuthService,
+    private _commonDatasService: CommonDataService,
+    private _persistensService: PersistenceService,
+    private _router: Router,
+    private _modalService: ModalService
+  ) {}
 
-  public changeCarBrand(e: Event) {
-    this.getCar?.setValue((e.target as HTMLInputElement).value, {
-      onlySelf: true,
-    });
-  }
+  public sendClientData(formData: FormGroup) {
+    if (formData.value.phone && formData.value.test) {
+      this._userServics.userRegister(formData.value).subscribe((el) => {
+        if (el) {
+          this.nextStep();
+        }
+      });
+    }
 
-  get getCar() {
-    return this.addUserForm.get('car_brand');
-  }
+    if (formData.value.code && formData.value.clientId) {
+      this._userServics.userAuth(formData.value).subscribe((el) => {
+        if (el) {
+          this.nextStep();
+        }
+      });
+    }
 
-  public saveForm(formData: FormGroup) {
-    console.log(formData.value);
+    if (
+      formData.value.first_name &&
+      formData.value.last_name &&
+      formData.value.patronymic &&
+      formData.value.email
+    ) {
+      const body = formData.value;
+      body.clientId = this.addNewClientForm.get('clientId')?.value;
+
+      this._persistensService.set('clientId', body.clientId);
+      this._commonDatasService.editClientsDetails(body).subscribe((el) => {
+        if (el) {
+        }
+      });
+      this._router.navigateByUrl(`/${routingPathEnum.ClientFilterAuth}`);
+    }
   }
 
   ngOnInit(): void {
-    this.initializeForm();
-    this.initializeNewClientForm();
+    this.indexOfTab = 0;
+    this.initializeForms();
+    this.initializeValues();
   }
 }

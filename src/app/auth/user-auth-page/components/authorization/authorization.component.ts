@@ -10,13 +10,13 @@ import { userAuthAction } from '../../store/actions/userAuth.action';
 
 import { Observable } from 'rxjs';
 
-import { UserAuthService } from '../../services/user-auth.service';
+import { UserAuthService } from '../../../user-filter-page/services/user-auth.service';
 
 import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
 import { UserRegisterRequestType } from '../../models/types/user-register-request.type';
 
 @Component({
-  selector: 'app-authorization',
+  selector: 'tes-authorization',
   templateUrl: './authorization.component.html',
   styleUrls: ['./authorization.component.scss'],
 })

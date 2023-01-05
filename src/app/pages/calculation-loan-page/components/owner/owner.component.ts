@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-owner',
+  selector: 'tes-owner',
   templateUrl: './owner.component.html',
   styleUrls: ['./owner.component.scss'],
 })

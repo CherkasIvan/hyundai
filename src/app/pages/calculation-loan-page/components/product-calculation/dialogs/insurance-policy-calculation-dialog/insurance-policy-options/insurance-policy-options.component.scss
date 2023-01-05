@@ -1,0 +1,27 @@
+.block-title {
+  color: #343e48;
+  margin-left: 1rem;
+}
+
+.options-container {
+  box-shadow: 2px 2px 19px rgba(52, 62, 72, 0.21);
+  border-radius: 20px;
+  margin: 1rem;
+
+  .options-form {
+    padding: 1rem;
+  }
+
+  .submit-button {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+    width: 14rem;
+    height: 2.5rem;
+    background: #343e48;
+    border-radius: 6px;
+  }
+}

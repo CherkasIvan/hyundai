@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 import { CommonDataService } from '../../../../shared/services/common-data.service';
 
 @Component({
-  selector: 'app-car-info',
+  selector: 'tes-car-info',
   templateUrl: './car-info.component.html',
   styleUrls: ['./car-info.component.scss'],
 })

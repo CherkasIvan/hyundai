@@ -1,11 +1,7 @@
 <div class="side-bar">
   <div class="progress-bar__container">
-    <div class="progress-bat-title">Заполнено {{ value }}%</div>
-    <mat-progress-bar
-      class="mat-progress-bar-item"
-      [value]="value"
-      [bufferValue]="bufferValue"
-    >
+    <div class="progress-bat-title">Заполнено {{ sideBarPercantage }}%</div>
+    <mat-progress-bar class="mat-progress-bar-item" [value]="sideBarPercantage">
     </mat-progress-bar>
   </div>
 
