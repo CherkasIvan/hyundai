@@ -20,14 +20,13 @@ export class GetUsersService {
   public carMarkFilterValue$ = new BehaviorSubject<string>('');
   public currentCarMarkFilterValue$ = this.carMarkFilterValue$.asObservable();
 
-
   constructor(private _http: HttpClient) {}
 
   public getClients(body = {}): Observable<any> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    const url = environment.apiUrl + '/getClients';
+    const url = environment.apiUrl + '/getCarsWithOwners';
 
     return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
       tap((response: any) => {
@@ -41,11 +40,11 @@ export class GetUsersService {
     this.searchValue$.next(searchValue);
   }
 
-  public setFilterParams (params: any) {
+  public setFilterParams(params: any) {
     this.carMark$.next(params);
   }
 
-  public filterCarsMark (params: any) {
+  public filterCarsMark(params: any) {
     this.carMarkFilterValue$.next(params);
   }
 }

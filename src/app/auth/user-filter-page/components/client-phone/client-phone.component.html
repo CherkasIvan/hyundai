@@ -1,0 +1,16 @@
+<form class="add-user-form" [formGroup]="clientPhoneForm">
+  <fieldset class="form-group__item">
+    <label class="form-group__item--label">Введите номер телефона</label>
+    <input
+      type="text"
+      formControlName="phone"
+      class="form-group__item--input"
+    />
+  </fieldset>
+  <input
+    class="modal-buttons__save"
+    type="button"
+    value="Получить код"
+    (click)="sendClientData(clientPhoneForm)"
+  />
+</form>

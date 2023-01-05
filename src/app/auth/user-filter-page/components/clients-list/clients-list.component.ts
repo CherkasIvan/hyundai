@@ -20,15 +20,13 @@ import { GetUsersService } from '../../services/get-users.service';
   templateUrl: './clients-list.component.html',
   styleUrls: ['./clients-list.component.scss'],
 })
-export class ClientsListComponent
-  implements OnInit, AfterViewInit, AfterViewChecked
-{
+export class ClientsListComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatPaginator, { static: true }) public paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: true }) public sort!: MatSort;
+
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public sortedData: any;
   public client_profile: any;
-
-  @ViewChild(MatPaginator, { static: true }) public paginator!: MatPaginator;
-  @ViewChild(MatSort, { static: true }) public sort!: MatSort;
 
   public displayedColumns: string[] = [
     'ФИО',
@@ -63,7 +61,7 @@ export class ClientsListComponent
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'ФИО':
-          return this.compare(a.name, b.name, isAsc);
+          return this.compare(a.first_name, b.first_name, isAsc);
         case 'Марка авто':
           return this.compare(a.calories, b.calories, isAsc);
         case 'модель':
@@ -87,8 +85,10 @@ export class ClientsListComponent
   public ngOnInit(): void {
     this._getUsers.getClients().subscribe((el) => {
       this.dataSource.data = el.clients;
-      // this.dataSource.data = el.clients.filter((el: { first_name: any; }) => el.first_name);
+
       this.sortedData = el.clients.slice();
+      console.log(this.sortedData);
+
       this._getUserService.setFilterParams(
         this.dataSource.data.filter((el) => el.first_name)
       );
@@ -112,10 +112,10 @@ export class ClientsListComponent
     }
   }
 
-  public ngAfterViewChecked(): void {
-    // console.log(this.dataSource.filteredData);
-    console.log(this.getTableData().filter((el) => el.first_name));
-  }
+  // public ngAfterViewChecked(): void {
+  //   // console.log(this.dataSource.filteredData);
+  //   console.log(this.getTableData().filter((el) => el.first_name));
+  // }
 
   public searchFilter(searchValue: string) {
     this.dataSource.filter = searchValue.trim().toLowerCase();
