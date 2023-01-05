@@ -4,7 +4,6 @@ import { DocumentsInterface } from '../../pages/documents-payments-page/models/i
 import { StepsInterface } from '../../pages/main-form-content/models/interfaces/steps.interface';
 import { CalculationLoanDataInterface } from '../models/interfaces/calculation-loan-data.interface';
 import { InsuranceOptionsInterface } from '../models/interfaces/insurance-options.interface';
-import { InsurancePolicyCardInterface } from '../models/interfaces/insurance-policy-card.interface';
 
 @Injectable({
   providedIn: 'root',
