@@ -10,6 +10,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
 import { PersistenceService } from 'src/app/shared/services/persistence.service';
 
@@ -87,12 +88,26 @@ export class ClientsListComponent
   public ngOnInit(): void {
     this._getUsers.getClients().subscribe((el) => {
       this.dataSource.data = el.clients;
-      // this.dataSource.data = el.clients.filter((el: { first_name: any; }) => el.first_name);
       this.sortedData = el.clients.slice();
-      this._getUserService.setFilterParams(
-        this.dataSource.data.filter((el) => el.first_name)
-      );
+
+      this._getUserService.setFilterCarMark(
+        this.dataSource.data.filter((el) => el.car_mark));
+
+      this._getUserService.setFilterCarModel(
+        this.dataSource.data.filter((el) => el.car_model));
     });
+
+  //  const filterValues$ = forkJoin({
+  //     search: this._getUserService.currentSearchValue$,
+  //     carMarkFilter: this._getUserService.currentCarMarkFilterValue$,
+  //     carModelFilter: this._getUserService.currentCarModelFilterValue$
+  //   })
+  //   .subscribe(({search, carMarkFilter, carModelFilter}) => {
+  //     console.log({search, carMarkFilter, carModelFilter});
+  //     this.searchFilter(search);
+  //     this.searchFilter(carMarkFilter);
+  //     this.searchFilter(carModelFilter);
+  //   });
 
     this._getUserService.currentSearchValue$.subscribe((value) => {
       this.searchFilter(value);
@@ -100,6 +115,20 @@ export class ClientsListComponent
 
     this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
       this.searchFilter(value);
+    });
+
+    this._getUserService.currentCarModelFilterValue$.subscribe((value) => {
+      this.searchFilter(value);
+    });
+
+    this._getUserService.hasLoanClients$.subscribe((value) => {
+      if(value) {
+       this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
+      } else {
+        this._getUsers.getClients().subscribe((el) => {
+          this.dataSource.data = el.clients;
+        })
+      }
     });
   }
 
@@ -113,8 +142,6 @@ export class ClientsListComponent
   }
 
   public ngAfterViewChecked(): void {
-    // console.log(this.dataSource.filteredData);
-    console.log(this.getTableData().filter((el) => el.first_name));
   }
 
   public searchFilter(searchValue: string) {

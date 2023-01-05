@@ -30,13 +30,15 @@
           class="form-group__item--select"
           name="property_status"
         >
-          <option value="Solaris">Solaris</option>
-          <option value="RIO">RIO</option>
+        <option *ngFor="let carModel of carModelFilterParams" [value]="carModel">
+          {{ carModel }}
+        </option>
         </select></label
       >
     </fieldset>
     <fieldset class="filter-options">
       <input
+        (change)="hasLoan($event)"
         type="checkbox"
         class="filter-options__checkbox"
         formControlName="have_loan"

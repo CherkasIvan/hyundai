@@ -11,6 +11,7 @@ import { GetUsersService } from '../../services/get-users.service';
 export class FilterComponent implements OnInit, AfterViewChecked {
   public filterForm!: FormGroup;
   public carMarkFilterParams: string[] = [];
+  public carModelFilterParams: string[] = [];
 
   constructor(
     private _fb: FormBuilder,
@@ -44,6 +45,8 @@ export class FilterComponent implements OnInit, AfterViewChecked {
     this.getModel?.setValue((e.target as HTMLInputElement).value, {
       onlySelf: true,
     });
+
+    this._getUsersService.filterCarsModel(this.getModel?.value)
   }
 
   get getModel() {
@@ -66,6 +69,12 @@ export class FilterComponent implements OnInit, AfterViewChecked {
 
   public clearFields() {
     this.filterForm.reset();
+    this._getUsersService.hasLoanFilter(false);
+  }
+
+  public hasLoan(e: Event) {
+    const hasLoanValue = this.filterForm.get('have_loan')?.value;
+    this._getUsersService.hasLoanFilter(hasLoanValue);
   }
 
   ngOnInit(): void {
@@ -73,9 +82,19 @@ export class FilterComponent implements OnInit, AfterViewChecked {
     this._getUsersService.clientCarMark$.subscribe((value) => {
       const arr = Array.from(value);
       arr.forEach((el: any) => {
-        this.carMarkFilterParams.push(el.first_name);
+        this.carMarkFilterParams.push(el.car_mark);
         this.carMarkFilterParams = Array.from(
           new Set(this.carMarkFilterParams)
+        );
+      });
+    });
+
+    this._getUsersService.clientCarModel$.subscribe((value) => {
+      const arr = Array.from(value);
+      arr.forEach((el: any) => {
+        this.carModelFilterParams.push(el.car_model);
+        this.carModelFilterParams = Array.from(
+          new Set(this.carModelFilterParams)
         );
       });
     });

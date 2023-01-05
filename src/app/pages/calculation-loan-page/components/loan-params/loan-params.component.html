@@ -1,1 +1,27 @@
-<p>loan-params works!</p>
+<div class="loan-params-container">
+    <div class="loan-params-title">Параметры кредита</div>
+    <form class="loan-params-form" [formGroup]="formLoanParams">
+        <fieldset class="loan-params-item">
+            <input
+              id="checkbox_telematicLoan"
+              type="checkbox"
+              class="loan-params-item__checkbox"
+              formControlName="isTelematicLoan"
+              name="checkbox_telematicLoan"
+            />
+            <label for="checkbox_telematicLoan" class="loan-params-item__label">
+              Телематический кредит
+            </label>
+          </fieldset>
+          <div class="loan-payments">
+            <fieldset class="loan-params-item">
+                <label class="loan-params-item__label">
+                    Первоначальный взнос, ₽
+                  <tes-input-slider
+                    (componentValue)="getInitialPayment($event)"
+                  ></tes-input-slider>
+                </label>
+              </fieldset>
+          </div>
+    </form>
+</div>
