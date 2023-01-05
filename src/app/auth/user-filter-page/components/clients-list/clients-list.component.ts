@@ -124,7 +124,7 @@ export class ClientsListComponent implements OnInit, AfterViewInit {
   public selectedClient(client: any) {
     const client_id = client.client_id;
     this._persistenceService.set('clientId', client_id);
-    this._getUserService.getClients({ ids: [client_id] }).subscribe(() => {
+    this._getUserService.getClients({ clientId: client_id }).subscribe(() => {
       if (this._persistenceService.getClientId() === client_id) {
         this._router.navigateByUrl(
           `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`

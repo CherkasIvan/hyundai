@@ -36,7 +36,6 @@ export class EditClientComponent implements OnInit {
     body.clientId = this.edditClientForm.get('clientId')?.value;
 
     this._persistensService.set('clientId', body.clientId);
-    console.log(body);
 
     forkJoin({
       requestOne: this._commonDatasService.editClientsDetails(body),

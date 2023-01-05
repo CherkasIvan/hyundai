@@ -49,4 +49,6 @@ export class ClientVerificationCodeComponent implements OnInit {
     this.initializeForms();
     this.initializeValues();
   }
+
+  ngOnDestroy(): void {}
 }

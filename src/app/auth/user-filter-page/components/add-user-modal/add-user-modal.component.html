@@ -17,7 +17,7 @@
         ></tes-client-phone>
       </mat-tab>
 
-      <mat-tab>
+      <mat-tab [disabled]="indexOfTab < 1">
         <ng-template mat-tab-label class="tab-item">
           <span class="tab-item__text">Веррификация клиента</span>
         </ng-template>
@@ -26,7 +26,7 @@
         ></tes-client-verification-code>
       </mat-tab>
 
-      <mat-tab>
+      <mat-tab [disabled]="indexOfTab < 2">
         <ng-template mat-tab-label class="tab-item">
           <span class="tab-item__text">Введите данные клиента</span>
         </ng-template>

@@ -7,14 +7,13 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
   styleUrls: ['./add-user-modal.component.scss'],
 })
 export class AddUserModalComponent implements OnInit {
-  public indexOfTab!: number;
+  public indexOfTab: number = 0;
 
   public onTabChange(event: MatTabChangeEvent) {
     this.indexOfTab = event.index;
   }
 
   public nextStep(index: number) {
-    console.log(index);
     if (this.indexOfTab != 2) {
       this.indexOfTab = index;
     }
@@ -24,7 +23,5 @@ export class AddUserModalComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.indexOfTab = 0;
-  }
+  ngOnInit(): void {}
 }
