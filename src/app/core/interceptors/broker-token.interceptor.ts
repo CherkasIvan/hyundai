@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
-import { PersistenceService } from '../shared/services/persistence.service';
+import { PersistenceService } from '../../shared/services/persistence.service';
 
 @Injectable()
 export class BrokerTokenInterceptor implements HttpInterceptor {
