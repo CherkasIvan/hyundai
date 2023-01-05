@@ -51,11 +51,15 @@ export class GetUsersService {
     this.searchValue$.next(searchValue);
   }
 
+  // public setFilterParams(params: any) {
+    
+  // }
+
   public setFilterCarMark (params: any) {
     this.carMark$.next(params);
   }
 
-  public filterCarsMark (params: any) {
+  public filterCarsMark(params: any) {
     this.carMarkFilterValue$.next(params);
   }
 

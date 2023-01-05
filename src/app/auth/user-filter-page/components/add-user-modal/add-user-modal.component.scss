@@ -25,42 +25,6 @@
     width: 100%;
     height: 100%;
     padding: 30px 45px;
-    margin-bottom: 45px;
-
-    .add-user-form {
-      width: 100%;
-      display: grid;
-      gap: 20px;
-      grid-template-rows: 1fr 1fr;
-
-      .form-group__item {
-        display: flex;
-        flex-direction: column;
-
-        &--label {
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 24px;
-          color: #343e48;
-        }
-
-        &--select,
-        &--input {
-          margin-top: 10px;
-          width: 100%;
-          background: #f2f4f7;
-          border-radius: 8px;
-          padding: 17.5px 10px;
-        }
-        &--options {
-          margin-top: 24px;
-          display: flex;
-          align-items: center;
-          flex-direction: row;
-          accent-color: #72879e;
-        }
-      }
-    }
   }
 
   .checkbox {
@@ -73,35 +37,6 @@
       font-size: 16px;
       line-height: 24px;
       color: #343e48;
-    }
-  }
-
-  .modal-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 50px;
-
-    > * {
-      padding: 10px 50px;
-      border-radius: 6px;
-    }
-
-    &__cancel {
-      background: #ffffff;
-      border: 1px solid #72879e;
-    }
-
-    &__save {
-      padding: 10px 50px;
-      align-self: center;
-      justify-self: center;
-      text-transform: uppercase;
-      border-radius: 8px;
-      max-width: 40%;
-      color: #ffffff;
-      background: #343e48;
     }
   }
 }

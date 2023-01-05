@@ -1,0 +1,22 @@
+<form class="add-user-form" [formGroup]="verificationClientForm">
+  <fieldset class="form-group__item">
+    <label class="form-group__item--label">Code</label>
+    <input type="text" formControlName="code" class="form-group__item--input" />
+  </fieldset>
+
+  <fieldset class="form-group__item">
+    <label class="form-group__item--label">Client id</label>
+    <input
+      type="text"
+      formControlName="clientId"
+      class="form-group__item--input"
+    />
+  </fieldset>
+
+  <input
+    class="modal-buttons__save"
+    type="button"
+    value="Далее"
+    (click)="sendClientData(verificationClientForm)"
+  />
+</form>

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators, FormGroup } from '@angular/forms';
 
+import { MatTooltip } from '@angular/material/tooltip';
+
 import { Store, select } from '@ngrx/store';
 import {
   isBrokerSubmittingSelector,
   validationBrokerErrorsSelector,
 } from '../../store/broker-auth.selectors';
 import { authBrokerAction } from '../../store/broker-auth.action';
-
-import { MatTooltip } from '@angular/material/tooltip';
 
 import { Observable } from 'rxjs';
 

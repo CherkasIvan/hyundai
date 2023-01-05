@@ -1,6 +1,6 @@
-import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { map } from 'rxjs';
+
 import { GetUsersService } from '../../services/get-users.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { GetUsersService } from '../../services/get-users.service';
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })
-export class FilterComponent implements OnInit, AfterViewChecked {
+export class FilterComponent implements OnInit, OnDestroy {
   public filterForm!: FormGroup;
   public carMarkFilterParams: string[] = [];
   public carModelFilterParams: string[] = [];
@@ -100,5 +100,5 @@ export class FilterComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  ngAfterViewChecked(): void {}
+  ngOnDestroy(): void {}
 }

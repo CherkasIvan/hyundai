@@ -11,8 +11,6 @@ import { MatTooltip } from '@angular/material/tooltip';
 
 import { Subscription } from 'rxjs';
 
-import { CommonDataService } from '../../../../shared/services/common-data.service';
-
 @Component({
   selector: 'tes-car-info',
   templateUrl: './car-info.component.html',
@@ -47,10 +45,7 @@ export class CarInfoComponent
   public value: number = 0;
   public car_telematic!: boolean;
   private car_telematic_sub: Subscription | undefined;
-  constructor(
-    private _fb: FormBuilder,
-    private commonDataService: CommonDataService
-  ) {}
+  constructor(private _fb: FormBuilder) {}
 
   public initializeForm(): void {
     this.formCarOptions = this._fb.group({

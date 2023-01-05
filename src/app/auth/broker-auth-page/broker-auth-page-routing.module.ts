@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { Routes, RouterModule } from '@angular/router';
 
 import { BrokerAuthPageComponent } from './components/broker-auth-page/broker-auth-page.component';

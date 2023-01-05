@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LoaderService {
-  private loading: boolean = false;
+  private _loading: boolean = false;
 
   constructor() {}
 
   public setLoading(loading: boolean) {
-    this.loading = loading;
+    this._loading = loading;
   }
 
   public getLoading(): boolean {
-    return this.loading;
+    return this._loading;
   }
 }

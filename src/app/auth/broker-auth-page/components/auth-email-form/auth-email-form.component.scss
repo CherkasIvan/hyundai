@@ -41,11 +41,6 @@
       font-size: 20px;
       line-height: 130%;
     }
-
-    &__validation-code:focus,
-    &__phone:focus {
-      background-color: #ffffff;
-    }
   }
 
   &-checkbox {
@@ -71,16 +66,6 @@
       border-radius: 2px;
       cursor: pointer;
     }
-
-    // &__success::after {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   height: 100%;
-    //   width: 100%;
-    //   background-color: transparent;
-    // }
   }
 
   &-button {
