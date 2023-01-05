@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+
 import { PaginationInterface } from '../../models/interfaces/paginator.interface';
 
 @Component({

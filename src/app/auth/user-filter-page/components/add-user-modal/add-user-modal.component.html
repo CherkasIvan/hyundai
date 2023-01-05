@@ -6,136 +6,32 @@
       mat-align-tabs="center"
       [selectedIndex]="indexOfTab"
       (selectedTabChange)="onTabChange($event)"
+      class="mat-tab-client-modal"
     >
       <mat-tab>
         <ng-template mat-tab-label class="tab-item">
-          <img
-            src="/assets/images/phone.svg"
-            class="tab-item__img"
-            alt="phone"
-          />
           <span class="tab-item__text">Номер регистрируемого пользователя</span>
         </ng-template>
-        <form class="add-user-form" [formGroup]="addUserForm">
-          <fieldset class="form-group__item">
-            <label class="form-group__item--label"
-              >Введите номер телефона</label
-            >
-            <input
-              type="text"
-              formControlName="phone"
-              class="form-group__item--input"
-            />
-          </fieldset>
-          <input
-            class="modal-buttons__save"
-            type="button"
-            value="Получить код"
-            (click)="sendClientData(addUserForm)"
-          />
-        </form>
+        <tes-client-phone
+          (nextStepOutput)="nextStep($event)"
+        ></tes-client-phone>
       </mat-tab>
 
-      <mat-tab>
+      <mat-tab [disabled]="indexOfTab < 1">
         <ng-template mat-tab-label class="tab-item">
-          <img src="/assets/images/vin.svg" class="tab-item__img" alt="vin" />
-          <span class="tab-item__text">По VIN</span>
+          <span class="tab-item__text">Веррификация клиента</span>
         </ng-template>
-
-        <form class="add-user-form" [formGroup]="addNewClientForm">
-          <fieldset class="form-group__item">
-            <label class="form-group__item--label">Code</label>
-            <input
-              type="text"
-              formControlName="code"
-              class="form-group__item--input"
-            />
-          </fieldset>
-
-          <fieldset class="form-group__item">
-            <label class="form-group__item--label">Client id</label>
-            <input
-              type="text"
-              formControlName="clientId"
-              class="form-group__item--input"
-            />
-          </fieldset>
-
-          <input
-            class="modal-buttons__save"
-            type="button"
-            value="Далее"
-            (click)="sendClientData(addNewClientForm)"
-          />
-        </form>
+        <tes-client-verification-code
+          (nextStepOutput)="nextStep($event)"
+        ></tes-client-verification-code>
       </mat-tab>
 
-      <mat-tab>
+      <mat-tab [disabled]="indexOfTab < 2">
         <ng-template mat-tab-label class="tab-item">
-          <img
-            src="/assets/images/number.svg"
-            class="tab-item__img"
-            alt="number"
-          />
-          <span class="tab-item__text">По гос.номеру</span>
+          <span class="tab-item__text">Введите данные клиента</span>
         </ng-template>
-
-        <form class="add-user-form" [formGroup]="edditClientForm">
-          <fieldset class="form-group__item">
-            <label class="form-group__item--label">Фмилия</label>
-            <input
-              type="text"
-              formControlName="last_name"
-              class="form-group__item--input"
-            />
-          </fieldset>
-          <fieldset class="form-group__item">
-            <label class="form-group__item--label">Имя</label>
-            <input
-              type="text"
-              formControlName="first_name"
-              class="form-group__item--input"
-            />
-          </fieldset>
-          <fieldset class="form-group__item">
-            <label class="form-group__item--label">Отчество</label>
-            <input
-              type="text"
-              formControlName="patronymic"
-              class="form-group__item--input"
-            />
-          </fieldset>
-          <fieldset class="form-group__item">
-            <label class="form-group__item--label">Email</label>
-            <input
-              type="text"
-              formControlName="email"
-              class="form-group__item--input"
-            />
-          </fieldset>
-          <input
-            class="modal-buttons__save"
-            type="button"
-            value="Изменить данные клиента"
-            (click)="sendClientData(edditClientForm)"
-          />
-        </form>
+        <tes-edit-client></tes-edit-client>
       </mat-tab>
     </mat-tab-group>
   </main>
-  <!-- <footer class="modal-buttons">
-    <input
-      class="modal-buttons__cancel"
-      type="button"
-      value="Отменить"
-      mat-button
-      mat-dialog-close
-    />
-    <input
-      class="modal-buttons__save"
-      type="button"
-      value="Сохранить"
-      (click)="sendClientPhone(addUserForm)"
-    />
-  </footer> -->
 </div>

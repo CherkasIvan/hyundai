@@ -14,9 +14,6 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import {UrlResolverService} from './pages/shared/services/url-resolver.service';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

@@ -21,6 +21,9 @@ import { UserFilterPageComponent } from './user-filter-page.component';
 import { AddUserModalComponent } from './components/add-user-modal/add-user-modal.component';
 import { ClientsListHeaderComponent } from './components/clients-list-header/clients-list-header.component';
 import { TablePaginatorComponent } from './components/table-paginator/table-paginator.component';
+import { ClientPhoneComponent } from './components/client-phone/client-phone.component';
+import { ClientVerificationCodeComponent } from './components/client-verification-code/client-verification-code.component';
+import { EditClientComponent } from './components/edit-client/edit-client.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { TablePaginatorComponent } from './components/table-paginator/table-pagi
     AddUserModalComponent,
     ClientsListHeaderComponent,
     TablePaginatorComponent,
+    ClientPhoneComponent,
+    ClientVerificationCodeComponent,
+    EditClientComponent,
   ],
   imports: [
     UserFilterPageRoutingModule,

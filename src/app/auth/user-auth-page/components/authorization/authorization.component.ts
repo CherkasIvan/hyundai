@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { select, Store } from '@ngrx/store';
@@ -8,7 +8,7 @@ import {
 } from '../../store/selectors/userAuth.selectors';
 import { userAuthAction } from '../../store/actions/userAuth.action';
 
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { UserAuthService } from '../../../user-filter-page/services/user-auth.service';
 
@@ -20,11 +20,13 @@ import { UserRegisterRequestType } from '../../models/types/user-register-reques
   templateUrl: './authorization.component.html',
   styleUrls: ['./authorization.component.scss'],
 })
-export class AuthorizationComponent implements OnInit {
+export class AuthorizationComponent implements OnInit, OnDestroy {
   public authForm!: FormGroup;
 
   public isSubmitting$?: Observable<boolean>;
   public backandErrors$!: Observable<BackendErrorsType | null>;
+
+  public authClientSub$: Subscription = new Subscription();
 
   constructor(
     private readonly _store: Store,
@@ -49,16 +51,22 @@ export class AuthorizationComponent implements OnInit {
     this.backandErrors$ = this._store.pipe(
       select(validationAuthErrorsSelector)
     );
-    this._userAuthService.userData$.subscribe((value) => {
-      this.authForm.patchValue({
-        clientId: value.clientId,
-        code: value.testCode,
-      });
-    });
+    this.authClientSub$.add(
+      this._userAuthService.userData$.subscribe((value) => {
+        this.authForm.patchValue({
+          clientId: value.clientId,
+          code: value.testCode,
+        });
+      })
+    );
   }
 
   public onSubmitAuth(): void {
     const request: UserRegisterRequestType = this.authForm.value;
     this._store.dispatch(userAuthAction({ request }));
+  }
+
+  public ngOnDestroy(): void {
+    this.authClientSub$.unsubscribe();
   }
 }

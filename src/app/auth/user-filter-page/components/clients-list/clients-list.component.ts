@@ -1,34 +1,36 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
-import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
-import { PersistenceService } from 'src/app/shared/services/persistence.service';
 
+import { Subscription } from 'rxjs';
+
+import { PersistenceService } from '../../../../shared/services/persistence.service';
 import { GetUsersService } from '../../services/get-users.service';
+
+import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
 
 @Component({
   selector: 'tes-clients-list',
   templateUrl: './clients-list.component.html',
   styleUrls: ['./clients-list.component.scss'],
 })
-export class ClientsListComponent
-  implements OnInit, AfterViewInit, AfterViewChecked
-{
+export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild(MatPaginator, { static: true }) public paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: true }) public sort!: MatSort;
+
+  public clientsListSub$: Subscription = new Subscription();
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public sortedData: any;
   public client_profile: any;
-
-  @ViewChild(MatPaginator, { static: true }) public paginator!: MatPaginator;
-  @ViewChild(MatSort, { static: true }) public sort!: MatSort;
 
   public displayedColumns: string[] = [
     'ФИО',
@@ -63,7 +65,7 @@ export class ClientsListComponent
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'ФИО':
-          return this.compare(a.name, b.name, isAsc);
+          return this.compare(a.first_name, b.first_name, isAsc);
         case 'Марка авто':
           return this.compare(a.calories, b.calories, isAsc);
         case 'модель':
@@ -85,22 +87,30 @@ export class ClientsListComponent
   }
 
   public ngOnInit(): void {
-    this._getUsers.getClients().subscribe((el) => {
-      this.dataSource.data = el.clients;
-      // this.dataSource.data = el.clients.filter((el: { first_name: any; }) => el.first_name);
-      this.sortedData = el.clients.slice();
-      this._getUserService.setFilterParams(
-        this.dataSource.data.filter((el) => el.first_name)
-      );
-    });
+    this.clientsListSub$.add(
+      this._getUsers.getClients().subscribe((el) => {
+        this.dataSource.data = el.clients;
 
-    this._getUserService.currentSearchValue$.subscribe((value) => {
-      this.searchFilter(value);
-    });
+        this.sortedData = el.clients.slice();
+        console.log(this.sortedData);
 
-    this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
-      this.searchFilter(value);
-    });
+        this._getUserService.setFilterParams(
+          this.dataSource.data.filter((el) => el.first_name)
+        );
+      })
+    );
+
+    this.clientsListSub$.add(
+      this._getUserService.currentSearchValue$.subscribe((value) => {
+        this.searchFilter(value);
+      })
+    );
+
+    this.clientsListSub$.add(
+      this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
+        this.searchFilter(value);
+      })
+    );
   }
 
   public ngAfterViewInit() {
@@ -112,10 +122,10 @@ export class ClientsListComponent
     }
   }
 
-  public ngAfterViewChecked(): void {
-    // console.log(this.dataSource.filteredData);
-    console.log(this.getTableData().filter((el) => el.first_name));
-  }
+  // public ngAfterViewChecked(): void {
+  //   // console.log(this.dataSource.filteredData);
+  //   console.log(this.getTableData().filter((el) => el.first_name));
+  // }
 
   public searchFilter(searchValue: string) {
     this.dataSource.filter = searchValue.trim().toLowerCase();
@@ -124,16 +134,22 @@ export class ClientsListComponent
   public selectedClient(client: any) {
     const client_id = client.client_id;
     this._persistenceService.set('clientId', client_id);
-    this._getUserService.getClients({ ids: [client_id] }).subscribe(() => {
-      if (this._persistenceService.getClientId() === client_id) {
-        this._router.navigateByUrl(
-          `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
-        );
-      }
-    });
+    this.clientsListSub$.add(
+      this._getUserService.getClients({ clientId: client_id }).subscribe(() => {
+        if (this._persistenceService.getClientId() === client_id) {
+          this._router.navigateByUrl(
+            `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
+          );
+        }
+      })
+    );
   }
 
   public getTableData() {
     return this.dataSource.data;
+  }
+
+  ngOnDestroy(): void {
+    this.clientsListSub$.unsubscribe();
   }
 }

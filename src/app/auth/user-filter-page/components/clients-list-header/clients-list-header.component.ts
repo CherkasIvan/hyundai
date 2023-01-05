@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from 'src/app/shared/services/modal.service';
+
+import { ModalService } from '../../../../shared/services/modal.service';
 
 @Component({
   selector: 'tes-clients-list-header',
