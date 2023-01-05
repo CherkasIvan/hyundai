@@ -4,7 +4,7 @@
   </header>
 
   <form class="filter-body" [formGroup]="filterForm">
-    <app-filter-input></app-filter-input>
+    <tes-filter-input></tes-filter-input>
     <fieldset class="form-group__item">
       <label class="form-group__item--label">
         Марка
@@ -12,8 +12,11 @@
           (change)="changeCarBrand($event)"
           formControlName="car_brand"
           class="form-group__item--select"
-          name="property_status">
-          <option *ngFor="let carMark of carMarkFilterParams" [value]="carMark">{{carMark}}</option>
+          name="property_status"
+        >
+          <option *ngFor="let carMark of carMarkFilterParams" [value]="carMark">
+            {{ carMark }}
+          </option>
         </select></label
       >
     </fieldset>
@@ -25,7 +28,8 @@
           (change)="changeModel($event)"
           formControlName="car_model"
           class="form-group__item--select"
-          name="property_status">
+          name="property_status"
+        >
           <option value="Solaris">Solaris</option>
           <option value="RIO">RIO</option>
         </select></label

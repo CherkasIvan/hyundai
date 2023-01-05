@@ -2,7 +2,7 @@ import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-insurenses-params',
+  selector: 'tes-insurenses-params',
   templateUrl: './insurenses-params.component.html',
   styleUrls: ['./insurenses-params.component.scss'],
 })

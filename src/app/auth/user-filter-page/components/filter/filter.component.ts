@@ -4,16 +4,18 @@ import { map } from 'rxjs';
 import { GetUsersService } from '../../services/get-users.service';
 
 @Component({
-  selector: 'app-filter',
+  selector: 'tes-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })
-export class FilterComponent implements OnInit, AfterViewChecked{
+export class FilterComponent implements OnInit, AfterViewChecked {
   public filterForm!: FormGroup;
   public carMarkFilterParams: string[] = [];
 
-  constructor(private _fb: FormBuilder,
-              private _getUsersService: GetUsersService) {}
+  constructor(
+    private _fb: FormBuilder,
+    private _getUsersService: GetUsersService
+  ) {}
 
   private initializeForm(): void {
     this.filterForm = this._fb.group({
@@ -68,17 +70,16 @@ export class FilterComponent implements OnInit, AfterViewChecked{
 
   ngOnInit(): void {
     this.initializeForm();
-    this._getUsersService.clientCarMark$
-    .subscribe((value) => {
+    this._getUsersService.clientCarMark$.subscribe((value) => {
       const arr = Array.from(value);
       arr.forEach((el: any) => {
-      this.carMarkFilterParams.push(el.first_name);
-      this.carMarkFilterParams = Array.from(new Set(this.carMarkFilterParams));
-    })
-    }
-    )
+        this.carMarkFilterParams.push(el.first_name);
+        this.carMarkFilterParams = Array.from(
+          new Set(this.carMarkFilterParams)
+        );
+      });
+    });
   }
 
-  ngAfterViewChecked(): void {
-  }
+  ngAfterViewChecked(): void {}
 }

@@ -105,9 +105,9 @@
       <fieldset class="form-group__item">
         <label class="form-group__item--label">
           Ежемесячный доход, ₽
-          <app-input-slider
+          <tes-input-slider
             (componentValue)="getMonthlyIncome($event)"
-          ></app-input-slider>
+          ></tes-input-slider>
         </label>
       </fieldset>
       <!-- <fieldset class="form-group__item">
@@ -123,11 +123,11 @@
     </div>
   </div>
 
-  <app-submit-form-button
+  <tes-submit-form-button
     [formValues]="userWorksForm.value"
     [isDisable]="!userWorksForm.valid"
     buttonText="Подать заявку в банк"
-  ></app-submit-form-button>
+  ></tes-submit-form-button>
 
   <!-- <button
     class="next-page__button"

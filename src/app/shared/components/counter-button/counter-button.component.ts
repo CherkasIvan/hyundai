@@ -14,7 +14,7 @@ import { getCounterButtonValue } from '../../store/selectors/counter-button.sele
 import { CounterType } from '../../models/types/counter.type';
 
 @Component({
-  selector: 'app-counter-button',
+  selector: 'tes-counter-button',
   templateUrl: './counter-button.component.html',
   styleUrls: ['./counter-button.component.scss'],
 })

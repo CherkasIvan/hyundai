@@ -4,7 +4,7 @@ import { Output, EventEmitter } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
-  selector: 'app-input-slider',
+  selector: 'tes-input-slider',
   templateUrl: './input-slider.component.html',
   styleUrls: ['./input-slider.component.scss'],
 })

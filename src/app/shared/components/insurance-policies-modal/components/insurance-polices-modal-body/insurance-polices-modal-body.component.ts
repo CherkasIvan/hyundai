@@ -6,7 +6,7 @@ import { InsuranceOptionsInterface } from '../../../../../shared/models/interfac
 import { InsurancePolicyCardInterface } from '../../../../models/interfaces/insurance-policy-card.interface';
 
 @Component({
-  selector: 'app-insurance-polices-modal-body',
+  selector: 'tes-insurance-polices-modal-body',
   templateUrl: './insurance-polices-modal-body.component.html',
   styleUrls: ['./insurance-polices-modal-body.component.scss'],
 })
@@ -16,7 +16,9 @@ export class InsurancePolicesModalBodyComponent implements OnInit {
   public cardsObjects: InsurancePolicyCardInterface[] = [];
   public options: InsuranceOptionsInterface[] = [];
 
-  public getCard(card: InsurancePolicyCardInterface): InsurancePolicyCardInterface[] {
+  public getCard(
+    card: InsurancePolicyCardInterface
+  ): InsurancePolicyCardInterface[] {
     this.cardsObjects = [];
     this.cardsObjects.push(card);
     return this.cardsObjects;

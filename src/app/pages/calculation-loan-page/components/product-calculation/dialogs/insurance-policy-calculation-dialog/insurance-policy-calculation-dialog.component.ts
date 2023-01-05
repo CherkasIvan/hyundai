@@ -5,9 +5,9 @@ import { InsuranceOptionsInterface } from 'src/app/shared/models/interfaces';
 import { MockDataService } from 'src/app/shared/services/mock-data.service';
 
 @Component({
-  selector: 'app-insurance-policy-calculation-dialog',
+  selector: 'tes-insurance-policy-calculation-dialog',
   templateUrl: './insurance-policy-calculation-dialog.component.html',
-  styleUrls: ['./insurance-policy-calculation-dialog.component.scss']
+  styleUrls: ['./insurance-policy-calculation-dialog.component.scss'],
 })
 export class InsurancePoliceCalculationDialog implements OnInit {
   public isOptionsHidden: boolean = true;
@@ -17,8 +17,8 @@ export class InsurancePoliceCalculationDialog implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: unknown,
-    private _mockDataService: MockDataService,
-  ) { }
+    private _mockDataService: MockDataService
+  ) {}
 
   public ngOnInit(): void {
     this.cards = this._mockDataService.insuranceCardsObjects;

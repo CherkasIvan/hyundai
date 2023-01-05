@@ -5,7 +5,7 @@ import { UserAuthService } from '../user-filter-page/services/user-auth.service'
 import { CurrentUserInterface } from './models/interfaces/current-user.interface';
 
 @Component({
-  selector: 'app-user-auth-page',
+  selector: 'tes-user-auth-page',
   templateUrl: './user-auth-page.component.html',
   styleUrls: ['./user-auth-page.component.scss'],
 })

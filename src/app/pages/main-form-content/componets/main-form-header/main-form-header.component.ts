@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-main-form-header',
+  selector: 'tes-main-form-header',
   templateUrl: './main-form-header.component.html',
   styleUrls: ['./main-form-header.component.scss'],
 })

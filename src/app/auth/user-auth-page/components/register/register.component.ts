@@ -16,7 +16,7 @@ import { BackendErrorsType } from '../../../../shared/models/types/backendErrors
 import { UserRegisterRequestType } from '../../models/types/user-register-request.type';
 
 @Component({
-  selector: 'app-register',
+  selector: 'tes-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

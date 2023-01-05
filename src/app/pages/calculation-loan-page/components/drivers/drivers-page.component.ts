@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-drivers',
+  selector: 'tes-drivers',
   templateUrl: './drivers-page.component.html',
-  styleUrls: ['./drivers-page.component.scss']
+  styleUrls: ['./drivers-page.component.scss'],
 })
 export class DriversPageComponent {}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-summary',
+  selector: 'tes-summary',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.scss'],
 })

@@ -1,12 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  ModalSpecialOptionsinterface
-} from 'src/app/shared/models/interfaces/modal-special-options.interface';
-
+import { ModalSpecialOptionsinterface } from 'src/app/shared/models/interfaces/modal-special-options.interface';
 
 @Component({
-  selector: 'app-insurance-policy-options',
+  selector: 'tes-insurance-policy-options',
   templateUrl: './insurance-policy-options.component.html',
   styleUrls: ['./insurance-policy-options.component.scss'],
 })

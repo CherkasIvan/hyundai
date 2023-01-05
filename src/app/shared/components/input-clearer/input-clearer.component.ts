@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-clearer',
+  selector: 'tes-input-clearer',
   templateUrl: './input-clearer.component.html',
   styleUrls: ['./input-clearer.component.scss'],
 })

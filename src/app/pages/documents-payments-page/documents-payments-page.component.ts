@@ -5,7 +5,7 @@ import { MockDataService } from '../../shared/services/mock-data.service';
 import { DocumentsInterface } from './models/interfaces/documents.interface';
 
 @Component({
-  selector: 'app-documents-payments-page',
+  selector: 'tes-documents-payments-page',
   templateUrl: './documents-payments-page.component.html',
   styleUrls: ['./documents-payments-page.component.scss'],
 })

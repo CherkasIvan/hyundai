@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-loan-params',
+  selector: 'tes-loan-params',
   templateUrl: './loan-params.component.html',
   styleUrls: ['./loan-params.component.scss'],
 })

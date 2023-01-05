@@ -2,7 +2,7 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { PaginationInterface } from '../../models/interfaces/paginator.interface';
 
 @Component({
-  selector: 'app-table-paginator',
+  selector: 'tes-table-paginator',
   templateUrl: './table-paginator.component.html',
   styleUrls: ['./table-paginator.component.scss'],
 })
