@@ -117,6 +117,9 @@
             class="modal-buttons__save"
             type="button"
             value="Изменить данные клиента"
+            mat-dialog-close
+            [disabled]="!edditClientForm.valid"
+            mat-button
             (click)="sendClientData(edditClientForm)"
           />
         </form>

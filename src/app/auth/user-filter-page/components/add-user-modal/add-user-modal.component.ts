@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { MatTabChangeEvent } from '@angular/material/tabs';
-import { Router } from '@angular/router';
-import { routingPathEnum } from 'src/app/shared/consts/routing-path-enum';
-import { CommonDataService } from 'src/app/shared/services/common-data.service';
-import { ModalService } from 'src/app/shared/services/modal.service';
-import { PersistenceService } from 'src/app/shared/services/persistence.service';
+
+import { forkJoin } from 'rxjs';
+
+import { CommonDataService } from '../../../../shared/services/common-data.service';
+import { PersistenceService } from '../../../../shared/services/persistence.service';
+import { GetUsersService } from '../../services/get-users.service';
 import { UserAuthService } from '../../services/user-auth.service';
 
 @Component({
@@ -61,10 +63,9 @@ export class AddUserModalComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private _userServics: UserAuthService,
+    private _getUsersServics: GetUsersService,
     private _commonDatasService: CommonDataService,
-    private _persistensService: PersistenceService,
-    private _router: Router,
-    private _modalService: ModalService
+    private _persistensService: PersistenceService
   ) {}
 
   public sendClientData(formData: FormGroup) {
@@ -94,11 +95,11 @@ export class AddUserModalComponent implements OnInit {
       body.clientId = this.addNewClientForm.get('clientId')?.value;
 
       this._persistensService.set('clientId', body.clientId);
-      this._commonDatasService.editClientsDetails(body).subscribe((el) => {
-        if (el) {
-        }
-      });
-      this._router.navigateByUrl(`/${routingPathEnum.ClientFilterAuth}`);
+
+      forkJoin({
+        requestOne: this._commonDatasService.editClientsDetails(body),
+        requestTwo: this._getUsersServics.getClients(),
+      }).subscribe();
     }
   }
 
