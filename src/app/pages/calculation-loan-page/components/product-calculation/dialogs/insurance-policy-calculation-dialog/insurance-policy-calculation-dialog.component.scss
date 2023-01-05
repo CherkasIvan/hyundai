@@ -21,3 +21,13 @@
     color: #ffffff;
   }
 }
+
+::ng-deep {
+  .mat-dialog-container {
+    overflow: hidden;
+  }
+
+  .mat-dialog-actions {
+    margin-bottom: 0;
+  }
+}
