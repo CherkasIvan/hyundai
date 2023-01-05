@@ -4,16 +4,17 @@ import {
   UntypedFormBuilder,
   Validators,
 } from '@angular/forms';
-import { MatTooltip } from '@angular/material/tooltip';
+
 import { Store, select } from '@ngrx/store';
-
-import { Observable } from 'rxjs';
-
 import { authBrokerAction } from '../../store/broker-auth.action';
 import {
   isBrokerSubmittingSelector,
   validationBrokerErrorsSelector,
 } from '../../store/broker-auth.selectors';
+
+import { MatTooltip } from '@angular/material/tooltip';
+
+import { Observable } from 'rxjs';
 
 import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
 import { BrokerRegisterRequestInterface } from '../../models/interfaces/broker-register-request.interface';

@@ -1,5 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { Subscription } from 'rxjs';
+
 import { UserAuthService } from '../../services/user-auth.service';
 
 @Component({
@@ -7,8 +16,10 @@ import { UserAuthService } from '../../services/user-auth.service';
   templateUrl: './client-verification-code.component.html',
   styleUrls: ['./client-verification-code.component.scss'],
 })
-export class ClientVerificationCodeComponent implements OnInit {
+export class ClientVerificationCodeComponent implements OnInit, OnDestroy {
   public verificationClientForm!: FormGroup;
+
+  public clientVerificationCodeSub$: Subscription = new Subscription();
 
   @Output() nextStepOutput = new EventEmitter<number>();
 
@@ -22,20 +33,24 @@ export class ClientVerificationCodeComponent implements OnInit {
   }
 
   public sendClientData(formData: FormGroup) {
-    this._userServics.userAuth(formData.value).subscribe((el) => {
-      if (el) {
-        this.nexStep(2);
-      }
-    });
+    this.clientVerificationCodeSub$.add(
+      this._userServics.userAuth(formData.value).subscribe((el) => {
+        if (el) {
+          this.nexStep(2);
+        }
+      })
+    );
   }
 
   private initializeValues(): void {
-    this._userServics.userData$.subscribe((value) => {
-      this.verificationClientForm.patchValue({
-        clientId: value.clientId,
-        code: value.testCode,
-      });
-    });
+    this.clientVerificationCodeSub$.add(
+      this._userServics.userData$.subscribe((value) => {
+        this.verificationClientForm.patchValue({
+          clientId: value.clientId,
+          code: value.testCode,
+        });
+      })
+    );
   }
 
   private initializeForms(): void {
@@ -50,5 +65,7 @@ export class ClientVerificationCodeComponent implements OnInit {
     this.initializeValues();
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    this.clientVerificationCodeSub$.unsubscribe();
+  }
 }

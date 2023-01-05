@@ -1,17 +1,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ofType } from '@ngrx/effects';
 import { Actions } from '@ngrx/effects';
 import { createEffect } from '@ngrx/effects';
-
-import { switchMap, map, catchError, of, tap } from 'rxjs';
-
 import {
   authBrokerAction,
   authBrokerSuccessAction,
   authBrokerFailureAction,
 } from './broker-auth.action';
+
+import { switchMap, map, catchError, of, tap } from 'rxjs';
 
 import { PersistenceService } from '../../../shared/services/persistence.service';
 import { BrokerAuthService } from '../service/broker-auth.service';

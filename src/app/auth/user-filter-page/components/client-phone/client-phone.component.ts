@@ -1,5 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { Subscription } from 'rxjs';
+
 import { UserAuthService } from '../../services/user-auth.service';
 
 @Component({
@@ -7,8 +16,10 @@ import { UserAuthService } from '../../services/user-auth.service';
   templateUrl: './client-phone.component.html',
   styleUrls: ['./client-phone.component.scss'],
 })
-export class ClientPhoneComponent implements OnInit {
+export class ClientPhoneComponent implements OnInit, OnDestroy {
   public clientPhoneForm!: FormGroup;
+
+  public clinentPhoneSub$: Subscription = new Subscription();
 
   @Output() nextStepOutput = new EventEmitter<number>();
 
@@ -29,14 +40,20 @@ export class ClientPhoneComponent implements OnInit {
   }
 
   public sendClientData(formData: FormGroup) {
-    this._userServics.userRegister(formData.value).subscribe((el) => {
-      if (el) {
-        this.nexStep(1);
-      }
-    });
+    this.clinentPhoneSub$.add(
+      this._userServics.userRegister(formData.value).subscribe((el) => {
+        if (el) {
+          this.nexStep(1);
+        }
+      })
+    );
   }
 
   ngOnInit(): void {
     this.initializeForms();
+  }
+
+  ngOnDestroy(): void {
+    this.clinentPhoneSub$.unsubscribe();
   }
 }
