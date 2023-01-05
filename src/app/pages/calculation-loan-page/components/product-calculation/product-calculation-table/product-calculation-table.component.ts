@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./product-calculation-table.component.scss'],
 })
 export class ProductCalculationTableComponent implements OnInit {
-  @Input() data!: unknown[];
+  @Input() public data!: unknown[];
 
-  displayedColumns: string[] = [
+  public displayedColumns: string[] = [
     'product',
     'credit',
     'insuranceCompany',

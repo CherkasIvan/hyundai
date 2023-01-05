@@ -1,8 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
+
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { InsurancePolicyCardInterface } from 'src/app/shared/models/interfaces';
-import { InsuranceOptionsInterface } from 'src/app/shared/models/interfaces';
-import { MockDataService } from 'src/app/shared/services/mock-data.service';
+
+import { MockDataService } from '../../../../../../shared/services/mock-data.service';
+
+import { InsurancePolicyCardInterface } from '../../../../../../shared/models/interfaces';
+import { InsuranceOptionsInterface } from '../../../../../../shared/models/interfaces';
 
 @Component({
   selector: 'tes-insurance-policy-calculation-dialog',
