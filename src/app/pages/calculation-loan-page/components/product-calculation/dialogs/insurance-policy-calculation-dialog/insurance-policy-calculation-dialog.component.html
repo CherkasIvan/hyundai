@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+  <tes-modal-header [title]="'Настройка страховых полисов'"></tes-modal-header>
+</div>
+<mat-dialog-content>
+  <div class='container modal-body'>
+    <div class='row-cols-auto d-flex flex-row modal-body__cards'>
+      <div class='col-6'>
+        <div class='row'>
+          <div class='col-12'>
+            <insurance-policy-card [insuranceCompanies]='cards'
+                                   (hideOptions)='hideOptions()'
+            ></insurance-policy-card>
+          </div>
+        </div>
+      </div>
+      <div class='col-6 ms-4' *ngIf='!isOptionsHidden'>
+        <div class='row'>
+          <div class='col-12'>
+            <app-insurance-policy-options
+              *ngIf='!isOptionsHidden'
+              [specialOptions]='options'
+            ></app-insurance-policy-options>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align='center'>
+  <button class='modal-body__save-changes-button' mat-button mat-dialog-close='true'>
+    Сохранить изменения
+  </button>
+</mat-dialog-actions>

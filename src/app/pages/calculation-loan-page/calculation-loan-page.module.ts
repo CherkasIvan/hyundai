@@ -16,8 +16,19 @@ import { OwnerComponent } from './components/owner/owner.component';
 import { DriversPageComponent } from './components/drivers/drivers-page.component';
 import { LoanParamsComponent } from './components/loan-params/loan-params.component';
 import { InsurensesParamsComponent } from './components/insurenses-params/insurenses-params.component';
-import { ProductCalculationComponent } from './components/product-calculation/product-calculation.component';
 import { DriversContentComponent } from './components/drivers/drivers-content/drivers-content.component';
+import {
+  InsurancePoliceCalculationDialog
+} from './components/product-calculation/dialogs/insurance-policy-calculation-dialog/insurance-policy-calculation-dialog.component';
+import {
+  InsurancePolicyCardComponent
+} from './components/product-calculation/dialogs/insurance-policy-calculation-dialog/insurance-policy-card/insurance-policy-card.component';
+import {
+  InsurancePolicyOptionsComponent
+} from './components/product-calculation/dialogs/insurance-policy-calculation-dialog/insurance-policy-options/insurance-policy-options.component';
+import { MatTableModule } from '@angular/material/table';
+import { ProductCalculationPageComponent } from './components/product-calculation/product-calculation-page.component';
+import { ProductCalculationTableComponent } from './components/product-calculation/product-calculation-table/product-calculation-table.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +37,12 @@ import { DriversContentComponent } from './components/drivers/drivers-content/dr
     DriversPageComponent,
     LoanParamsComponent,
     InsurensesParamsComponent,
-    ProductCalculationComponent,
     DriversContentComponent,
+    InsurancePoliceCalculationDialog,
+    InsurancePolicyCardComponent,
+    InsurancePolicyOptionsComponent,
+    ProductCalculationPageComponent,
+    ProductCalculationTableComponent,
   ],
   exports: [CarInfoComponent],
   imports: [
@@ -36,6 +51,7 @@ import { DriversContentComponent } from './components/drivers/drivers-content/dr
     SharedModule,
     StoreModule.forFeature('calculationLoanPage', reducers),
     EffectsModule.forFeature([CalcultionLoanPageEffects]),
+    MatTableModule
   ],
   providers: [ClientDataService],
 })

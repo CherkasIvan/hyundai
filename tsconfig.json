@@ -25,5 +25,8 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "paths": {
+    "@shared/interfaces": ["src/app/shared/models/interfaces/index.ts"],
   }
 }
