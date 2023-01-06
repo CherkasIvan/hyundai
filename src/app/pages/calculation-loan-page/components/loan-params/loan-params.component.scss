@@ -57,3 +57,36 @@
       color: #343e48;
     }
   }
+
+  .loan-payments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 160px;
+  }
+
+  .loan-params {
+    &__list {
+      width: 100%;
+      margin-top: 20px;
+      width: 60%;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+
+      &-item {
+        color: #343e48;
+        padding: 10px 30px;
+        background: #f2f4f7;
+        border-radius: 20px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+      }
+    }
+  }
+
+  .active-loan-term {
+    background: #72879e;
+    color: #ffffff;
+  }
