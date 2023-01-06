@@ -24,6 +24,7 @@ import { SubmitFormButtonComponent } from './components/submit-form-button/submi
 import { TesInputBasicComponent } from './components/tes-input-basic/tes-input-basic.component';
 import { TesInputCheckboxComponent } from './components/tes-input-checkbox/tes-input-checkbox.component';
 import { TesInputSlideToggleComponent } from './components/tes-input-slide-toggle/tes-input-slide-toggle.component';
+import { TesButtonComponent } from './components/tes-button/tes-button.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { TesInputSlideToggleComponent } from './components/tes-input-slide-toggl
     TesInputBasicComponent,
     TesInputCheckboxComponent,
     TesInputSlideToggleComponent,
+    TesButtonComponent,
   ],
   imports: [
     FormsModule,
@@ -72,6 +74,7 @@ import { TesInputSlideToggleComponent } from './components/tes-input-slide-toggl
     TesInputBasicComponent,
     TesInputCheckboxComponent,
     TesInputSlideToggleComponent,
+    TesButtonComponent
   ]
 })
 export class SharedModule {}

@@ -1,2 +1,20 @@
-<tes-product-calculation-table [data]="data"></tes-product-calculation-table>
-<button (click)="openCalculateDialog()">open dialog</button>
+<div class='tes-wrapper'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-12 tes-wrapper-title'>
+        Расчет страховых полисов
+      </div>
+      <div class='col-12'>
+        <div class='tes-wrapper-content'>
+          <tes-product-calculation-table [data]='data'></tes-product-calculation-table>
+        </div>
+      </div>
+      <div class='col-12'>
+        <div class='tes-wrapper-buttons'>
+          <tes-button [title]='"Изменить"' [color]='"secondary"' (click)='openCalculateDialog()'></tes-button>
+          <tes-button [title]='"Подтвердить"' [color]='"primary"'></tes-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

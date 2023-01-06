@@ -1,27 +1,48 @@
-<table mat-table [dataSource]="data" class="mat-elevation-z8">
-  <ng-container matColumnDef="product">
-    <th mat-header-cell *matHeaderCellDef> Продукт </th>
-    <td mat-cell *matCellDef="let element"> {{element.product}} </td>
-  </ng-container>
+<div class='status-info-block d-flex justify-content-end'>
+  <img [src]='"assets/images/offer-status-green.svg"' alt=''>
+  <span>Приоритетное предложение</span>
+  <img [src]='"assets/images/offer-status-yellow.svg"' alt=''>
+  <span>Средний приоритет</span>
+  <img [src]='"assets/images/offer-status-red.svg"' alt=''>
+  <span>Средний приоритет</span>
+</div>
+<div class='client-list-container'>
+  <div class='table-container'>
+    <table mat-table [dataSource]='data' class='clients-table'>
+      <ng-container matColumnDef='product'>
+        <th mat-header-cell *matHeaderCellDef> Продукт</th>
+        <td mat-cell *matCellDef='let element'> {{element.product}} </td>
+      </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="credit">
-    <th mat-header-cell *matHeaderCellDef> В кредит </th>
-    <td mat-cell *matCellDef="let element"> {{element.credit}} </td>
-  </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef='credit'>
+        <th class='text-center' mat-header-cell *matHeaderCellDef> В кредит</th>
+        <td class='text-center' mat-cell *matCellDef='let element'>
+          <input class='checkbox' type='checkbox' [(ngModel)]='element.credit'>
+        </td>
+      </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="insuranceCompany">
-    <th mat-header-cell *matHeaderCellDef> Страховая компания </th>
-    <td mat-cell *matCellDef="let element"> {{element.insuranceCompany}} </td>
-  </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef='insuranceCompany'>
+        <th class='text-center' mat-header-cell *matHeaderCellDef> Страховая компания</th>
+        <td class='text-center' mat-cell *matCellDef='let element'>
+          <img src='assets/images/sovkom_logo.svg' alt='' class='insurance-elevation'>
+        </td>
+      </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef> Стоимость </th>
-    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
-  </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef='price'>
+        <th class='text-center' mat-header-cell *matHeaderCellDef> Стоимость</th>
+        <td mat-cell *matCellDef='let element'>
+          <span class='ms-3'>
+          {{element.price | currency: 'RUB':'₽':'1.0-0'}}
+          </span>
+        </td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+      <tr mat-header-row *matHeaderRowDef='displayedColumns'></tr>
+      <tr mat-row *matRowDef='let row; columns: displayedColumns;'></tr>
+    </table>
+
+  </div>
+</div>

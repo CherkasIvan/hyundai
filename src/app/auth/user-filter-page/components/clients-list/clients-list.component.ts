@@ -112,18 +112,6 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       this.searchFilter(value);
     }))
 
-  //  const filterValues$ = forkJoin({
-  //     search: this._getUserService.currentSearchValue$,
-  //     carMarkFilter: this._getUserService.currentCarMarkFilterValue$,
-  //     carModelFilter: this._getUserService.currentCarModelFilterValue$
-  //   })
-  //   .subscribe(({search, carMarkFilter, carModelFilter}) => {
-  //     console.log({search, carMarkFilter, carModelFilter});
-  //     this.searchFilter(search);
-  //     this.searchFilter(carMarkFilter);
-  //     this.searchFilter(carModelFilter);
-  //   });
-
     this._getUserService.hasLoanClients$.subscribe((value) => {
       if(value) {
        this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)

@@ -10,17 +10,14 @@
       <div class="card-body__header-card">
         <img
           class="card-body__header-img"
-          src="assets/images/insuranses/{{
+          src='../../../../../../../../assets/images/insurance-companies/{{
           card.img
-        }}"
+        }}'
           alt="{{ card.img }}"
         />
       </div>
 
-      <span
-        class="card-body__header-status"
-        [ngClass]="card.status"
-      ></span>
+      <img [src]='"assets/images/offer-status-" + card.status + ".svg"' alt=''>
     </div>
 
     <form class="card-content" *ngFor="let card of card.insurances">

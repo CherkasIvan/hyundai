@@ -1,0 +1,65 @@
+.status-info-block {
+  margin-bottom: 1.5rem;
+
+  img {
+    margin-right: 0.875rem;
+    margin-left: 0.875rem;
+  }
+
+  span {
+    font-size: 0.750rem;
+    color: #979797;
+  }
+}
+
+.client-list-container {
+  .table-container {
+    .clients-table {
+      width: 100% !important;
+      border-radius: 20px !important;
+
+      th {
+        background: #f2f4f7;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 30px;
+        letter-spacing: 0.501286px;
+        color: #111827;
+      }
+
+      th,
+      td {
+        border: 1px solid #e2e2e2;
+      }
+    }
+  }
+}
+
+table {
+  .mat-column-product {
+    width: 35%;
+  }
+
+  .mat-column-credit {
+    width: 15%;
+  }
+
+  .mat-column-insuranceCompany {
+    width: 15%;
+  }
+
+  .mat-column-price {
+    width: 35%;
+  }
+}
+
+.insurance-elevation {
+  box-shadow: 0 3.425px 6.85px rgba(40, 41, 61, 0.04), 0 6.85px 20.55px rgba(42, 82, 190, 0.16);
+  border-radius: 6px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #72879e;
+}

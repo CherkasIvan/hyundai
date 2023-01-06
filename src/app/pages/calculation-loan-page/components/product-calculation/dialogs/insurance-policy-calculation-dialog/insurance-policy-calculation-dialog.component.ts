@@ -12,7 +12,7 @@ import { InsuranceOptionsInterface } from '../../../../../../shared/models/inter
   templateUrl: './insurance-policy-calculation-dialog.component.html',
   styleUrls: ['./insurance-policy-calculation-dialog.component.scss'],
 })
-export class InsurancePoliceCalculationDialog implements OnInit {
+export class InsurancePolicyCalculationDialog implements OnInit {
   public isOptionsHidden: boolean = true;
 
   public cards: InsurancePolicyCardInterface[] = [];

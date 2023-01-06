@@ -32,7 +32,7 @@ export class ClientPhoneComponent implements OnInit, OnDestroy {
 
   constructor(
     private _fb: FormBuilder,
-    private _userServics: UserAuthService
+    private _userService: UserAuthService
   ) {}
 
   public nexStep(value: number) {
@@ -41,7 +41,7 @@ export class ClientPhoneComponent implements OnInit, OnDestroy {
 
   public sendClientData(formData: FormGroup) {
     this.clinentPhoneSub$.add(
-      this._userServics.userRegister(formData.value).subscribe((el) => {
+      this._userService.userRegister(formData.value).subscribe((el) => {
         if (el) {
           this.nexStep(1);
         }
