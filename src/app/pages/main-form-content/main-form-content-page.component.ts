@@ -15,6 +15,7 @@ import { StepsInterface } from './models/interfaces/steps.interface';
 export class MainFormContentPageComponent implements OnInit {
   public routerLink!: string;
   public selectedIndex: number = 0;
+  public isActive: boolean = true;
 
   public calculationPagesSteps: StepsInterface[] = [
     { content: 'Информация об автомобиле', path: 'car-info' },
@@ -68,6 +69,18 @@ export class MainFormContentPageComponent implements OnInit {
       )
       .subscribe((el: NavigationEnd) => {
         this.routerLink = el.urlAfterRedirects;
+        console.log(this.routerLink);
+        console.log(this._activatedRoute.firstChild?.routeConfig?.path); // ИСПОЛЬЗОВАТЬ ДЛЯ NgClass
+        if (this._activatedRoute.firstChild?.routeConfig?.path) {
+          if (
+            this.routerLink.includes(
+              this._activatedRoute.firstChild?.routeConfig?.path
+            )
+          ) {
+            this.isActive = true;
+            console.log(this.isActive);
+          }
+        }
 
         if (this._router.url.includes(routingPathEnum.LoanCalculationPage)) {
           this.navigationSteps = this.calculationPagesSteps;
@@ -75,7 +88,6 @@ export class MainFormContentPageComponent implements OnInit {
           this.navigationSteps = this.processingPagesSteps;
         }
       });
-    console.log(this._activatedRoute.firstChild?.routeConfig?.path); // ИСПОЛЬЗОВАТЬ ДЛЯ NgClass
   }
 
   ngOnInit(): void {}

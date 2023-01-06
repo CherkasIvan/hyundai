@@ -7,7 +7,7 @@
       *ngFor="let link of navigationLinks; let i = index"
       class="nav-list-item-link"
       routerLink="{{ link.link }}"
-      [active]="navigationLinks[i].index == i"
+      [active]="isActive"
       (click)="getRout()"
       [routerLinkActive]="['active']"
       >{{ link.value }}</a
