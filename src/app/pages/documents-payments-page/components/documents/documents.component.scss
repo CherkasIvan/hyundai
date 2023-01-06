@@ -65,20 +65,14 @@
         display: flex;
         flex-direction: column;
 
-        .list-item__text {
+        .picker__container {
           display: flex;
+          flex-direction: column;
           align-items: center;
-          justify-content: center;
-          width: 93px;
-          height: 94px;
-          background: #ffffff;
-          box-shadow: 2px 2px 19px rgba(52, 62, 72, 0.21);
-          border-radius: 10px;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 18.9116px;
-          line-height: 23px;
-          color: #bfcfe0;
+        }
+
+        .list-item__text {
+          z-index: 1000;
         }
 
         .list-item__label {

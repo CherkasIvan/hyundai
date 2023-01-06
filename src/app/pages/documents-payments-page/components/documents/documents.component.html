@@ -18,8 +18,17 @@
         class="document-body__list-item"
         *ngFor="let typeOfDoc of document.documents"
       >
-        <span class="list-item__text">PDF</span>
-        <span class="list-item__label">{{ typeOfDoc.label }}</span>
+        <div class="picker__container">
+          <ngp-image-picker
+            class="list-item__text"
+            [_config]="config"
+            ($imageChanged)="onImageChange($event)"
+          ></ngp-image-picker>
+          <span class="list-item__label">{{ typeOfDoc.label }}</span>
+        </div>
+
+        <!-- <span class="list-item__text">PDF</span> -->
+        <!-- <span class="list-item__label">{{ typeOfDoc.label }}</span> -->
       </div>
     </div>
 

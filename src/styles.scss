@@ -47,8 +47,35 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
+.tes-wrapper {
+  padding: 2rem!important;
+  min-width: 80%;
+  min-height: 80%;
+  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
+  border-radius: 2rem;
+
+  &-title {
+    margin-bottom: 1.25rem;
+    font-size: 1.875rem;
+    color: #343e48;
+  }
+
+  &-content {
+
+  }
+
+  &-buttons {
+    margin-top: 3rem;
+    gap: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 .mat-dialog-container {
-  border-radius: 20px !important;
+  border-radius: 1.25rem !important;
 }
 // /* Importing Bootstrap SCSS file. */
 // @import 'bootstrap/scss/bootstrap';

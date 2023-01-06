@@ -22,7 +22,7 @@
   }
 }
 
-::ng-deep {
+:host ::ng-deep {
   .mat-dialog-container {
     overflow: hidden;
   }

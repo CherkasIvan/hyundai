@@ -11,7 +11,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Subscription } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
 
 import { PersistenceService } from '../../../../shared/services/persistence.service';
 import { GetUsersService } from '../../services/get-users.service';
@@ -87,30 +87,41 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+
     this.clientsListSub$.add(
       this._getUsers.getClients().subscribe((el) => {
-        this.dataSource.data = el.clients;
+      this.dataSource.data = el.clients;
+      this.sortedData = el.clients.slice();
 
-        this.sortedData = el.clients.slice();
-        console.log(this.sortedData);
+      this._getUserService.setFilterCarMark(
+        this.dataSource.data.filter((el) => el.car_mark));
 
-        this._getUserService.setFilterParams(
-          this.dataSource.data.filter((el) => el.first_name)
-        );
-      })
-    );
+      this._getUserService.setFilterCarModel(
+        this.dataSource.data.filter((el) => el.car_model));
+    }))
 
-    this.clientsListSub$.add(
-      this._getUserService.currentSearchValue$.subscribe((value) => {
-        this.searchFilter(value);
-      })
-    );
+    this.clientsListSub$.add( this._getUserService.currentSearchValue$.subscribe((value) => {
+      this.searchFilter(value);
+    }))
 
-    this.clientsListSub$.add(
-      this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
-        this.searchFilter(value);
-      })
-    );
+    this.clientsListSub$.add(this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
+      this.searchFilter(value);
+    }))
+
+    this.clientsListSub$.add( this._getUserService.currentCarModelFilterValue$.subscribe((value) => {
+      this.searchFilter(value);
+    }))
+
+    this._getUserService.hasLoanClients$.subscribe((value) => {
+      if(value) {
+       this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
+      } else {
+        this._getUsers.getClients().subscribe((el) => {
+          this.dataSource.data = el.clients;
+        })
+      }
+    });
+
   }
 
   public ngAfterViewInit() {
@@ -121,11 +132,6 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       this.dataSource.paginator.firstPage();
     }
   }
-
-  // public ngAfterViewChecked(): void {
-  //   // console.log(this.dataSource.filteredData);
-  //   console.log(this.getTableData().filter((el) => el.first_name));
-  // }
 
   public searchFilter(searchValue: string) {
     this.dataSource.filter = searchValue.trim().toLowerCase();

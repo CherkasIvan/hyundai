@@ -43,6 +43,7 @@ export class SideBarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.steps);
     this._sideBarService.setIndex(this.steps).subscribe((el) => {
       this.sideBarPercantage = el;
     });

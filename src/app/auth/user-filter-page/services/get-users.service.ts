@@ -14,11 +14,22 @@ export class GetUsersService {
   public searchValue$ = new BehaviorSubject<string>('');
   public currentSearchValue$ = this.searchValue$.asObservable();
 
-  public carMark$ = new BehaviorSubject<any>('');
+  public carMark$ = new BehaviorSubject<string>('');
   public clientCarMark$ = this.carMark$.asObservable();
+
+  public carModel$ = new BehaviorSubject<string>('');
+  public clientCarModel$ = this.carModel$.asObservable();
 
   public carMarkFilterValue$ = new BehaviorSubject<string>('');
   public currentCarMarkFilterValue$ = this.carMarkFilterValue$.asObservable();
+
+  public carModelFilterValue$ = new BehaviorSubject<string>('');
+  public currentCarModelFilterValue$ = this.carModelFilterValue$.asObservable();
+
+
+  public hasLoan$ = new BehaviorSubject<boolean>(false);
+  public hasLoanClients$ = this.hasLoan$.asObservable();
+
 
   constructor(private _http: HttpClient) {}
 
@@ -40,11 +51,23 @@ export class GetUsersService {
     this.searchValue$.next(searchValue);
   }
 
-  public setFilterParams(params: any) {
+  public setFilterCarMark (params: any) {
     this.carMark$.next(params);
   }
 
   public filterCarsMark(params: any) {
     this.carMarkFilterValue$.next(params);
+  }
+
+  public setFilterCarModel (params: any) {
+    this.carModel$.next(params);
+  }
+
+  public filterCarsModel (params: any) {
+    this.carModelFilterValue$.next(params);
+  }
+
+  public hasLoanFilter (params: boolean) {
+    this.hasLoan$.next(params);
   }
 }

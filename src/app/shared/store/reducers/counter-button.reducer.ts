@@ -27,10 +27,6 @@ const counterButtonReducer = createReducer(
   })
 );
 
-export function reducers(state: CounterType, action: Action) {
+export function buttonReducers(state: CounterType, action: Action) {
   return counterButtonReducer(state, action);
 }
-
-// this.initialCounter >= 10 ? this.initialCounter : this.initialCounter++;
-// this.counterForm.get('counterFormInput')?.patchValue(this.initialCounter);
-// this.currentCountValue.emit(this.initialCounter);

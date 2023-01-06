@@ -11,7 +11,7 @@ build:
   services:
     - docker:19.03.1-dind
   script:
-    - docker login --username oauth --password y0_AgAAAAAM2vIgAATuwQAAAADYNkOmJs0KjWTJT_-dU9ylRQSWJl10f_E cr.yandex
+    - docker login --username oauth --password $YCLOUD_TOKEN cr.yandex
     - docker build -t my-docker-image .
     - docker tag my-docker-image cr.yandex/crpqo47ojh32h66elo0f/angular:gitlab-$CI_COMMIT_SHORT_SHA
     - docker push cr.yandex/crpqo47ojh32h66elo0f/angular:gitlab-$CI_COMMIT_SHORT_SHA
