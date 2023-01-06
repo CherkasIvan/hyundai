@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  Input,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -15,19 +20,19 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class TesInputCheckboxComponent implements ControlValueAccessor {
-  @Input() label!: string;
-  @Input() small!: boolean;
+  @Input() public label!: string;
+  @Input() public small!: boolean;
 
   public value: boolean = false;
 
-  onChange: any = () => {};
-  onTouch: any = () => {};
+  public onChange: Function = () => {};
+  public onTouch: Function = () => {};
 
-  registerOnChange(fn: any): void {
+  public registerOnChange(fn: Function): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: Function): void {
     this.onTouch = fn;
   }
 
@@ -35,7 +40,7 @@ export class TesInputCheckboxComponent implements ControlValueAccessor {
     this.value = value;
   }
 
-  onModelChange(e: boolean) {
+  public onModelChange(e: boolean) {
     // Step 5a: bind the changes to the local value
     this.value = e;
 

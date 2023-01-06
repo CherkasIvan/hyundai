@@ -1,23 +1,22 @@
-<div class='row'>
-  <div class='col-12 block-title'>
-    Выберите страховой полис
-  </div>
+<div class="row">
+  <div class="col-12 block-title">Выберите страховой полис</div>
 </div>
 
-<ng-container *ngFor='let card of insuranceCompanies; let i = index'>
+<ng-container *ngFor="let card of insuranceCompanies; let i = index">
   <div class="card-body">
     <div class="card-body__header">
       <div class="card-body__header-card">
         <img
           class="card-body__header-img"
-          src='../../../../../../../../assets/images/insurance-companies/{{
-          card.img
-        }}'
+          src="/assets/images/insurance-companies/{{ card.img }}"
           alt="{{ card.img }}"
         />
       </div>
 
-      <img [src]='"assets/images/offer-status-" + card.status + ".svg"' alt=''>
+      <img
+        [src]="'/assets/images/offer-status-' + card.status + '.svg'"
+        alt=""
+      />
     </div>
 
     <form class="card-content" *ngFor="let card of card.insurances">

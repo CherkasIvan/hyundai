@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrokersAuthGuard } from './auth/broker-auth-page/guards/brokers-auth.guard';
+import { BrokersAuthResolver } from './auth/broker-auth-page/guards/brokers-auth.resolver';
+import { ClientAuthGuard } from './auth/user-filter-page/guards/client-auth.guard';
 
 import { routingPathEnum } from './shared/consts/routing-path-enum';
 
@@ -16,14 +19,16 @@ const routes: Routes = [
         (module) => module.BrokerAuthPageModule
       ),
   },
+  // {
+  //   path: routingPathEnum.ClientAuthentication,
+  //   loadChildren: () =>
+  //     import('./auth/user-auth-page/user-auth-page.module').then(
+  //       (module) => module.UserAuthPageModule
+  //     ),
+  // },
   {
-    path: routingPathEnum.ClientAuthentication,
-    loadChildren: () =>
-      import('./auth/user-auth-page/user-auth-page.module').then(
-        (module) => module.UserAuthPageModule
-      ),
-  },
-  {
+    canLoad: [BrokersAuthGuard],
+
     path: routingPathEnum.ClientFilterAuth,
     loadChildren: () =>
       import('./auth/user-filter-page/user-filter-page.module').then(
@@ -32,9 +37,7 @@ const routes: Routes = [
   },
   {
     path: routingPathEnum.MainPage,
-    // resolve: {entity: UrlResolverService},
-    // canActivate: [UsersAuthGuard],
-    // canActivate: [BrokersAuthGuard],
+    canLoad: [BrokersAuthGuard, ClientAuthGuard],
     loadChildren: () =>
       import('./pages/main-form-content/main-form-content.page.module').then(
         (module) => module.MainFormContentPageModule

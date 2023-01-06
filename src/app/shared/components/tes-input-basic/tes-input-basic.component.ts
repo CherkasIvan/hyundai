@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  Input,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -15,21 +20,21 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class TesInputBasicComponent implements ControlValueAccessor {
-  @Input() label!: string;
-  @Input() placeholder!: string;
-  @Input() clearButton!: boolean;
-  @Input() style: 'filled' | 'underline' = 'filled';
+  @Input() public label!: string;
+  @Input() public placeholder!: string;
+  @Input() public clearButton!: boolean;
+  @Input() public style: 'filled' | 'underline' = 'filled';
 
   public value!: string;
 
-  onChange: any = () => {};
-  onTouch: any = () => {};
+  public onChange: Function = () => {};
+  public onTouch: Function = () => {};
 
-  registerOnChange(fn: any): void {
+  public registerOnChange(fn: Function): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: Function): void {
     this.onTouch = fn;
   }
 
@@ -37,11 +42,11 @@ export class TesInputBasicComponent implements ControlValueAccessor {
     this.value = value;
   }
 
-  onModelChange(e: any) {
+  public onModelChange(e: Event) {
     // bind the changes to the local value
-    this.value = e.target.value;
+    this.value = (e.target as HTMLInputElement).value;
 
     // handle what should happen on the outside, if something changes on the inside
-    this.onChange(e.target.value);
+    this.onChange(e.target as HTMLInputElement).value;
   }
 }

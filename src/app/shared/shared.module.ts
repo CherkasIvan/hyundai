@@ -9,7 +9,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './store/reducers/counter-button.reducer';
+import { buttonReducers } from './store/reducers/counter-button.reducer';
+import { sliderReducers } from './store/reducers/input-slider.reducer';
 
 import { InsurancePoliciesModalModule } from './components/insurance-policies-modal/insurance-policies-modal.module';
 
@@ -46,7 +47,8 @@ import { TesButtonComponent } from './components/tes-button/tes-button.component
     CommonModule,
     FormsModule,
     MatTabsModule,
-    StoreModule.forFeature('counter-button', reducers),
+    StoreModule.forFeature('counter-button', buttonReducers),
+    StoreModule.forFeature('input-slider', sliderReducers),
     InsurancePoliciesModalModule,
     ReactiveFormsModule,
     MatSliderModule,
@@ -74,7 +76,7 @@ import { TesButtonComponent } from './components/tes-button/tes-button.component
     TesInputBasicComponent,
     TesInputCheckboxComponent,
     TesInputSlideToggleComponent,
-    TesButtonComponent
-  ]
+    TesButtonComponent,
+  ],
 })
 export class SharedModule {}

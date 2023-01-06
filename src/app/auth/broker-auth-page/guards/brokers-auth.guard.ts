@@ -1,40 +1,22 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
-import { select, Store } from '@ngrx/store';
+import { CanActivate, CanLoad, Router } from '@angular/router';
 
-import { Observable, tap } from 'rxjs';
+import { PersistenceService } from '../../../shared/services/persistence.service';
 
-import { brokerIsLoggedIn } from '../store/broker-auth.selectors';
-
-import { BrokerAuthStateInterface } from '../models/interfaces/broker-auth-state.interface';
+import { routingPathEnum } from '../../../shared/consts/routing-path-enum';
+import { Observable } from 'rxjs';
 
 @Injectable()
-export class BrokersAuthGuard implements CanActivate {
+export class BrokersAuthGuard implements CanLoad {
   constructor(
-    private readonly _store: Store<BrokerAuthStateInterface>,
-    private _route: Router
+    private _router: Router,
+    private _persistenceService: PersistenceService
   ) {}
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    return this._store.pipe(
-      select(brokerIsLoggedIn),
-      tap((brokerIsLoggedIn) => {
-        if (!localStorage.getItem('successToken')) {
-          this._route.navigateByUrl('/auth-broker');
-        }
-      })
-    );
+  public canLoad(): Observable<boolean> | boolean {
+    if (this._persistenceService.getToken()) {
+      return true;
+    }
+    this._router.navigateByUrl(`/${routingPathEnum.BrokerAuthentication}`);
+    return false;
   }
 }
