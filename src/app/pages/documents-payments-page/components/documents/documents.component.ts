@@ -21,7 +21,7 @@ export class DocumentsComponent implements OnInit {
     hideEditBtn: true,
     hideAddBtn: true,
   };
-  public initialImage = '/assets/images/pdf_default.png';
+  // public initialImage = '/assets/images/pdf_default.png';
 
   public onImageChange(e: any) {
     // console.log(e);
@@ -30,16 +30,16 @@ export class DocumentsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public mouseEnter() {
-    (this.config.hideDeleteBtn = false),
-      (this.config.hideDownloadBtn = false),
-      (this.config.hideEditBtn = false),
-      (this.config.hideAddBtn = false);
-  }
-  public mouseLeave() {
-    (this.config.hideDeleteBtn = true),
-      (this.config.hideDownloadBtn = true),
-      (this.config.hideEditBtn = true),
-      (this.config.hideAddBtn = true);
-  }
+  // public mouseEnter() {
+  //   (this.config.hideDeleteBtn = false),
+  //     (this.config.hideDownloadBtn = false),
+  //     (this.config.hideEditBtn = false),
+  //     (this.config.hideAddBtn = false);
+  // }
+  // public mouseLeave() {
+  //   (this.config.hideDeleteBtn = true),
+  //     (this.config.hideDownloadBtn = true),
+  //     (this.config.hideEditBtn = true),
+  //     (this.config.hideAddBtn = true);
+  // }
 }

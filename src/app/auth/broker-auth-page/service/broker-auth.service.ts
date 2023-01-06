@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 import { CurrentBrokerInterface } from '../models/interfaces/current-broker.interface';
 import { BrokerRegisterRequestInterface } from '../models/interfaces/broker-register-request.interface';
@@ -23,6 +23,9 @@ export class BrokerAuthService {
 
     return this._http
       .post<CurrentBrokerInterface>(url, data, { headers: httpHeaders })
-      .pipe(map((response: CurrentBrokerInterface) => response));
+      .pipe(
+        map((response: CurrentBrokerInterface) => response),
+        tap((response) => console.log(response))
+      );
   }
 }
