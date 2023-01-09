@@ -4292,6 +4292,13 @@
   dependencies:
     "tslib" "^2.0.0"
 
+"ngrx-forms@^8.0.0":
+  "integrity" "sha512-xe/6RNL+JFB7O3/VGA3whIT8YjHZtMSJflVF+QT9xacRzTGOeGqKGjNDQ4eKkXscY01/XPhAhaj+NVMdevH+pg=="
+  "resolved" "https://registry.npmjs.org/ngrx-forms/-/ngrx-forms-8.0.0.tgz"
+  "version" "8.0.0"
+  dependencies:
+    "tslib" "^2.2.0"
+
 "nice-napi@^1.0.2":
   "integrity" "sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA=="
   "resolved" "https://registry.npmjs.org/nice-napi/-/nice-napi-1.0.2.tgz"
@@ -5966,7 +5973,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.0.0", "tslib@^2.1.0", "tslib@^2.3.0":
+"tslib@^2.0.0", "tslib@^2.1.0", "tslib@^2.2.0", "tslib@^2.3.0":
   "integrity" "sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.1.tgz"
   "version" "2.4.1"

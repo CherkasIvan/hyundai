@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrokersAuthGuard } from './auth/broker-auth-page/guards/brokers-auth.guard';
-import { BrokersAuthResolver } from './auth/broker-auth-page/guards/brokers-auth.resolver';
 import { ClientAuthGuard } from './auth/user-filter-page/guards/client-auth.guard';
 
 import { routingPathEnum } from './shared/consts/routing-path-enum';
