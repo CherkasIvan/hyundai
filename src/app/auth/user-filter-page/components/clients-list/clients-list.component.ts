@@ -33,14 +33,14 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
   public client_profile: any;
 
   public displayedColumns: string[] = [
-    'ФИО',
-    'Марка авто',
-    'модель',
+    'last_name',
+    'car_brand',
+    'car_model',
     'vin',
-    'КАСКО',
-    'ОСАГО',
-    'кредитные продукты',
-    'Телефон',
+    'kasko',
+    'osago',
+    'loan_products',
+    'phone',
   ];
 
   constructor(
@@ -64,22 +64,22 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.sortedData = data.sort((a: any, b: any) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
-        case 'ФИО':
-          return this.compare(a.first_name, b.first_name, isAsc);
-        case 'Марка авто':
-          return this.compare(a.calories, b.calories, isAsc);
-        case 'модель':
-          return this.compare(a.fat, b.fat, isAsc);
+        case 'last_name':
+          return this.compare(a.last_name, b.last_name, isAsc);
+        case 'car_mark':
+          return this.compare(a.car_mark, b.car_mark, isAsc);
+        case 'car_model':
+          return this.compare(a.car_model, b.car_model, isAsc);
         case 'vin':
-          return this.compare(a.carbs, b.carbs, isAsc);
-        case 'КАСКО':
-          return this.compare(a.protein, b.protein, isAsc);
-        case 'ОСАГО':
-          return this.compare(a.protein, b.protein, isAsc);
-        case 'кредитные продукты':
-          return this.compare(a.protein, b.protein, isAsc);
-        case 'Телефон':
-          return this.compare(a.protein, b.protein, isAsc);
+          return this.compare(a.vin, b.vin, isAsc);
+        case 'kasko':
+          return this.compare(a.kasko, b.kasko, isAsc);
+        case 'osago':
+          return this.compare(a.osago, b.osago, isAsc);
+        case 'loan_products':
+          return this.compare(a.loan_products, b.loan_products, isAsc);
+        case 'phone':
+          return this.compare(a.phone, b.phone, isAsc);
         default:
           return 0;
       }
@@ -87,41 +87,50 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-
     this.clientsListSub$.add(
       this._getUsers.getClients().subscribe((el) => {
-      this.dataSource.data = el.clients;
-      this.sortedData = el.clients.slice();
+        this.dataSource.data = el.clients;
+        this.sortedData = el.clients.slice();
 
-      this._getUserService.setFilterCarMark(
-        this.dataSource.data.filter((el) => el.car_mark));
+        this._getUserService.setFilterCarMark(
+          this.dataSource.data.filter((el) => el.car_mark)
+        );
 
-      this._getUserService.setFilterCarModel(
-        this.dataSource.data.filter((el) => el.car_model));
-    }))
+        this._getUserService.setFilterCarModel(
+          this.dataSource.data.filter((el) => el.car_model)
+        );
+      })
+    );
 
-    this.clientsListSub$.add( this._getUserService.currentSearchValue$.subscribe((value) => {
-      this.searchFilter(value);
-    }))
+    this.clientsListSub$.add(
+      this._getUserService.currentSearchValue$.subscribe((value) => {
+        this.searchFilter(value);
+      })
+    );
 
-    this.clientsListSub$.add(this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
-      this.searchFilter(value);
-    }))
+    this.clientsListSub$.add(
+      this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
+        this.searchFilter(value);
+      })
+    );
 
-    this.clientsListSub$.add( this._getUserService.currentCarModelFilterValue$.subscribe((value) => {
-      this.searchFilter(value);
-    }))
+    this.clientsListSub$.add(
+      this._getUserService.currentCarModelFilterValue$.subscribe((value) => {
+        this.searchFilter(value);
+      })
+    );
 
     this._getUserService.hasLoanClients$.subscribe((value) => {
-      if(value) {
-       this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
+      if (value) {
+        this.dataSource.data = this.dataSource.data.filter(
+          (el: { pts: string }) => el.pts
+        );
       } else {
         this._getUsers.getClients().subscribe((el) => {
           this.dataSource.data = el.clients;
-        })
+        });
       }
     });
-
   }
 
   public ngAfterViewInit() {
