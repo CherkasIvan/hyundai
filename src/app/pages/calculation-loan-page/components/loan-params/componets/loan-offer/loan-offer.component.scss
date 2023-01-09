@@ -91,28 +91,51 @@
     margin-top: 11px;
 }
 
-.monthly-payment-title {
+.monthly-payment__title {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 130%;
     color: #979797;
 }
-.amount {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 52px;
-    line-height: 130%;
-    color: #343E48;
-}
 
-.currency {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 130%;
-    color: #343E48;
-}
 .monthly-payment-amount {
     display: flex;
+
+    &__amount {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 52px;
+        line-height: 130%;
+        color: #343E48;
+    }
+    
+    &__currency {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 130%;
+        color: #343E48;
+    }
+}
+
+.car-use-cost {
+    display: flex;
+    &__amount {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 35px;
+        letter-spacing: 0.015em;
+        color: #343E48;  
+    }
+
+    &__currency {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 125%;
+        letter-spacing: 0.01em;
+    color: #343E48;
+    }
 }

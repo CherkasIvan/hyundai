@@ -65,11 +65,9 @@
               class="loan-params__list-item"
             />
           </div>
-          </div>
-    </form>
-    
-    <div class="calculation-loan-products">
-      <div class="loan-params-title">Параметры кредита</div>
+          </div> 
+          <div class="calculation-loan-products">
+      <div class="loan-params-title">Расчет кредитных продуктов</div>
       <mat-tab-group
       [disableRipple]="true"
       mat-align-tabs="center"
@@ -106,4 +104,12 @@
       </mat-tab>
     </mat-tab-group>
     </div>
+    <div class="loan-params-form__button">
+      <tes-submit-form-button
+        [formValues]="formLoanParams.value"
+        [isDisable]="!formLoanParams.valid"
+        buttonText="Далее"
+      ></tes-submit-form-button>
+    </div>
+    </form>
 </div>
