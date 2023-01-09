@@ -8,6 +8,8 @@ import { BrokerTokenInterceptor } from './interceptors/broker-token.interceptor'
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { BrokersAuthGuard } from '../auth/broker-auth-page/guards/brokers-auth.guard';
+import { ClientAuthGuard } from '../auth/user-filter-page/guards/client-auth.guard';
 
 @NgModule({
   declarations: [SpinnerComponent],
@@ -15,6 +17,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
   exports: [SpinnerComponent],
   providers: [
     LoaderService,
+    BrokersAuthGuard,
+    ClientAuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
