@@ -43,14 +43,14 @@
 
       <ng-container matColumnDef="ОСАГО">
         <th mat-header-cell *matHeaderCellDef mat-sort-header="ОСАГО">ОСАГО</th>
-        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.pts }}</td>
       </ng-container>
 
       <ng-container matColumnDef="кредитные продукты">
         <th mat-header-cell *matHeaderCellDef mat-sort-header="КРЕДИТ">
           кредитные продукты
         </th>
-        <td mat-cell *matCellDef="let element">{{ element.transmission }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
       </ng-container>
 
       <ng-container matColumnDef="Телефон">

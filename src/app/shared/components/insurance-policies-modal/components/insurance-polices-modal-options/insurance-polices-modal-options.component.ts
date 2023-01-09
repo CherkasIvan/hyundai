@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { ModalSpecialOptionsinterface } from '../../../../../shared/models/interfaces/modal-special-options.interface';
+import { ModalSpecialOptionsInterface } from '../../../../../shared/models/interfaces/modal-special-options.interface';
 
 @Component({
   selector: 'tes-insurance-polices-modal-options',
@@ -9,7 +9,7 @@ import { ModalSpecialOptionsinterface } from '../../../../../shared/models/inter
   styleUrls: ['./insurance-polices-modal-options.component.scss'],
 })
 export class InsurancePolicesModalOptionsComponent implements OnInit {
-  @Input() public specialOptions!: ModalSpecialOptionsinterface[];
+  @Input() public specialOptions!: ModalSpecialOptionsInterface[];
   public optionsModalForm!: FormGroup;
 
   constructor(private _fb: FormBuilder) {}

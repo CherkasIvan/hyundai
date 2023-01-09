@@ -4,12 +4,12 @@ import { CalculationLoanPageEnum } from '../models/enums/calculationLoanPage.enu
 
 import { ClientCarInterface } from '../../../shared/models/interfaces/clientCar.interface';
 
-export const getCarOptionsAction = createAction(
-  CalculationLoanPageEnum.GET_CAR_OPTIONS,
-  props<{ clientId: string }>()
+export const formCarOptionsChangeAction = createAction(
+  CalculationLoanPageEnum.CHANGE_CAR_OPTIONS_FORM_VALUE,
+  props<{ formValue: any }>()
 );
 
-export const setCarOptionsAction = createAction(
-  CalculationLoanPageEnum.SET_CAR_OPTIONS,
-  props<{ carOptions: ClientCarInterface[] }>()
-);
+// export const setCarOptionsAction = createAction(
+//   CalculationLoanPageEnum.SET_CAR_OPTIONS,
+//   props<{ carOptions: ClientCarInterface[] }>()
+// );

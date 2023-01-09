@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import {
-  getCarOptionsAction,
-  setCarOptionsAction,
-} from './calculationLoanPage.action';
 
-import { switchMap } from 'rxjs';
+import { pipe, switchMap, tap } from 'rxjs';
 
 import { ClientDataService } from '../../../shared/services/client-data.service';
 import { PersistenceService } from '../../../shared/services/persistence.service';
+import { formCarOptionsChangeAction } from './calculationLoanPage.action';
 
 @Injectable()
 export class CalcultionLoanPageEffects {
@@ -21,14 +18,21 @@ export class CalcultionLoanPageEffects {
 
   public getCarOptions$ = createEffect(() =>
     this._actions$.pipe(
-      ofType(getCarOptionsAction),
-      switchMap(({ clientId }) => {
-        return this._clientDataService.getClientCars(clientId).pipe(
-          switchMap(async (carOptions) => {
-            return setCarOptionsAction({ carOptions });
-          })
-        );
-      })
+      ofType(formCarOptionsChangeAction),
+      pipe(
+        tap((el) => {
+          console.log(el);
+        })
+      )
+      // switchMap(({ formValue }) => {
+      //   return this._clientDataService.getClientCars(formValue).pipe(
+      //     tap(el=> {console.log(el)
+      //     return el}),
+      //     switchMap(async (carOptions) => {
+      //       return formCarOptionsChangeAction({ carOptions });
+      //     })
+      //   );
+      // })
     )
   );
 }

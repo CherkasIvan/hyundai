@@ -9,15 +9,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
-import { UserFilterPageRoutingModule } from './user-filter-page-routing.module';
 import { SharedModule } from '../../shared/shared.module';
+import { ClientFilterPageRoutingModule } from './client-filter-page-routing.module';
 
 import { ModalService } from '../../shared/services/modal.service';
-import { UserAuthService } from './services/user-auth.service';
+import { ClientAuthService } from './services/client-auth.service';
 
 import { FilterComponent } from './components/filter/filter.component';
 import { ClientsListComponent } from './components/clients-list/clients-list.component';
-import { UserFilterPageComponent } from './user-filter-page.component';
+import { ClientFilterPageComponent } from './client-filter-page.component';
 import { AddUserModalComponent } from './components/add-user-modal/add-user-modal.component';
 import { ClientsListHeaderComponent } from './components/clients-list-header/clients-list-header.component';
 import { TablePaginatorComponent } from './components/table-paginator/table-paginator.component';
@@ -33,7 +33,7 @@ import { reducers } from './store/reducers/client-filter-page.reducers';
 
 @NgModule({
   declarations: [
-    UserFilterPageComponent,
+    ClientFilterPageComponent,
     FilterComponent,
     ClientsListComponent,
     AddUserModalComponent,
@@ -44,12 +44,12 @@ import { reducers } from './store/reducers/client-filter-page.reducers';
     EditClientComponent,
   ],
   imports: [
-    UserFilterPageRoutingModule,
     CommonModule,
     MatFormFieldModule,
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
+    ClientFilterPageRoutingModule,
     StoreModule.forFeature('client-filter', reducers),
     EffectsModule.forFeature([ClientFilterPageEffects]),
     MatTableModule,
@@ -58,7 +58,7 @@ import { reducers } from './store/reducers/client-filter-page.reducers';
   ],
   providers: [
     ModalService,
-    UserAuthService,
+    ClientAuthService,
     BrokerAuthService,
     {
       provide: NG_VALUE_ACCESSOR,
@@ -67,4 +67,4 @@ import { reducers } from './store/reducers/client-filter-page.reducers';
     },
   ],
 })
-export class UserFilterPageModule {}
+export class ClientFilterPageModule {}

@@ -14,9 +14,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Subscription, forkJoin } from 'rxjs';
 
 import { PersistenceService } from '../../../../shared/services/persistence.service';
-import { GetUsersService } from '../../services/get-users.service';
+// import { GetUsersService } from '../../services/get-users.service';
 
 import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
+import { ClientAuthService } from '../../services/client-auth.service';
 
 @Component({
   selector: 'tes-clients-list',
@@ -44,8 +45,7 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   constructor(
-    private _getUsers: GetUsersService,
-    private _getUserService: GetUsersService,
+    private _authClientService: ClientAuthService,
     private _persistenceService: PersistenceService,
     private _router: Router
   ) {}
@@ -89,34 +89,55 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
   public ngOnInit(): void {
 
     this.clientsListSub$.add(
-      this._getUsers.getClients().subscribe((el) => {
+      this._authClientService.getClients().subscribe((el) => {
       this.dataSource.data = el.clients;
       this.sortedData = el.clients.slice();
 
-      this._getUserService.setFilterCarMark(
+      this._authClientService.setFilterCarMark(
         this.dataSource.data.filter((el) => el.car_mark));
 
-      this._getUserService.setFilterCarModel(
+      this._authClientService.setFilterCarModel(
         this.dataSource.data.filter((el) => el.car_model));
     }))
 
-    this.clientsListSub$.add( this._getUserService.currentSearchValue$.subscribe((value) => {
+    this.clientsListSub$.add( this._authClientService.currentSearchValue$.subscribe((value) => {
       this.searchFilter(value);
     }))
 
-    this.clientsListSub$.add(this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
+    this.clientsListSub$.add(this._authClientService.currentCarMarkFilterValue$.subscribe((value) => {
       this.searchFilter(value);
     }))
 
-    this.clientsListSub$.add( this._getUserService.currentCarModelFilterValue$.subscribe((value) => {
+    this.clientsListSub$.add( this._authClientService.currentCarModelFilterValue$.subscribe((value) => {
       this.searchFilter(value);
     }))
 
-    this._getUserService.hasLoanClients$.subscribe((value) => {
+    this._authClientService.hasLoanClients$.subscribe((value) => {
       if(value) {
-       this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
+       this.dataSource.data = this.dataSource.data.filter((el: { position: string; }) => el.position)
       } else {
-        this._getUsers.getClients().subscribe((el) => {
+        this._authClientService.getClients().subscribe((el) => {
+          this.dataSource.data = el.clients;
+          console.log("reset forms");
+        })
+      }
+    });
+
+    this._authClientService.hasCaskoClients$.subscribe((value) => {
+      if(value) {
+        this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
+      } else {
+        this._authClientService.getClients().subscribe((el) => {
+          this.dataSource.data = el.clients;
+        })
+      }
+    });
+
+    this._authClientService.hasOsagoClients$.subscribe((value) => {
+      if(value) {
+        this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
+      } else {
+        this._authClientService.getClients().subscribe((el) => {
           this.dataSource.data = el.clients;
         })
       }
@@ -141,7 +162,7 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
     const client_id = client.client_id;
     this._persistenceService.set('clientId', client_id);
     this.clientsListSub$.add(
-      this._getUserService.getClients({ clientId: client_id }).subscribe(() => {
+      this._authClientService.getClients({ clientId: client_id }).subscribe(() => {
         if (this._persistenceService.getClientId() === client_id) {
           this._router.navigateByUrl(
             `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`

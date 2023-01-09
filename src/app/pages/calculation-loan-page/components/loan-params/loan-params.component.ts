@@ -47,6 +47,10 @@ export class LoanParamsComponent implements OnInit {
     this.formLoanParams.get('remaining_payment')?.patchValue(e)
   }
 
+  public getLoanAmount(e: string | number) {
+    this.formLoanParams.get('loan_amount')?.patchValue(e)
+  }
+
   public activateClass(index: number) {
     this.selectedIndex = index;
     this.formLoanParams
@@ -55,12 +59,6 @@ export class LoanParamsComponent implements OnInit {
   }
   public onTabChange(event: MatTabChangeEvent) {
     this.indexOfTab = event.index;
-  }
-
-  public nextStep(index: number) {
-    if (this.indexOfTab != 2) {
-      this.indexOfTab = index;
-    }
   }
 
   ngOnInit(): void {

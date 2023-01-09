@@ -5,8 +5,7 @@ import { forkJoin, Subscription } from 'rxjs';
 
 import { CommonDataService } from '../../../../shared/services/common-data.service';
 import { PersistenceService } from '../../../../shared/services/persistence.service';
-import { GetUsersService } from '../../services/get-users.service';
-import { UserAuthService } from '../../services/user-auth.service';
+import { ClientAuthService } from '../../services/client-auth.service';
 
 @Component({
   selector: 'tes-edit-client',
@@ -14,12 +13,12 @@ import { UserAuthService } from '../../services/user-auth.service';
   styleUrls: ['./edit-client.component.scss'],
 })
 export class EditClientComponent implements OnInit, OnDestroy {
-  public edditClientForm!: FormGroup;
+  public editClientForm!: FormGroup;
 
   public editClientSub$: Subscription = new Subscription();
 
   private initializeForms(): void {
-    this.edditClientForm = this._fb.group({
+    this.editClientForm = this._fb.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       patronymic: ['', Validators.required],
@@ -29,28 +28,27 @@ export class EditClientComponent implements OnInit, OnDestroy {
   }
   constructor(
     private _fb: FormBuilder,
-    private _persistensService: PersistenceService,
-    private _commonDatasService: CommonDataService,
-    private _getUsersServics: GetUsersService,
-    private _userServics: UserAuthService
+    private _persistenceService: PersistenceService,
+    private _commonDataService: CommonDataService,
+    private _clientAuthService: ClientAuthService
   ) {}
 
   public sendClientData(formData: FormGroup) {
     const body = formData.value;
-    body.clientId = this.edditClientForm.get('clientId')?.value;
+    body.clientId = this.editClientForm.get('clientId')?.value;
 
-    this._persistensService.set('clientId', body.clientId);
+    this._persistenceService.set('clientId', body.clientId);
 
     forkJoin({
-      requestOne: this._commonDatasService.editClientsDetails(body),
-      requestTwo: this._getUsersServics.getClients(),
+      requestOne: this._commonDataService.editClientsDetails(body),
+      requestTwo: this._clientAuthService.getClients(),
     }).subscribe();
   }
 
   private initializeValues(): void {
     this.editClientSub$.add(
-      this._userServics.userData$.subscribe((value) => {
-        this.edditClientForm.patchValue({
+      this._clientAuthService.userData$.subscribe((value) => {
+        this.editClientForm.patchValue({
           clientId: value.clientId,
         });
       })

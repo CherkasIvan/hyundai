@@ -7,6 +7,7 @@ import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
 
 import { StepsInterface } from '../../models/interfaces/steps.interface';
 import { SideBarService } from '../../services/side-bar.service';
+import { FormsValidityService } from 'src/app/shared/services/forms-validity.service';
 
 @Component({
   selector: 'tes-side-bar',
@@ -15,6 +16,7 @@ import { SideBarService } from '../../services/side-bar.service';
 })
 export class SideBarComponent implements OnInit {
   public sideBarPercantage!: number;
+  public isComleted: boolean = false;
 
   @Input() public steps!: StepsInterface[];
 
@@ -39,13 +41,16 @@ export class SideBarComponent implements OnInit {
   constructor(
     private _sideBarService: SideBarService,
     private _router: Router,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    public formsValidityService: FormsValidityService
   ) {}
 
   ngOnInit(): void {
-    console.log(this.steps);
     this._sideBarService.setIndex(this.steps).subscribe((el) => {
       this.sideBarPercantage = el;
+    });
+    this.formsValidityService.formsValidity$.subscribe((formsValue) => {
+      this.isComleted = formsValue;
     });
   }
 }

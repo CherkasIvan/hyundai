@@ -19,8 +19,7 @@ import { UserAuthStateInterface } from '../../../shared/models/interfaces/userAu
 export class UserAuthGuard implements CanActivate {
   constructor(
     private store: Store<UserAuthStateInterface>,
-    private route: Router,
-    private persistenceService: PersistenceService
+    private route: Router
   ) {}
   canActivate(
     route: ActivatedRouteSnapshot,

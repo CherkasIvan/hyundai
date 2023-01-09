@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/calculationLoanPageReducers';
-import { CalcultionLoanPageEffects } from './store/calculationLoanPage.effects';
+import { CalcultionLoanPageEffects as CalculationLoanPageEffects } from './store/calculationLoanPage.effects';
 
 import { MatTableModule } from '@angular/material/table';
 
@@ -17,7 +17,6 @@ import { CarInfoComponent } from './components/car-info/car-info.component';
 import { OwnerComponent } from './components/owner/owner.component';
 import { DriversPageComponent } from './components/drivers/drivers-page.component';
 import { LoanParamsComponent } from './components/loan-params/loan-params.component';
-import { InsurensesParamsComponent } from './components/insurenses-params/insurenses-params.component';
 import { DriversContentComponent } from './components/drivers/drivers-content/drivers-content.component';
 import { InsurancePolicyCalculationDialog } from './components/product-calculation/dialogs/insurance-policy-calculation-dialog/insurance-policy-calculation-dialog.component';
 import { InsurancePolicyCardComponent } from './components/product-calculation/dialogs/insurance-policy-calculation-dialog/insurance-policy-card/insurance-policy-card.component';
@@ -25,6 +24,7 @@ import { InsurancePolicyOptionsComponent } from './components/product-calculatio
 import { ProductCalculationPageComponent } from './components/product-calculation/product-calculation-page.component';
 import { ProductCalculationTableComponent } from './components/product-calculation/product-calculation-table/product-calculation-table.component';
 import { LoanOfferComponent } from './components/loan-params/componets/loan-offer/loan-offer.component';
+import { InsurancesParamsComponent } from './components/insurances-params/insurances-params.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { LoanOfferComponent } from './components/loan-params/componets/loan-offe
     OwnerComponent,
     DriversPageComponent,
     LoanParamsComponent,
-    InsurensesParamsComponent,
+    InsurancesParamsComponent,
     DriversContentComponent,
     InsurancePolicyCalculationDialog,
     InsurancePolicyCardComponent,
@@ -47,7 +47,7 @@ import { LoanOfferComponent } from './components/loan-params/componets/loan-offe
     CalculationLoanPageRoutingModule,
     SharedModule,
     StoreModule.forFeature('calculationLoanPage', reducers),
-    EffectsModule.forFeature([CalcultionLoanPageEffects]),
+    EffectsModule.forFeature([CalculationLoanPageEffects]),
     MatTableModule,
   ],
   providers: [ClientDataService],

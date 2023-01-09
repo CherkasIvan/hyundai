@@ -98,3 +98,18 @@
     background: #72879e;
     color: #ffffff;
   }
+
+.calculation-loan-products {
+  width: 100%;
+}
+
+  .tab-item__text:before {
+  position: absolute;
+  content: '';
+  width: 12px;
+  height: 12px;
+  left: 6px;
+  top: 17px;
+  background: linear-gradient(173.16deg, #92F9E1 -46.88%, #27C19D 94.64%);
+  border-radius: 2px;
+}

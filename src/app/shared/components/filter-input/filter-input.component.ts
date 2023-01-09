@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { GetUsersService } from '../../../auth/user-filter-page/services/get-users.service';
+import { ClientAuthService } from '../../../auth/user-filter-page/services/client-auth.service';
 
 @Component({
   selector: 'tes-filter-input',
@@ -20,7 +20,7 @@ export class FilterInputComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _getUserService: GetUsersService
+    private _getClientService: ClientAuthService
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class FilterInputComponent implements OnInit {
   public onSearchValue(event: Event) {
     if (event.target) {
       this.searchValue = (event.target as HTMLInputElement).value;
-      this._getUserService.searchClient(this.searchValue);
+      this._getClientService.searchClient(this.searchValue);
     }
   }
 }

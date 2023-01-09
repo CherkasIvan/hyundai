@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { GetUsersService } from '../../services/get-users.service';
+import { ClientAuthService } from '../../services/client-auth.service';
 
 @Component({
   selector: 'tes-filter',
@@ -15,7 +15,7 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   constructor(
     private _fb: FormBuilder,
-    private _getUsersService: GetUsersService
+    private _clientAuthService: ClientAuthService
   ) {}
 
   private initializeForm(): void {
@@ -34,7 +34,7 @@ export class FilterComponent implements OnInit, OnDestroy {
       onlySelf: true,
     });
 
-    this._getUsersService.filterCarsMark(this.getCar?.value);
+    this._clientAuthService.filterCarsMark(this.getCar?.value);
   }
 
   get getCar() {
@@ -46,7 +46,7 @@ export class FilterComponent implements OnInit, OnDestroy {
       onlySelf: true,
     });
 
-    this._getUsersService.filterCarsModel(this.getModel?.value)
+    this._clientAuthService.filterCarsModel(this.getModel?.value);
   }
 
   get getModel() {
@@ -69,17 +69,27 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   public clearFields() {
     this.filterForm.reset();
-    this._getUsersService.hasLoanFilter(false);
+    this._clientAuthService.hasLoanFilter(false);
   }
 
   public hasLoan(e: Event) {
     const hasLoanValue = this.filterForm.get('have_loan')?.value;
-    this._getUsersService.hasLoanFilter(hasLoanValue);
+    this._clientAuthService.hasLoanFilter(hasLoanValue);
+  }
+
+  public hasCasko (e: Event) {
+    const hasCaskoValue = this.filterForm.get('have_casko')?.value;
+    this._clientAuthService.hasCaskoFilter(hasCaskoValue);
+  }
+
+  public hasOsago (e: Event) {
+    const hasOsagoValue = this.filterForm.get('have_osago')?.value;
+    this._clientAuthService.hasCaskoFilter(hasOsagoValue);
   }
 
   ngOnInit(): void {
     this.initializeForm();
-    this._getUsersService.clientCarMark$.subscribe((value) => {
+    this._clientAuthService.clientCarMark$.subscribe((value) => {
       const arr = Array.from(value);
       arr.forEach((el: any) => {
         this.carMarkFilterParams.push(el.car_mark);
@@ -89,7 +99,7 @@ export class FilterComponent implements OnInit, OnDestroy {
       });
     });
 
-    this._getUsersService.clientCarModel$.subscribe((value) => {
+    this._clientAuthService.clientCarModel$.subscribe((value) => {
       const arr = Array.from(value);
       arr.forEach((el: any) => {
         this.carModelFilterParams.push(el.car_model);

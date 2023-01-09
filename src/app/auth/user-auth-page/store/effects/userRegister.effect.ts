@@ -10,18 +10,18 @@ import {
   userRegisterFailureAction,
 } from '../actions/userRegister.action';
 
-import { switchMap, tap, map, catchError, of } from 'rxjs';
+import { switchMap, map, catchError, of } from 'rxjs';
 
-import { UserAuthService } from '../../../user-filter-page/services/user-auth.service';
 import { PersistenceService } from '../../../../shared/services/persistence.service';
 
 import { CurrentUserInterface } from '../../models/interfaces/current-user.interface';
+import { ClientAuthService } from '../../../../auth/user-filter-page/services/client-auth.service';
 
 @Injectable()
 export class UserRegisterEffect {
   constructor(
     private _actions$: Actions,
-    private _authService: UserAuthService,
+    private _clientAuthService: ClientAuthService,
     private _persistenceService: PersistenceService
   ) {}
 
@@ -29,16 +29,15 @@ export class UserRegisterEffect {
     this._actions$.pipe(
       ofType(userRegisterAction),
       switchMap(({ request }) => {
-        return this._authService.userRegister(request).pipe(
-          tap((el) => console.log(el)),
+        return this._clientAuthService.userRegister(request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this._persistenceService.set('clientId', currentUser.clientId);
             return userRegisterSuccessAction({ currentUser });
           }),
-          catchError((errorResponce: HttpErrorResponse) => {
-            console.error(errorResponce);
+          catchError((errorResponse: HttpErrorResponse) => {
+            console.error(errorResponse);
             return of(
-              userRegisterFailureAction({ errors: errorResponce.error.errors })
+              userRegisterFailureAction({ errors: errorResponse.error.errors })
             );
           })
         );

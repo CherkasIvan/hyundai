@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 
-import { UserAuthService } from '../user-filter-page/services/user-auth.service';
+import { ClientAuthService } from '../user-filter-page/services/client-auth.service';
 
 import { CurrentUserInterface } from './models/interfaces/current-user.interface';
 
@@ -16,11 +16,11 @@ export class UserAuthPageComponent implements OnInit, OnDestroy {
 
   public userAuthPageSub$: Subscription = new Subscription();
 
-  constructor(private _userAuthService: UserAuthService) {}
+  constructor(private _clientAuthService: ClientAuthService) {}
 
   ngOnInit(): void {
     this.userAuthPageSub$.add(
-      this._userAuthService.userData$.subscribe((el) => {
+      this._clientAuthService.userData$.subscribe((el) => {
         this.initialState = el;
       })
     );

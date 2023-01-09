@@ -8,10 +8,10 @@ import { PaginationInterface } from '../../models/interfaces/paginator.interface
   styleUrls: ['./table-paginator.component.scss'],
 })
 export class TablePaginatorComponent implements OnInit {
-  @Input() value: any = { page: 1, pageSize: 5 };
-  @Input() total = 10;
-  @Input() visibleRangeLength = 5;
-  @Input() pageSizes: number[] = [5, 10, 25, 50];
+  @Input() public value: any = { page: 1, pageSize: 5 };
+  @Input() public total = 10;
+  @Input() public visibleRangeLength = 5;
+  @Input() public pageSizes: number[] = [5, 10, 25, 50];
 
   onChange(value: any) {}
   onTouched() {}

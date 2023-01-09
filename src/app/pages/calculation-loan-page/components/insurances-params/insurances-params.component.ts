@@ -2,11 +2,11 @@ import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'tes-insurenses-params',
-  templateUrl: './insurenses-params.component.html',
-  styleUrls: ['./insurenses-params.component.scss'],
+  selector: 'tes-insurances-params',
+  templateUrl: './insurances-params.component.html',
+  styleUrls: ['./insurances-params.component.scss'],
 })
-export class InsurensesParamsComponent implements OnInit, AfterContentChecked {
+export class InsurancesParamsComponent implements OnInit, AfterContentChecked {
   public formInsuranceOptions!: FormGroup;
   public insuranceInitialTerm!: boolean;
   public kaskoInsurancePolicyTerm!: string[];

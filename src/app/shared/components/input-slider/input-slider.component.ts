@@ -26,15 +26,16 @@ export class InputSliderComponent implements OnInit {
   public value: number | string = 0;
 
   public initializeStoreValues(): void {
-    this.initialValue$ = this._store$.pipe(select(getInputSliderValue));
-    this.initialValue$.subscribe((el) => this.componentValue.emit(el));
+    // this.initialValue$ = this._store$.pipe(select(getInputSliderValue));
+    // this.initialValue$.subscribe((el) => this.componentValue.emit(el));
+    this.componentValue.emit(this.value);
   }
 
   public updateInputValue(event: MatSliderChange) {
     if (event.value) {
       this.value = event.value;
       const value = this.value;
-      this._store$.dispatch(inputSliderChangeValueAction({ value }));
+      // this._store$.dispatch(inputSliderChangeValueAction({ value }));
       this.componentValue.emit(value);
     }
   }
@@ -43,7 +44,7 @@ export class InputSliderComponent implements OnInit {
     if (event.target) {
       this.value = (event.target as HTMLInputElement).value;
       const value = this.value;
-      this._store$.dispatch(inputSliderChangeValueAction({ value }));
+      // this._store$.dispatch(inputSliderChangeValueAction({ value }));
       this.componentValue.emit(value);
     }
   }

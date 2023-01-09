@@ -14,17 +14,17 @@ import {
 import { switchMap, map, catchError, of, tap } from 'rxjs';
 
 import { PersistenceService } from '../../../../shared/services/persistence.service';
-import { UserAuthService } from '../../../user-filter-page/services/user-auth.service';
 
 import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
 
 import { CurrentUserInterface } from '../../models/interfaces/current-user.interface';
+import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 @Injectable()
 export class UserAuthEffect {
   constructor(
     private _actions$: Actions,
-    private _authService: UserAuthService,
+    private _clientAuthService: ClientAuthService,
     private _persistenceService: PersistenceService,
     private _router: Router
   ) {}
@@ -33,7 +33,7 @@ export class UserAuthEffect {
     this._actions$.pipe(
       ofType(userAuthAction),
       switchMap(({ request }) => {
-        return this._authService.userAuth(request).pipe(
+        return this._clientAuthService.userAuth(request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this._persistenceService.set('clientId', currentUser.clientId);
             return userAuthSuccessAction({ currentUser });

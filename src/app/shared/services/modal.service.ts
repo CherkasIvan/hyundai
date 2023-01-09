@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
 import { BehaviorSubject } from 'rxjs';
-import { clientModalOpenAction } from 'src/app/auth/user-filter-page/store/actions/client-filter-page.actions';
+import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 import { AddUserModalComponent } from '../../auth/user-filter-page/components/add-user-modal/add-user-modal.component';
 import { InsurancePoliciesModalComponent } from '../components/insurance-policies-modal/insurance-policies-modal.component';
@@ -17,9 +17,9 @@ export class ModalService {
     this.isShow$.next(!this.isShow$);
   }
 
-  constructor(private _dialog: MatDialog, private _store$: Store<any>) {}
+  constructor(private _dialog: MatDialog) {}
 
-  public insurancePolicDialog(): void {
+  public insurancePolicyDialog(): void {
     this._dialog.open(InsurancePoliciesModalComponent, {
       height: '100%',
       // maxHeight: '883px',
@@ -27,11 +27,14 @@ export class ModalService {
   }
 
   public addNewClientDialog(): void {
-    this._dialog.open(AddUserModalComponent, {
+    const dialogRef = this._dialog.open(AddUserModalComponent, {
       width: '1031px',
       // maxHeight: '883px',
     });
-  }
+    // dialogRef
+    //   .afterClosed()
+    //   .subscribe(() => this._getUsersService.getClients().subscribe());
 
-  // this._store$.dispatch(clientModalOpenAction(payload));
+    // this._store$.dispatch(clientModalOpenAction(payload));
+  }
 }

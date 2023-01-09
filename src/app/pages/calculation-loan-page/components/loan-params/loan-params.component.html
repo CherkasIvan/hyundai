@@ -42,7 +42,7 @@
                 <label class="loan-params-item__label">
                   Сумма кредита, ₽
                   <tes-input-slider 
-                    (componentValue)="getInitialPaymentProportion($event)"
+                    (componentValue)="getLoanAmount($event)"
                   ></tes-input-slider>
                 </label>
               </fieldset>
@@ -67,43 +67,36 @@
           </div>
           </div> 
           <div class="calculation-loan-products">
-      <div class="loan-params-title">Расчет кредитных продуктов</div>
-      <mat-tab-group
-      [disableRipple]="true"
-      mat-align-tabs="center"
-      [selectedIndex]="indexOfTab"
-      (selectedTabChange)="onTabChange($event)"
-      class="mat-tab-client-modal"
-    >
-      <mat-tab>
-        <ng-template mat-tab-label class="tab-item">
-          <span class="tab-item__text">Кредитное предложение 1</span>
-        </ng-template>
-        <tes-loan-offer></tes-loan-offer>
-        <!-- <tes-client-phone
-          (nextStepOutput)="nextStep($event)"
-        ></tes-client-phone> -->
-      </mat-tab>
+            <div class="loan-params-title">Расчет кредитных продуктов</div>
+                <mat-tab-group
+                [disableRipple]="true"
+                mat-align-tabs="center"
+                [selectedIndex]="indexOfTab"
+                (selectedTabChange)="onTabChange($event)"
+                class="mat-tab-client-modal"
+              >
+                <mat-tab>
+                  <ng-template mat-tab-label class="tab-item">
+                    <span class="tab-item__text">Кредитное предложение 1</span>
+                  </ng-template>
+                  <tes-loan-offer></tes-loan-offer>
+                </mat-tab>
 
-      <mat-tab>
-        <ng-template mat-tab-label class="tab-item">
-          <span class="tab-item__text">Кредитное предложение 2</span>
-        </ng-template>
-        <tes-loan-offer></tes-loan-offer>
-        <!-- <tes-client-verification-code
-          (nextStepOutput)="nextStep($event)"
-        ></tes-client-verification-code> -->
-      </mat-tab>
+                <mat-tab>
+                  <ng-template mat-tab-label class="tab-item">
+                    <span class="tab-item__text">Кредитное предложение 2</span>
+                  </ng-template>
+                  <tes-loan-offer></tes-loan-offer>
+                </mat-tab>
 
-      <mat-tab>
-        <ng-template mat-tab-label class="tab-item">
-          <span class="tab-item__text">Кредитное предложение 3</span>
-        </ng-template>
-        <tes-loan-offer></tes-loan-offer>
-        <!-- <tes-edit-client></tes-edit-client> -->
-      </mat-tab>
-    </mat-tab-group>
-    </div>
+                <mat-tab>
+                  <ng-template mat-tab-label class="tab-item">
+                    <span class="tab-item__text">Кредитное предложение 3</span>
+                  </ng-template>
+                  <tes-loan-offer></tes-loan-offer>
+                </mat-tab>
+              </mat-tab-group>
+          </div>
     <div class="loan-params-form__button">
       <tes-submit-form-button
         [formValues]="formLoanParams.value"

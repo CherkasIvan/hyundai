@@ -9,16 +9,16 @@ import { SharedModule } from '../../shared/shared.module';
 import { WorkComponent } from './components/work/work.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { ApprovalComponent } from './components/approval/approval.component';
-import { UserInfoComponent } from './components/user-info/user-info.component';
+import { ClientInfoComponent } from './components/client-info/client-info.component';
 
 @NgModule({
   declarations: [
-    UserInfoComponent,
+    ClientInfoComponent,
     WorkComponent,
     SummaryComponent,
     ApprovalComponent,
   ],
-  exports: [UserInfoComponent],
+  exports: [ClientInfoComponent],
   imports: [
     CommonModule,
     NgpImagePickerModule,

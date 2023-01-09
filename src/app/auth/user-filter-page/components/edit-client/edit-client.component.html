@@ -1,6 +1,6 @@
-<form class="add-user-form" [formGroup]="edditClientForm">
+<form class="add-user-form" [formGroup]="editClientForm">
   <fieldset class="form-group__item">
-    <label class="form-group__item--label">Фaмилия</label>
+    <label class="form-group__item--label">Фамилия</label>
     <input
       type="text"
       formControlName="last_name"
@@ -36,8 +36,8 @@
     type="button"
     value="Изменить данные клиента"
     mat-dialog-close
-    [disabled]="!edditClientForm.valid"
+    [disabled]="!editClientForm.valid"
     mat-button
-    (click)="sendClientData(edditClientForm)"
+    (click)="sendClientData(editClientForm)"
   />
 </form>
