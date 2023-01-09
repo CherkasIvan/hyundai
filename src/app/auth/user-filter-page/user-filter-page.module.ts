@@ -24,6 +24,12 @@ import { TablePaginatorComponent } from './components/table-paginator/table-pagi
 import { ClientPhoneComponent } from './components/client-phone/client-phone.component';
 import { ClientVerificationCodeComponent } from './components/client-verification-code/client-verification-code.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+
+import { BrokerAuthService } from '../broker-auth-page/service/broker-auth.service';
+import { ClientFilterPageEffects } from './store/effects/client-filter-page.effects';
+import { reducers } from './store/reducers/client-filter-page.reducers';
 
 @NgModule({
   declarations: [
@@ -44,6 +50,8 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
+    StoreModule.forFeature('client-filter', reducers),
+    EffectsModule.forFeature([ClientFilterPageEffects]),
     MatTableModule,
     MatIconModule,
     SharedModule,
@@ -51,6 +59,7 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
   providers: [
     ModalService,
     UserAuthService,
+    BrokerAuthService,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => TablePaginatorComponent),

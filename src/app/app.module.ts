@@ -15,7 +15,6 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { BrokersAuthGuard } from './auth/broker-auth-page/guards/brokers-auth.guard';
 import { ClientAuthGuard } from './auth/user-filter-page/guards/client-auth.guard';
-import { BrokersAuthResolver } from './auth/broker-auth-page/guards/brokers-auth.resolver';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +32,7 @@ import { BrokersAuthResolver } from './auth/broker-auth-page/guards/brokers-auth
     }),
     BrowserAnimationsModule,
   ],
-  providers: [BrokersAuthGuard, ClientAuthGuard],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
