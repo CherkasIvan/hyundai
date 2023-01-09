@@ -30,8 +30,8 @@ const routes: Routes = [
 
     path: routingPathEnum.ClientFilterAuth,
     loadChildren: () =>
-      import('./auth/user-filter-page/user-filter-page.module').then(
-        (module) => module.UserFilterPageModule
+      import('./auth/user-filter-page/client-filter-page.module').then(
+        (module) => module.ClientFilterPageModule
       ),
   },
   {

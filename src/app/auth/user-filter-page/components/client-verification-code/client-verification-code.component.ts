@@ -8,8 +8,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
-
-import { UserAuthService } from '../../services/user-auth.service';
+import { ClientAuthService } from '../../services/client-auth.service';
 
 @Component({
   selector: 'tes-client-verification-code',
@@ -25,7 +24,7 @@ export class ClientVerificationCodeComponent implements OnInit, OnDestroy {
 
   constructor(
     private _fb: FormBuilder,
-    private _userServics: UserAuthService
+    private _clientAuthService: ClientAuthService
   ) {}
 
   public nexStep(value: number) {
@@ -34,7 +33,7 @@ export class ClientVerificationCodeComponent implements OnInit, OnDestroy {
 
   public sendClientData(formData: FormGroup) {
     this.clientVerificationCodeSub$.add(
-      this._userServics.userAuth(formData.value).subscribe((el) => {
+      this._clientAuthService.userAuth(formData.value).subscribe((el) => {
         if (el) {
           this.nexStep(2);
         }
@@ -44,7 +43,7 @@ export class ClientVerificationCodeComponent implements OnInit, OnDestroy {
 
   private initializeValues(): void {
     this.clientVerificationCodeSub$.add(
-      this._userServics.userData$.subscribe((value) => {
+      this._clientAuthService.userData$.subscribe((value) => {
         this.verificationClientForm.patchValue({
           clientId: value.clientId,
           code: value.testCode,

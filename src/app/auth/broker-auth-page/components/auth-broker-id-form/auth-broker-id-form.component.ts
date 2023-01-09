@@ -23,8 +23,8 @@ import { BrokerRegisterRequestInterface } from '../../models/interfaces/broker-r
 export class AuthBrokerIdFormComponent implements OnInit {
   public registrationForm!: FormGroup;
   public isBrokerSubmittingById$?: Observable<boolean>;
-  public backandErrors$!: Observable<BackendErrorsType | null>;
-  public checkboxSucces: boolean = false;
+  public backendErrors$!: Observable<BackendErrorsType | null>;
+  public checkboxSuccess: boolean = false;
 
   constructor(
     private _fb: UntypedFormBuilder,
@@ -40,7 +40,7 @@ export class AuthBrokerIdFormComponent implements OnInit {
     this.isBrokerSubmittingById$ = this._store.pipe(
       select(isBrokerSubmittingSelector)
     );
-    this.backandErrors$ = this._store.pipe(
+    this.backendErrors$ = this._store.pipe(
       select(validationBrokerErrorsSelector)
     );
   }

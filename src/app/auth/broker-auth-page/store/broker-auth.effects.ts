@@ -38,11 +38,11 @@ export class BrokerAuthEffects {
             this._persistenceService.set('accessToken', currentBroker.token);
             return authBrokerSuccessAction({ currentBroker });
           }),
-          catchError((errorResponce: HttpErrorResponse) => {
-            console.error(errorResponce);
+          catchError((errorResponse: HttpErrorResponse) => {
+            console.error(errorResponse);
 
             return of(
-              authBrokerFailureAction({ errors: errorResponce.error.errors })
+              authBrokerFailureAction({ errors: errorResponse.error.errors })
             );
           })
         );

@@ -1,4 +1,4 @@
-<form class="add-user-form" [formGroup]="edditClientForm">
+<form class="add-user-form" [formGroup]="editClientForm">
   <fieldset class="form-group__item">
     <label class="form-group__item--label">Фaмилия</label>
     <input
@@ -31,23 +31,13 @@
       class="form-group__item--input"
     />
   </fieldset>
-
-  <fieldset class="form-group__checkbox">
-    <label class="form-group__checkbox--label"
-      >Перейти к заполнению данных клиента</label
-    >
-    <input
-      type="checkbox"
-      formControlName="checkbox"
-      class="form-group__checkbox--input"
-    />
-  </fieldset>
   <input
     class="modal-buttons__save"
     type="button"
     value="Изменить данные клиента"
-    [disabled]="!edditClientForm.valid"
+    mat-dialog-close
+    [disabled]="!editClientForm.valid"
     mat-button
-    (click)="sendClientData(edditClientForm)"
+    (click)="sendClientData(editClientForm)"
   />
 </form>

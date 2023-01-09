@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   public authForm!: FormGroup;
 
   public isSubmitting$?: Observable<boolean>;
-  public backandErrors$!: Observable<BackendErrorsType | null>;
+  public backendErrors$!: Observable<BackendErrorsType | null>;
 
   constructor(
     private _fb: UntypedFormBuilder,
@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
 
   public initializeValues(): void {
     this.isSubmitting$ = this._store.pipe(select(isSubmittingRegisterSelector));
-    this.backandErrors$ = this._store.pipe(
+    this.backendErrors$ = this._store.pipe(
       select(validationRegisterErrorsSelector)
     );
   }

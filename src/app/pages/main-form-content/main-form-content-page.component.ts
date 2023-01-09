@@ -69,8 +69,7 @@ export class MainFormContentPageComponent implements OnInit {
       )
       .subscribe((el: NavigationEnd) => {
         this.routerLink = el.urlAfterRedirects;
-        console.log(this.routerLink);
-        console.log(this._activatedRoute.firstChild?.routeConfig?.path); // ИСПОЛЬЗОВАТЬ ДЛЯ NgClass
+        // console.log(this._activatedRoute.firstChild?.routeConfig?.path); // ИСПОЛЬЗОВАТЬ ДЛЯ NgClass
         if (this._activatedRoute.firstChild?.routeConfig?.path) {
           if (
             this.routerLink.includes(
@@ -78,7 +77,6 @@ export class MainFormContentPageComponent implements OnInit {
             )
           ) {
             this.isActive = true;
-            console.log(this.isActive);
           }
         }
 

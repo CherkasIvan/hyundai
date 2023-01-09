@@ -40,8 +40,8 @@
 
   <fieldset class="auth-formId-checkbox">
     <input
-      [checked]="checkboxSucces"
-      (change)="checkboxSucces = !checkboxSucces"
+      [checked]="checkboxSuccess"
+      (change)="checkboxSuccess = !checkboxSuccess"
       type="checkbox"
       class="auth-formId-checkbox__success"
       name="checkbox"
@@ -57,7 +57,7 @@
     type="submit"
     [disabled]="
       (isBrokerSubmittingById$ | async) ||
-      !checkboxSucces ||
+      !checkboxSuccess ||
       !this.registrationForm.valid
     "
   >

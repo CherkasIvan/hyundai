@@ -14,7 +14,7 @@ import { PersistenceService } from '../../shared/services/persistence.service';
 @Injectable()
 export class BrokerTokenInterceptor implements HttpInterceptor {
   constructor(
-    private _persistenceSesrvice: PersistenceService,
+    private _persistenceService: PersistenceService,
     private _router: Router
   ) {}
 
@@ -22,7 +22,7 @@ export class BrokerTokenInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const token = this._persistenceSesrvice.getToken();
+    const token = this._persistenceService.getToken();
 
     if (token) {
       request = request.clone({

@@ -44,8 +44,8 @@
       <u><b>Согласие на обработку персональных данных</b></u></label
     >
     <input
-      [checked]="checkboxSucces"
-      (change)="checkboxSucces = !checkboxSucces"
+      [checked]="checkboxSuccess"
+      (change)="checkboxSuccess = !checkboxSuccess"
       type="checkbox"
       class="auth-form-checkbox__success"
       name="checkbox"
@@ -57,7 +57,7 @@
     type="submit"
     [disabled]="
       (isBrokerSubmittingByEmail$ | async) ||
-      !checkboxSucces ||
+      !checkboxSuccess ||
       !this.registrationForm.valid
     "
   >

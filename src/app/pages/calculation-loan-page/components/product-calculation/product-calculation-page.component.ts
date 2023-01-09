@@ -4,9 +4,9 @@ import { InsurancePolicyCalculationDialog } from './dialogs/insurance-policy-cal
 import { filter, map } from 'rxjs';
 
 @Component({
-  selector: 'app-product-calculation-page',
+  selector: 'tes-product-calculation-page',
   templateUrl: './product-calculation-page.component.html',
-  styleUrls: ['./product-calculation-page.component.scss']
+  styleUrls: ['./product-calculation-page.component.scss'],
 })
 export class ProductCalculationPageComponent implements OnInit {
   public data = [
@@ -18,7 +18,7 @@ export class ProductCalculationPageComponent implements OnInit {
     },
     // {
     //   product: 'КАСКО',
-    //   credit: false,
+    //   credit: false,W
     //   insuranceCompany: 'vsk',
     //   price: '46000',
     // },
@@ -34,23 +34,23 @@ export class ProductCalculationPageComponent implements OnInit {
       insuranceCompany: 'sovkom',
       price: '10000',
     },
-
   ];
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   openCalculateDialog() {
     const dialog = this.dialog.open(InsurancePolicyCalculationDialog);
 
-    dialog.afterClosed().pipe(
-      filter(data => data),
-      map(data => {
-        console.log(data);
-      }),
-    ).subscribe()
+    dialog
+      .afterClosed()
+      .pipe(
+        filter((data) => data),
+        map((data) => {
+          console.log(data);
+        })
+      )
+      .subscribe();
   }
 }

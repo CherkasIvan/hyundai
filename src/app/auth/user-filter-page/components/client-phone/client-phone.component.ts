@@ -8,8 +8,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
-
-import { UserAuthService } from '../../services/user-auth.service';
+import { ClientAuthService } from '../../services/client-auth.service';
 
 @Component({
   selector: 'tes-client-phone',
@@ -19,7 +18,7 @@ import { UserAuthService } from '../../services/user-auth.service';
 export class ClientPhoneComponent implements OnInit, OnDestroy {
   public clientPhoneForm!: FormGroup;
 
-  public clinentPhoneSub$: Subscription = new Subscription();
+  public clientPhoneSub$: Subscription = new Subscription();
 
   @Output() nextStepOutput = new EventEmitter<number>();
 
@@ -32,7 +31,7 @@ export class ClientPhoneComponent implements OnInit, OnDestroy {
 
   constructor(
     private _fb: FormBuilder,
-    private _userService: UserAuthService
+    private _clientAuthService: ClientAuthService
   ) {}
 
   public nexStep(value: number) {
@@ -40,8 +39,8 @@ export class ClientPhoneComponent implements OnInit, OnDestroy {
   }
 
   public sendClientData(formData: FormGroup) {
-    this.clinentPhoneSub$.add(
-      this._userService.userRegister(formData.value).subscribe((el) => {
+    this.clientPhoneSub$.add(
+      this._clientAuthService.userRegister(formData.value).subscribe((el) => {
         if (el) {
           this.nexStep(1);
         }
@@ -54,6 +53,6 @@ export class ClientPhoneComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.clinentPhoneSub$.unsubscribe();
+    this.clientPhoneSub$.unsubscribe();
   }
 }

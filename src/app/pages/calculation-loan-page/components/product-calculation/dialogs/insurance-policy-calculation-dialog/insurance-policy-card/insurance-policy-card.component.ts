@@ -27,7 +27,7 @@ export class InsurancePolicyCardComponent implements OnInit {
   constructor() {}
 
   // public setLabel(): void {
-  //   this.insuranceCompany.insurences.forEach((elementIns: any) => {
+  //   this.insuranceCompany.insurances.forEach((elementIns: any) => {
   //     console.log(elementIns.label);
 
   //     this.fields.forEach((element: any) => {
