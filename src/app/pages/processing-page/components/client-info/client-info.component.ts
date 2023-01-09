@@ -12,11 +12,11 @@ import { ImagePickerConf } from 'ngp-image-picker';
 import { ModalService } from '../../../../shared/services/modal.service';
 
 @Component({
-  selector: 'tes-user-info',
-  templateUrl: './user-info.component.html',
-  styleUrls: ['./user-info.component.scss'],
+  selector: 'tes-client-info',
+  templateUrl: './client-info.component.html',
+  styleUrls: ['./client-info.component.scss'],
 })
-export class UserInfoComponent implements OnInit {
+export class ClientInfoComponent implements OnInit {
   @ViewChild('img', { read: TemplateRef }) public img!: TemplateRef<any>;
   @ViewChild('content', { read: ViewContainerRef })
   public contentRef!: ViewContainerRef;
@@ -124,7 +124,7 @@ export class UserInfoComponent implements OnInit {
   constructor(private modalService: ModalService, private fb: FormBuilder) {}
 
   public openInsuranceModal(): void {
-    this.modalService.insurancePolicDialog();
+    this.modalService.insurancePolicyDialog();
   }
 
   public submitRegistrationForm(userInfoForm: FormGroup): void {

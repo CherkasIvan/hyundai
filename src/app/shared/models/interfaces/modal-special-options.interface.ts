@@ -1,4 +1,4 @@
-export interface ModalSpecialOptionsinterface {
+export interface ModalSpecialOptionsInterface {
   key: string;
   label: string;
   placeholder: string;

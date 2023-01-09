@@ -11,12 +11,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Subscription, forkJoin } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { PersistenceService } from '../../../../shared/services/persistence.service';
-import { GetUsersService } from '../../services/get-users.service';
 
 import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
+import { ClientAuthService } from '../../services/client-auth.service';
 
 @Component({
   selector: 'tes-clients-list',
@@ -44,8 +44,7 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   constructor(
-    private _getUsers: GetUsersService,
-    private _getUserService: GetUsersService,
+    private _clientAuthService: ClientAuthService,
     private _persistenceService: PersistenceService,
     private _router: Router
   ) {}
@@ -65,13 +64,13 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'last_name':
-          return this.compare(a.last_name, b.last_name, isAsc);
-        case 'car_mark':
-          return this.compare(a.car_mark, b.car_mark, isAsc);
+          return this.compare(a.first_name, b.first_name, isAsc);
+        case 'car_brand':
+          return this.compare(a.car_brand, b.car_brand, isAsc);
         case 'car_model':
           return this.compare(a.car_model, b.car_model, isAsc);
         case 'vin':
-          return this.compare(a.vin, b.vin, isAsc);
+          return this.compare(a.carbs, b.carbs, isAsc);
         case 'kasko':
           return this.compare(a.kasko, b.kasko, isAsc);
         case 'osago':
@@ -88,45 +87,45 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public ngOnInit(): void {
     this.clientsListSub$.add(
-      this._getUsers.getClients().subscribe((el) => {
+      this._clientAuthService.getClients().subscribe((el) => {
         this.dataSource.data = el.clients;
         this.sortedData = el.clients.slice();
 
-        this._getUserService.setFilterCarMark(
+        this._clientAuthService.setFilterCarMark(
           this.dataSource.data.filter((el) => el.car_mark)
         );
 
-        this._getUserService.setFilterCarModel(
+        this._clientAuthService.setFilterCarModel(
           this.dataSource.data.filter((el) => el.car_model)
         );
       })
     );
 
     this.clientsListSub$.add(
-      this._getUserService.currentSearchValue$.subscribe((value) => {
+      this._clientAuthService.currentSearchValue$.subscribe((value) => {
         this.searchFilter(value);
       })
     );
 
     this.clientsListSub$.add(
-      this._getUserService.currentCarMarkFilterValue$.subscribe((value) => {
+      this._clientAuthService.currentCarMarkFilterValue$.subscribe((value) => {
         this.searchFilter(value);
       })
     );
 
     this.clientsListSub$.add(
-      this._getUserService.currentCarModelFilterValue$.subscribe((value) => {
+      this._clientAuthService.currentCarModelFilterValue$.subscribe((value) => {
         this.searchFilter(value);
       })
     );
 
-    this._getUserService.hasLoanClients$.subscribe((value) => {
+    this._clientAuthService.hasLoanClients$.subscribe((value) => {
       if (value) {
         this.dataSource.data = this.dataSource.data.filter(
           (el: { pts: string }) => el.pts
         );
       } else {
-        this._getUsers.getClients().subscribe((el) => {
+        this._clientAuthService.getClients().subscribe((el) => {
           this.dataSource.data = el.clients;
         });
       }
@@ -150,13 +149,15 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
     const client_id = client.client_id;
     this._persistenceService.set('clientId', client_id);
     this.clientsListSub$.add(
-      this._getUserService.getClients({ clientId: client_id }).subscribe(() => {
-        if (this._persistenceService.getClientId() === client_id) {
-          this._router.navigateByUrl(
-            `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
-          );
-        }
-      })
+      this._clientAuthService
+        .getClients({ clientId: client_id })
+        .subscribe(() => {
+          if (this._persistenceService.getClientId() === client_id) {
+            this._router.navigateByUrl(
+              `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
+            );
+          }
+        })
     );
   }
 

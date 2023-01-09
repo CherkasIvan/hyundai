@@ -13,7 +13,7 @@ export const enum routingPathEnum {
   CarOwner = 'owner',
   Drivers = 'drivers',
   LoanParams = 'loan-params',
-  InsuranceParams = 'insurenses-params',
+  InsuranceParams = 'insurances-params',
   ProductsCalculation = 'product-calculation',
 
   ClientInfo = 'client-info',

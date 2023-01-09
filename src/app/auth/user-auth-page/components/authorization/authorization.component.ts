@@ -10,7 +10,7 @@ import { userAuthAction } from '../../store/actions/userAuth.action';
 
 import { Observable, Subscription } from 'rxjs';
 
-import { UserAuthService } from '../../../user-filter-page/services/user-auth.service';
+import { ClientAuthService } from '../../../../auth/user-filter-page/services/client-auth.service';
 
 import { BackendErrorsType } from '../../../../shared/models/types/backendErrors.type';
 import { UserRegisterRequestType } from '../../models/types/user-register-request.type';
@@ -24,14 +24,14 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
   public authForm!: FormGroup;
 
   public isSubmitting$?: Observable<boolean>;
-  public backandErrors$!: Observable<BackendErrorsType | null>;
+  public backendErrors$!: Observable<BackendErrorsType | null>;
 
   public authClientSub$: Subscription = new Subscription();
 
   constructor(
     private readonly _store: Store,
     private _fb: FormBuilder,
-    private _userAuthService: UserAuthService
+    private _clientAuthService: ClientAuthService
   ) {}
 
   public ngOnInit(): void {
@@ -48,11 +48,11 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
 
   public initializeValues(): void {
     this.isSubmitting$ = this._store.pipe(select(isSubmittingAuthSelector));
-    this.backandErrors$ = this._store.pipe(
+    this.backendErrors$ = this._store.pipe(
       select(validationAuthErrorsSelector)
     );
     this.authClientSub$.add(
-      this._userAuthService.userData$.subscribe((value) => {
+      this._clientAuthService.userData$.subscribe((value) => {
         this.authForm.patchValue({
           clientId: value.clientId,
           code: value.testCode,

@@ -149,22 +149,6 @@ export class MockDataService {
     },
   ];
 
-  public calculationSteps: StepsInterface[] = [
-    { content: 'Информация об автомобиле', path: 'car-info' },
-    { content: 'Собственник', path: 'owner' },
-    { content: 'Водители', path: 'drivers' },
-    { content: 'Параметры кредита', path: 'loan-params' },
-    { content: 'Параметры страховых продуктов', path: 'insurenses-params' },
-    { content: 'Расчет продуктов', path: 'product-calculation' },
-  ];
-
-  public processingSteps: StepsInterface[] = [
-    { content: 'Личная информация', path: 'client-info' },
-    { content: 'Работа', path: 'client-job' },
-    { content: 'Сводка', path: 'client-summary' },
-    { content: 'Одобрение', path: 'client-approval' },
-  ];
-
   public insuranceCardsObjects: any[] = [
     {
       img: 'ingostrah.png',
