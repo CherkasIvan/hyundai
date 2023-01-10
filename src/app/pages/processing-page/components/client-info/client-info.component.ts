@@ -92,7 +92,7 @@ export class ClientInfoComponent implements OnInit {
       registration_date: ['', Validators.required],
       address_of_actual_residence: ['', Validators.required],
       matched_client_registered_address: ['', Validators.required],
-      passport_chenged: ['', Validators.required],
+      passport_changed: ['', Validators.required],
       propertyStatus: ['', Validators.required],
       familyStatus: ['', Validators.required],
       children_counter: [0, Validators.required],

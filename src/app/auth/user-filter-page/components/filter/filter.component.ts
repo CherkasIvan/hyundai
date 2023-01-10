@@ -77,6 +77,16 @@ export class FilterComponent implements OnInit, OnDestroy {
     this._clientAuthService.hasLoanFilter(hasLoanValue);
   }
 
+  public hasCasko (e: Event) {
+    const hasCaskoValue = this.filterForm.get('have_casko')?.value;
+    this._clientAuthService.hasCaskoFilter(hasCaskoValue);
+  }
+
+  public hasOsago (e: Event) {
+    const hasOsagoValue = this.filterForm.get('have_osago')?.value;
+    this._clientAuthService.hasCaskoFilter(hasOsagoValue);
+  }
+
   ngOnInit(): void {
     this.initializeForm();
     this._clientAuthService.clientCarMark$.subscribe((value) => {

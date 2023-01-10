@@ -23,6 +23,7 @@ import { InsurancePolicyCardComponent } from './components/product-calculation/d
 import { InsurancePolicyOptionsComponent } from './components/product-calculation/dialogs/insurance-policy-calculation-dialog/insurance-policy-options/insurance-policy-options.component';
 import { ProductCalculationPageComponent } from './components/product-calculation/product-calculation-page.component';
 import { ProductCalculationTableComponent } from './components/product-calculation/product-calculation-table/product-calculation-table.component';
+import { LoanOfferComponent } from './components/loan-params/componets/loan-offer/loan-offer.component';
 import { InsurancesParamsComponent } from './components/insurances-params/insurances-params.component';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { InsurancesParamsComponent } from './components/insurances-params/insura
     InsurancePolicyOptionsComponent,
     ProductCalculationPageComponent,
     ProductCalculationTableComponent,
+    LoanOfferComponent,
   ],
   exports: [CarInfoComponent],
   imports: [

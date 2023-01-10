@@ -11,9 +11,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Subscription } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
 
 import { PersistenceService } from '../../../../shared/services/persistence.service';
+// import { GetUsersService } from '../../services/get-users.service';
 
 import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
 import { ClientAuthService } from '../../services/client-auth.service';
@@ -33,18 +34,18 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
   public client_profile: any;
 
   public displayedColumns: string[] = [
-    'last_name',
-    'car_brand',
-    'car_model',
+    'ФИО',
+    'Марка авто',
+    'модель',
     'vin',
-    'kasko',
-    'osago',
-    'loan_products',
-    'phone',
+    'КАСКО',
+    'ОСАГО',
+    'кредитные продукты',
+    'Телефон',
   ];
 
   constructor(
-    private _clientAuthService: ClientAuthService,
+    private _authClientService: ClientAuthService,
     private _persistenceService: PersistenceService,
     private _router: Router
   ) {}
@@ -63,22 +64,22 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.sortedData = data.sort((a: any, b: any) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
-        case 'last_name':
+        case 'ФИО':
           return this.compare(a.first_name, b.first_name, isAsc);
-        case 'car_brand':
-          return this.compare(a.car_brand, b.car_brand, isAsc);
-        case 'car_model':
-          return this.compare(a.car_model, b.car_model, isAsc);
+        case 'Марка авто':
+          return this.compare(a.calories, b.calories, isAsc);
+        case 'модель':
+          return this.compare(a.fat, b.fat, isAsc);
         case 'vin':
           return this.compare(a.carbs, b.carbs, isAsc);
-        case 'kasko':
-          return this.compare(a.kasko, b.kasko, isAsc);
-        case 'osago':
-          return this.compare(a.osago, b.osago, isAsc);
-        case 'loan_products':
-          return this.compare(a.loan_products, b.loan_products, isAsc);
-        case 'phone':
-          return this.compare(a.phone, b.phone, isAsc);
+        case 'КАСКО':
+          return this.compare(a.protein, b.protein, isAsc);
+        case 'ОСАГО':
+          return this.compare(a.protein, b.protein, isAsc);
+        case 'кредитные продукты':
+          return this.compare(a.protein, b.protein, isAsc);
+        case 'Телефон':
+          return this.compare(a.protein, b.protein, isAsc);
         default:
           return 0;
       }
@@ -86,50 +87,62 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.clientsListSub$.add(
-      this._clientAuthService.getClients().subscribe((el) => {
-        this.dataSource.data = el.clients;
-        this.sortedData = el.clients.slice();
-
-        this._clientAuthService.setFilterCarMark(
-          this.dataSource.data.filter((el) => el.car_mark)
-        );
-
-        this._clientAuthService.setFilterCarModel(
-          this.dataSource.data.filter((el) => el.car_model)
-        );
-      })
-    );
 
     this.clientsListSub$.add(
-      this._clientAuthService.currentSearchValue$.subscribe((value) => {
-        this.searchFilter(value);
-      })
-    );
+      this._authClientService.getClients().subscribe((el) => {
+      this.dataSource.data = el.clients;
+      this.sortedData = el.clients.slice();
 
-    this.clientsListSub$.add(
-      this._clientAuthService.currentCarMarkFilterValue$.subscribe((value) => {
-        this.searchFilter(value);
-      })
-    );
+      this._authClientService.setFilterCarMark(
+        this.dataSource.data.filter((el) => el.car_mark));
 
-    this.clientsListSub$.add(
-      this._clientAuthService.currentCarModelFilterValue$.subscribe((value) => {
-        this.searchFilter(value);
-      })
-    );
+      this._authClientService.setFilterCarModel(
+        this.dataSource.data.filter((el) => el.car_model));
+    }))
 
-    this._clientAuthService.hasLoanClients$.subscribe((value) => {
-      if (value) {
-        this.dataSource.data = this.dataSource.data.filter(
-          (el: { pts: string }) => el.pts
-        );
+    this.clientsListSub$.add( this._authClientService.currentSearchValue$.subscribe((value) => {
+      this.searchFilter(value);
+    }))
+
+    this.clientsListSub$.add(this._authClientService.currentCarMarkFilterValue$.subscribe((value) => {
+      this.searchFilter(value);
+    }))
+
+    this.clientsListSub$.add( this._authClientService.currentCarModelFilterValue$.subscribe((value) => {
+      this.searchFilter(value);
+    }))
+
+    this._authClientService.hasLoanClients$.subscribe((value) => {
+      if(value) {
+       this.dataSource.data = this.dataSource.data.filter((el: { position: string; }) => el.position)
       } else {
-        this._clientAuthService.getClients().subscribe((el) => {
+        this._authClientService.getClients().subscribe((el) => {
           this.dataSource.data = el.clients;
-        });
+          console.log("reset forms");
+        })
       }
     });
+
+    this._authClientService.hasCaskoClients$.subscribe((value) => {
+      if(value) {
+        this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
+      } else {
+        this._authClientService.getClients().subscribe((el) => {
+          this.dataSource.data = el.clients;
+        })
+      }
+    });
+
+    this._authClientService.hasOsagoClients$.subscribe((value) => {
+      if(value) {
+        this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
+      } else {
+        this._authClientService.getClients().subscribe((el) => {
+          this.dataSource.data = el.clients;
+        })
+      }
+    });
+
   }
 
   public ngAfterViewInit() {
@@ -149,15 +162,13 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
     const client_id = client.client_id;
     this._persistenceService.set('clientId', client_id);
     this.clientsListSub$.add(
-      this._clientAuthService
-        .getClients({ clientId: client_id })
-        .subscribe(() => {
-          if (this._persistenceService.getClientId() === client_id) {
-            this._router.navigateByUrl(
-              `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
-            );
-          }
-        })
+      this._authClientService.getClients({ clientId: client_id }).subscribe(() => {
+        if (this._persistenceService.getClientId() === client_id) {
+          this._router.navigateByUrl(
+            `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
+          );
+        }
+      })
     );
   }
 

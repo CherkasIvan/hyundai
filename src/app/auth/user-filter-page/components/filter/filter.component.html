@@ -48,6 +48,7 @@
     </fieldset>
     <fieldset class="filter-options">
       <input
+        (change)="hasCasko($event)"
         type="checkbox"
         class="filter-options__checkbox"
         formControlName="have_casko"
@@ -57,6 +58,7 @@
     </fieldset>
     <fieldset class="filter-options">
       <input
+        (change)="hasOsago($event)"
         type="checkbox"
         class="filter-options__checkbox"
         formControlName="have_osago"

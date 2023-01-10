@@ -34,6 +34,14 @@
     color: #343e48;
     margin-left: 35px;
     flex-wrap: wrap;
+
+    &__button {
+      height: 20vh;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+  }
   }
 
   .loan-params-item {
@@ -57,3 +65,51 @@
       color: #343e48;
     }
   }
+
+  .loan-payments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 160px;
+  }
+
+  .loan-params {
+    &__list {
+      width: 100%;
+      margin-top: 20px;
+      width: 60%;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+
+      &-item {
+        color: #343e48;
+        padding: 10px 30px;
+        background: #f2f4f7;
+        border-radius: 20px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+      }
+    }
+  }
+
+  .active-loan-term {
+    background: #72879e;
+    color: #ffffff;
+  }
+
+.calculation-loan-products {
+  width: 100%;
+}
+
+  .tab-item__text:before {
+  position: absolute;
+  content: '';
+  width: 12px;
+  height: 12px;
+  left: 6px;
+  top: 17px;
+  background: linear-gradient(173.16deg, #92F9E1 -46.88%, #27C19D 94.64%);
+  border-radius: 2px;
+}

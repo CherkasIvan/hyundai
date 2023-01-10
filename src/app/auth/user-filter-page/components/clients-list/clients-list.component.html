@@ -4,30 +4,28 @@
   <div class="table-container">
     <table
       mat-table
-      [dataSource]="dataSource"
+      [dataSource]="this.dataSource"
       class="clients-table mat-elevation-z8"
       matSort
       (matSortChange)="sortData($event)"
     >
-      <ng-container matColumnDef="last_name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="last_name">
-          ФИО
-        </th>
+      <ng-container matColumnDef="ФИО">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="ФИО">ФИО</th>
         <td mat-cell *matCellDef="let element">
           {{ element.first_name }} {{ element.last_name }}
           {{ element.patronymic }}
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="car_brand">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="car_mark">
+      <ng-container matColumnDef="Марка авто">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="Марка авто">
           Марка авто
         </th>
         <td mat-cell *matCellDef="let element">{{ element.car_mark }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="car_model">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="car_model">
+      <ng-container matColumnDef="модель">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="модель">
           модель
         </th>
         <td mat-cell *matCellDef="let element">{{ element.car_model }}</td>
@@ -38,25 +36,25 @@
         <td mat-cell *matCellDef="let element">{{ element.vin }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="kasko">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="kasko">КАСКО</th>
+      <ng-container matColumnDef="КАСКО">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="КАСКО">КАСКО</th>
         <td mat-cell *matCellDef="let element">{{ element.pts }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="osago">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="osago">ОСАГО</th>
+      <ng-container matColumnDef="ОСАГО">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="ОСАГО">ОСАГО</th>
+        <td mat-cell *matCellDef="let element">{{ element.pts }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="кредитные продукты">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="КРЕДИТ">
+          кредитные продукты
+        </th>
         <td mat-cell *matCellDef="let element">{{ element.position }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="loan_products">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="loan_products">
-          кредитные продукты
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.transmission }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="phone">
+      <ng-container matColumnDef="Телефон">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="Телефон">
           Телефон
         </th>
         <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
@@ -67,6 +65,7 @@
         mat-row
         *matRowDef="let row; columns: displayedColumns"
         (click)="selectedClient(row)"
+        class="clients-table-link"
       ></tr>
     </table>
 

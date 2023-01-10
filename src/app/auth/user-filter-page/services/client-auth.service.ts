@@ -27,9 +27,15 @@ export class ClientAuthService {
 
   public carModelFilterValue$ = new BehaviorSubject<string>('');
   public currentCarModelFilterValue$ = this.carModelFilterValue$.asObservable();
-
+  
   public hasLoan$ = new BehaviorSubject<boolean>(false);
   public hasLoanClients$ = this.hasLoan$.asObservable();
+
+  public hasCasko$ = new BehaviorSubject<boolean>(false);
+  public hasCaskoClients$ = this.hasCasko$.asObservable();
+
+  public hasOsago$ = new BehaviorSubject<boolean>(false);
+  public hasOsagoClients$ = this.hasOsago$.asObservable();
 
   public userData$: BehaviorSubject<CurrentUserInterface> = new BehaviorSubject(
     {
@@ -106,7 +112,15 @@ export class ClientAuthService {
     this.carModelFilterValue$.next(params);
   }
 
-  public hasLoanFilter(params: boolean) {
+  public hasLoanFilter (params: boolean) {
     this.hasLoan$.next(params);
+  }
+
+  public hasCaskoFilter (params: boolean) {
+    this.hasCasko$.next(params);
+  }
+
+  public hasOsagoFilter (params: boolean) {
+    this.hasOsago$.next(params);
   }
 }
