@@ -44,8 +44,8 @@
       margin-top: 35px;
       margin-bottom: 70px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      column-gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      column-gap: 50px;
       row-gap: 24px;
 
       .form-group__item {

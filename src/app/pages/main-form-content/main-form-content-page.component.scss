@@ -24,19 +24,17 @@
 }
 
 .main-container {
-  margin: 0 auto;
-  width: 90%;
+  margin: 0 5%;
   display: flex;
   gap: 10px;
   justify-content: space-between;
 }
 
 .nav-container {
-  width: 90%;
   height: 64px;
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 5%;
 
   .nav-list {
     display: flex;
