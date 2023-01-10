@@ -40,7 +40,7 @@ export class WorkComponent implements OnInit {
       work_status: ['', Validators.required],
       employee_position: ['', Validators.required],
       type_employee_position: ['', Validators.required],
-      number_of_employes: ['', Validators.required],
+      number_of_employees: ['', Validators.required],
       monthly_income: [0, Validators.required],
     });
   }
