@@ -75,9 +75,9 @@
     .car-info-item {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       width: 15vw;
       height: 74px;
-      border-bottom: 1px solid #cad2da;
 
       &__radio {
         display: grid;
@@ -143,6 +143,7 @@
         font-size: 18px;
         line-height: 21px;
         color: #343e48;
+        border-bottom: 1px solid #cad2da;
 
         &__telematic {
           margin-right: 14px;
@@ -162,7 +163,7 @@
 .car-info-form-container {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 18px;
 
   .label__tooltip {
