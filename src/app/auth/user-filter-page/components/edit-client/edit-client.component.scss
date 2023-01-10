@@ -53,6 +53,26 @@
     }
   }
 
+  .form-group__checkbox {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-self: flex-start;
+
+    &--label {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #343e48;
+    }
+
+    &--input {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      accent-color: #72879e;
+    }
+  }
+
   .modal-buttons {
     display: flex;
     align-items: center;
