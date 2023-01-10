@@ -18,13 +18,6 @@ const routes: Routes = [
         (module) => module.BrokerAuthPageModule
       ),
   },
-  // {
-  //   path: routingPathEnum.ClientAuthentication,
-  //   loadChildren: () =>
-  //     import('./auth/user-auth-page/user-auth-page.module').then(
-  //       (module) => module.UserAuthPageModule
-  //     ),
-  // },
   {
     canLoad: [BrokersAuthGuard],
 

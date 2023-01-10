@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 
-import { ClientAuthService } from '../user-filter-page/services/client-auth.service';
+import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 import { CurrentUserInterface } from './models/interfaces/current-user.interface';
 

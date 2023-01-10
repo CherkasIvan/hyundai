@@ -5,9 +5,8 @@ import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
 
-import { CurrentUserInterface } from '../../user-auth-page/models/interfaces/current-user.interface';
-import { UserAuthResponseInterface } from '../../user-auth-page/models/interfaces/user-auth-response.interface';
-import { UserRegisterRequestType } from '../../user-auth-page/models/types/user-register-request.type';
+import { CurrentClientInterface } from '../models/interfaces/current-client..interface';
+import { ClientAuthResponseInterface } from '../models/interfaces/client-auth-response.interface';
 
 @Injectable()
 export class ClientAuthService {
@@ -27,7 +26,7 @@ export class ClientAuthService {
 
   public carModelFilterValue$ = new BehaviorSubject<string>('');
   public currentCarModelFilterValue$ = this.carModelFilterValue$.asObservable();
-  
+
   public hasLoan$ = new BehaviorSubject<boolean>(false);
   public hasLoanClients$ = this.hasLoan$.asObservable();
 
@@ -37,44 +36,43 @@ export class ClientAuthService {
   public hasOsago$ = new BehaviorSubject<boolean>(false);
   public hasOsagoClients$ = this.hasOsago$.asObservable();
 
-  public userData$: BehaviorSubject<CurrentUserInterface> = new BehaviorSubject(
-    {
+  public userData$: BehaviorSubject<CurrentClientInterface> =
+    new BehaviorSubject({
       clientId: '',
       status: '',
       testCode: '',
-    }
-  );
+    });
 
   constructor(private _http: HttpClient) {}
 
   public userRegister(
-    data: UserRegisterRequestType
-  ): Observable<CurrentUserInterface> {
+    data: ClientAuthResponseInterface
+  ): Observable<CurrentClientInterface> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
 
     const url = environment.apiUrl + '/registerClient';
     return this._http
-      .post<UserRegisterRequestType>(url, data, { headers: httpHeaders })
+      .post<ClientAuthResponseInterface>(url, data, { headers: httpHeaders })
       .pipe(
         map((response: any) => response),
-        tap((response: CurrentUserInterface) => {
+        tap((response: CurrentClientInterface) => {
           this.userData$.next(response);
         })
       );
   }
 
   public userAuth(
-    data: UserRegisterRequestType
-  ): Observable<CurrentUserInterface> {
+    data: ClientAuthResponseInterface
+  ): Observable<CurrentClientInterface> {
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
 
     const url = environment.apiUrl + '/confirmClientRegistration';
     return this._http
-      .post<UserAuthResponseInterface>(url, data, { headers: httpHeaders })
+      .post<ClientAuthResponseInterface>(url, data, { headers: httpHeaders })
       .pipe(map((response: any) => response));
   }
 
@@ -112,15 +110,15 @@ export class ClientAuthService {
     this.carModelFilterValue$.next(params);
   }
 
-  public hasLoanFilter (params: boolean) {
+  public hasLoanFilter(params: boolean) {
     this.hasLoan$.next(params);
   }
 
-  public hasCaskoFilter (params: boolean) {
+  public hasCaskoFilter(params: boolean) {
     this.hasCasko$.next(params);
   }
 
-  public hasOsagoFilter (params: boolean) {
+  public hasOsagoFilter(params: boolean) {
     this.hasOsago$.next(params);
   }
 }
