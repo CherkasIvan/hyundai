@@ -25,7 +25,6 @@
     "@ngrx/effects": "^14.3.2",
     "@ngrx/store": "^14.3.2",
     "@ngrx/store-devtools": "^14.3.2",
-    "bootstrap": "^5.2.0",
     "moment": "^2.29.4",
     "ngp-image-picker": "^2.3.4",
     "ngrx-forms": "^8.0.0",

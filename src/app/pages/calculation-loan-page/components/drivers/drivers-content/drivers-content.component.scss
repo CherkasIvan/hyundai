@@ -1,14 +1,51 @@
-.driver-info-details {
-  max-width: 70%;
-  &-form {
-    &-container {
-      .checkbox-line {
-        margin-top: 20px;
+.driver-form {
+  width: 100%;
 
-        tes-input-checkbox {
-          margin-right: 20px;
+  .container {
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 36px;
+      width: 60%;
+    }
+
+    .driver-insurance {
+      display: flex;
+      justify-content: space-between;
+      width: 60%;
+
+      &__input {
+      }
+
+      &__checkbox-list {
+        display: flex;
+        gap: 10px;
+      }
+
+      &__fullname {
+        width: 60%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        margin-bottom: 45px;
+      }
+
+      &__data {
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+
+        .checkbox {
+          grid-column-start: 2;
         }
       }
     }
+  }
+
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
   }
 }

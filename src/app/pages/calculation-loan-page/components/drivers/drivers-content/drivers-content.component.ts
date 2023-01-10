@@ -8,6 +8,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class DriversContentComponent implements OnInit {
   public formDriversData!: FormGroup;
+  public driversTitle: string = 'Водители';
 
   constructor(private fb: FormBuilder) {
     this.formDriversData = this.fb.group({

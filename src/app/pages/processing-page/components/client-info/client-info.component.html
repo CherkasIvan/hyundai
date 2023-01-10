@@ -1,7 +1,5 @@
-<div class="questionnaire-container">
+<tes-card-layout [title]="clientInfoTitle">
   <form [formGroup]="userInfoForm" class="registration">
-    <p class="registration-title">Оформление</p>
-
     <div class="passport-data">
       <div class="passport-data__title">Паспортные данные</div>
       <button
@@ -224,6 +222,4 @@
       buttonText="Продолжить"
     ></tes-submit-form-button>
   </form>
-
-  <!-- <button (click)="openInsuranceModal()">Open modal</button> -->
-</div>
+</tes-card-layout>

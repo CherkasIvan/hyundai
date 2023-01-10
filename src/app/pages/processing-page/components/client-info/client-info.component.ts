@@ -17,6 +17,8 @@ import { ModalService } from '../../../../shared/services/modal.service';
   styleUrls: ['./client-info.component.scss'],
 })
 export class ClientInfoComponent implements OnInit {
+  public clientInfoTitle: string = 'Оформление';
+
   @ViewChild('img', { read: TemplateRef }) public img!: TemplateRef<any>;
   @ViewChild('content', { read: ViewContainerRef })
   public contentRef!: ViewContainerRef;

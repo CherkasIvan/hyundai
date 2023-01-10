@@ -1,17 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  padding: 31px 35px;
-  margin: 0 auto;
-  max-width: 100%;
-  width: 80vw;
-  min-height: 80vh;
-  background: #ffffff;
-  box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
-  border-radius: 30px;
-  margin-bottom: 75px;
-}
-
 .work {
   &-header {
     margin-bottom: 47px;
@@ -58,13 +44,14 @@
       margin-top: 35px;
       margin-bottom: 70px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       column-gap: 20px;
       row-gap: 24px;
 
       .form-group__item {
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
 
         &--label {
           font-weight: 400;

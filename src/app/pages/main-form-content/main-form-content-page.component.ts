@@ -18,19 +18,39 @@ export class MainFormContentPageComponent implements OnInit {
   public isActive: boolean = true;
 
   public calculationPagesSteps: StepsInterface[] = [
-    { content: 'Информация об автомобиле', path: 'car-info' },
-    { content: 'Собственник', path: 'owner' },
-    { content: 'Водители', path: 'drivers' },
-    { content: 'Параметры кредита', path: 'loan-params' },
-    { content: 'Параметры страховых продуктов', path: 'insurances-params' },
-    { content: 'Расчет продуктов', path: 'product-calculation' },
+    {
+      content: 'Информация об автомобиле',
+      title: 'Информация об автомобиле',
+      path: 'car-info',
+    },
+    {
+      content: 'Собственник',
+      title: 'Кредитные и страховые продукты',
+      path: 'owner',
+    },
+    { content: 'Водители', title: 'Параметры кредита', path: 'drivers' },
+    {
+      content: 'Параметры кредита',
+      title: 'Параметры страховых продуктов',
+      path: 'loan-params',
+    },
+    {
+      content: 'Параметры страховых продуктов',
+      title: 'Параметры страховых продуктов',
+      path: 'insurances-params',
+    },
+    {
+      content: 'Расчет продуктов',
+      title: 'Расчет страховых полисов',
+      path: 'product-calculation',
+    },
   ];
 
   public processingPagesSteps: StepsInterface[] = [
-    { content: 'Личная информация', path: 'client-info' },
-    { content: 'Работа', path: 'client-job' },
-    { content: 'Сводка', path: 'client-summary' },
-    { content: 'Одобрение', path: 'client-approval' },
+    { content: 'Личная информация', title: 'Оформление ', path: 'client-info' },
+    { content: 'Работа', title: 'Работа', path: 'client-job' },
+    { content: 'Сводка', title: 'Кредит', path: 'client-summary' },
+    { content: 'Одобрение', title: 'Кредит', path: 'client-approval' },
   ];
 
   public navigationLinks = [

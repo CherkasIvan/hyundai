@@ -9,6 +9,7 @@ import { filter, map } from 'rxjs';
   styleUrls: ['./product-calculation-page.component.scss'],
 })
 export class ProductCalculationPageComponent implements OnInit {
+  public productCalculationTitle: string = 'Расчет страховых полисов';
   public data = [
     {
       product: 'КАСКО',

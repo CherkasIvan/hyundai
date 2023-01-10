@@ -1,26 +1,3 @@
-.insurance-params-container {
-  padding: 30px;
-  width: 70vw;
-  min-height: 80vh;
-  background: #ffffff;
-  box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-
-  .insurance-params-title {
-    margin-top: 7px;
-    margin-left: 35px;
-    margin-bottom: 20px;
-    width: 502px;
-    height: 39px;
-    font-size: 30px;
-    line-height: 130%;
-    color: #343e48;
-  }
-}
-
 .insurance-params-form {
   height: 100%;
   display: flex;
@@ -29,7 +6,6 @@
   padding: 0px 0px 6px;
   gap: 18px;
   color: #343e48;
-  margin-left: 35px;
   flex-wrap: wrap;
 }
 

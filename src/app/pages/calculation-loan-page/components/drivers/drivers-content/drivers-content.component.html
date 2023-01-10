@@ -1,145 +1,114 @@
-<div class="tes-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 tes-wrapper-title">Водители</div>
-      <div class="col-12">
-        <div class="tes-wrapper-content">
-          <div class="driver-info-details">
-            <form
-              class="driver-info-details-form"
-              [formGroup]="formDriversData"
-              (ngSubmit)="onSubmitForm()"
-            >
-              <div class="driver-info-details-form-container">
-                <div class="row">
-                  <div class="col-6">
-                    <tes-input-slide-toggle
-                      [label]="'Водители без ограничений'"
-                      formControlName="invalid_drivers"
-                    ></tes-input-slide-toggle>
-                  </div>
-                  <div class="col-6">
-                    <tes-input-checkbox
-                      [label]="'Все водители участвуют в договорах'"
-                      formControlName="all_drivers_in_contracts"
-                    >
-                    </tes-input-checkbox>
-                  </div>
-                </div>
-
-                <div formArrayName="drivers">
-                  <div *ngFor="let driver of drivers.controls; let i = index">
-                    <div [formGroupName]="i">
-                      <div class="row mt-4 form-group">
-                        <div class="col-6 mb-4">
-                          <fieldset class="mt-3">
-                            <input
-                              class="border-bottom w-100"
-                              type="text"
-                              formControlName="driver_title"
-                            />
-                          </fieldset>
-                        </div>
-                        <div class="col-6 mb-4 checkbox-line">
-                          <tes-input-checkbox
-                            [label]="'ОСАГО'"
-                            formControlName="kasko"
-                          ></tes-input-checkbox>
-                          <tes-input-checkbox
-                            [label]="'КАСКО'"
-                            formControlName="osago"
-                          ></tes-input-checkbox>
-                          <tes-input-checkbox
-                            [label]="'Кредит'"
-                            formControlName="credit"
-                          ></tes-input-checkbox>
-                        </div>
-                        <div class="col-4">
-                          <tes-input-basic
-                            [label]="'Фамилия'"
-                            formControlName="driver_surname"
-                          ></tes-input-basic>
-                        </div>
-                        <div class="col-4">
-                          <tes-input-basic
-                            [label]="'Имя'"
-                            formControlName="driver_name"
-                          ></tes-input-basic>
-                        </div>
-                        <div class="col-4">
-                          <tes-input-basic
-                            [label]="'Отчество'"
-                            formControlName="driver_middle_name"
-                          ></tes-input-basic>
-                        </div>
-                        <div class="col-6">
-                          <tes-input-basic
-                            [label]="'Введите номер телефона'"
-                            formControlName="driver_phone_number"
-                          ></tes-input-basic>
-                        </div>
-                        <div class="col-6">
-                          <tes-input-basic
-                            [label]="'Дата рождения'"
-                            formControlName="driver_birth_date"
-                          ></tes-input-basic>
-                        </div>
-                        <div class="col-6">
-                          <tes-input-basic
-                            [label]="'Водительское удостоверение №'"
-                            formControlName="driver_licence_number"
-                          ></tes-input-basic>
-                        </div>
-                        <div class="col-6">
-                          <tes-input-basic
-                            [label]="'Кем выдано'"
-                            formControlName="driver_licence_issued_by"
-                          ></tes-input-basic>
-                        </div>
-                        <div class="col-6">
-                          <tes-input-basic
-                            [label]="'Дата выдачи'"
-                            formControlName="driver_licence_issued_date"
-                          ></tes-input-basic>
-                        </div>
-                        <div class="col-6">
-                          <tes-input-basic
-                            [label]="'Дата начала стажа вождения'"
-                            formControlName="driver_exp_start"
-                          ></tes-input-basic>
-                        </div>
-                        <div class="col-6"></div>
-                        <div class="col-6 mt-2">
-                          <tes-input-checkbox
-                            formControlName="driver_exp_same_as_license_issued"
-                            [label]="'Совпадает с датой выдачи удостоверения'"
-                            [small]="true"
-                          ></tes-input-checkbox>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-          <tes-button
-            [title]="'Добавить водителя'"
-            [color]="'secondary'"
-          ></tes-button>
-        </div>
-        <div class="tes-wrapper-buttons">
-          <tes-button [title]="'Продолжить'" [color]="'primary'"></tes-button>
-        </div>
+<tes-card-layout [title]="driversTitle">
+  <form
+    class="driver-form"
+    [formGroup]="formDriversData"
+    (ngSubmit)="onSubmitForm()"
+  >
+    <div class="container">
+      <div class="container-header">
+        <tes-input-slide-toggle
+          [label]="'Водители без ограничений'"
+          formControlName="invalid_drivers"
+        ></tes-input-slide-toggle>
+        <tes-input-checkbox
+          [label]="'Все водители участвуют в договорах'"
+          formControlName="all_drivers_in_contracts"
+        >
+        </tes-input-checkbox>
       </div>
-      <div class="tes-container-buttons">
-        <button mat-stroked-button>Добавить водителя</button>
-        <tes-submit-form-button
-          [formValues]="formDriversData"
-          [isDisable]="!formDriversData.valid"
-          buttonText="Продолжить"
-        ></tes-submit-form-button>
+
+      <div formArrayName="drivers">
+        <div *ngFor="let driver of drivers.controls; let i = index">
+          <div [formGroupName]="i">
+            <div class="driver-insurance">
+              <fieldset class="driver-insurance__input">
+                <input type="text" formControlName="driver_title" />
+              </fieldset>
+
+              <div class="driver-insurance__checkbox-list">
+                <tes-input-checkbox
+                  [label]="'ОСАГО'"
+                  formControlName="kasko"
+                ></tes-input-checkbox>
+                <tes-input-checkbox
+                  [label]="'КАСКО'"
+                  formControlName="osago"
+                ></tes-input-checkbox>
+                <tes-input-checkbox
+                  [label]="'Кредит'"
+                  formControlName="credit"
+                ></tes-input-checkbox>
+              </div>
+            </div>
+
+            <div class="driver-insurance__fullname">
+              <tes-input-basic
+                [label]="'Фамилия'"
+                formControlName="driver_surname"
+              ></tes-input-basic>
+
+              <tes-input-basic
+                [label]="'Имя'"
+                formControlName="driver_name"
+              ></tes-input-basic>
+
+              <tes-input-basic
+                [label]="'Отчество'"
+                formControlName="driver_middle_name"
+              ></tes-input-basic>
+            </div>
+
+            <div class="driver-insurance__data">
+              <tes-input-basic
+                [label]="'Введите номер телефона'"
+                formControlName="driver_phone_number"
+              ></tes-input-basic>
+
+              <tes-input-basic
+                [label]="'Дата рождения'"
+                formControlName="driver_birth_date"
+              ></tes-input-basic>
+
+              <tes-input-basic
+                [label]="'Водительское удостоверение №'"
+                formControlName="driver_licence_number"
+              ></tes-input-basic>
+              <tes-input-basic
+                [label]="'Кем выдано'"
+                formControlName="driver_licence_issued_by"
+              ></tes-input-basic>
+
+              <tes-input-basic
+                [label]="'Дата выдачи'"
+                formControlName="driver_licence_issued_date"
+              ></tes-input-basic>
+
+              <tes-input-basic
+                [label]="'Дата начала стажа вождения'"
+                formControlName="driver_exp_start"
+              ></tes-input-basic>
+
+              <tes-input-checkbox
+                formControlName="driver_exp_same_as_license_issued"
+                [label]="'Совпадает с датой выдачи удостоверения'"
+                [small]="true"
+                class="checkbox"
+              ></tes-input-checkbox>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <div class="button-container">
+      <tes-button
+        [title]="'Добавить водителя'"
+        [color]="'secondary'"
+      ></tes-button>
+      <tes-submit-form-button
+        [formValues]="formDriversData"
+        [isDisable]="!formDriversData.valid"
+        buttonText="Продолжить"
+      ></tes-submit-form-button>
+    </div>
+  </form>
+</tes-card-layout>

@@ -10,6 +10,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 export class LoanParamsComponent implements OnInit {
   public formLoanParams!: FormGroup;
   public selectedIndex: number = 0;
+  public loanParamsTitle: string = 'Параметры кредита';
   public loanTerms: string[] = [
     '1 год',
     '2 года',
@@ -18,7 +19,7 @@ export class LoanParamsComponent implements OnInit {
     '5 лет',
     '10 лет',
     '15 лет',
-    '20 лет'
+    '20 лет',
   ];
   public indexOfTab: number = 0;
 
@@ -28,27 +29,27 @@ export class LoanParamsComponent implements OnInit {
     this.formLoanParams = this._fb.group({
       telematic_loan: [true, Validators.required],
       initial_payment: [905000, Validators.required],
-      initial_payment_proportion: ["35%", Validators.required],
+      initial_payment_proportion: ['35%', Validators.required],
       remaining_payment: [1199350, Validators.required],
       loan_amount: [2905000, Validators.required],
       subsidies: [false, Validators.required],
       loan_term: [false, Validators.required],
-    })
+    });
   }
   public getInitialPayment(e: string | number) {
-    this.formLoanParams.get('initial_payment')?.patchValue(e)
+    this.formLoanParams.get('initial_payment')?.patchValue(e);
   }
 
   public getInitialPaymentProportion(e: string | number) {
-    this.formLoanParams.get('initial_payment_proportion')?.patchValue(e)
+    this.formLoanParams.get('initial_payment_proportion')?.patchValue(e);
   }
 
   public getRemainingPayment(e: string | number) {
-    this.formLoanParams.get('remaining_payment')?.patchValue(e)
+    this.formLoanParams.get('remaining_payment')?.patchValue(e);
   }
 
   public getLoanAmount(e: string | number) {
-    this.formLoanParams.get('loan_amount')?.patchValue(e)
+    this.formLoanParams.get('loan_amount')?.patchValue(e);
   }
 
   public activateClass(index: number) {

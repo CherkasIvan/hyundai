@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class InsurancesParamsComponent implements OnInit, AfterContentChecked {
   public formInsuranceOptions!: FormGroup;
+  public insuranceParamsTitle: string = 'Параметры страховых продуктов';
   public insuranceInitialTerm!: boolean;
   public kaskoInsurancePolicyTerm!: string[];
   public selectedIndex!: number;

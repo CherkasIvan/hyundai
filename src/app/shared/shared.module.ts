@@ -26,6 +26,7 @@ import { TesInputBasicComponent } from './components/tes-input-basic/tes-input-b
 import { TesInputCheckboxComponent } from './components/tes-input-checkbox/tes-input-checkbox.component';
 import { TesInputSlideToggleComponent } from './components/tes-input-slide-toggle/tes-input-slide-toggle.component';
 import { TesButtonComponent } from './components/tes-button/tes-button.component';
+import { CardLayoutComponent } from './components/card-layout/card-layout.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { TesButtonComponent } from './components/tes-button/tes-button.component
     TesInputCheckboxComponent,
     TesInputSlideToggleComponent,
     TesButtonComponent,
+    CardLayoutComponent,
   ],
   imports: [
     FormsModule,
@@ -60,6 +62,7 @@ import { TesButtonComponent } from './components/tes-button/tes-button.component
     ApplicationFormComponent,
     FilterInputComponent,
     InputSliderComponent,
+    CardLayoutComponent,
     FormsModule,
     SubmitFormButtonComponent,
     LoanParamsComponent,

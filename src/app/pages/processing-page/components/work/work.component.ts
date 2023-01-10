@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./work.component.scss'],
 })
 export class WorkComponent implements OnInit {
+  public workTitle: string = 'Работа';
   public userWorksForm!: FormGroup;
   public selectedIndex: number = 0;
   public actualValue!: number;

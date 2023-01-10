@@ -11,6 +11,7 @@ export class OwnerComponent implements OnInit {
   public fullName!: string;
   public formOwnerOptions!: FormGroup;
   public selectedIndex!: number;
+  public ownerTitle: string = 'Кредитные и страховые продукты';
 
   public genders: string[] = ['Женский', 'Мужской'];
 

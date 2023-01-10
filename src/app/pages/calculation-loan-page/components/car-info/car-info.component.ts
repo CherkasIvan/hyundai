@@ -28,7 +28,7 @@ export class CarInfoComponent
     'Хэтчбек',
     'Минивэн',
   ];
-
+  public carInfoTitle: string = 'Информация об автомобиле';
   public selectedIndex: number = 0;
   public activateClass(index: number) {
     this.selectedIndex = index;
