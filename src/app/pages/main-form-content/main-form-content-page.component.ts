@@ -22,7 +22,7 @@ export class MainFormContentPageComponent implements OnInit {
     { content: 'Собственник', path: 'owner' },
     { content: 'Водители', path: 'drivers' },
     { content: 'Параметры кредита', path: 'loan-params' },
-    { content: 'Параметры страховых продуктов', path: 'insurenses-params' },
+    { content: 'Параметры страховых продуктов', path: 'insurances-params' },
     { content: 'Расчет продуктов', path: 'product-calculation' },
   ];
 
