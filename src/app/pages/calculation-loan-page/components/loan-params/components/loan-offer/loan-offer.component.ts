@@ -1,17 +1,12 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tes-loan-offer',
   templateUrl: './loan-offer.component.html',
-  styleUrls: ['./loan-offer.component.scss']
+  styleUrls: ['./loan-offer.component.scss'],
 })
 export class LoanOfferComponent implements OnInit {
+  constructor() {}
 
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
