@@ -12,8 +12,6 @@ import { StoreModule } from '@ngrx/store';
 import { buttonReducers } from './store/reducers/counter-button.reducer';
 import { sliderReducers } from './store/reducers/input-slider.reducer';
 
-import { InsurancePoliciesModalModule } from './components/insurance-policies-modal/insurance-policies-modal.module';
-
 import { CounterButtonComponent } from './components/counter-button/counter-button.component';
 import { ApplicationFormComponent } from './components/application-form/application-form.component';
 import { InputClearerComponent } from './components/input-clearer/input-clearer.component';
@@ -28,6 +26,7 @@ import { TesInputSlideToggleComponent } from './components/tes-input-slide-toggl
 import { TesButtonComponent } from './components/tes-button/tes-button.component';
 import { CardLayoutComponent } from './components/card-layout/card-layout.component';
 import { CardTitleComponent } from './components/card-title/card-title.component';
+import { ModalHeaderComponent } from './components/modal-header/modal-header.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +44,7 @@ import { CardTitleComponent } from './components/card-title/card-title.component
     TesButtonComponent,
     CardLayoutComponent,
     CardTitleComponent,
+    ModalHeaderComponent,
   ],
   imports: [
     FormsModule,
@@ -53,7 +53,6 @@ import { CardTitleComponent } from './components/card-title/card-title.component
     MatTabsModule,
     StoreModule.forFeature('counter-button', buttonReducers),
     StoreModule.forFeature('input-slider', sliderReducers),
-    InsurancePoliciesModalModule,
     ReactiveFormsModule,
     MatSliderModule,
     MatIconModule,
@@ -72,7 +71,6 @@ import { CardTitleComponent } from './components/card-title/card-title.component
     BackendErrorMessagesComponent,
     CounterButtonComponent,
     FormsModule,
-    InsurancePoliciesModalModule,
     MatTabsModule,
     ReactiveFormsModule,
     MatIconModule,
@@ -83,6 +81,7 @@ import { CardTitleComponent } from './components/card-title/card-title.component
     TesInputCheckboxComponent,
     TesInputSlideToggleComponent,
     TesButtonComponent,
+    ModalHeaderComponent,
   ],
 })
 export class SharedModule {}

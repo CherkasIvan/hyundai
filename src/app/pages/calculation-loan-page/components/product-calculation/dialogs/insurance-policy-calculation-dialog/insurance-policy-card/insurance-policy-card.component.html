@@ -2,48 +2,50 @@
   <div class="col-12 block-title">Выберите страховой полис</div>
 </div>
 
-<ng-container *ngFor="let card of insuranceCompanies; let i = index">
+<ng-container *ngFor="let policy of insurancePolicies; let i = index">
   <div class="card-body">
     <div class="card-body__header">
       <div class="card-body__header-card">
         <img
           class="card-body__header-img"
-          src="/assets/images/insurance-companies/{{ card.img }}"
-          alt="{{ card.img }}"
+          [src]="
+            'assets/images/insurance-companies/' + policy.provider + '.png'
+          "
+          [alt]="policy.provider"
         />
       </div>
 
-      <img
+      <!-- <img
         [src]="
           '/assets/images/offer-statuses/offer-status-' + card.status + '.svg'
         "
         alt=""
-      />
+      /> -->
     </div>
 
-    <form class="card-content" *ngFor="let card of card.insurances">
+    <form class="card-content">
       <div class="card-content__form">
         <input
           type="checkbox"
           class="card-content__form--checkbox"
-          [checked]="card.checkbox"
+          [checked]="policy.credit"
         />
-        <label class="card-content__form--label">{{ card.label }}</label>
+        <label class="card-content__form--label">{{ policy.product }}</label>
       </div>
 
       <div class="card-content__description">
-        {{ card.description }}
+        {{ policy?.description }}
       </div>
 
       <div
         class="card-content__options-button"
-        *ngIf="card.options"
-        (click)="sendIsHiddenValues()"
+        *ngIf="policy.options.available?.option.length > 0"
+        (click)="onShowOptions(policy.options)"
       >
         Настроить опции
       </div>
 
-      <div class="card-content__price">{{ card.price }}</div>
+      <div class="card-content__price">{{ policy.total_summ }}</div>
     </form>
   </div>
 </ng-container>

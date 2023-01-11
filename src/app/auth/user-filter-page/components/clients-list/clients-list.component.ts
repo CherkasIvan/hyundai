@@ -11,7 +11,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Subscription, forkJoin } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { PersistenceService } from '../../../../shared/services/persistence.service';
 // import { GetUsersService } from '../../services/get-users.service';
@@ -118,7 +118,6 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       } else {
         this._authClientService.getClients().subscribe((el) => {
           this.dataSource.data = el.clients;
-          console.log("reset forms");
         })
       }
     });
@@ -162,7 +161,7 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
     const client_id = client.client_id;
     this._persistenceService.set('clientId', client_id);
     this.clientsListSub$.add(
-      this._authClientService.getClients({ clientId: client_id }).subscribe(() => {
+      this._authClientService.getClients({ clientId: client_id }).subscribe((el) => {
         if (this._persistenceService.getClientId() === client_id) {
           this._router.navigateByUrl(
             `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`

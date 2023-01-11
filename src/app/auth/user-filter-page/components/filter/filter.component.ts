@@ -70,6 +70,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   public clearFields() {
     this.filterForm.reset();
     this._clientAuthService.hasLoanFilter(false);
+    this._clientAuthService.filterCarsMark('');
   }
 
   public hasLoan(e: Event) {

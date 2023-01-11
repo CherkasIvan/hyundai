@@ -8,18 +8,18 @@
         <div class="row">
           <div class="col-12">
             <insurance-policy-card
-              [insuranceCompanies]="cards"
-              (hideOptions)="hideOptions()"
+              [insurancePolicies]="policies"
+              (showOptions)="onShowOptions($event)"
             ></insurance-policy-card>
           </div>
         </div>
       </div>
-      <div class="col-6 ms-4" *ngIf="!isOptionsHidden">
+      <div class="col-6 ms-4" *ngIf="selectedOptions">
         <div class="row">
           <div class="col-12">
             <tes-insurance-policy-options
-              *ngIf="!isOptionsHidden"
-              [specialOptions]="options"
+              *ngIf="selectedOptions"
+              [policyOptions]="selectedOptions"
             ></tes-insurance-policy-options>
           </div>
         </div>
