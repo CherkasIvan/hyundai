@@ -1,108 +1,107 @@
-<tes-card-layout [title]="loanParamsTitle">
-  <form class="loan-params-form" [formGroup]="formLoanParams">
+<form class="loan-params-form" [formGroup]="formLoanParams">
+  <tes-card-title [title]="loanParamsTitle"></tes-card-title>
+  <fieldset class="loan-params-item">
+    <input
+      id="checkbox_telematicLoan"
+      type="checkbox"
+      class="loan-params-item__checkbox"
+      formControlName="telematic_loan"
+      name="checkbox_telematicLoan"
+    />
+    <label for="checkbox_telematicLoan" class="loan-params-item__label">
+      Телематический кредит
+    </label>
+  </fieldset>
+  <div class="loan-payments">
     <fieldset class="loan-params-item">
-      <input
-        id="checkbox_telematicLoan"
-        type="checkbox"
-        class="loan-params-item__checkbox"
-        formControlName="telematic_loan"
-        name="checkbox_telematicLoan"
-      />
-      <label for="checkbox_telematicLoan" class="loan-params-item__label">
-        Телематический кредит
+      <label class="loan-params-item__label">
+        Первоначальный взнос, ₽
+        <tes-input-slider
+          (componentValue)="getInitialPayment($event)"
+        ></tes-input-slider>
       </label>
     </fieldset>
-    <div class="loan-payments">
-      <fieldset class="loan-params-item">
-        <label class="loan-params-item__label">
-          Первоначальный взнос, ₽
-          <tes-input-slider
-            (componentValue)="getInitialPayment($event)"
-          ></tes-input-slider>
-        </label>
-      </fieldset>
-      <fieldset class="loan-params-item">
-        <label class="loan-params-item__label">
-          Первоначальный взнос, %
-          <tes-input-slider
-            (componentValue)="getInitialPaymentProportion($event)"
-          ></tes-input-slider>
-        </label>
-      </fieldset>
-      <fieldset class="loan-params-item">
-        <label class="loan-params-item__label">
-          Остаточный платеж, ₽
-          <tes-input-slider
-            (componentValue)="getRemainingPayment($event)"
-          ></tes-input-slider>
-        </label>
-      </fieldset>
-      <fieldset class="loan-params-item">
-        <label class="loan-params-item__label">
-          Сумма кредита, ₽
-          <tes-input-slider
-            (componentValue)="getLoanAmount($event)"
-          ></tes-input-slider>
-        </label>
-      </fieldset>
+    <fieldset class="loan-params-item">
+      <label class="loan-params-item__label">
+        Первоначальный взнос, %
+        <tes-input-slider
+          (componentValue)="getInitialPaymentProportion($event)"
+        ></tes-input-slider>
+      </label>
+    </fieldset>
+    <fieldset class="loan-params-item">
+      <label class="loan-params-item__label">
+        Остаточный платеж, ₽
+        <tes-input-slider
+          (componentValue)="getRemainingPayment($event)"
+        ></tes-input-slider>
+      </label>
+    </fieldset>
+    <fieldset class="loan-params-item">
+      <label class="loan-params-item__label">
+        Сумма кредита, ₽
+        <tes-input-slider
+          (componentValue)="getLoanAmount($event)"
+        ></tes-input-slider>
+      </label>
+    </fieldset>
+  </div>
+  <div class="loan-params-item">
+    <tes-input-slide-toggle
+      [label]="'Государственные программы, субсидии'"
+      formControlName="subsidies"
+    >
+    </tes-input-slide-toggle>
+  </div>
+  <div class="loam-terms">
+    <span class="loan-params-item__label">Срок кредита</span>
+    <div class="loan-params__list">
+      <input
+        type="button"
+        *ngFor="let term of loanTerms; index as i"
+        [value]="term"
+        [ngClass]="{ 'active-loan-term': selectedIndex === i }"
+        (click)="activateClass(i)"
+        class="loan-params__list-item"
+      />
     </div>
-    <div class="loan-params-item">
-      <tes-input-slide-toggle
-        [label]="'Государственные программы, субсидии'"
-        formControlName="subsidies"
-      >
-      </tes-input-slide-toggle>
-    </div>
-    <div class="loam-terms">
-      <span class="loan-params-item__label">Срок кредита</span>
-      <div class="loan-params__list">
-        <input
-          type="button"
-          *ngFor="let term of loanTerms; index as i"
-          [value]="term"
-          [ngClass]="{ 'active-loan-term': selectedIndex === i }"
-          (click)="activateClass(i)"
-          class="loan-params__list-item"
-        />
-      </div>
-    </div>
-    <div class="calculation-loan-products">
-      <div class="loan-params-title">Расчет кредитных продуктов</div>
-      <mat-tab-group
-        [disableRipple]="true"
-        mat-align-tabs="center"
-        [selectedIndex]="indexOfTab"
-        (selectedTabChange)="onTabChange($event)"
-        class="mat-tab-client-modal"
-      >
-        <mat-tab>
-          <ng-template mat-tab-label class="tab-item">
-            <span class="tab-item__text">Кредитное предложение 1</span>
-          </ng-template>
-          <tes-loan-offer></tes-loan-offer>
-        </mat-tab>
+  </div>
+  <div class="calculation-loan-products">
+    <tes-card-title [title]="calculationParamsTitle"></tes-card-title>
+    <mat-tab-group
+      [disableRipple]="true"
+      mat-align-tabs="center"
+      [selectedIndex]="indexOfTab"
+      (selectedTabChange)="onTabChange($event)"
+      class="mat-tab-client-modal"
+    >
+      <mat-tab>
+        <ng-template mat-tab-label class="tab-item">
+          <span class="tab-item__text">Кредитное предложение 1</span>
+        </ng-template>
+        <tes-loan-offer></tes-loan-offer>
+      </mat-tab>
 
-        <mat-tab>
-          <ng-template mat-tab-label class="tab-item">
-            <span class="tab-item__text">Кредитное предложение 2</span>
-          </ng-template>
-          <tes-loan-offer></tes-loan-offer>
-        </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label class="tab-item">
+          <span class="tab-item__text">Кредитное предложение 2</span>
+        </ng-template>
+        <tes-loan-offer></tes-loan-offer>
+      </mat-tab>
 
-        <mat-tab>
-          <ng-template mat-tab-label class="tab-item">
-            <span class="tab-item__text">Кредитное предложение 3</span>
-          </ng-template>
-          <tes-loan-offer></tes-loan-offer>
-        </mat-tab>
-      </mat-tab-group>
-    </div>
-    <div class="loan-params-form__button">
-      <tes-submit-form-button
-        [formValues]="formLoanParams.value"
-        [isDisable]="!formLoanParams.valid"
-        buttonText="Далее"
-      ></tes-submit-form-button>
-    </div>
-  </form>
-</tes-card-layout>
+      <mat-tab>
+        <ng-template mat-tab-label class="tab-item">
+          <span class="tab-item__text">Кредитное предложение 3</span>
+        </ng-template>
+        <tes-loan-offer></tes-loan-offer>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="loan-params-form__button">
+    <tes-submit-form-button
+      [formValues]="formLoanParams.value"
+      [isDisable]="!formLoanParams.valid"
+      buttonText="Далее"
+    ></tes-submit-form-button>
+  </div>
+</form>

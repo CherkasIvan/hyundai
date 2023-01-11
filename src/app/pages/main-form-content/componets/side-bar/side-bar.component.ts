@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
@@ -15,10 +15,12 @@ import { FormsValidityService } from 'src/app/shared/services/forms-validity.ser
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
-  public sideBarPercantage!: number;
-  public isComleted: boolean = false;
+  public sideBarPercentage!: number;
+  public isCompleted: boolean = false;
 
   @Input() public steps!: StepsInterface[];
+  @Output() public selectedIndexEvent: EventEmitter<number> =
+    new EventEmitter();
 
   public selectedStepName: string = '';
 
@@ -34,7 +36,7 @@ export class SideBarComponent implements OnInit {
     this._router.navigate([this.selectedStepName], {
       relativeTo: route,
     });
-    this.sideBarPercantage =
+    this.sideBarPercentage =
       Math.round(100 / this.steps.length) * $event.selectedIndex;
   }
 
@@ -47,10 +49,10 @@ export class SideBarComponent implements OnInit {
 
   ngOnInit(): void {
     this._sideBarService.setIndex(this.steps).subscribe((el) => {
-      this.sideBarPercantage = el;
+      this.sideBarPercentage = el;
     });
     this.formsValidityService.formsValidity$.subscribe((formsValue) => {
-      this.isComleted = formsValue;
+      this.isCompleted = formsValue;
     });
   }
 }

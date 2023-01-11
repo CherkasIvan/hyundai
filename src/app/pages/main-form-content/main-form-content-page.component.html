@@ -13,13 +13,15 @@
       >{{ link.value }}</a
     >
   </nav>
+
   <main class="main-container">
     <tes-side-bar
       [steps]="navigationSteps"
       *ngIf="routerLink != '/main-page/documents-payments'"
     ></tes-side-bar>
-    <!-- <tes-card-layout let i="index" [title]="navigationSteps.title"> -->
-    <router-outlet></router-outlet>
-    <!-- </tes-card-layout> -->
+
+    <tes-card-layout [title]="navigationSteps">
+      <router-outlet></router-outlet>
+    </tes-card-layout>
   </main>
 </div>

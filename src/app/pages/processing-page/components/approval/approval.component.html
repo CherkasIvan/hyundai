@@ -1,60 +1,57 @@
-<div class="approval container">
-  <div class="loan-container">
-    <div class="loan-header">
-      <span class="loan-header__title">Кредит</span>
-      <button class="loan-header__status">
-        <img
-          class="loan-header__status--img"
-          src="/assets/images/success_img.svg"
-          alt="success-img"
-        />
-        Выбрать этот банк для сделки
-      </button>
-    </div>
-
-    <div class="loan-body">
-      <div class="loan-body__img">
-        <img
-          src="/assets/images/sovkom_logo.svg"
-          class="loan-body__img--logo"
-          alt="bank-logo"
-        />
-        <span class="loan-body__img--label">Совкомбанк</span>
-      </div>
-
-      <span class="loan-body__title">Телематический кредит</span>
-
-      <p class="loan-body__tagline">
-        Для тех, кому важны минимальные ежемесячные платежи
-      </p>
-
-      <p class="loan-body__description">
-        финансовая программа, с низкими ежемесячными платежами и гарантированным
-        обратным выкупом автомобиля. В рамках Вы можете выбрать опцию ПЛЮС по
-        которой стоимость КАСКО и прохождение ТО включены в ежемесячный платеж.
-        Также Вам доступен с повышенной гарантированной остаточной стоимостью.
-      </p>
-
-      <div class="loan-footer">
-        <tes-loan-params></tes-loan-params>
-      </div>
-    </div>
-
-    <!-- CREATE CUSTOM COMPONENT FROM THIS!  -->
-
-    <footer class="comments">
-      <span class="comments-title">Комментарии</span>
-      <p class="comments-description">
-        Lorem ipsum dolor sit amet consectetur. Suspendisse feugiat fringilla
-        adipiscing enim. Viverra habitant pretium molestie tellus pretium sapien
-        mattis mi magna. Fames viverra ultricies metus nunc laoreet volutpat ac.
-        Arcu odio orci fringilla leo volutpat non. Turpis massa pellentesque
-        mattis fermentum urna tincidunt diam tempor etiam. Sit faucibus fusce id
-        convallis viverra lacus. Hendrerit diam quam vel molestie.
-      </p>
-    </footer>
-
-    <!-- CREATE CUSTOM COMPONENT FROM THIS!  -->
+<div class="loan-container">
+  <tes-card-title [title]="approvalTitle"></tes-card-title>
+  <div class="loan-header">
+    <button class="loan-header__status">
+      <img
+        class="loan-header__status--img"
+        src="/assets/images/success_img.svg"
+        alt="success-img"
+      />
+      Выбрать этот банк для сделки
+    </button>
   </div>
-  <tes-application-form></tes-application-form>
+
+  <div class="loan-body">
+    <div class="loan-body__img">
+      <img
+        src="/assets/images/sovkom_logo.svg"
+        class="loan-body__img--logo"
+        alt="bank-logo"
+      />
+      <span class="loan-body__img--label">Совкомбанк</span>
+    </div>
+
+    <span class="loan-body__title">Телематический кредит</span>
+
+    <p class="loan-body__tagline">
+      Для тех, кому важны минимальные ежемесячные платежи
+    </p>
+
+    <p class="loan-body__description">
+      финансовая программа, с низкими ежемесячными платежами и гарантированным
+      обратным выкупом автомобиля. В рамках Вы можете выбрать опцию ПЛЮС по
+      которой стоимость КАСКО и прохождение ТО включены в ежемесячный платеж.
+      Также Вам доступен с повышенной гарантированной остаточной стоимостью.
+    </p>
+
+    <div class="loan-footer">
+      <tes-loan-params></tes-loan-params>
+    </div>
+  </div>
+
+  <!-- CREATE CUSTOM COMPONENT FROM THIS!  -->
+
+  <footer class="comments">
+    <span class="comments-title">Комментарии</span>
+    <p class="comments-description">
+      Lorem ipsum dolor sit amet consectetur. Suspendisse feugiat fringilla
+      adipiscing enim. Viverra habitant pretium molestie tellus pretium sapien
+      mattis mi magna. Fames viverra ultricies metus nunc laoreet volutpat ac.
+      Arcu odio orci fringilla leo volutpat non. Turpis massa pellentesque
+      mattis fermentum urna tincidunt diam tempor etiam. Sit faucibus fusce id
+      convallis viverra lacus. Hendrerit diam quam vel molestie.
+    </p>
+  </footer>
+
+  <!-- CREATE CUSTOM COMPONENT FROM THIS!  -->
 </div>

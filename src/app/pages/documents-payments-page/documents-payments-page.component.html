@@ -1,5 +1,5 @@
-<div class="documents-payments container">
-  <span class="documents-payments__title">Документы</span>
+<div class="documents-payments">
+  <tes-card-title [title]="documentsTitle"></tes-card-title>
   <tes-documents
     [document]="document"
     *ngFor="let document of currentDocuments; let i = index"

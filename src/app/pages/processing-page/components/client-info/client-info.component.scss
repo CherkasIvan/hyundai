@@ -27,7 +27,7 @@
   .residential-address__form-group,
   .passport__form-group {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     column-gap: 50px;
     .form-group__item {
       display: flex;
@@ -89,7 +89,36 @@
     align-items: center;
   }
 
-  .passport-data,
+  .passport-data {
+    &__title {
+      margin-bottom: 35px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 130%;
+      color: #343e48;
+    }
+
+    &__auto-registration {
+      padding: 11.5px 13px;
+      background: #ffffff;
+      border: 1px solid #72879e;
+      border-radius: 6px;
+
+      &-text {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: #343e48;
+      }
+
+      &-img {
+        margin-right: 10px;
+      }
+    }
+  }
+
   .residential-address,
   .education,
   .family,

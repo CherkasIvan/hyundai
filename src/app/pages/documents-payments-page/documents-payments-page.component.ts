@@ -10,6 +10,7 @@ import { DocumentsInterface } from './models/interfaces/documents.interface';
   styleUrls: ['./documents-payments-page.component.scss'],
 })
 export class DocumentsPaymentsPageComponent implements OnInit {
+  public documentsTitle: string = 'Документы';
   public currentDocuments: DocumentsInterface[] = [];
   constructor(private _mockDataService: MockDataService) {}
 
