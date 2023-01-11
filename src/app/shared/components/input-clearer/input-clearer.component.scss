@@ -13,7 +13,7 @@
     background: #f2f4f7;
     border-radius: 8px;
     padding: 17.5px 10px;
-    min-width: 90%;
+    width: 100%;
   }
 }
 
@@ -26,15 +26,4 @@
   border-radius: 8px;
   width: 30%;
   padding-right: 12px;
-
-  &__clear {
-    background: #72879e;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    color: #ffffff;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    font-size: 1.5em;
-  }
 }

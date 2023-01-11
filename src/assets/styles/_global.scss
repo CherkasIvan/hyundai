@@ -2,6 +2,27 @@
   border: none !important;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #343e48 !important;
+  -webkit-box-shadow: 0 0 0 30px #f2f4f7 inset !important;
+}
+
+select {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  -webkit-appearance: none !important;
+  background-image: url('/assets/images/custom-elements-icons/select-arrow-icon.svg') !important;
+  background-repeat: no-repeat !important;
+  background-position: calc(100% - 10px) center !important;
+}
+
 ngp-image-picker .place-image .image-holder-loaded img {
   background: none !important;
+}
+
+tes-card-layout {
+  width: 100%;
 }

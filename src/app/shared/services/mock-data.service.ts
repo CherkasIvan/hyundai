@@ -12,7 +12,7 @@ export class MockDataService {
   public documentsPayments: DocumentsInterface[] = [
     {
       insurense: 'осаго',
-      bank_img: 'sovkom_logo.svg',
+      bank_img: 'sovkom-logo.svg',
       bank_label: 'cовкомбанк',
       sum: '2 365 654 р',
       treaty: '1234567890',
@@ -30,7 +30,7 @@ export class MockDataService {
     },
     {
       insurense: 'каско',
-      bank_img: 'sovkom_logo.svg',
+      bank_img: 'sovkom-logo.svg',
       bank_label: 'cовкомбанк',
       sum: '3 555 654 р',
       treaty: '0987654321',
@@ -151,7 +151,7 @@ export class MockDataService {
 
   public insuranceCardsObjects: any[] = [
     {
-      img: 'ingostrah.png',
+      img: 'ingostrah-logo.png',
       status: 'green',
       insurances: [
         {
@@ -171,7 +171,7 @@ export class MockDataService {
       ],
     },
     {
-      img: 'sovkom_strah.png',
+      img: 'sovkom-strah-logo.png',
       status: 'yellow',
       insurances: [
         {
@@ -191,7 +191,7 @@ export class MockDataService {
       ],
     },
     {
-      img: 'vsk.png',
+      img: 'vsk-logo.png',
       status: 'yellow',
       insurances: [
         {
@@ -248,5 +248,6 @@ export class MockDataService {
       ],
     },
   ];
+
   constructor() {}
 }

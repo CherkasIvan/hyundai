@@ -10,14 +10,21 @@
       <div class='col-7'>
         <form
           [formGroup]="optionsModalForm"
-          (ngSubmit)="submitForm(optionsModalForm)"
           class="options-form"
         >
-          <div class="passport__form-group">
-            <tes-input-basic [label]='"Опция 1"' formControlName='option_1'></tes-input-basic>
-            <tes-input-basic [label]='"Опция 2"' formControlName='option_2'></tes-input-basic>
-            <tes-input-basic [label]='"Опция 3"' formControlName='option_3'></tes-input-basic>
-            <tes-input-basic [label]='"Опция 4"' formControlName='option_4'></tes-input-basic>
+          <div class="options-form-items">
+            <h4>Базовые</h4>
+            <ng-container *ngFor='let option of defaultOptions; let i = index'>
+              <tes-input-checkbox [label]='option.option_name' [formControlName]='option.option_id'></tes-input-checkbox>
+            </ng-container>
+
+            <h4 class='mt-3'>Дополнительные</h4>
+            <ng-container *ngFor='let option of availableOptions; let i = index'>
+              <tes-input-checkbox [label]='option.option_name'
+                                  [formControlName]='option.option_id'
+                                  *ngIf='i < 3'
+              ></tes-input-checkbox>
+            </ng-container>
           </div>
         </form>
       </div>
@@ -25,7 +32,7 @@
 
       <button
         class="submit-button"
-        (click)="submitForm(optionsModalForm)"
+        (click)="onRecalculate()"
       >
         Пересчитать
       </button>

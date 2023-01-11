@@ -125,10 +125,6 @@ export class ClientInfoComponent implements OnInit {
 
   constructor(private modalService: ModalService, private fb: FormBuilder) {}
 
-  public openInsuranceModal(): void {
-    this.modalService.insurancePolicyDialog();
-  }
-
   public submitRegistrationForm(userInfoForm: FormGroup): void {
     console.log(userInfoForm.value);
   }

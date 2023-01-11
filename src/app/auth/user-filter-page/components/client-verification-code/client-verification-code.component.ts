@@ -46,7 +46,7 @@ export class ClientVerificationCodeComponent implements OnInit, OnDestroy {
       this._clientAuthService.userData$.subscribe((value) => {
         this.verificationClientForm.patchValue({
           clientId: value.clientId,
-          code: value.testCode,
+          // code: value.testCode,
         });
       })
     );
