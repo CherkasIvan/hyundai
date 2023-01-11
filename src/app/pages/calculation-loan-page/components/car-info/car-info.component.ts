@@ -46,6 +46,8 @@ export class CarInfoComponent
   public value: number = 0;
   public car_telematic!: boolean;
   private car_telematic_sub: Subscription | undefined;
+  public clientValue: any
+
   
   constructor(private _fb: FormBuilder,
               private _authClientService: ClientAuthService) {}
@@ -76,7 +78,16 @@ export class CarInfoComponent
     this.car_telematic = this.formCarOptions?.value.car_telematic;
     
     this._authClientService.selectedClientValue$.subscribe((el) => {
-      console.log(el);
+      this.formCarOptions.get('VIN')?.patchValue(el.vin);
+      this.formCarOptions.get('car_mark')?.patchValue(el.car_mark);
+      this.formCarOptions.get('car_model')?.patchValue(el.car_model);
+      this.formCarOptions.get('car_year')?.patchValue(el.car_year);
+      this.formCarOptions.get('pts_issue_year')?.patchValue(el.car_year);
+      this.formCarOptions.get('horse_power')?.patchValue(el.horse_power);
+      this.formCarOptions.get('transmission')?.patchValue(el.transmission);
+      this.formCarOptions.get('car_body_type')?.patchValue(el.car_body_type);
+      this.formCarOptions.get('car_price')?.patchValue(el.car_price);
+      this.formCarOptions.get('car_telematic')?.patchValue(el.car_telematic);
     })
   }
 

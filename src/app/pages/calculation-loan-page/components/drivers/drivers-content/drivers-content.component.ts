@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 @Component({
   selector: 'tes-drivers-content',
@@ -9,7 +10,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class DriversContentComponent implements OnInit {
   public formDriversData!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private _authClientService: ClientAuthService) {
     this.formDriversData = this.fb.group({
       invalid_drivers: [true, Validators.required],
       all_drivers_in_contracts: [true, Validators.required],
@@ -40,6 +42,12 @@ export class DriversContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+
+    this._authClientService.selectedClientValue$.subscribe((el) => {
+      this.formDriversData.get('driver_surname')?.patchValue(el.last_name);
+      this.formDriversData.get('driver_name')?.patchValue(el.first_name);
+      this.formDriversData.get('driver_middle_name')?.patchValue(el.patronymic);
+    })
   }
 
   private initializeForm(): void {}

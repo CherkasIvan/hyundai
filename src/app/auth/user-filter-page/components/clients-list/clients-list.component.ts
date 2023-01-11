@@ -11,7 +11,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Subscription, forkJoin } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { PersistenceService } from '../../../../shared/services/persistence.service';
 // import { GetUsersService } from '../../services/get-users.service';
@@ -116,9 +116,9 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       if(value) {
        this.dataSource.data = this.dataSource.data.filter((el: { position: string; }) => el.position)
       } else {
-        // this._authClientService.getClients().subscribe((el) => {
-        //   this.dataSource.data = el.clients;
-        // })
+        this._authClientService.getClients().subscribe((el) => {
+          this.dataSource.data = el.clients;
+        })
       }
     });
 
@@ -126,9 +126,9 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       if(value) {
         this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
       } else {
-        // this._authClientService.getClients().subscribe((el) => {
-        //   this.dataSource.data = el.clients;
-        // })
+        this._authClientService.getClients().subscribe((el) => {
+          this.dataSource.data = el.clients;
+        })
       }
     });
 
@@ -136,9 +136,9 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       if(value) {
         this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
       } else {
-        // this._authClientService.getClients().subscribe((el) => {
-        //   this.dataSource.data = el.clients;
-        // })
+        this._authClientService.getClients().subscribe((el) => {
+          this.dataSource.data = el.clients;
+        })
       }
     });
 

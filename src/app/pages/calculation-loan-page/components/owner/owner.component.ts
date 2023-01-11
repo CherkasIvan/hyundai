@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 @Component({
   selector: 'tes-owner',
@@ -35,7 +36,8 @@ export class OwnerComponent implements OnInit {
     this.selectedIndex = index;
   }
 
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder,
+              private _authClientService: ClientAuthService) {}
 
   public initializeForm(): void {
     this.formOwnerOptions = this._fb.group({
@@ -45,7 +47,6 @@ export class OwnerComponent implements OnInit {
       policy_holder: [true, Validators.required],
       driver: [true, Validators.required],
       client_full_name: ['Иванов Иван Иванович', Validators.required],
-
       gender: ['Мужской', Validators.required],
       birthdate: ['2000-07-12', Validators.required],
       bornplace: ['Москва', Validators.required],
@@ -73,5 +74,14 @@ export class OwnerComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this._authClientService.selectedClientValue$.subscribe((el) => {
+      console.log(el);
+      this.formOwnerOptions.get('client_full_name')?.patchValue(`${el.first_name} ${el.last_name} ${el.patronymic}`);
+      this.formOwnerOptions.get('passport_number')?.patchValue(el.passport_number);
+      this.formOwnerOptions.get('passport_division_code')?.patchValue(el.passport_division_code);
+      this.formOwnerOptions.get('residence_address')?.patchValue(el.residence_address);
+      this.formOwnerOptions.get('email')?.patchValue(el.email);
+
+    })
   }
 }
