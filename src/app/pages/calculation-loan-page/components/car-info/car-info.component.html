@@ -102,22 +102,22 @@
             </div>
           </div>
           <div class="car-info-item">
-            <label class="car-info-item__label" for="engine_capacity"
+            <label class="car-info-item__label" for="horse_power"
               >Объем двигателя</label
             >
             <input
               class="car-info-item__input"
-              name="engine_capacity"
+              name="horse_power"
               type="text"
-              formControlName="engine_capacity"
+              formControlName="horse_power"
             />
             <div
               *ngIf="
-                formCarOptions.controls['engine_capacity'].touched &&
-                formCarOptions.controls['engine_capacity'].invalid
+                formCarOptions.controls['horse_power'].touched &&
+                formCarOptions.controls['horse_power'].invalid
               "
             >
-              <small *ngIf="formCarOptions.controls['engine_capacity'].invalid">
+              <small *ngIf="formCarOptions.controls['horse_power'].invalid">
                 Введите объем двигателя</small
               >
             </div>

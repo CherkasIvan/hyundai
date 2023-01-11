@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTooltip } from '@angular/material/tooltip';
 
 import { Subscription } from 'rxjs';
+import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 @Component({
   selector: 'tes-car-info',
@@ -45,7 +46,9 @@ export class CarInfoComponent
   public value: number = 0;
   public car_telematic!: boolean;
   private car_telematic_sub: Subscription | undefined;
-  constructor(private _fb: FormBuilder) {}
+  
+  constructor(private _fb: FormBuilder,
+              private _authClientService: ClientAuthService) {}
 
   public initializeForm(): void {
     this.formCarOptions = this._fb.group({
@@ -54,7 +57,7 @@ export class CarInfoComponent
       car_model: ['Solaris', Validators.required],
       car_year: ['2020', Validators.required],
       pts_issue_year: ['2020', Validators.required],
-      engine_capacity: ['2.0', Validators.required],
+      horse_power: ['125', Validators.required],
       transmission: ['Автоматическая', Validators.required],
       car_body_type: ['Седан', Validators.required],
       car_price: ['1200000', Validators.required],
@@ -71,6 +74,10 @@ export class CarInfoComponent
       .get('car_telematic')
       ?.valueChanges.subscribe((value) => (this.car_telematic = value));
     this.car_telematic = this.formCarOptions?.value.car_telematic;
+    
+    this._authClientService.selectedClientValue$.subscribe((el) => {
+      console.log(el);
+    })
   }
 
   public openTooltip(tooltip: MatTooltip): void {

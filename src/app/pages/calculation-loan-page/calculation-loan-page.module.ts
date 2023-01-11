@@ -12,6 +12,7 @@ import { CalculationLoanPageRoutingModule } from './calculation-loan-page-routin
 import { SharedModule } from '../../shared/shared.module';
 
 import { ClientDataService } from '../../shared/services/client-data.service';
+import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 import { CarInfoComponent } from './components/car-info/car-info.component';
 import { OwnerComponent } from './components/owner/owner.component';
@@ -25,6 +26,7 @@ import { ProductCalculationPageComponent } from './components/product-calculatio
 import { ProductCalculationTableComponent } from './components/product-calculation/product-calculation-table/product-calculation-table.component';
 import { LoanOfferComponent } from './components/loan-params/componets/loan-offer/loan-offer.component';
 import { InsurancesParamsComponent } from './components/insurances-params/insurances-params.component';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +52,6 @@ import { InsurancesParamsComponent } from './components/insurances-params/insura
     EffectsModule.forFeature([CalculationLoanPageEffects]),
     MatTableModule,
   ],
-  providers: [ClientDataService],
+  providers: [ClientDataService, ClientAuthService],
 })
 export class CalculationLoanPageModule {}

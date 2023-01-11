@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, take, tap } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
 
@@ -12,6 +12,9 @@ import { UserRegisterRequestType } from '../../user-auth-page/models/types/user-
 @Injectable()
 export class ClientAuthService {
   public allClients$: BehaviorSubject<any> = new BehaviorSubject([]);
+
+  public selectedClient$ = new BehaviorSubject<any>(2)
+  public selectedClientValue$ =this.selectedClient$.asObservable();
 
   public searchValue$ = new BehaviorSubject<string>('');
   public currentSearchValue$ = this.searchValue$.asObservable();
@@ -84,12 +87,21 @@ export class ClientAuthService {
     });
     const url = environment.apiUrl + '/getCarsWithOwners';
 
-    return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
+    if(!Object.values(body).length) {
+      return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
+        tap((response: any) => {
+          this.allClients$.next(response.clients);
+          // console.log(response);
+        })
+      );
+    } else {
+       return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
       tap((response: any) => {
-        this.allClients$.next(response.clients);
-        // console.log(response);
+        this.selectedClient$.next(response);
+        console.log(response);
       })
     );
+    }
   }
 
   public searchClient(searchValue: any) {

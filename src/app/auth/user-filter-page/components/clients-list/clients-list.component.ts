@@ -116,10 +116,9 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       if(value) {
        this.dataSource.data = this.dataSource.data.filter((el: { position: string; }) => el.position)
       } else {
-        this._authClientService.getClients().subscribe((el) => {
-          this.dataSource.data = el.clients;
-          console.log("reset forms");
-        })
+        // this._authClientService.getClients().subscribe((el) => {
+        //   this.dataSource.data = el.clients;
+        // })
       }
     });
 
@@ -127,9 +126,9 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       if(value) {
         this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
       } else {
-        this._authClientService.getClients().subscribe((el) => {
-          this.dataSource.data = el.clients;
-        })
+        // this._authClientService.getClients().subscribe((el) => {
+        //   this.dataSource.data = el.clients;
+        // })
       }
     });
 
@@ -137,9 +136,9 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
       if(value) {
         this.dataSource.data = this.dataSource.data.filter((el: { pts: string; }) => el.pts)
       } else {
-        this._authClientService.getClients().subscribe((el) => {
-          this.dataSource.data = el.clients;
-        })
+        // this._authClientService.getClients().subscribe((el) => {
+        //   this.dataSource.data = el.clients;
+        // })
       }
     });
 
@@ -162,7 +161,7 @@ export class ClientsListComponent implements OnInit, AfterViewInit, OnDestroy {
     const client_id = client.client_id;
     this._persistenceService.set('clientId', client_id);
     this.clientsListSub$.add(
-      this._authClientService.getClients({ clientId: client_id }).subscribe(() => {
+      this._authClientService.getClients({ clientId: client_id }).subscribe((el) => {
         if (this._persistenceService.getClientId() === client_id) {
           this._router.navigateByUrl(
             `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
