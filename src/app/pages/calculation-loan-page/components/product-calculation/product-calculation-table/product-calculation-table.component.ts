@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CascoObject } from 'src/app/shared/models/interfaces/casco';
 
 @Component({
   selector: 'tes-product-calculation-table',
@@ -6,16 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./product-calculation-table.component.scss'],
 })
 export class ProductCalculationTableComponent implements OnInit {
-  @Input() public data!: unknown[];
+  @Input() public data!: CascoObject[];
 
   public displayedColumns: string[] = [
     'product',
     'credit',
-    'insuranceCompany',
-    'price',
+    'provider',
+    'total_summ',
   ];
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

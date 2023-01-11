@@ -7,7 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 import { AddUserModalComponent } from '../../auth/user-filter-page/components/add-user-modal/add-user-modal.component';
-import { InsurancePoliciesModalComponent } from '../components/insurance-policies-modal/insurance-policies-modal.component';
 
 @Injectable()
 export class ModalService {
@@ -18,13 +17,6 @@ export class ModalService {
   }
 
   constructor(private _dialog: MatDialog) {}
-
-  public insurancePolicyDialog(): void {
-    this._dialog.open(InsurancePoliciesModalComponent, {
-      height: '100%',
-      // maxHeight: '883px',
-    });
-  }
 
   public addNewClientDialog(): void {
     const dialogRef = this._dialog.open(AddUserModalComponent, {

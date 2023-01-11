@@ -171,7 +171,7 @@ export class MockDataService {
       ],
     },
     {
-      img: 'sovkom_strah.png',
+      img: 'sovkom.png',
       status: 'yellow',
       insurances: [
         {
@@ -248,5 +248,7 @@ export class MockDataService {
       ],
     },
   ];
-  constructor() {}
+
+  constructor() {
+  }
 }

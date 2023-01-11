@@ -12,8 +12,6 @@ import { StoreModule } from '@ngrx/store';
 import { buttonReducers } from './store/reducers/counter-button.reducer';
 import { sliderReducers } from './store/reducers/input-slider.reducer';
 
-import { InsurancePoliciesModalModule } from './components/insurance-policies-modal/insurance-policies-modal.module';
-
 import { CounterButtonComponent } from './components/counter-button/counter-button.component';
 import { ApplicationFormComponent } from './components/application-form/application-form.component';
 import { InputClearerComponent } from './components/input-clearer/input-clearer.component';
@@ -26,6 +24,7 @@ import { TesInputBasicComponent } from './components/tes-input-basic/tes-input-b
 import { TesInputCheckboxComponent } from './components/tes-input-checkbox/tes-input-checkbox.component';
 import { TesInputSlideToggleComponent } from './components/tes-input-slide-toggle/tes-input-slide-toggle.component';
 import { TesButtonComponent } from './components/tes-button/tes-button.component';
+import { ModalHeaderComponent } from './components/modal-header/modal-header.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +40,7 @@ import { TesButtonComponent } from './components/tes-button/tes-button.component
     TesInputCheckboxComponent,
     TesInputSlideToggleComponent,
     TesButtonComponent,
+    ModalHeaderComponent,
   ],
   imports: [
     FormsModule,
@@ -49,7 +49,6 @@ import { TesButtonComponent } from './components/tes-button/tes-button.component
     MatTabsModule,
     StoreModule.forFeature('counter-button', buttonReducers),
     StoreModule.forFeature('input-slider', sliderReducers),
-    InsurancePoliciesModalModule,
     ReactiveFormsModule,
     MatSliderModule,
     MatIconModule,
@@ -66,7 +65,6 @@ import { TesButtonComponent } from './components/tes-button/tes-button.component
     BackendErrorMessagesComponent,
     CounterButtonComponent,
     FormsModule,
-    InsurancePoliciesModalModule,
     MatTabsModule,
     ReactiveFormsModule,
     MatIconModule,
@@ -77,6 +75,7 @@ import { TesButtonComponent } from './components/tes-button/tes-button.component
     TesInputCheckboxComponent,
     TesInputSlideToggleComponent,
     TesButtonComponent,
-  ],
+    ModalHeaderComponent,
+  ]
 })
 export class SharedModule {}

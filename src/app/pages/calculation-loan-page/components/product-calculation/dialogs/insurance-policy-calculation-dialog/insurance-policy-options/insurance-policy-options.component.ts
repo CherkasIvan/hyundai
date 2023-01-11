@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalSpecialOptionsInterface } from '../../../../../../../shared/models/interfaces/modal-special-options.interface';
+import { ModalSpecialOptionsInterface } from 'src/app/shared/models/interfaces/modal-special-options.interface';
+import { CascoOption } from '../../../../../../../shared/models/interfaces/casco';
 
 @Component({
   selector: 'tes-insurance-policy-options',
@@ -8,45 +9,50 @@ import { ModalSpecialOptionsInterface } from '../../../../../../../shared/models
   styleUrls: ['./insurance-policy-options.component.scss'],
 })
 export class InsurancePolicyOptionsComponent implements OnInit {
-  @Input() public specialOptions!: ModalSpecialOptionsInterface[];
+  @Input() public policyOptions!: ModalSpecialOptionsInterface[] | any;
+
+  @Output() private optionsForRecalculation: EventEmitter<any> = new EventEmitter<any>();
+
   public optionsModalForm!: FormGroup;
+  public defaultOptions: any[] = [];
+  public availableOptions: any[] = [];
 
   constructor(private _fb: FormBuilder) {}
 
   public initializeForm(): void {
-    this.optionsModalForm = this._fb.group({
-      option_1: ['', Validators.required],
-      option_2: ['', Validators.required],
-      option_3: ['', Validators.required],
-      option_4: ['', Validators.required],
+    this.defaultOptions = [...this.policyOptions.default];
+    this.availableOptions = [...this.policyOptions.available.option];
+
+    const formControls: any = {}
+
+    this.defaultOptions.forEach((option: CascoOption) => {
+      formControls[option.option_id] = [
+        true,
+        Validators.required,
+      ];
     });
-  }
 
-  public submitForm(optionsModalForm: FormGroup): void {
-    console.log(optionsModalForm.value);
-  }
-
-  public changeOption2(e: Event): void {
-    this.option2Status?.setValue((e.target as HTMLInputElement).value, {
-      onlySelf: true,
+    this.availableOptions.forEach((option: CascoOption, i) => {
+      // condition here just for the demo
+      if (i < 3) {
+        formControls[option.option_id] = [
+          false,
+          Validators.required,
+        ];
+      }
+      return;
     });
+
+    this.optionsModalForm = this._fb.group(formControls);
   }
 
-  public changeOption4(e: Event): void {
-    this.option4Status?.setValue((e.target as HTMLInputElement).value, {
-      onlySelf: true,
-    });
-  }
-
-  get option2Status() {
-    return this.optionsModalForm.get('option_2');
-  }
-
-  get option4Status() {
-    return this.optionsModalForm.get('option_4');
+  public onRecalculate(): void {
+    console.log(this.optionsModalForm.value);
+    this.optionsForRecalculation.emit(this.optionsModalForm.value)
   }
 
   ngOnInit(): void {
+    console.log(this.policyOptions);
     this.initializeForm();
   }
 }

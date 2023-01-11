@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-
-import { ImagePickerConf } from 'ngp-image-picker';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { DocumentsInterface } from '../../models/interfaces/documents.interface';
 
@@ -10,36 +8,16 @@ import { DocumentsInterface } from '../../models/interfaces/documents.interface'
   styleUrls: ['./documents.component.scss'],
 })
 export class DocumentsComponent implements OnInit {
-  @Input() public document!: DocumentsInterface;
+  @Input() public document!: DocumentsInterface | any;
+  @Input() public cascoStatus!: DocumentsInterface | any;
 
-  public config: ImagePickerConf = {
-    width: '93px',
-    height: '93px',
-    language: 'en',
-    hideDeleteBtn: true,
-    hideDownloadBtn: true,
-    hideEditBtn: true,
-    hideAddBtn: true,
-  };
-  // public initialImage = '/assets/images/pdf_default.png';
+  @Output() private saveAgreement: EventEmitter<any> = new EventEmitter<any>();
 
-  public onImageChange(e: any) {
-    // console.log(e);
-  }
   constructor() {}
 
   ngOnInit(): void {}
 
-  // public mouseEnter() {
-  //   (this.config.hideDeleteBtn = false),
-  //     (this.config.hideDownloadBtn = false),
-  //     (this.config.hideEditBtn = false),
-  //     (this.config.hideAddBtn = false);
-  // }
-  // public mouseLeave() {
-  //   (this.config.hideDeleteBtn = true),
-  //     (this.config.hideDownloadBtn = true),
-  //     (this.config.hideEditBtn = true),
-  //     (this.config.hideAddBtn = true);
-  // }
+  onSaveAgreement(): void {
+    this.saveAgreement.emit();
+  }
 }

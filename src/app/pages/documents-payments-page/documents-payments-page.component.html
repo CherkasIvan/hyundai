@@ -2,14 +2,16 @@
   <span class="documents-payments__title">Документы</span>
   <tes-documents
     [document]="document"
+    [cascoStatus]='cascoStatus'
+    (saveAgreement)='null'
     *ngFor="let document of currentDocuments; let i = index"
   ></tes-documents>
   <div class="documents-payments__buttons">
-    <button class="documents-payments__buttons--print">
+    <button class="documents-payments__buttons--print" (click)='null'>
       Распечатать документы
     </button>
-    <button class="documents-payments__buttons--save">
-      Сохранить договоры
+    <button class="documents-payments__buttons--save" (click)='issueCascoPolicy()'>
+      Выпустить полис
     </button>
   </div>
 </div>

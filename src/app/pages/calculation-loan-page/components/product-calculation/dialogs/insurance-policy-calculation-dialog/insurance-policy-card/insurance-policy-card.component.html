@@ -1,47 +1,46 @@
-<div class="row">
-  <div class="col-12 block-title">Выберите страховой полис</div>
+<div class='row'>
+  <div class='col-12 block-title'>
+    Выберите страховой полис
+  </div>
 </div>
 
-<ng-container *ngFor="let card of insuranceCompanies; let i = index">
-  <div class="card-body">
-    <div class="card-body__header">
-      <div class="card-body__header-card">
+<ng-container *ngFor='let policy of insurancePolicies; let i = index'>
+  <div class='card-body'>
+    <div class='card-body__header'>
+      <div class='card-body__header-card'>
         <img
-          class="card-body__header-img"
-          src="/assets/images/insurance-companies/{{ card.img }}"
-          alt="{{ card.img }}"
+          class='card-body__header-img'
+          [src]='"assets/images/insurance-companies/" + policy.provider + ".png"'
+          [alt]='policy.provider'
         />
       </div>
 
-      <img
-        [src]="'/assets/images/offer-status-' + card.status + '.svg'"
-        alt=""
-      />
+      <img [src]='"assets/images/offer-status-" + policy.status + ".svg"' alt=''>
     </div>
 
-    <form class="card-content" *ngFor="let card of card.insurances">
-      <div class="card-content__form">
+    <form class='card-content'>
+      <div class='card-content__form'>
         <input
-          type="checkbox"
-          class="card-content__form--checkbox"
-          [checked]="card.checkbox"
+          type='checkbox'
+          class='card-content__form--checkbox'
+          [checked]='policy.credit'
         />
-        <label class="card-content__form--label">{{ card.label }}</label>
+        <label class='card-content__form--label'>{{ policy.product }}</label>
       </div>
 
-      <div class="card-content__description">
-        {{ card.description }}
+      <div class='card-content__description'>
+        {{ policy?.description }}
       </div>
 
       <div
-        class="card-content__options-button"
-        *ngIf="card.options"
-        (click)="sendIsHiddenValues()"
+        class='card-content__options-button'
+        *ngIf='policy.options.available?.option.length > 0'
+        (click)='onShowOptions(policy.options)'
       >
         Настроить опции
       </div>
 
-      <div class="card-content__price">{{ card.price }}</div>
+      <div class='card-content__price'>{{ policy.total_summ }}</div>
     </form>
   </div>
 </ng-container>
