@@ -21,14 +21,16 @@ export class DocumentsComponent implements OnInit {
     hideEditBtn: true,
     hideAddBtn: true,
   };
-  // public initialImage = '/assets/images/pdf_default.png';
+  // public initialImage = '/assets/images/documents-page-icons/pdf-default-logo.png';
 
   public onImageChange(e: any) {
     // console.log(e);
   }
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.document);
+  }
 
   // public mouseEnter() {
   //   (this.config.hideDeleteBtn = false),
