@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary.component.scss'],
 })
 export class SummaryComponent implements OnInit {
+  public summaryTitle: string = 'Кредит';
   constructor() {}
 
   ngOnInit(): void {}

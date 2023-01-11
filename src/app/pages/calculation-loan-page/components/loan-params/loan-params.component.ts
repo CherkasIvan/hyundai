@@ -11,6 +11,7 @@ export class LoanParamsComponent implements OnInit {
   public formLoanParams!: FormGroup;
   public selectedIndex: number = 0;
   public loanParamsTitle: string = 'Параметры кредита';
+  public calculationParamsTitle: string = 'Расчет кредитных продуктов';
   public loanTerms: string[] = [
     '1 год',
     '2 года',

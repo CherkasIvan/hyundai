@@ -9,9 +9,8 @@ import { filter } from 'rxjs';
   styleUrls: ['./application-form.component.scss'],
 })
 export class ApplicationFormComponent implements OnInit {
-  //  КОСТЫЛЬ! В ДАЛЬНЕЙШЕМ ПЕРЕДЕЛАТЬ!
-
   public routerLink!: string;
+
   constructor(private _router: Router) {
     this.getRout();
   }
@@ -28,8 +27,6 @@ export class ApplicationFormComponent implements OnInit {
         this.routerLink = el.urlAfterRedirects;
       });
   }
-
-  // ^ КОСТЫЛЬ! В ДАЛЬНЕЙШЕМ ПЕРЕДЕЛАТЬ!
 
   ngOnInit(): void {}
 }

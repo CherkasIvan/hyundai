@@ -1,225 +1,224 @@
-<tes-card-layout [title]="clientInfoTitle">
-  <form [formGroup]="userInfoForm" class="registration">
-    <div class="passport-data">
-      <div class="passport-data__title">Паспортные данные</div>
-      <button
-        class="passport-data__auto-registration"
-        (click)="createNewUploader()"
-        [disabled]="imgCounter >= 1"
+<form [formGroup]="userInfoForm" class="registration">
+  <tes-card-title [title]="clientInfoTitle"></tes-card-title>
+  <div class="passport-data">
+    <div class="passport-data__title">Паспортные данные</div>
+    <button
+      class="passport-data__auto-registration"
+      (click)="createNewUploader()"
+      [disabled]="imgCounter >= 1"
+    >
+      <img
+        class="passport-data__auto-registration-img"
+        src="/assets/images/photo.svg"
+        alt="auto-registatrion"
+      />
+      <span class="passport-data__auto-registration-text"
+        >Заполнить автоматически</span
       >
-        <img
-          class="passport-data__auto-registration-img"
-          src="/assets/images/photo.svg"
-          alt="auto-registatrion"
-        />
-        <span class="passport-data__auto-registration-text"
-          >Заполнить автоматически</span
-        >
-      </button>
+    </button>
+  </div>
+
+  <div class="passport__form-group">
+    <fieldset class="form-group__item">
+      <label class="form-group__item--label">
+        Серия и номер
+        <input
+          type="text"
+          formControlName="passport_seria"
+          class="form-group__item--input"
+      /></label>
+    </fieldset>
+
+    <fieldset class="form-group__item">
+      <label class="form-group__item--label">
+        Место рождения
+        <input
+          type="text"
+          formControlName="born_place"
+          class="form-group__item--input"
+      /></label>
+    </fieldset>
+
+    <fieldset class="form-group__item">
+      <label class="form-group__item--label">
+        Кем выдан, код подразделения
+        <input
+          type="text"
+          formControlName="passport_office"
+          class="form-group__item--input"
+      /></label>
+    </fieldset>
+
+    <fieldset class="form-group__item">
+      <label class="form-group__item--label">
+        Дата выдачи
+        <input
+          type="text"
+          formControlName="passport_issue_date"
+          class="form-group__item--input"
+      /></label>
+    </fieldset>
+
+    <fieldset class="form-group__item--options">
+      <input
+        type="checkbox"
+        class="form-group__item checkbox"
+        formControlName="passport_changed"
+        name="checkbox"
+      />
+      <label for="checkbox" class="form-group__item--label">
+        Паспорт менялся
+      </label>
+    </fieldset>
+  </div>
+
+  <ng-template #img let-options>
+    <div class="picker__container">
+      <ngp-image-picker
+        [_config]="config"
+        ($imageChanged)="onImageChange($event)"
+      ></ngp-image-picker>
+      <span class="picker__label">{{ options.descriptions }}</span>
     </div>
+  </ng-template>
 
-    <div class="passport__form-group">
+  <div class="dnd__container"><ng-container #content> </ng-container></div>
+
+  <div class="residential-address">
+    <div class="residential-address__title">Адрес проживания</div>
+
+    <div class="residential-address__form-group">
       <fieldset class="form-group__item">
         <label class="form-group__item--label">
-          Серия и номер
+          Адрес регистрации
           <input
             type="text"
-            formControlName="passport_seria"
+            formControlName="residential_address"
             class="form-group__item--input"
         /></label>
       </fieldset>
 
       <fieldset class="form-group__item">
         <label class="form-group__item--label">
-          Место рождения
+          Дата регистрации
           <input
             type="text"
-            formControlName="born_place"
+            formControlName="registration_date"
             class="form-group__item--input"
         /></label>
       </fieldset>
 
       <fieldset class="form-group__item">
         <label class="form-group__item--label">
-          Кем выдан, код подразделения
+          Адрес фактического проживания
           <input
             type="text"
-            formControlName="passport_office"
+            formControlName="address_of_actual_residence"
             class="form-group__item--input"
         /></label>
       </fieldset>
 
       <fieldset class="form-group__item">
         <label class="form-group__item--label">
-          Дата выдачи
-          <input
-            type="text"
-            formControlName="passport_issue_date"
-            class="form-group__item--input"
-        /></label>
+          Статус недвижимости (где проживаете)
+          <select
+            (change)="changeStatus($event)"
+            formControlName="propertyStatus"
+            class="form-group__item--select"
+            name="property_status
+            "
+          >
+            <option value="Своя квартира">Своя квартира</option>
+            <option value="У родителей">У родителей</option>
+          </select>
+        </label>
       </fieldset>
 
       <fieldset class="form-group__item--options">
         <input
           type="checkbox"
           class="form-group__item checkbox"
-          formControlName="passport_changed"
+          formControlName="matched_client_registered_address"
           name="checkbox"
         />
         <label for="checkbox" class="form-group__item--label">
-          Паспорт менялся
+          Совпадает с адресом регистрации
         </label>
       </fieldset>
     </div>
+  </div>
 
-    <ng-template #img let-options>
-      <div class="picker__container">
-        <ngp-image-picker
-          [_config]="config"
-          ($imageChanged)="onImageChange($event)"
-        ></ngp-image-picker>
-        <span class="picker__label">{{ options.descriptions }}</span>
-      </div>
-    </ng-template>
-
-    <div class="dnd__container"><ng-container #content> </ng-container></div>
-
-    <div class="residential-address">
-      <div class="residential-address__title">Адрес проживания</div>
-
-      <div class="residential-address__form-group">
-        <fieldset class="form-group__item">
-          <label class="form-group__item--label">
-            Адрес регистрации
-            <input
-              type="text"
-              formControlName="residential_address"
-              class="form-group__item--input"
-          /></label>
-        </fieldset>
-
-        <fieldset class="form-group__item">
-          <label class="form-group__item--label">
-            Дата регистрации
-            <input
-              type="text"
-              formControlName="registration_date"
-              class="form-group__item--input"
-          /></label>
-        </fieldset>
-
-        <fieldset class="form-group__item">
-          <label class="form-group__item--label">
-            Адрес фактического проживания
-            <input
-              type="text"
-              formControlName="address_of_actual_residence"
-              class="form-group__item--input"
-          /></label>
-        </fieldset>
-
-        <fieldset class="form-group__item">
-          <label class="form-group__item--label">
-            Статус недвижимости (где проживаете)
-            <select
-              (change)="changeStatus($event)"
-              formControlName="propertyStatus"
-              class="form-group__item--select"
-              name="property_status
-            "
-            >
-              <option value="Своя квартира">Своя квартира</option>
-              <option value="У родителей">У родителей</option>
-            </select>
-          </label>
-        </fieldset>
-
-        <fieldset class="form-group__item--options">
-          <input
-            type="checkbox"
-            class="form-group__item checkbox"
-            formControlName="matched_client_registered_address"
-            name="checkbox"
-          />
-          <label for="checkbox" class="form-group__item--label">
-            Совпадает с адресом регистрации
-          </label>
-        </fieldset>
-      </div>
+  <div class="education">
+    <div class="education__title">Образование</div>
+    <div class="education__list">
+      <button
+        class="education__list--button"
+        *ngFor="let typeOfEducation of educations; index as i"
+        type="button"
+        [ngClass]="{ active: selectedIndex === i }"
+        (click)="activateClass(i)"
+      >
+        {{ typeOfEducation }}
+      </button>
     </div>
+  </div>
 
-    <div class="education">
-      <div class="education__title">Образование</div>
-      <div class="education__list">
-        <button
-          class="education__list--button"
-          *ngFor="let typeOfEducation of educations; index as i"
-          type="button"
-          [ngClass]="{ active: selectedIndex === i }"
-          (click)="activateClass(i)"
-        >
-          {{ typeOfEducation }}
-        </button>
-      </div>
-    </div>
-
-    <div class="family">
-      <div class="family__title">Семья</div>
-      <div class="family__form-group">
-        <fieldset class="form-group__item">
-          <label class="form-group__item--label">
-            Семейное положение
-            <select
-              (change)="changeFamilyStatus($event)"
-              formControlName="familyStatus"
-              class="form-group__item--select"
-              name="property_status
+  <div class="family">
+    <div class="family__title">Семья</div>
+    <div class="family__form-group">
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Семейное положение
+          <select
+            (change)="changeFamilyStatus($event)"
+            formControlName="familyStatus"
+            class="form-group__item--select"
+            name="property_status
           "
-            >
-              <option value="Не женат, не замужем">Не женат, не замужем</option>
-              <option value="Холост">Холост</option>
-            </select></label
           >
-        </fieldset>
+            <option value="Не женат, не замужем">Не женат, не замужем</option>
+            <option value="Холост">Холост</option>
+          </select></label
+        >
+      </fieldset>
 
-        <fieldset class="form-group__item">
-          <label class="form-group__item--label">
-            Дети
-            <tes-counter-button
-              (currentCountValue)="addChildren($event)"
-            ></tes-counter-button
-          ></label>
-        </fieldset>
-      </div>
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Дети
+          <tes-counter-button
+            (currentCountValue)="addChildren($event)"
+          ></tes-counter-button
+        ></label>
+      </fieldset>
     </div>
+  </div>
 
-    <div class="monthly_expenses">
-      <div class="passport-data__title">Ежемесячные расходы</div>
-      <div class="family__form-group">
-        <fieldset class="form-group__item">
-          <label class="form-group__item--label">
-            Обязательные платежи*, ₽
-            <tes-input-slider
-              (componentValue)="obligatoryPayments($event)"
-            ></tes-input-slider>
-          </label>
-        </fieldset>
+  <div class="monthly_expenses">
+    <div class="passport-data__title">Ежемесячные расходы</div>
+    <div class="family__form-group">
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Обязательные платежи*, ₽
+          <tes-input-slider
+            (componentValue)="obligatoryPayments($event)"
+          ></tes-input-slider>
+        </label>
+      </fieldset>
 
-        <fieldset class="form-group__item">
-          <label class="form-group__item--label">
-            Погашение кредитов*, ₽
-            <tes-input-slider
-              (componentValue)="loanRepayment($event)"
-            ></tes-input-slider
-          ></label>
-        </fieldset>
-      </div>
+      <fieldset class="form-group__item">
+        <label class="form-group__item--label">
+          Погашение кредитов*, ₽
+          <tes-input-slider
+            (componentValue)="loanRepayment($event)"
+          ></tes-input-slider
+        ></label>
+      </fieldset>
     </div>
+  </div>
 
-    <tes-submit-form-button
-      [formValues]="userInfoForm.value"
-      [isDisable]="!userInfoForm.valid"
-      buttonText="Продолжить"
-    ></tes-submit-form-button>
-  </form>
-</tes-card-layout>
+  <tes-submit-form-button
+    [formValues]="userInfoForm.value"
+    [isDisable]="!userInfoForm.valid"
+    buttonText="Продолжить"
+  ></tes-submit-form-button>
+</form>

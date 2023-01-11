@@ -1,6 +1,11 @@
-<div class="card-layout">
-  <div class="container">
-    <span class="title">{{ title }}</span>
+<div class="wrapper">
+  <div class="card-layout">
+    <ng-content></ng-content>
   </div>
-  <ng-content></ng-content>
+  <tes-application-form
+    *ngIf="
+      routerLink === '/main-page/processing/client-summary' ||
+      routerLink === '/main-page/processing/client-approval'
+    "
+  ></tes-application-form>
 </div>
