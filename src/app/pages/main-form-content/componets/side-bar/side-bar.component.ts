@@ -24,6 +24,7 @@ export class SideBarComponent implements OnInit {
 
   public selectionChanged($event: StepperSelectionEvent) {
     this._sideBarService.initIndex$.next($event.selectedIndex);
+    console.log($event);
 
     this._router.url.includes(routingPathEnum.LoanCalculationPage)
       ? (this.selectedStepName = this.steps[$event.selectedIndex].path)

@@ -1,4 +1,4 @@
-import { Action, createReducer, on, props } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 
 import { InputValueType } from '../../models/types/inputValue.type';
 import { inputSliderChangeValueAction } from '../actions/input-slider.actions';

@@ -85,7 +85,7 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   public hasOsago (e: Event) {
     const hasOsagoValue = this.filterForm.get('have_osago')?.value;
-    this._clientAuthService.hasCaskoFilter(hasOsagoValue);
+    this._clientAuthService.hasOsagoFilter(hasOsagoValue);
   }
 
   ngOnInit(): void {

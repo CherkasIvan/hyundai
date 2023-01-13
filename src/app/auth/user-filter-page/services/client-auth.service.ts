@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { BehaviorSubject, map, Observable, take, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, Subject, tap } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
 
@@ -13,43 +13,11 @@ import { UserRegisterRequestType } from '../../user-auth-page/models/types/user-
 export class ClientAuthService {
   public allClients$: BehaviorSubject<any> = new BehaviorSubject([]);
 
-  public selectedClient$ = new BehaviorSubject<any>({
-    "link_id": "b9bfbd0c-1316-40f2-9a5a-1a42728cd1df",
-    "dealer_id": "d3d2baa9-8dd4-451f-874f-94308ced8946",
-    "client_id": "ccdd203c-1b58-423b-9457-b97db70ec2a0",
-    "time_from": "1672311569036",
-    "phone": "+79126693753",
-    "first_name": "Авдей",
-    "last_name": "Бугаев",
-    "patronymic": "Владиславович",
-    "email": "adasdas@asdasd.ru",
-    "gender": 1,
-    "birthdate": "2000-07-12T00:00:00.000Z",
-    "passport_number": "65 11 111111",
-    "passport_issued_at": "2006-07-12T00:00:00.000Z",
-    "passport_division_code": "661-001",
-    "residence_address": "Г. Екатеринбург, ул. Зуброва, д. 75, кв. 58",
-    "marital_status": 1,
-    "kids_amount": 2,
-    "personal_data_policy_confirmation": true,
-    "created_at": null,
-    "active": 1,
-    "car_id": "dd55f116-cd8a-4e52-9b0c-3538f05d5977",
-    "vin": "X7L4SRC9B53513910",
-    "car_mark": "Hyundai",
-    "car_model": "Tucson 2.0D",
-    "car_year": 2022,
-    "horse_power": "185",
-    "transmission": "auto",
-    "car_price": 2000000,
-    "pts": "77OM 123456",
-    "car_body_type": null,
-    "car_telematic": true,
-    "car_telematic_type": "Misos LIGHT",
-    "time_to": null,
-    "status": 1
-})
+  public selectedClient$: BehaviorSubject<any> = new BehaviorSubject<any>('')
   public selectedClientValue$ = this.selectedClient$.asObservable();
+
+  public sc$: BehaviorSubject<any> = new BehaviorSubject<any>({});
+  public scValue$ = this.sc$.asObservable();
 
   public searchValue$ = new BehaviorSubject<string>('');
   public currentSearchValue$ = this.searchValue$.asObservable();
@@ -122,22 +90,36 @@ export class ClientAuthService {
     });
     const url = environment.apiUrl + '/getCarsWithOwners';
 
-    if(!Object.values(body).length) {
       return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
         tap((response: any) => {
           this.allClients$.next(response.clients);
           console.log(response);
         })
       );
-    } else {
-       return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
-      tap((response: any) => {
-        this.selectedClient$.next(response.clients);
-        console.log(response);
-      })
-    );
-    }
+
+    // else {
+    //    return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
+    //   tap((response: any) => {
+    //       this.selectedClient$.next(response.clients)
+    //     console.log(response.clients);
+    //   })
+    // );
+    // }
   }
+
+  // public getClient(body: any): Observable<any> {
+  //   const httpHeaders: HttpHeaders = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //   });
+  //   const url = environment.apiUrl + '/getCarsWithOwners';
+  //
+  //   return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
+  //     tap((response: any) => {
+  //       this.selectedClient$.next(response);
+  //       console.log(response);
+  //     })
+  //   );
+  // }
 
   public searchClient(searchValue: any) {
     this.searchValue$.next(searchValue);

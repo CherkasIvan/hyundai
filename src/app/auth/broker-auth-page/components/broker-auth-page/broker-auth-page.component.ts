@@ -35,8 +35,7 @@ export class BrokerAuthPageComponent implements OnInit {
 
   public initializeValues(): void {
     this.isSubmitting$ = this._store.pipe(select(isBrokerSubmittingSelector));
-    this.backendErrors$ = this._store.pipe(
-      select(validationBrokerErrorsSelector)
+    this.backendErrors$ = this._store.pipe(select(validationBrokerErrorsSelector)
     );
   }
 

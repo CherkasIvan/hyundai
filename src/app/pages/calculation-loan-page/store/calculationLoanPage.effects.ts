@@ -13,7 +13,6 @@ import { PersistenceService } from '../../../shared/services/persistence.service
 import { GetCascoPoliciesBody, GetCascoResponse } from '../../../shared/models/interfaces/casco';
 import { CalculationLoanService } from '../../../shared/services/calculation-loan.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { formCarOptionsChangeAction } from './calculationLoanPage.action';
 
 @Injectable()
 export class CalculationLoanPageEffects {
@@ -24,26 +23,6 @@ export class CalculationLoanPageEffects {
     private calculationLoanService: CalculationLoanService,
   ) {
   }
-
-  public getCarOptions$ = createEffect(() =>
-    this._actions$.pipe(
-      ofType(formCarOptionsChangeAction),
-      pipe(
-        tap((el) => {
-          console.log(el);
-        })
-      )
-      // switchMap(({ formValue }) => {
-      //   return this._clientDataService.getClientCars(formValue).pipe(
-      //     tap(el=> {console.log(el)
-      //     return el}),
-      //     switchMap(async (carOptions) => {
-      //       return formCarOptionsChangeAction({ carOptions });
-      //     })
-      //   );
-      // })
-    )
-  );
 
   public getCascoPolicies$ = createEffect(
     (): Observable<Action> =>

@@ -9,7 +9,7 @@ import { ClientCarInterface } from '../models/interfaces/clientCar.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ClientDataService {
-  public clientCarsData$: BehaviorSubject<ClientCarInterface> =
+  public clientCarsData$: BehaviorSubject<any> =
     new BehaviorSubject({
       client_id: '',
       car_id: '',
@@ -30,23 +30,23 @@ export class ClientDataService {
 
   constructor(private http: HttpClient) {}
 
-  public getClientCars(client_id: string): Observable<ClientCarInterface[]> {
-    const httpHeaders: HttpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-
-    const url = environment.apiUrl + '';
-
-    return this.http
-      .post<ClientCarInterface[]>(url, client_id, { headers: httpHeaders })
-      .pipe(
-        map((response: ClientCarInterface[]) =>
-          response.filter((car) => car.vin)
-        ),
-        tap((response: ClientCarInterface[]) => {
-          this.clientCarsData$.next(response[0]);
-          console.log(this.clientCarsData$.value);
-        })
-      );
-  }
+  // public getClientCars(client_id: string): Observable<ClientCarInterface[]> {
+  //   const httpHeaders: HttpHeaders = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //   });
+  //
+  //   const url = environment.apiUrl + '';
+  //
+  //   return this.http
+  //     .post<ClientCarInterface[]>(url, client_id, { headers: httpHeaders })
+  //     .pipe(
+  //       map((response: ClientCarInterface[]) =>
+  //         response.filter((car) => car.vin)
+  //       ),
+  //       tap((response: ClientCarInterface[]) => {
+  //         this.clientCarsData$.next(response[0]);
+  //         console.log(this.clientCarsData$.value);
+  //       })
+  //     );
+  // }
 }
