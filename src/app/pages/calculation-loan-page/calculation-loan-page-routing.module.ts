@@ -14,7 +14,9 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: routingPathEnum.CarInfo, component: CarInfoComponent },
+      { path: routingPathEnum.CarInfo, component: CarInfoComponent,
+        // resolve: {currentCustomer:CalculationLoanPageResolver}
+      },
       { path: routingPathEnum.CarOwner, component: OwnerComponent },
       { path: routingPathEnum.Drivers, component: DriversPageComponent },
       { path: routingPathEnum.LoanParams, component: LoanParamsComponent },

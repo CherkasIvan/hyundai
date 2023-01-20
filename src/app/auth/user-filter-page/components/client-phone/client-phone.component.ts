@@ -25,7 +25,7 @@ export class ClientPhoneComponent implements OnInit, OnDestroy {
   private initializeForms(): void {
     this.clientPhoneForm = this._fb.group({
       phone: ['', Validators.required],
-      test: true,
+      // test: true,
     });
   }
 

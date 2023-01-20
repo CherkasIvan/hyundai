@@ -55,6 +55,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
+  column-gap: 20px;
 
   &__checkbox {
     width: 20px;
@@ -166,11 +167,13 @@
 }
 
 .family {
+  display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-right: 20px;
 
   &-content {
-    column-gap: 400px;
+    //column-gap: 400px;
   }
 }
 
@@ -255,7 +258,7 @@
 
 .marital-status {
   display: flex;
-  flex-direction: column;
+  width: fit-content;
 
   &__title {
     font-style: normal;
@@ -269,13 +272,14 @@
     display: flex;
     flex-wrap: nowrap;
     gap: 10px;
-    min-width: 70%;
+    width: fit-content;
 
     &--button {
       padding: 10px 10px;
       background: #f2f4f7;
       color: #343e48;
       border-radius: 20px;
+      width: 9vw;
     }
   }
 }

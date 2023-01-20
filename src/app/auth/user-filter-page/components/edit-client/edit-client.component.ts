@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
-import { forkJoin, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { routingPathEnum } from '../../../../shared/consts/routing-path-enum';
 
 import { CommonDataService } from '../../../../shared/services/common-data.service';
@@ -49,16 +49,14 @@ export class EditClientComponent implements OnInit, OnDestroy {
     this._persistenceService.set('clientId', body.clientId);
     this._commonDataService.editClientsDetails(body).subscribe((el) => {
       el && isRedirect
-        ? this._router.navigateByUrl(
-            `/${routingPathEnum.MainPage}/${routingPathEnum.LoanCalculationPage}/${routingPathEnum.CarInfo}`
-          )
+        ? this._router.navigate([routingPathEnum.MainPage, routingPathEnum.LoanCalculationPage, routingPathEnum.CarInfo],
+          {queryParams: {clientId: body.clientId}})
         : this.closeDialog();
     });
   }
 
   private closeDialog() {
     this._dialogRef.close();
-    // this._getUsersService.getClients().subscribe();
   }
 
   private initializeValues(): void {

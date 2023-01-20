@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -11,7 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CalculationLoanPageRoutingModule } from './calculation-loan-page-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 
-import { ClientDataService } from '../../shared/services/client-data.service';
+import { ClientsDataService } from '../../shared/services/clients-data.service';
 import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 import { CarInfoComponent } from './components/car-info/car-info.component';
@@ -24,7 +26,6 @@ import { InsurancePolicyCardComponent } from './components/product-calculation/d
 import { InsurancePolicyOptionsComponent } from './components/product-calculation/dialogs/insurance-policy-calculation-dialog/insurance-policy-options/insurance-policy-options.component';
 import { ProductCalculationPageComponent } from './components/product-calculation/product-calculation-page.component';
 import { ProductCalculationTableComponent } from './components/product-calculation/product-calculation-table/product-calculation-table.component';
-import { StorageModule } from './store/storage.module';
 import { _reducers } from './store';
 import { LoanOfferComponent } from './components/loan-params/componets/loan-offer/loan-offer.component';
 import { InsurancesParamsComponent } from './components/insurances-params/insurances-params.component';
@@ -51,12 +52,12 @@ import { InsurancesParamsComponent } from './components/insurances-params/insura
     CalculationLoanPageRoutingModule,
     SharedModule,
     StoreModule.forFeature('calculation-loan-page', reducers),
-    StoreModule.forFeature('client-filter', reducers),
     StoreModule.forFeature('casco', _reducers.casco),
     EffectsModule.forFeature([CalculationLoanPageEffects]),
-    // StorageModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
-  providers: [ClientDataService, ClientAuthService],
+  providers: [ClientsDataService, ClientAuthService],
 })
 export class CalculationLoanPageModule {}

@@ -1,10 +1,14 @@
 <div class="documents-payments container">
   <span class="documents-payments__title">Документы</span>
   <tes-documents
-    [document]="document"
+    [documents]="currentDocuments.osago"
+    (payForPolicy)='getPayForPolicyLink()'
+    (saveAgreement)='null'
+  ></tes-documents>
+  <tes-documents
+    [documents]="currentDocuments.casco"
     [cascoStatus]='cascoStatus'
     (saveAgreement)='null'
-    *ngFor="let document of currentDocuments; let i = index"
   ></tes-documents>
   <div class="documents-payments__buttons">
     <button class="documents-payments__buttons--print" (click)='null'>
@@ -15,3 +19,4 @@
     </button>
   </div>
 </div>
+  <button (click)='getPdfPolicy()'>get pdf osago policy</button>

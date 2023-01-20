@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {
   InsurancePolicyCalculationDialog,
 } from './dialogs/insurance-policy-calculation-dialog/insurance-policy-calculation-dialog.component';
-import { filter, map, Observable, Subject, takeUntil } from 'rxjs';
+import { filter, forkJoin, map, Observable, Subject, takeUntil } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import {
   selectCascoPolicies,
@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-calculation-page.component.scss'],
 })
 export class ProductCalculationPageComponent implements OnInit, AfterViewInit, OnDestroy {
-  public data: CascoObject[] = [];
+  public policiesData: CascoObject[] | any[] = [];
   public loading!: boolean;
 
   private error$!: Observable<boolean>;
@@ -38,6 +38,15 @@ export class ProductCalculationPageComponent implements OnInit, AfterViewInit, O
   }
 
   ngOnInit(): void {
+    this.getCasco();
+    this.getOsago();
+  }
+
+  ngAfterViewInit() {
+    this.loadCascoPolicies();
+  }
+
+  getCasco(): void {
     this.store
       .pipe(
         select(selectCascoPolicies),
@@ -57,15 +66,11 @@ export class ProductCalculationPageComponent implements OnInit, AfterViewInit, O
     this.error$ = this.store.pipe(select(selectCascoError));
   }
 
-  ngAfterViewInit() {
-    if (this.data.length < 1) this.loadCascoPolicies();
-  }
-
   private loadCascoPolicies(): void {
     this.store.dispatch(
       getCascoPolicies({
         params: {
-          policyStartDate: '2023-01-15T00:00:00.000+03:00',
+          policyStartDate: '2023-02-15T00:00:00.000+03:00',
           insuranse_term: 1,
           multidrive: true,
           drivers: [],
@@ -76,32 +81,54 @@ export class ProductCalculationPageComponent implements OnInit, AfterViewInit, O
     );
   }
 
-  initializeData(cascoPoliciesData: CascoObject[]): void {
-    this.data = [...this.data, ...cascoPoliciesData];
-    localStorage.setItem('calculation_id', this.data[0].calculation_id)
-
-    console.log(this.data);
+  getOsago(): void {
+    this.calculationLoanService.getOsagoPolicies({}, undefined)
+      .pipe(
+        map(osagoPoliciesData => {
+          this.policiesData = [...this.policiesData, ...[osagoPoliciesData]];
+          // this.policiesData.push(osagoPoliciesData);
+        })
+      )
+      .subscribe();
   }
 
-  onCreateCasco(): void {
-    this.calculationLoanService
+  initializeData(cascoPoliciesData: CascoObject[]): void {
+    this.policiesData = [...this.policiesData, ...cascoPoliciesData];
+  }
+
+  onCreatePolicies(): void {
+    const casco$ = this.calculationLoanService
       .createCascoPolicy(
         {},
-        localStorage.getItem('calculation_id') as string,
-        )
+        '',
+      )
       .pipe(
         // todo: to move in the ngrx store
         map(data => {
           localStorage.setItem('createdCascoOffers', JSON.stringify(data));
-          this.router.navigate(['main-page/documents-payments'])
         }),
         takeUntil(this._unsubscribeAll),
-      ).subscribe();
+      );
+
+    const osago$ = this.calculationLoanService
+      .createOsagoPolicy(
+        '',
+      )
+      .pipe(
+        map(data => {
+          localStorage.setItem('createdOsagoOffers', JSON.stringify(data));
+        }),
+        takeUntil(this._unsubscribeAll),
+      );
+
+    forkJoin([casco$, osago$]).pipe().subscribe(r =>
+      this.router.navigate(['main-page/documents-payments'])
+    );
   }
 
   openCalculateDialog() {
     const dialog = this.dialog.open(InsurancePolicyCalculationDialog, {
-      data: this.data,
+      data: this.policiesData,
     });
 
     dialog

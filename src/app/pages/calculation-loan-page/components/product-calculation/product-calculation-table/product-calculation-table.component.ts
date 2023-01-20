@@ -7,7 +7,7 @@ import { CascoObject } from 'src/app/shared/models/interfaces/casco';
   styleUrls: ['./product-calculation-table.component.scss'],
 })
 export class ProductCalculationTableComponent implements OnInit {
-  @Input() public data!: CascoObject[];
+  @Input() public data!: CascoObject[] | any[];
 
   public displayedColumns: string[] = [
     'product',

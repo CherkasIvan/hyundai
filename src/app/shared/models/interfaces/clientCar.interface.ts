@@ -1,3 +1,4 @@
-export interface ClientCarInterface {
-  selectedClient: {}
+export interface SelectedClientInterface {
+  selectedClient: {},
+  carId: string
 }

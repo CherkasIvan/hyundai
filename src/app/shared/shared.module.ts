@@ -9,6 +9,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 
 import { StoreModule } from '@ngrx/store';
+import { CardLayoutComponent } from './components/card-layout/card-layout.component';
+import { CardTitleComponent } from './components/card-title/card-title.component';
 import { buttonReducers } from './store/reducers/counter-button.reducer';
 import { sliderReducers } from './store/reducers/input-slider.reducer';
 
@@ -41,6 +43,8 @@ import { ModalHeaderComponent } from './components/modal-header/modal-header.com
     TesInputSlideToggleComponent,
     TesButtonComponent,
     ModalHeaderComponent,
+    CardLayoutComponent,
+    CardTitleComponent
   ],
   imports: [
     FormsModule,
@@ -76,6 +80,8 @@ import { ModalHeaderComponent } from './components/modal-header/modal-header.com
     TesInputSlideToggleComponent,
     TesButtonComponent,
     ModalHeaderComponent,
+    CardLayoutComponent,
+    CardTitleComponent
   ]
 })
 export class SharedModule {}

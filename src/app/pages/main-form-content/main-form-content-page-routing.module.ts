@@ -7,7 +7,7 @@ import { MainFormContentPageComponent } from './main-form-content-page.component
 
 const routes: Routes = [
   {
-    path: ':client_id',
+    path: '',
     component: MainFormContentPageComponent,
     children: [
       {

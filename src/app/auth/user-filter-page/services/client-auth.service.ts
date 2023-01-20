@@ -16,9 +16,6 @@ export class ClientAuthService {
   public selectedClient$: BehaviorSubject<any> = new BehaviorSubject<any>('')
   public selectedClientValue$ = this.selectedClient$.asObservable();
 
-  public sc$: BehaviorSubject<any> = new BehaviorSubject<any>({});
-  public scValue$ = this.sc$.asObservable();
-
   public searchValue$ = new BehaviorSubject<string>('');
   public currentSearchValue$ = this.searchValue$.asObservable();
 
@@ -47,7 +44,7 @@ export class ClientAuthService {
     {
       clientId: '',
       status: '',
-      testCode: '',
+      // testCode: '',
     }
   );
 
@@ -96,30 +93,7 @@ export class ClientAuthService {
           console.log(response);
         })
       );
-
-    // else {
-    //    return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
-    //   tap((response: any) => {
-    //       this.selectedClient$.next(response.clients)
-    //     console.log(response.clients);
-    //   })
-    // );
-    // }
   }
-
-  // public getClient(body: any): Observable<any> {
-  //   const httpHeaders: HttpHeaders = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //   });
-  //   const url = environment.apiUrl + '/getCarsWithOwners';
-  //
-  //   return this._http.post<any>(url, body, { headers: httpHeaders }).pipe(
-  //     tap((response: any) => {
-  //       this.selectedClient$.next(response);
-  //       console.log(response);
-  //     })
-  //   );
-  // }
 
   public searchClient(searchValue: any) {
     this.searchValue$.next(searchValue);

@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  .card-layout {
+    width: 100%;
+    min-height: 82vh;
+    background-color: #ffffff;
+    box-shadow: -1px 3px 20px 1px rgb(33 44 55 / 8%);
+    border-radius: 30px;
+    padding: 35px;
+  }
+}

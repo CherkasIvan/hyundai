@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { GetCascoPoliciesBody, GetCascoResponse, CascoObject } from '../models/interfaces/casco';
-import { delay, map, Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { PersistenceService } from './persistence.service';
+import { Driver } from '../models/interfaces/driver';
 
 @Injectable({ providedIn: 'root' })
 export class CalculationLoanService {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private persistenceService: PersistenceService) {
   }
 
   public getCascoPolicies(body: GetCascoPoliciesBody, client_id: string, car_id?: string): Observable<GetCascoResponse> {
     const url = environment.apiUrl + '/calculateCasco';
     const params = {
-      client_id,
-      car_id: car_id ? car_id : 'dd55f116-cd8a-4e52-9b0c-3538f05d5977',
+      client_id: 'fb894551-257a-4fc7-8e8f-9418c0ad1c22',
+      car_id: car_id ?? 'dd55f116-cd8a-4e52-9b0c-3538f05d5977',
     };
 
     return this.http.post<GetCascoResponse>(url, body, { params }).pipe(
       map(cascoObj => {
+        localStorage.setItem('casco_calculation_id', cascoObj.calculation_id);
         return cascoObj = {
           ...cascoObj,
           product: 'КАСКО',
@@ -37,8 +40,8 @@ export class CalculationLoanService {
   public createCascoPolicy(body: any, calculation_id: string): Observable<any> {
     const url = environment.apiUrl + '/createCasco';
     body = {
-      policyStartDate: '2023-01-15T00:00:00.000+03:00',
-      policyEndDate: '2024-01-14T00:00:00.000+03:00',
+      policyStartDate: '2023-02-15T00:00:00.000+03:00',
+      policyEndDate: '2024-02-14T00:00:00.000+03:00',
       options: [
         // {
         //   option_id: 388,
@@ -52,44 +55,126 @@ export class CalculationLoanService {
         // },
       ],
     };
-    const params = { calculation_id };
+    const params = { calculation_id: localStorage.getItem('casco_calculation_id') as string };
 
     return this.http.post<any>(url, body, { params });
   }
 
   public attachFilesToCasco(body: any, calculation_id: string): Observable<any> {
     const url = environment.apiUrl + '/attachFilesToCasco';
-    const params = { calculation_id };
+    const params = { calculation_id: localStorage.getItem('casco_calculation_id') as string };
 
     return this.http.post<any>(url, body, { params });
   }
 
   public startCascoBooking(body: any, calculation_id: string): Observable<any> {
     const url = environment.apiUrl + '/start-casco-booking';
-    const params = { calculation_id };
+    const params = { calculation_id: localStorage.getItem('casco_calculation_id') as string };
 
     return this.http.post<any>(url, body, { params });
   }
 
   public checkCascoStatus(calculation_id: string): Observable<any> {
     const url = environment.apiUrl + '/checkCascoStatus';
-    const params = { calculation_id };
+    const params = { calculation_id: localStorage.getItem('casco_calculation_id') as string };
 
     return this.http.get<any>(url, { params });
   }
 
   public issueCascoPolicy(calculation_id: string): Observable<any> {
     const url = environment.apiUrl + '/issueCasco';
-    const params = { calculation_id };
+    const params = { calculation_id: localStorage.getItem('casco_calculation_id') as string };
 
     return this.http.post<HttpResponse<any>>(url, {}, { params, observe: 'response' });
   }
 
   public getCascoDocuments(calculation_id: string): Observable<any> {
     const url = environment.apiUrl + '/getCascoDocuments';
-    const params = { calculation_id };
+    const params = { calculation_id: localStorage.getItem('casco_calculation_id') as string };
 
     return this.http.get<any>(url, { params });
+  }
+
+  public getOsagoPolicies(body: any, car_id?: string): Observable<any> {
+    const url = environment.apiUrl + '/calculateKbm';
+    body = {
+      policyStartDate: '2023-02-15T00:00:00.000+03:00',
+      insuranse_term: 1,
+      multidrive: false,
+      drivers: [
+        'fbc3f738-753b-4d0f-aca5-868ff1601a09',
+      ],
+      owner_is_insurer: true,
+      insurer: {},
+    };
+    const params = {
+      client_id: 'fb894551-257a-4fc7-8e8f-9418c0ad1c22',
+      car_id: car_id ?? 'dd55f116-cd8a-4e52-9b0c-3538f05d5977',
+    };
+
+    return this.http.post<any>(url, body, { params }).pipe(
+      map(osagoObj => {
+        localStorage.setItem('osago_calculation_id', osagoObj.calculation_id);
+        localStorage.setItem('osago_policyNumber', osagoObj.policyNumber);
+
+        return osagoObj = {
+          ...osagoObj,
+          product: 'ОСАГО',
+          credit: true,
+          provider: 'sovkom',
+          description: 'Some description',
+        };
+      }),
+    );
+  }
+
+  public createOsagoPolicy(calculation_id: string): Observable<any> {
+    const url = environment.apiUrl + '/createKbm';
+    const params = { calculation_id: localStorage.getItem('osago_calculation_id') as string };
+
+    return this.http.post<any>(url, {}, { params });
+  }
+
+  public getOsagoAnketa(calculation_id: string): Observable<any> {
+    const url = environment.apiUrl + '/showAnketa';
+    const params = { calculation_id: localStorage.getItem('osago_calculation_id') as string };
+
+    return this.http.post<any>(url, {}, { params });
+  }
+
+  public getPayForPolicyLink(calculation_id: string): Observable<any> {
+    const url = environment.apiUrl + '/payPolicy';
+    const params = { calculation_id: localStorage.getItem('osago_calculation_id') as string };
+
+    return this.http.post<any>(url, {}, { params });
+  }
+
+  public getPdfPolicy(body: any, calculation_id: string): Observable<any> {
+    const url = environment.apiUrl + '/showpdfPolicy';
+    body = {
+      policyCalculationId: localStorage.getItem('osago_calculation_id'),
+      policyNumber: localStorage.getItem('osago_policyNumber'),
+    };
+    const params = { calculation_id: localStorage.getItem('osago_calculation_id') as string };
+
+    return this.http.post<HttpResponse<any>>(url, body, { params, observe: 'response' });
+  }
+
+  public getClientDrivers(): Observable<any> {
+    const url = environment.apiUrl + '/driverInfo';
+    const params = { client_id: this.persistenceService.getClientId() };
+
+    return this.http.get<any>(url, { params }).pipe(
+      map(data => data.driver_info),
+    );
+  }
+
+  public addDrivers(drivers: Driver[]): Observable<any> {
+    const url = environment.apiUrl + '/driverInfo';
+    const body = drivers;
+    const params = { client_id: this.persistenceService.getClientId() };
+
+    return this.http.post<any>(url, body, { params });
   }
 }
 

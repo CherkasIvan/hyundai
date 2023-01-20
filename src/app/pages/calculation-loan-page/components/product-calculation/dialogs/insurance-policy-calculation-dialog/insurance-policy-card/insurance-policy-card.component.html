@@ -34,7 +34,7 @@
 
       <div
         class='card-content__options-button'
-        *ngIf='policy.options.available?.option.length > 0'
+        *ngIf='policy.options?.available?.option.length > 0'
         (click)='onShowOptions(policy.options)'
       >
         Настроить опции

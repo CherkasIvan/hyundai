@@ -5,8 +5,7 @@ import {
   clientModalCloseAction,
   clientModalOpenAction,
   getCarsOwnersListAction,
-  setCarsOwnersListAction,
-  setSelectedClientIdAction
+  setCarsOwnersListAction, setSelectedClientIdAction,
 } from '../actions/client-filter-page.actions';
 
 const initialState: ClientFilterPageInterface = {

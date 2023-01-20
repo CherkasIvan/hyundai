@@ -1,33 +1,7 @@
-.car-info-container {
-  padding: 30px;
-  width: 70vw;
-  min-height: 80vh;
-  background: #ffffff;
-  box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-
-  &-title {
-    margin-top: 47px;
-    margin-left: 35px;
-    margin-bottom: 35px;
-    width: 502px;
-    height: 39px;
-    font-size: 30px;
-    line-height: 130%;
-    color: #343e48;
-  }
-}
 .car-info-details {
   width: 100%;
-  align-items: flex-start;
   padding: 0px 0px 6px;
   gap: 18px;
-
-  &__slider {
-    position: relative;
-  }
 
   &__btn {
     background: #343e48;
@@ -48,11 +22,9 @@
     padding: 0px 0px 6px;
     gap: 18px;
     color: #343e48;
-    margin-left: 35px;
     flex-wrap: wrap;
 
     &__button {
-      height: 20vh;
       width: 100%;
       display: flex;
       justify-content: flex-end;
@@ -160,10 +132,14 @@
   }
 }
 
+.car-info-form-container:nth-child(2) {
+  margin-bottom: 100px;
+}
+
 .car-info-form-container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 18px;
 
   .label__tooltip {
@@ -176,6 +152,7 @@
     margin-right: 4px;
   }
 }
+
 .form-group__item {
   display: flex;
   flex-direction: column;
@@ -340,4 +317,8 @@ input:checked + .toggle-slider:before {
 
 .toggle-slider.round:before {
   border-radius: 50%;
+}
+
+.car-info-form-container:last-child {
+  margin-bottom: 20px;
 }

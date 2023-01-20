@@ -1,1 +1,5 @@
-<tes-drivers-content></tes-drivers-content>
+<tes-drivers-content
+  [drivers]='drivers$ | async'
+  (submit)='addDrivers($event)'
+  (updateDrivers)='updateDrivers($event)'
+></tes-drivers-content>

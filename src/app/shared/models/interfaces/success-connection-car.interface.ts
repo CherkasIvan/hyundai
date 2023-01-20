@@ -1,0 +1,22 @@
+export interface SuccessCarConnectedInterface {
+  car_body_type: string,
+  car_id: string,
+  car_mark: string,
+  car_model: string,
+  car_plate_number: string,
+  car_price: string,
+  car_telematic: boolean,
+  car_telematic_type: string[],
+  car_year: string,
+  client_id: string,
+  dealer_id: string,
+  device_id: string,
+  horse_power: string,
+  pts: string,
+  render: string,
+  status: string,
+  time_from: string,
+  time_to: string,
+  transmission: string,
+  vin: string
+}

@@ -1,4 +1,4 @@
-<div class='tes-wrapper'>
+
   <div class='container'>
     <div class='row'>
       <div class='col-12 tes-wrapper-title'>
@@ -6,15 +6,14 @@
       </div>
       <div class='col-12'>
         <div class='tes-wrapper-content'>
-          <tes-product-calculation-table [data]='data'></tes-product-calculation-table>
+          <tes-product-calculation-table [data]='policiesData'></tes-product-calculation-table>
         </div>
       </div>
       <div class='col-12'>
         <div class='tes-wrapper-buttons'>
           <tes-button [title]='"Изменить"' [color]='"secondary"' (click)='openCalculateDialog()'></tes-button>
-          <tes-button [title]='"Подтвердить"' [color]='"primary"' (click)='onCreateCasco()'></tes-button>
+          <tes-button [title]='"Подтвердить"' [color]='"primary"' (click)='onCreatePolicies()'></tes-button>
         </div>
       </div>
     </div>
   </div>
-</div>

@@ -1,13 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
 
 @Component({
   selector: 'tes-input-clearer',
   templateUrl: './input-clearer.component.html',
   styleUrls: ['./input-clearer.component.scss'],
 })
-export class InputClearerComponent implements OnInit {
+export class InputClearerComponent implements OnInit, OnChanges {
   public initialValue: string = '';
   public inputClearedForm!: FormGroup;
 
@@ -17,11 +16,13 @@ export class InputClearerComponent implements OnInit {
   @Input()
   public showClearer: boolean = false;
 
+  @Input()
+  public fullName!: string;
+
   @Output()
   componentValue: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private _fb: FormBuilder,
-              private  _authClientService: ClientAuthService) {}
+  constructor(private _fb: FormBuilder) {}
 
   public clearInputValue(): void {
     this.inputClearedForm.reset();
@@ -29,17 +30,20 @@ export class InputClearerComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    this.inputClearedForm?.get('inputClearer')?.valueChanges.subscribe((el) => {
-      this.componentValue.emit(el);
-    });
-    this._authClientService.selectedClientValue$.subscribe((el) => {
-      this.inputClearedForm.get('inputClearer')?.patchValue(`${el.first_name} ${el.last_name} ${el.patronymic}`)
-    })
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes?.['fullName'].currentValue) {
+      this.initialValue = changes?.['fullName'].currentValue;
+      this.inputClearedForm?.get('inputClearer')?.valueChanges.subscribe((el) => {
+        this.componentValue.emit(el);
+      });
+    }
   }
 
   public initializeForm(): void {
     this.inputClearedForm = this._fb.group({
-      inputClearer: [this.initialValue, Validators.required],
+      inputClearer: [this.fullName, Validators.required],
     });
   }
 }

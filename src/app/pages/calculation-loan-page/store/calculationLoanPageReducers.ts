@@ -1,29 +1,64 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
-import { setSelectedClientAction } from './calculationLoanPage.action';
+import {
+  connectCarToClientAction,
+  createCarAction,
+  editCarAction,
+  getSelectedClientAction,
+  setCarIdAction,
+  setSelectedClientAction,
+} from './calculationLoanPage.action';
 
-import { ClientCarInterface } from 'src/app/shared/models/interfaces/clientCar.interface';
+import { SelectedClientInterface } from 'src/app/shared/models/interfaces/clientCar.interface';
 
-const initialState: ClientCarInterface = {
-  selectedClient: {}
+const initialState: SelectedClientInterface = {
+  selectedClient: {},
+  carId: '',
 };
 
 const calculationLoanPageReducer = createReducer(
   initialState,
   on(
+    getSelectedClientAction,
+    (state): SelectedClientInterface => ({
+      ...state
+    })
+  ),
+  on(
     setSelectedClientAction,
-    (state, action): ClientCarInterface => ({
+    (state, action): SelectedClientInterface => ({
       ...state,
       selectedClient: action
     })
   ),
+  on(
+    createCarAction,
+    (state): SelectedClientInterface => ({
+      ...state
+    })
+  ),
+  on(
+    setCarIdAction,
+    (state, action): SelectedClientInterface => ({
+      ...state,
+      carId: action.carId
+    })
+  ),
+  on(
+    editCarAction,
+    (state): SelectedClientInterface => ({
+      ...state
+    })
+  ),
+  on(
+    connectCarToClientAction,
+    (state): SelectedClientInterface => ({
+      ...state
+    })
+  ),
+
 );
 
-export const getForm = (state: ClientCarInterface) => {
-  console.log(state);
-  return state;
-};
-
-export function reducers(state: ClientCarInterface, action: Action) {
+export function reducers(state: SelectedClientInterface, action: Action) {
   return calculationLoanPageReducer(state, action);
 }

@@ -51,7 +51,7 @@ export interface CascoOption {
 }
 
 export interface GetCascoPoliciesBody {
-  policyStartDate: string,
+  policyStartDate: string | number,
   insuranse_term: number,
   multidrive: boolean,
   drivers: unknown[],

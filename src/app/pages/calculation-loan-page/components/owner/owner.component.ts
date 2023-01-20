@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client-auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { PersistenceService } from '../../../../shared/services/persistence.service';
+import { getSelectedClientAction } from '../../store/calculationLoanPage.action';
+import { currentCustomerSelector } from '../../store/calculationLoanPageSelectors';
 
 @Component({
   selector: 'tes-owner',
@@ -9,7 +13,7 @@ import { ClientAuthService } from 'src/app/auth/user-filter-page/services/client
   styleUrls: ['./owner.component.scss'],
 })
 export class OwnerComponent implements OnInit {
-  public fullName!: string;
+  public name!: string;
   public formOwnerOptions!: FormGroup;
   public selectedIndex!: number;
 
@@ -17,6 +21,13 @@ export class OwnerComponent implements OnInit {
 
   public maritalStatuses: string[] = ['Женат/Замужем', 'Холост', 'В разводе'];
   public selectedGenderIndex: number = 0;
+
+  public customer$!: any;
+  public currentCustomer!:any;
+  public clientId!: any;
+  public cardTitle = "Кредитные и страховые продукты";
+  public gender!: any;
+
 
   public activateGenderClass(index: number) {
     this.selectedGenderIndex = index;
@@ -37,35 +48,33 @@ export class OwnerComponent implements OnInit {
   }
 
   constructor(private _fb: FormBuilder,
-              private _authClientService: ClientAuthService) {}
+              private readonly _store: Store,
+              private _activatedRoute: ActivatedRoute,
+              private _persistenceService: PersistenceService) {
+  }
 
   public initializeForm(): void {
     this.formOwnerOptions = this._fb.group({
-      osago: [true, Validators.required],
-      kasko: [true, Validators.required],
-      credit: [true, Validators.required],
-      policy_holder: [true, Validators.required],
-      driver: [true, Validators.required],
-      client_full_name: ['Иванов Иван Иванович', Validators.required],
-      gender: ['Мужской', Validators.required],
-      birthdate: ['2000-07-12', Validators.required],
+      osago: [false],
+      kasko: [false],
+      credit: [false],
+      policy_holder: [false],
+      driver: [false],
+      client_first_name: ['', Validators.required],
+      client_last_name: ['', Validators.required],
+      client_patronymic: ['', Validators.required],
+      gender: ['', Validators.required],
+      birthdate: ['', Validators.required],
       bornplace: ['Москва', Validators.required],
-      passport_number: ['65 11 111111', Validators.required],
-      passport_issued_at: ['2066-07-12', Validators.required],
-      passport_division_code: ['661-001', Validators.required],
-      residence_address: [
-        'г. Екатеринбург, ул. Зуброва, д. 75, кв. 58',
-        Validators.required,
-      ],
+      passport_number: ['', Validators.required],
+      passport_issued_at: ['', Validators.required],
+      passport_division_code: ['', Validators.required],
+      residence_address: ['', Validators.required,],
       marital_status: [1, Validators.required],
-      kids_amount: [2, Validators.required],
-      email: ['123452@gmail.com', Validators.required],
-      personal_data_policy_confirmation: [true, Validators.required],
+      kids_amount: [, Validators.required],
+      email: ['', Validators.required],
+      personal_data_policy_confirmation: [false, Validators.required],
     });
-  }
-  public getFullName(e: string) {
-    this.fullName = e;
-    this.formOwnerOptions?.get('client_full_name')?.patchValue(e);
   }
 
   public getKidsCount(e: number) {
@@ -74,14 +83,63 @@ export class OwnerComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    this._authClientService.selectedClientValue$.subscribe((el) => {
-      console.log(el);
-      this.formOwnerOptions.get('client_full_name')?.patchValue(`${el.first_name} ${el.last_name} ${el.patronymic}`);
-      this.formOwnerOptions.get('passport_number')?.patchValue(el.passport_number);
-      this.formOwnerOptions.get('passport_division_code')?.patchValue(el.passport_division_code);
-      this.formOwnerOptions.get('residence_address')?.patchValue(el.residence_address);
-      this.formOwnerOptions.get('email')?.patchValue(el.email);
 
+    this._persistenceService.set('policyHolderStatus', "false");
+    this._persistenceService.set('driverStatus', "false");
+
+    this._activatedRoute.queryParams.subscribe((el) => {
+      this.clientId = el;
     })
+
+    this._store.dispatch(getSelectedClientAction(this.clientId))
+
+   this.customer$ = this._store.pipe(select(currentCustomerSelector));
+    this.customer$.subscribe((el: any) => {
+      this.currentCustomer = el;
+      this.name = el.first_name;
+      this.gender = el.gender
+      if(this.gender){
+        this.activateGenderClass(this.gender);
+      }
+      if(el.first_name) {
+        this.formOwnerOptions.get('client_first_name')?.patchValue(this.currentCustomer.first_name);
+        this.formOwnerOptions.get('client_last_name')?.patchValue(this.currentCustomer.last_name);
+        this.formOwnerOptions.get('client_patronymic')?.patchValue(this.currentCustomer.patronymic);
+        this.formOwnerOptions.get('birthdate')?.patchValue(this.currentCustomer.birthdate);
+        this.formOwnerOptions.get('passport_number')?.patchValue(this.currentCustomer.passport_number);
+        this.formOwnerOptions.get('passport_issued_at')?.patchValue(this.currentCustomer.passport_issued_at);
+        this.formOwnerOptions.get('passport_division_code')?.patchValue(this.currentCustomer.passport_division_code);
+        this.formOwnerOptions.get('residence_address')?.patchValue(this.currentCustomer.residence_address);
+        this.formOwnerOptions.get('email')?.patchValue(this.currentCustomer.email);
+      }
+    })
+  }
+
+  public setPolicyHolder(e: Event) {
+  let policyHolderStatus = this.getStatusPolicyHolder?.value
+  if (!policyHolderStatus) {
+    this._persistenceService.set('policyHolderStatus', "true");
+  } else {
+    this._persistenceService.set('policyHolderStatus', "false");
+  }}
+
+  public setDriverStatus(e: Event) {
+    let driverStatus = this.getDriverStatus?.value
+    if (!driverStatus) {
+      this._persistenceService.set('driverStatus', "true");
+    } else {
+      this._persistenceService.set('driverStatus', "false");
+    }}
+
+  get getStatusPolicyHolder() {
+    return this.formOwnerOptions.get('policy_holder');
+  }
+
+  get getDriverStatus() {
+    return this.formOwnerOptions.get('driver');
+  }
+
+  public submitForm (event: boolean) {
+    console.log(this.formOwnerOptions.value);
   }
 }

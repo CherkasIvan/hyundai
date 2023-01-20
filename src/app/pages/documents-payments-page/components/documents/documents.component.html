@@ -1,47 +1,53 @@
-<div class="document container" [style.margin-top]='"1rem"'>
-  <div class="document-header">
-    <span class="document-header__insurer">{{ document.insurense ?? 'КАСКО' }}</span>
-    <div class="document-header__bank">
-      <div class="document-header__bank--logo">
-        <img
-          src="/assets/images/{{ document.bank_img ?? 'sovkom_logo.svg' }}"
-          alt="{{ document.bank_img }}"
-        />
+<ng-container *ngFor='let document of documents'>
+  <div class="document container" [style.margin-top]='"1rem"'>
+    <div class="document-header">
+      <span class="document-header__insurer">{{ document.type }}</span>
+      <div class="document-header__bank">
+        <div class="document-header__bank--logo">
+          <img
+            src="/assets/images/{{ document.bank_img ?? 'sovkom_logo.svg' }}"
+            alt="{{ document.bank_img }}"
+          />
+        </div>
+        <span class="document-header__bank--name">{{ document.bank_label ?? 'Совкомбанк' }}</span>
       </div>
-      <span class="document-header__bank--name">{{ document.bank_label ?? 'Совкомбанк' }}</span>
+    </div>
+
+    <div class="document-body">
+      <div class="document-body__list">
+        <div
+          class="document-body__list-item"
+          *ngFor="let docItem of document.document_list"
+        >
+          <a [href]='docItem.url' [download]='docItem.documentTypeName' [style.text-decoration]="'none'">
+            <span class="list-item__text">PDF</span>
+            <span class="list-item__label">{{ docItem.documentTypeName }}</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="document-body__contract-status">
+        <div class="document-body__sum">
+          <span class="document-body__sum-label">Сумма</span>
+          <span class="document-body__sum-payload">{{ document?.payment_list?.payment[0]?.sum ?? 'N/A' }}</span>
+        </div>
+
+        <div class="document-body__treaty">
+          <span class="document-body__treaty-label">Номер договора</span>
+          <span class="document-body__treaty-payload">{{ document.policy_id }}</span>
+        </div>
+
+        <div class="document-body__status">
+          <span class="document-body__status-label">Статус</span>
+          <span class="document-body__status-payload">{{ cascoStatus ?? 'Не действует' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class='document__buttons'>
+      <button class="document__buttons__item" (click)='onSaveAgreement()'>Сохранить договор</button>
+      <button class="document__buttons__item" (click)='onPayForPolicy()'>Оплатить полис</button>
     </div>
   </div>
 
-  <div class="document-body">
-    <div class="document-body__list">
-      <div
-        class="document-body__list-item"
-        *ngFor="let docItem of document.document_list"
-      >
-        <a [href]='docItem.url' target='_blank' [style.text-decoration]="'none'">
-          <span class="list-item__text">PDF</span>
-          <span class="list-item__label">{{ docItem.documentTypeName }}</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="document-body__contract-status">
-      <div class="document-body__sum">
-        <span class="document-body__sum-label">Сумма</span>
-        <span class="document-body__sum-payload">{{ document.payment_list.payment[0].sum }}</span>
-      </div>
-
-      <div class="document-body__treaty">
-        <span class="document-body__treaty-label">Номер договора</span>
-        <span class="document-body__treaty-payload">{{ document.policy_id }}</span>
-      </div>
-
-      <div class="document-body__status">
-        <span class="document-body__status-label">Статус</span>
-        <span class="document-body__status-payload">{{ cascoStatus ?? 'Не действует' }}</span>
-      </div>
-    </div>
-  </div>
-
-  <button class="document__button" (click)='onSaveAgreement()'>Сохранить договор</button>
-</div>
+</ng-container>

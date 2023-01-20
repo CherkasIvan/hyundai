@@ -1,15 +1,19 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { ClientCarInterface } from '../../../shared/models/interfaces/clientCar.interface';
-
-import { CalculationLoanPageStateInterface } from '../models/interfaces/calculationLoanPageState.interface';
+import { SelectedClientInterface } from '../../../shared/models/interfaces/clientCar.interface';
 
 export const calculationLoanPageFeatureSelector =
-  createFeatureSelector<ClientCarInterface>(
+  createFeatureSelector<SelectedClientInterface>(
     'calculation-loan-page'
   );
 
 export const currentCustomerSelector = createSelector(
   calculationLoanPageFeatureSelector,
-  (calculationLoanPageState:ClientCarInterface) =>
+  (calculationLoanPageState:SelectedClientInterface) =>
     calculationLoanPageState.selectedClient
+);
+
+export const carIdSelector = createSelector(
+  calculationLoanPageFeatureSelector,
+  (calculationLoanPageState:SelectedClientInterface) =>
+    calculationLoanPageState.carId
 );

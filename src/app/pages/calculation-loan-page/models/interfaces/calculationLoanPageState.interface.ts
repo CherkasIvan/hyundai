@@ -1,5 +1,5 @@
-import { ClientCarInterface } from '../../../../shared/models/interfaces/clientCar.interface';
+import { SelectedClientInterface } from '../../../../shared/models/interfaces/clientCar.interface';
 
 export interface CalculationLoanPageStateInterface {
-  carOptions: ClientCarInterface[] | null;
+  carOptions: SelectedClientInterface[] | null;
 }

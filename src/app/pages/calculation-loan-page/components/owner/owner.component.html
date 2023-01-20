@@ -1,5 +1,5 @@
-<div class="owner-container">
-  <div class="owner-title">Кредитные и страховые продукты</div>
+  <tes-card-title [title]='cardTitle'>
+  </tes-card-title>
   <form class="owner-form" [formGroup]="formOwnerOptions">
     <div class="owner-products-container">
       <div class="owner-products">
@@ -69,6 +69,7 @@
             class="owner-products-item__checkbox"
             formControlName="policy_holder"
             name="checkbox_policy_holder"
+            (input)='setPolicyHolder($event)'
           />
           <label
             for="checkbox_policy_holder"
@@ -84,19 +85,39 @@
             class="owner-products-item__checkbox"
             formControlName="driver"
             name="checkbox_driver"
+            (input)='setDriverStatus($event)'
           />
           <label for="checkbox_driver" class="owner-products-item__label">
             Водитель
           </label>
         </fieldset>
       </div>
-      <tes-input-clearer
-        [formControlTitle]="'ФИО'"
-        [showClearer]="true"
-        (componentValue)="getFullName($event)"
-      >
-      </tes-input-clearer>
-      <div *ngIf="fullName" class="owner-personal-information wrapper">
+      <div class="owner-products-item">
+        <tes-input-basic
+                [label]="'Фамилия'"
+                formControlName="client_first_name"
+                [value]='this.currentCustomer.first_name'
+        ></tes-input-basic>
+        <tes-input-basic
+                [label]="'Имя'"
+                formControlName="client_last_name"
+                [value]='this.currentCustomer.last_name'
+        ></tes-input-basic>
+        <tes-input-basic
+                [label]="'Отчество'"
+                formControlName="client_patronymic"
+                [value]='this.currentCustomer.patronymic'
+        ></tes-input-basic>
+      </div>
+<!--      <tes-input-clearer-->
+<!--        [formControlTitle]="'ФИО'"-->
+<!--        [showClearer]="true"-->
+<!--        [fullName]="fullName"-->
+<!--        (componentValue)="getFullName($event)"-->
+
+<!--      >-->
+<!--      </tes-input-clearer>-->
+      <div *ngIf="name" class="owner-personal-information wrapper">
         <div class="owner-personal-information">
           <div class="gender owner-personal-information__item">
             <div class="owner-personal-information__item--label">Пол</div>
@@ -236,23 +257,15 @@
                 </label>
               </fieldset>
             </div>
-
             <tes-submit-form-button
               [formValues]="formOwnerOptions"
               [isDisable]="!formOwnerOptions.valid"
+              (submitForm)='submitForm($event)'
               buttonText="Далее"
             ></tes-submit-form-button>
-
-            <!-- <button
-              class="next-page__button"
-              mat-button
-              [disabled]="!formOwnerOptions.valid"
-            >
-              Далее
-            </button> -->
           </div>
         </div>
       </div>
     </div>
   </form>
-</div>
+

@@ -25,7 +25,7 @@ export class TesInputBasicComponent implements ControlValueAccessor {
   @Input() public clearButton!: boolean;
   @Input() public style: 'filled' | 'underline' = 'filled';
 
-  public value!: string;
+  @Input() public value!: string;
 
   public onChange: Function = () => {};
   public onTouch: Function = () => {};
@@ -47,6 +47,6 @@ export class TesInputBasicComponent implements ControlValueAccessor {
     this.value = (e.target as HTMLInputElement).value;
 
     // handle what should happen on the outside, if something changes on the inside
-    this.onChange(e.target as HTMLInputElement).value;
+    this.onChange(this.value);
   }
 }

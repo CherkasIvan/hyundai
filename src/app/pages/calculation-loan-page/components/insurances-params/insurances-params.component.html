@@ -1,4 +1,4 @@
-<div class="insurance-params-container">
+
   <div class="insurance-params-title">Параметры страховых продуктов</div>
   <form class="insurance-params-form" [formGroup]="formInsuranceOptions">
     <div class="insurance-terms-toggle">
@@ -124,15 +124,9 @@
         </div>
       </div>
     </div>
-
     <tes-submit-form-button
       [formValues]="formInsuranceOptions"
       [isDisable]="!formInsuranceOptions.valid"
       buttonText="Рассчитать"
     ></tes-submit-form-button>
-
-    <!-- <button type="submit" class="insurance-terms-personal-button">
-      Рассчитать
-    </button> -->
   </form>
-</div>

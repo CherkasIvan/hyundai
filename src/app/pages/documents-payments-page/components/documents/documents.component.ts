@@ -8,10 +8,11 @@ import { DocumentsInterface } from '../../models/interfaces/documents.interface'
   styleUrls: ['./documents.component.scss'],
 })
 export class DocumentsComponent implements OnInit {
-  @Input() public document!: DocumentsInterface | any;
+  @Input() public documents!: DocumentsInterface[] | any[];
   @Input() public cascoStatus!: DocumentsInterface | any;
 
   @Output() private saveAgreement: EventEmitter<any> = new EventEmitter<any>();
+  @Output() private payForPolicy: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
@@ -19,5 +20,9 @@ export class DocumentsComponent implements OnInit {
 
   onSaveAgreement(): void {
     this.saveAgreement.emit();
+  }
+
+  onPayForPolicy(): void {
+    this.payForPolicy.emit();
   }
 }

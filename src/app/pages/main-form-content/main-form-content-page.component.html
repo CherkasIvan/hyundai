@@ -18,6 +18,8 @@
       [steps]="navigationSteps"
       *ngIf="routerLink != '/main-page/documents-payments'"
     ></tes-side-bar>
-    <router-outlet></router-outlet>
+    <tes-card-layout [title]="navigationSteps">
+      <router-outlet></router-outlet>
+    </tes-card-layout>
   </main>
 </div>

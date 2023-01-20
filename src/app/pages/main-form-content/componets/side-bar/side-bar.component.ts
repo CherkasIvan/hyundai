@@ -17,6 +17,7 @@ import { FormsValidityService } from 'src/app/shared/services/forms-validity.ser
 export class SideBarComponent implements OnInit {
   public sideBarPercantage!: number;
   public isComleted: boolean = false;
+  public clientId!: any;
 
   @Input() public steps!: StepsInterface[];
 
@@ -24,7 +25,6 @@ export class SideBarComponent implements OnInit {
 
   public selectionChanged($event: StepperSelectionEvent) {
     this._sideBarService.initIndex$.next($event.selectedIndex);
-    console.log($event);
 
     this._router.url.includes(routingPathEnum.LoanCalculationPage)
       ? (this.selectedStepName = this.steps[$event.selectedIndex].path)
@@ -34,6 +34,7 @@ export class SideBarComponent implements OnInit {
 
     this._router.navigate([this.selectedStepName], {
       relativeTo: route,
+      queryParams: this.clientId
     });
     this.sideBarPercantage =
       Math.round(100 / this.steps.length) * $event.selectedIndex;
@@ -47,6 +48,9 @@ export class SideBarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+   this._activatedRoute.queryParams.subscribe((el) => {
+     this.clientId = el;
+   })
     this._sideBarService.setIndex(this.steps).subscribe((el) => {
       this.sideBarPercantage = el;
     });
